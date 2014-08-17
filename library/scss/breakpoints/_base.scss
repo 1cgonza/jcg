@@ -1,0 +1,956 @@
+/******************************************************************
+Site Name: Juan Camilo Gonz&aacute;lez
+Author: Juan Camilo Gonz&aacute;lez
+
+Stylesheet: Base Mobile Stylesheet
+
+******************************************************************/
+/*------------------------------------------
+
+                    GENERAL
+
+--------------------------------------------*/
+body {
+  font-family: $sans-serif;
+  font-size: 110%;
+  line-height: 1.4;
+  color: $text-color;
+  font-weight: 300;
+}
+::-moz-selection {
+    background: #dadada;
+    text-shadow: none;
+}
+::selection {
+    background: #dadada;
+    text-shadow: none;
+}
+#content {
+  padding-top: $headerPadding;
+}
+/*------------------------------------------
+
+          CONTENT STYLING CLASSES
+
+--------------------------------------------*/
+.no-margin{
+  margin: 0;
+  padding: 0;
+}
+.center-text{
+  text-align: center;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*********************
+LINK STYLES
+*********************/
+a, a:visited {
+  color: $link-color;
+  text-decoration: none;
+
+  /* on hover */
+  &:hover, &:focus {
+    color: $link-hover;
+  }
+
+  /* on click */
+  &:active {
+
+  }
+
+  /* mobile tap color */
+  &:link {
+    /*
+    this highlights links on iPhones/iPads.
+    so it basically works like the :hover selector
+    for mobile devices.
+    */
+    -webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+  }
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  text-rendering: optimizelegibility;
+  font-weight: 300;
+  a {
+    text-decoration: none;
+  }
+}
+
+h1, .h1 {
+  font-size: 2.5em;
+  line-height: 1.333em;
+}
+
+h2, .h2 {
+  font-size: 1.75em;
+  line-height: 1.4em;
+  margin-bottom: 0.375em;
+}
+
+h3, .h3 {
+  font-size: 1.125em;
+}
+
+h4, .h4 {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+h5, .h5 {
+  font-size: 0.846em;
+  line-height: 2.09em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+/*------------------------------------------
+
+                    MENU
+
+--------------------------------------------*/
+.menu{
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  height: $headerPadding;
+  background-color: white(0.9);
+  nav {
+    ul {
+      margin: 0;
+      text-align: center;
+
+      li {
+        float: left;
+        width: 25%;
+
+        a {
+          @include transition(all 0.25s ease-in-out);
+          display: block;
+          border-top: 3px solid;
+          text-decoration: none;
+          padding: 0.75em;
+        }
+        &.current-menu-item, &.current-menu-ancestor{
+          a{
+            border-color: $black;
+          }
+
+        }
+
+        /*
+        so you really have to rethink your dropdowns for mobile.
+        you don't want to have it expand too much because the
+        screen is so small. How you manage your menu should
+        depend on the project. Here's some great info on it:
+        http://www.alistapart.com/articles/organizing-mobile/
+        */
+        ul.sub-menu,
+        ul.children {
+          // top: 0;
+          // position: absolute;
+          left: 80%;
+          display: none;
+        }
+
+      } /* nav li */
+    }
+
+  } /* end .nav */
+}
+
+/*------------------------------------------
+
+                    ABOUT
+
+--------------------------------------------*/
+.about{
+  width: 60%;
+  margin: 0 auto;
+}
+.about-bio{
+  font-size: 135%;
+}
+.education-item{
+  padding: 1em 0;
+  display: table;
+  .education-degree{
+    display: inline-table;
+    color: lighten($black, 40%);
+  }
+  .education-institution{
+    display: inline-table;
+    padding-left: 2em;
+  }
+}
+
+/*********************
+STYLES FOR CATEGORIES
+*********************/
+.cat-item{
+  a, a:visited{
+    @include transition(all 0.2s ease-out);
+    padding: 0.5em;
+    background-color: $black;
+    color: $white;
+
+    &:hover, &:focus {
+      background-color: white(0.8);
+      color: $black;
+    }
+  }
+  // Styles for each category
+
+  // PROCESS BTN
+  &.cat-item-1{
+    a, a:visited {
+      background-color: process(1);
+      color: $link-color;
+
+      &:hover, &:focus {
+        background-color: process(0.8);
+        color: $black;
+      }
+    }
+  }
+  // REFERENCES BTN
+  &.cat-item-20{
+    a, a:visited {
+      background-color: references(1);
+      color: $white;
+
+      &:hover, &:focus {
+        background-color: references(0.8);
+      }
+    }
+  }
+  // INSPIRATION BTN
+  &.cat-item-21{
+    a, a:visited {
+      background-color: inspiration(1);
+      color: $black;
+
+      &:hover, &:focus {
+        background-color: inspiration(0.8);
+      }
+    }
+  }
+
+  &.current-cat a{
+    border: 1px dotted;
+  }
+}
+
+// PROCESS STYLES
+.category-1, .category-process{
+  #description-box, .article-header{
+    background-color: process(1);
+    color: $black;
+  }
+}
+// REFERENCES STYLES
+.category-20, .category-references{
+  #description-box, .article-header{
+    background-color: references(1);
+    color: $white;
+  }
+}
+// INSPIRATION STYLES
+.category-21, .category-inspiration{
+  #description-box, .article-header{
+    background-color: inspiration(1);
+    color: $black;
+  }
+}
+// SEARCH STYLES
+.search-results, .search-no-results{
+  #description-box{
+    background-color: darken($blue, 5%);
+    color: $white;
+  }
+}
+
+
+/*********************
+     PAGE HEADERS
+*********************/
+#description-box{
+  margin: 0;
+  padding: 2em;
+  background-color: $black;
+  color: $white;
+  text-align: center;
+
+  h1{
+    margin: 0;
+  }
+  .blog-header-description{
+    font-size: 0.9em;
+  }
+}
+#categories-menu{
+  padding: 1em;
+  .cat-item{
+    display: inline-block;
+  }
+}
+input[type="search"]{
+  margin: 0 auto;
+  max-width: 250px;
+  display: inline-block;
+  padding: 0.75em;
+}
+.search-submit{
+  @extend .blue-btn;
+}
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+#content {
+  .title{
+    text-align: center;
+    //border-bottom: 1px dotted;
+    margin: 0 0 1em 0;
+    padding: 0 0 .5em 0;
+  }
+
+  //POSTS
+  #posts-list{
+    margin: 0 auto;
+    display: block;
+    padding-top: 3em;
+
+    .hentry{
+      margin-bottom: 3em;
+
+      .header-meta{
+        position: absolute;
+        margin: -10px 0 0 -10px;
+        z-index: 1;
+
+        .post-date{
+          p{
+            margin: 0;
+          }
+
+          font-size: 0.8em;
+          text-align: center;
+          width: 100px;
+          background-color: black(0.8);
+          color: white;
+          padding: 20px 10px;
+
+          .post-weekday{
+            font-size: 0.8em;
+            letter-spacing: 1px;
+          }
+          .post-year{
+            letter-spacing: 2px;
+          }
+        }
+      } // end .header-meta
+
+      .post-image{
+        line-height: 0;
+        z-index: -1;
+        max-height: 325px;
+        overflow: hidden;
+        a, a:visited {
+          @include transition(all 0.1s ease-out);
+          opacity: 1;
+
+          &:hover, &:focus {
+            opacity: 0.8;
+          }
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .entry-title{
+        width: 40%;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .entry-excerpt{
+        width: 59%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0.5em 0 0 1.5em;
+      }
+    } // end .hentry
+
+  } // end #posts-list
+  .entry-footer {
+    text-align: right;
+    font-size: 0.8em;
+
+    .entry-tag{
+      margin: 0 0.3em;
+
+      a, a:visited {
+        @include transition(all 0.2s ease-out);
+        padding: 0.5em;
+        background-color: black(0.1);
+        color: black(0.9);
+
+        &:hover, &:focus {
+          background-color: black(0.8);
+          color: white(0.8);
+        }
+      }
+    }
+  }
+} // end #content
+
+/*********************
+     SINGLE POST
+*********************/
+.single-post{
+  .post-date{
+    font-size: 0.8em;
+    text-align: center;
+    width: 100px;
+    background-color: black(1);
+    color: white;
+    padding: 20px 10px;
+    float: left;
+    margin-right: 2em;
+
+    p{
+      margin: 0;
+    }
+
+    .post-weekday{
+      font-size: 0.8em;
+      letter-spacing: 1px;
+    }
+    .post-year{
+      letter-spacing: 2px;
+    }
+  }
+  .entry-title{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+  }
+  .author {
+    text-align: center;
+    padding-bottom: 1em;
+  }
+  .post-categories{
+    margin-top: 0.45em;
+    #categories-menu{
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .entry-footer{
+    text-align: center!important;
+  }
+
+}
+
+#post-not-found{
+  text-align: center;
+}
+
+/*********************
+    INFINITE SCROLL
+*********************/
+.infinite-scroll #navigation,
+.infinite-scroll.neverending #footer {
+    display: none;
+}
+/* Shows the footer again in case all posts have been loaded */
+.infinity-end.neverending #footer {
+    display: block;
+}
+/*------------------------------------------
+
+                    FILMS
+
+--------------------------------------------*/
+/*------------------------------------------
+                    ARCHIVE
+--------------------------------------------*/
+article{
+  position: relative;
+  .film-post-header{
+    position: absolute;
+  }
+  .film-post-excerpt {
+    position: absolute;
+    width: 50%;
+    right: 0;
+  }
+}
+.film-post-image{
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+/*------------------------------------------
+                    SINGLE
+--------------------------------------------*/
+.film-header{
+  @include radial-gradient(#222,#000);
+  text-align: center;
+  height: 600px;
+  iframe{
+    width:100%;
+    height: 600px;
+    max-width: 1050px;
+    z-index: 9999;
+  }
+}
+.film-description{
+  text-align: center;
+  padding: 0 1em;
+  .film-synopsis{
+    //text-align: left;
+    margin-top: 2em;
+  }
+}
+
+#awards{
+  text-align: center;
+  .award-item{
+    padding: 1em;
+    display: inline-table;
+    font-size: 0.85em;
+    p, h1, h2{
+      margin:0;
+    }
+    .award-item-text{
+      display: table-cell;
+      vertical-align: bottom;
+      width: 250px;
+    }
+    &:before, &:after{
+      content: '';
+      width: 64px;
+      height: 150px;
+      display: block;
+    }
+    &:before{
+      background: url(../images/laurel.png) 0 0 no-repeat;
+      background-position: left bottom;
+    }
+    &:after{
+      background: url(../images/laurel.png) -64px 0  no-repeat;
+      background-position: right bottom;
+    }
+  }
+}
+table{
+  font-size: 0.8em;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.3em;
+  td{
+    padding: 0 1em;
+    vertical-align: top;
+    &.festival-name{
+      border-bottom: 1px dotted #CCC;
+    }
+    &.country{
+      border: 1px dotted #CCC;
+      text-align: center;
+      font-size: 0.9em;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+/*********************
+    CONTACT
+*********************/
+#contact-wrapper{
+  width: 90%;
+  margin: 0 auto;
+  div{
+    margin-bottom: 1em;
+  }
+  label{
+    font-weight: normal!important;
+  }
+  textarea{
+    width: 100%!important;
+  }
+}
+.pushbutton-wide{
+  @extend .black-btn;
+}
+
+
+.single{
+  section{
+    margin: 4em 0;
+  }
+}
+
+
+    /* entry content */
+    .entry-content {
+      padding: 1.5em 1.5em 0;
+
+      p {
+        margin: 0 0 1.5em;
+        line-height: 1.6;
+      }
+      ul, ol{
+        line-height: 1.6;
+      }
+
+      table {
+        caption {
+          margin: 0 0 7px;
+          font-size: 0.75em;
+          color: $meta-gray;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+      }
+
+      tr {
+        border-bottom: 1px dotted;
+
+        &:nth-child(even) {
+          background-color: $light-gray;
+        }
+      }
+
+      td {
+        padding: 7px;
+        border-right: 1px dotted;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      th {
+        background-color: $light-gray;
+        border-bottom: 1px dotted $gray;
+        border-right: 1px dotted $gray;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      blockquote {
+        margin: 0 0 1.5em 0.75em;
+        padding: 0 0 0 0.75em;
+        border-left: 3px solid $blue;
+        font-style: italic;
+        color: $meta-gray;
+
+        &:before {}
+
+      }
+
+      dd {
+        margin-left: 0;
+        font-size: 0.9em;
+        color: #787878;
+        margin-bottom: 1.5em;
+      }
+
+      img {
+        margin: 0 0 1.5em 0;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .size-auto,
+      .size-full,
+      .size-large,
+      .size-medium,
+      .size-thumbnail {
+        max-width: 100%;
+        height: auto;
+      }
+
+      pre {
+        background: $black;
+        color: $light-gray;
+        font-size: 0.9em;
+        padding: 1.5em;
+        margin: 0 0 1.5em;
+        border-radius: 3px;
+      }
+
+    } /* end .entry-content */
+
+    .wp-caption {
+      max-width: 100%;
+      background: #eee;
+      padding: 5px;
+
+      /* images inside wp-caption */
+      img {
+        max-width: 100%;
+        margin-bottom: 0;
+        width: 100%;
+      }
+
+      p.wp-caption-text {
+        font-size: 0.85em;
+        margin: 4px 0 7px;
+        padding: 0.5em;
+        text-align: center;
+      }
+
+    } /* end .wp-caption */
+
+    /* image gallery styles */
+    .gallery {
+      text-align: center;
+
+      dl {
+        display: inline-block;
+      }
+
+    } /* end .gallery */
+
+  // the tag output
+  .tags {
+    margin: 0;
+  }
+
+
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+
+/* h3 comment title */
+#comments-title {
+  padding: 0.75em;
+  margin: 0;
+  border-top: 1px solid $light-gray;
+}
+
+.commentlist {
+  margin: 0;
+  list-style-type: none;
+}
+
+.comment {
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  padding: 1.5em;
+  border-bottom: 1px solid $light-gray;
+
+  .comment-author {
+    padding: 7px;
+    border: 0;
+  }
+
+  /* vcard */
+  .vcard {
+    margin-left: 50px;
+
+    cite.fn {
+      font-weight: 700;
+      font-style: normal;
+
+      a.url {}
+
+    }
+
+    time {
+      display: block;
+      font-size: 0.9em;
+      font-style: italic;
+
+      a {
+        color: $meta-gray;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+      }
+
+    }
+    .avatar {
+      position: absolute;
+      left: 16px;
+      border-radius: 50%;
+    }
+
+  } /* end .commentlist .vcard */
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .children {
+    margin: 0;
+  } /* end children */
+
+
+  &[class*=depth-] {
+    margin-top: 1.1em;
+  }
+
+  &.depth-1 {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  &:not(.depth-1) {
+    margin-top: 0;
+    margin-left: 7px;
+    padding: 7px;
+  }
+  &.odd {
+    background-color: $white;
+  }
+  &.even {
+    background: $light-gray;
+  }
+  &.parent {}
+  &.comment {}
+  &.children {}
+  &.pingback {}
+  &.bypostauthor {}
+  &.comment-author {}
+  &.comment-author-admin {}
+  &.thread-alt {}
+  &.thread-odd {}
+  &.thread-even {}
+}
+
+  /* comment content */
+  .comment_content {
+
+    p {
+      margin: 0.7335em 0 1.5em;
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
+  } /* end .commentlist .comment_content */
+
+  /* comment reply link */
+  .comment-reply-link {
+    @extend .black-btn;
+    float: right;
+  } /* end .commentlist .comment-reply-link */
+
+  /* edit comment link */
+  .comment-edit-link {
+    font-style: italic;
+    margin: 0 7px;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+
+
+
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
+
+.comment-respond {
+  @extend .cf;
+  padding: 1.5em;
+}
+
+  #reply-title {
+    margin: 0;
+  }
+
+  .logged-in-as {
+    color: $meta-gray;
+    font-style: italic;
+    margin: 0;
+
+    a {
+      color: $text-color;
+    }
+  }
+
+  .comment-form-comment {
+    margin: 1.5em 0 0.75em;
+  }
+
+  .form-allowed-tags {
+    padding: 1.5em;
+    background-color: $light-gray;
+    font-size: 0.9em;
+  }
+
+  /* comment submit button */
+  #submit {
+    @extend .black-btn;
+    float: right;
+    //font-size: 1em;
+  }
+
+  /* comment form title */
+  #comment-form-title {
+    margin: 0 0 1.1em;
+  }
+
+  /* allowed tags */
+  #allowed_tags {
+    margin: 1.5em 10px 0.7335em 0;
+  }
+
+  /* no comments */
+  .nocomments {
+    margin: 0 20px 1.1em;
+  }
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer {
+  clear: both;
+  background-color: $black;
+  color: $light-gray;
+  padding: 2em;
+  height: 200px;
+}
+/*------------------------------------------
+
+                    404
+
+--------------------------------------------*/
+.error404 {
+  background-color: $black;
+  color: white;
+  #content{
+    text-align: center;
+    h1{
+      font-size: 10em;
+    }
+  }
+}

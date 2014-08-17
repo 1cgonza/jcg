@@ -1,0 +1,73 @@
+/******************************************************************
+Site Name: Juan Camilo Gonz&aacute;lez
+Author: Juan Camilo Gonz&aacute;lez
+
+Stylesheet: Sass Functions
+
+For more info on functions, go here:
+http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+******************************************************************/
+
+
+/*********************
+COLOR FUNCTIONS
+These are helpful when you're working
+with shadows and such things. It's essentially
+a quicker way to write RGBA.
+
+Example:
+box-shadow: 0 0 4px black(0.3);
+compiles to:
+box-shadow: 0 0 4px rgba(0,0,0,0.3);
+*********************/
+
+// black(0.5)
+@function black($opacity) {
+    @return rgba(0,0,0,$opacity);
+}
+
+// white(0.5)
+@function white($opacity) {
+    @return rgba(255,255,255,$opacity);
+}
+
+// CATEGORIES
+
+// Process
+@function process($opacity) {
+    @return rgba(255, 232, 38, $opacity); // #ffe826 Yellow
+}
+
+// References
+@function references($opacity) {
+    @return rgba(243, 76, 71, $opacity); //  #f34c47 Red
+}
+
+// Inspiration
+@function inspiration($opacity) {
+    @return rgba(80, 216, 128, $opacity); //  #f34c47 Green
+}
+
+
+/*********************
+RESPONSIVE HELPER FUNCTION
+If you're creating a responsive site, then
+you've probably already read
+Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
+
+Here's a nice little helper function for calculating
+target / context
+as mentioned in that book.
+
+Example:
+width: cp(650px, 1000px);
+or
+width: calc-percent(650px, 1000px);
+both compile to:
+width: 65%;
+*********************/
+
+@function cp($target, $container) {
+  @return calc-percent($target, $container);
+}

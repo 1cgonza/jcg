@@ -1,0 +1,5 @@
+# OS hidden files
+.DS_Store
+
+# Sublime SFTP settings file
+sftp-config.json
