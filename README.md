@@ -1,7 +1,7 @@
 JCG Theme
 ===
 
-WordPress theme used in juancgonzalez.com
+WordPress theme used in http://juancgonzalez.com
 
 Initially based on Bones by Eddie Machado http://themble.com/bones
 
