@@ -12,9 +12,7 @@ Stylesheet: Super Large Monitor Stylesheet
 /*********************
 		FILMS
 *********************/
-table{
-	font-size: 100%;
-}
+
 
 .entry-content {
 	p, ul, ol {
@@ -25,4 +23,48 @@ table{
 .comment-respond {
 	width: 60%;
 	margin: 0 auto;
+}
+
+
+
+/*------------------------------------------
+
+                    FILMS
+
+--------------------------------------------*/
+/*------------------------------------------
+                    ARCHIVE
+--------------------------------------------*/
+article{
+  position: relative;
+  .film-post-header{
+    position: absolute;
+  }
+  .film-post-excerpt {
+    position: absolute;
+    width: 50%;
+    right: 0;
+  }
+}
+.film-post-image{
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+/*------------------------------------------
+                    SINGLE
+--------------------------------------------*/
+.single-films{
+  table{
+    font-size: 100%;
+  }
+  .film-header{
+    height: 600px;
+    iframe{
+      width:100%;
+      height: 600px;
+      max-width: 1050px;
+    }
+  }
 }

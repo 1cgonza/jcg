@@ -78,7 +78,7 @@
       <?php endif;
 
     endwhile; else :
-      get_template_part('content', 'error');
+      get_template_part('templates/content', 'error');
     endif;
 
     comments_template(); ?>

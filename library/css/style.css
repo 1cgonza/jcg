@@ -1256,7 +1256,7 @@ Stylesheet: Base Mobile Stylesheet
 ******************************************************************/
 /*------------------------------------------
 
-                    GENERAL
+                GENERAL STYLES
 
 --------------------------------------------*/
 body {
@@ -1278,9 +1278,7 @@ body {
   padding-top: 54px; }
 
 /*------------------------------------------
-
-          CONTENT STYLING CLASSES
-
+               CONTENT STYLING
 --------------------------------------------*/
 .no-margin {
   margin: 0;
@@ -1289,58 +1287,44 @@ body {
 .center-text {
   text-align: center; }
 
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-.wrap {
-  width: 90%;
-  margin: 0 auto; }
-
-/*********************
-LINK STYLES
-*********************/
+/*------------------------------------------
+                    LINKS
+--------------------------------------------*/
 a, a:visited {
   color: #8c7c3d;
   text-decoration: none;
-  /* on hover */
-  /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
     color: #c0b06f; }
   a:link, a:visited:link {
-    /*
-    this highlights links on iPhones/iPads.
-    so it basically works like the :hover selector
-    for mobile devices.
-    */
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
+/*------------------------------------------
+              H1 - H5 STYLES
+--------------------------------------------*/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 300; }
   h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
     text-decoration: none; }
 
-h1, .h1 {
+h1 {
   font-size: 2.5em;
   line-height: 1.333em; }
 
-h2, .h2 {
+h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em; }
 
-h3, .h3 {
+h3 {
   font-size: 1.125em; }
 
-h4, .h4 {
+h4 {
   font-size: 1.1em;
   font-weight: 700; }
 
-h5, .h5 {
+h5 {
   font-size: 0.846em;
   line-height: 2.09em;
   text-transform: uppercase;
@@ -1364,14 +1348,7 @@ h5, .h5 {
     /* nav li */ }
     .menu nav ul li {
       float: left;
-      width: 25%;
-      /*
-      so you really have to rethink your dropdowns for mobile.
-      you don't want to have it expand too much because the
-      screen is so small. How you manage your menu should
-      depend on the project. Here's some great info on it:
-      http://www.alistapart.com/articles/organizing-mobile/
-      */ }
+      width: 20%; }
       .menu nav ul li a {
         -webkit-transition: all 0.25s ease-in-out;
         transition: all 0.25s ease-in-out;
@@ -1386,6 +1363,19 @@ h5, .h5 {
         left: 80%;
         display: none; }
 
+/*------------------------------------------
+
+                    ARCHIVE
+
+--------------------------------------------*/
+/*------------------------------------------
+
+                    SINGLE
+
+--------------------------------------------*/
+/*------------------------------------------
+                      POST
+--------------------------------------------*/
 /*------------------------------------------
 
                     ABOUT
@@ -1487,49 +1477,49 @@ POSTS & CONTENT STYLES
   text-align: center;
   margin: 0 0 1em 0;
   padding: 0 0 .5em 0; }
-#content #posts-list {
+#content .wrapper {
   margin: 0 auto;
   display: block;
   padding-top: 3em; }
-  #content #posts-list .hentry {
+  #content .wrapper .hentry {
     margin-bottom: 3em; }
-    #content #posts-list .hentry .header-meta {
+    #content .wrapper .hentry .header-meta {
       position: absolute;
       margin: -10px 0 0 -10px;
       z-index: 1; }
-      #content #posts-list .hentry .header-meta .post-date {
+      #content .wrapper .hentry .header-meta .post-date {
         font-size: 0.8em;
         text-align: center;
         width: 100px;
         background-color: rgba(0, 0, 0, 0.8);
         color: white;
         padding: 20px 10px; }
-        #content #posts-list .hentry .header-meta .post-date p {
+        #content .wrapper .hentry .header-meta .post-date p {
           margin: 0; }
-        #content #posts-list .hentry .header-meta .post-date .post-weekday {
+        #content .wrapper .hentry .header-meta .post-date .post-weekday {
           font-size: 0.8em;
           letter-spacing: 1px; }
-        #content #posts-list .hentry .header-meta .post-date .post-year {
+        #content .wrapper .hentry .header-meta .post-date .post-year {
           letter-spacing: 2px; }
-    #content #posts-list .hentry .post-image {
+    #content .wrapper .hentry .post-image {
       line-height: 0;
       z-index: -1;
       max-height: 325px;
       overflow: hidden; }
-      #content #posts-list .hentry .post-image a, #content #posts-list .hentry .post-image a:visited {
+      #content .wrapper .hentry .post-image a, #content .wrapper .hentry .post-image a:visited {
         -webkit-transition: all 0.1s ease-out;
         transition: all 0.1s ease-out;
         opacity: 1; }
-        #content #posts-list .hentry .post-image a:hover, #content #posts-list .hentry .post-image a:focus, #content #posts-list .hentry .post-image a:visited:hover, #content #posts-list .hentry .post-image a:visited:focus {
+        #content .wrapper .hentry .post-image a:hover, #content .wrapper .hentry .post-image a:focus, #content .wrapper .hentry .post-image a:visited:hover, #content .wrapper .hentry .post-image a:visited:focus {
           opacity: 0.8; }
-      #content #posts-list .hentry .post-image img {
+      #content .wrapper .hentry .post-image img {
         width: 100%;
         height: auto; }
-    #content #posts-list .hentry .entry-title {
+    #content .wrapper .hentry .entry-title {
       width: 40%;
       display: inline-block;
       vertical-align: top; }
-    #content #posts-list .hentry .entry-excerpt {
+    #content .wrapper .hentry .entry-excerpt {
       width: 59%;
       display: inline-block;
       vertical-align: top;
@@ -1586,17 +1576,6 @@ POSTS & CONTENT STYLES
 #post-not-found {
   text-align: center; }
 
-/*********************
-    INFINITE SCROLL
-*********************/
-.infinite-scroll #navigation,
-.infinite-scroll.neverending #footer {
-  display: none; }
-
-/* Shows the footer again in case all posts have been loaded */
-.infinity-end.neverending #footer {
-  display: block; }
-
 /*------------------------------------------
 
                     FILMS
@@ -1621,19 +1600,26 @@ article {
 /*------------------------------------------
                     SINGLE
 --------------------------------------------*/
-.film-header {
-  background: black;
-  background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
-  background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
-  background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
-  background-image: radial-gradient(center, circle cover, #222222 0%, black 85%);
-  text-align: center;
-  height: 600px; }
-  .film-header iframe {
-    width: 100%;
-    height: 600px;
-    max-width: 1050px;
-    z-index: 9999; }
+.single-films .film-header iframe {
+  width: 100%;
+  height: 270px;
+  z-index: 9999; }
+.single-films table {
+  font-size: 0.8em;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.3em; }
+  .single-films table td {
+    padding: 0 1em;
+    vertical-align: top; }
+    .single-films table td.festival-name {
+      border-bottom: 1px dotted #CCC; }
+    .single-films table td.country {
+      border: 1px dotted #CCC;
+      text-align: center;
+      font-size: 0.9em;
+      vertical-align: middle; }
 
 .film-description {
   text-align: center;
@@ -1664,23 +1650,6 @@ article {
     #awards .award-item:after {
       background: url(../images/laurel.png) -64px 0 no-repeat;
       background-position: right bottom; }
-
-table {
-  font-size: 0.8em;
-  margin: 0 auto;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.3em; }
-  table td {
-    padding: 0 1em;
-    vertical-align: top; }
-    table td.festival-name {
-      border-bottom: 1px dotted #CCC; }
-    table td.country {
-      border: 1px dotted #CCC;
-      text-align: center;
-      font-size: 0.9em;
-      vertical-align: middle; }
 
 /*********************
     CONTACT
@@ -1995,7 +1964,24 @@ tweeners.
   check your menus here. do they look good?
   do they need tweaking?
   */
-  /* end .footer-links */ }
+  /* end .footer-links */
+  /*------------------------------------------
+  
+                      FILMS
+  
+  --------------------------------------------*/
+  /*------------------------------------------
+                      ARCHIVE
+  --------------------------------------------*/
+  /*------------------------------------------
+                      SINGLE
+  --------------------------------------------*/
+  .single-films table {
+    font-size: 100%; }
+  .single-films .film-header iframe {
+    width: 100%;
+    height: 430px;
+    max-width: 1050px; } }
 /*********************
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
@@ -2023,7 +2009,33 @@ you can add resource intensive styles.
   		    FILMS
   *********************/
   .film-description .film-synopsis {
-    padding: 0 25%; } }
+    padding: 0 25%; }
+
+  /*------------------------------------------
+  
+                      FILMS
+  
+  --------------------------------------------*/
+  /*------------------------------------------
+                      ARCHIVE
+  --------------------------------------------*/
+  /*------------------------------------------
+                      SINGLE
+  --------------------------------------------*/
+  .single-films table {
+    font-size: 100%; }
+  .single-films .film-header {
+    background: black;
+    background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
+    background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
+    background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
+    background-image: radial-gradient(center, circle cover, #222222 0%, black 85%);
+    text-align: center;
+    height: 450px; }
+    .single-films .film-header iframe {
+      width: 100%;
+      height: 450px;
+      max-width: 800px; } }
 /*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
@@ -2065,15 +2077,45 @@ This is for the larger monitors and possibly full screen viewers.
   /*********************
   		FILMS
   *********************/
-  table {
-    font-size: 100%; }
-
   .entry-content p, .entry-content ul, .entry-content ol {
     padding: 0 15em; }
 
   .comment-respond {
     width: 60%;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  /*------------------------------------------
+  
+                      FILMS
+  
+  --------------------------------------------*/
+  /*------------------------------------------
+                      ARCHIVE
+  --------------------------------------------*/
+  article {
+    position: relative; }
+    article .film-post-header {
+      position: absolute; }
+    article .film-post-excerpt {
+      position: absolute;
+      width: 50%;
+      right: 0; }
+
+  .film-post-image img {
+    width: 100%;
+    height: auto; }
+
+  /*------------------------------------------
+                      SINGLE
+  --------------------------------------------*/
+  .single-films table {
+    font-size: 100%; }
+  .single-films .film-header {
+    height: 600px; }
+    .single-films .film-header iframe {
+      width: 100%;
+      height: 600px;
+      max-width: 1050px; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with

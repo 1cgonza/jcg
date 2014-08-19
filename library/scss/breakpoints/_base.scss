@@ -7,7 +7,7 @@ Stylesheet: Base Mobile Stylesheet
 ******************************************************************/
 /*------------------------------------------
 
-                    GENERAL
+                GENERAL STYLES
 
 --------------------------------------------*/
 body {
@@ -28,10 +28,9 @@ body {
 #content {
   padding-top: $headerPadding;
 }
+
 /*------------------------------------------
-
-          CONTENT STYLING CLASSES
-
+               CONTENT STYLING
 --------------------------------------------*/
 .no-margin{
   margin: 0;
@@ -41,46 +40,26 @@ body {
   text-align: center;
 }
 
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-.wrap {
-  width: 90%;
-  margin: 0 auto;
-}
-
-/*********************
-LINK STYLES
-*********************/
+/*------------------------------------------
+                    LINKS
+--------------------------------------------*/
 a, a:visited {
   color: $link-color;
   text-decoration: none;
 
-  /* on hover */
   &:hover, &:focus {
     color: $link-hover;
   }
 
-  /* on click */
-  &:active {
-
-  }
-
   /* mobile tap color */
   &:link {
-    /*
-    this highlights links on iPhones/iPads.
-    so it basically works like the :hover selector
-    for mobile devices.
-    */
     -webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
   }
 }
 
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
-
+/*------------------------------------------
+              H1 - H5 STYLES
+--------------------------------------------*/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 300;
@@ -89,33 +68,32 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   }
 }
 
-h1, .h1 {
+h1 {
   font-size: 2.5em;
   line-height: 1.333em;
 }
 
-h2, .h2 {
+h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em;
 }
 
-h3, .h3 {
+h3 {
   font-size: 1.125em;
 }
 
-h4, .h4 {
+h4 {
   font-size: 1.1em;
   font-weight: 700;
 }
 
-h5, .h5 {
+h5 {
   font-size: 0.846em;
   line-height: 2.09em;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 
 /*------------------------------------------
 
@@ -132,11 +110,9 @@ h5, .h5 {
     ul {
       margin: 0;
       text-align: center;
-
       li {
         float: left;
-        width: 25%;
-
+        width: 20%;
         a {
           @include transition(all 0.25s ease-in-out);
           display: block;
@@ -148,29 +124,33 @@ h5, .h5 {
           a{
             border-color: $black;
           }
-
         }
-
-        /*
-        so you really have to rethink your dropdowns for mobile.
-        you don't want to have it expand too much because the
-        screen is so small. How you manage your menu should
-        depend on the project. Here's some great info on it:
-        http://www.alistapart.com/articles/organizing-mobile/
-        */
         ul.sub-menu,
         ul.children {
-          // top: 0;
-          // position: absolute;
           left: 80%;
           display: none;
         }
-
       } /* nav li */
     }
-
   } /* end .nav */
 }
+/*------------------------------------------
+
+                    ARCHIVE
+
+--------------------------------------------*/
+
+
+
+
+/*------------------------------------------
+
+                    SINGLE
+
+--------------------------------------------*/
+/*------------------------------------------
+                      POST
+--------------------------------------------*/
 
 /*------------------------------------------
 
@@ -329,7 +309,7 @@ POSTS & CONTENT STYLES
   }
 
   //POSTS
-  #posts-list{
+  .wrapper{
     margin: 0 auto;
     display: block;
     padding-top: 3em;
@@ -472,17 +452,6 @@ POSTS & CONTENT STYLES
   text-align: center;
 }
 
-/*********************
-    INFINITE SCROLL
-*********************/
-.infinite-scroll #navigation,
-.infinite-scroll.neverending #footer {
-    display: none;
-}
-/* Shows the footer again in case all posts have been loaded */
-.infinity-end.neverending #footer {
-    display: block;
-}
 /*------------------------------------------
 
                     FILMS
@@ -511,22 +480,41 @@ article{
 /*------------------------------------------
                     SINGLE
 --------------------------------------------*/
-.film-header{
-  @include radial-gradient(#222,#000);
-  text-align: center;
-  height: 600px;
-  iframe{
-    width:100%;
-    height: 600px;
-    max-width: 1050px;
-    z-index: 9999;
+.single-films{
+
+  .film-header{
+    iframe{
+      width:100%;
+      height: 270px;
+      z-index: 9999;
+    }
+  }
+
+  table{
+    font-size: 0.8em;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.3em;
+    td{
+      padding: 0 1em;
+      vertical-align: top;
+      &.festival-name{
+        border-bottom: 1px dotted #CCC;
+      }
+      &.country{
+        border: 1px dotted #CCC;
+        text-align: center;
+        font-size: 0.9em;
+        vertical-align: middle;
+      }
+    }
   }
 }
 .film-description{
   text-align: center;
   padding: 0 1em;
   .film-synopsis{
-    //text-align: left;
     margin-top: 2em;
   }
 }
@@ -561,26 +549,6 @@ article{
     }
   }
 }
-table{
-  font-size: 0.8em;
-  margin: 0 auto;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.3em;
-  td{
-    padding: 0 1em;
-    vertical-align: top;
-    &.festival-name{
-      border-bottom: 1px dotted #CCC;
-    }
-    &.country{
-      border: 1px dotted #CCC;
-      text-align: center;
-      font-size: 0.9em;
-      vertical-align: middle;
-    }
-  }
-}
 
 
 /*********************
@@ -602,7 +570,6 @@ table{
 .pushbutton-wide{
   @extend .black-btn;
 }
-
 
 .single{
   section{
