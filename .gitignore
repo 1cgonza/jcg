@@ -6,3 +6,5 @@ sftp-config.json
 
 # JS external libraries
 library/js/libs/*
+
+error_log
