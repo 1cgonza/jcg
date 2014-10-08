@@ -56,15 +56,6 @@ really slow down your CSS. Don't overdo it.
 	background-image: linear-gradient(to bottom, $from, $to);
 }
 
-/* @include radial-gradient(#222,#000); */
-@mixin radial-gradient($from: #222, $to: #000) {
-  background: $to;
-  background-image: -webkit-radial-gradient(center, circle cover, $from 0%, $to 85%);
-  background-image: -moz-radial-gradient(center, circle cover, $from 0%, $to 85%);
-  background-image: -o-radial-gradient(center, circle cover, $from 0%, $to 85%);
-  background-image: radial-gradient(center, circle cover, $from 0%, $to 85%);
-}
-
 /*********************
 BOX SIZING
 *********************/

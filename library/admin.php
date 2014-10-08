@@ -1,9 +1,10 @@
 <?php
-	/*------------------------------------------
+	/*===================================*\
+	 *                                   *
+	 *  DASHBOARD WIDGETS CUSTOMIZATION  *
+	 *                                   *
+	\*===================================*/
 
-	              DASHBOARD WIDGETS
-
-	--------------------------------------------*/
 	function disable_default_dashboard_widgets() {
 		// remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );    // Right Now Widget
 		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core' ); // Comments Widget
@@ -18,11 +19,12 @@
 	}
 	add_action( 'admin_menu', 'disable_default_dashboard_widgets' );
 
-	/*------------------------------------------
+	/*===================================*\
+	 *                                   *
+	 *         CUSTOM LOGIN PAGE         *
+	 *                                   *
+	\*===================================*/
 
-	              CUSTOM LOGIN PAGE
-
-	--------------------------------------------*/
 	function jcg_login_css() {
 		wp_enqueue_style( 'jcg_login_css', get_template_directory_uri() . '/library/css/login.css', false );
 	}
@@ -33,11 +35,11 @@
 	add_filter( 'login_headerurl', 'jcg_login_url' );
 	add_filter( 'login_headertitle', 'jcg_login_title' );
 
-	/*------------------------------------------
-	              CUSTOMIZE ADMIN
-	--------------------------------------------*/
+
+	/************* CUSTOMIZE ADMIN *******************/
 	function jcg_custom_admin_footer() {
-		echo '<span id="footer-thankyou">Developed by <a href="http://www.juancgonzalez.com" target="_blank">Juan Camilo Gonz&aacute;lez</a></span>.';
+		_e( '<span id="footer-thankyou">Developed by <a href="http://www.juancgonzalez.com" target="_blank">Juan Camilo Gonz&aacute;lez</a></span>.', 'jcgtheme' );
 	}
 	add_filter( 'admin_footer_text', 'jcg_custom_admin_footer' );
+
 ?>

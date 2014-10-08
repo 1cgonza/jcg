@@ -50,13 +50,13 @@ textarea,
   width: 100%;
   max-width: 300px;
   font-family: $sans-serif;
-  background-color: $white;
+  background-color: darken($white, 3%);
   @include transition(background-color 0.24s ease-in-out);
 
   // a focused input (or hovered on)
   &:focus,
   &:active {
-    background-color: darken($white, 4%);
+    background-color: darken($white, 1%);
   } // end hover or focus
 
   // error notification

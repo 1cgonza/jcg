@@ -1,34 +1,19 @@
 <?php
-// Error pages such as 404 don't have post ID, so first check if the post exists before creating urls for social media cards.
-if ( is_post_type_archive () ) {
-  $linkbackUrl = get_post_type_archive_link( get_post_type ($post) );
-} elseif ( isset($post) ) {
-  $linkbackUrl = get_permalink( $post->ID );
-} elseif ( is_404() ) {
-  $linkbackUrl = site_url('/soyoufoundthiserrorpageanddecidedtoshareitsocialmediawelliappreciatethat');
-} else {
-  $linkbackUrl = site_url();
+if ( has_post_thumbnail() ) {
+  $featuredImgId = get_post_thumbnail_id();
+  $featuredImg = wp_get_attachment_image_src( $featuredImgId, 'jcg-1200x630' );
+  // var_dump($featredImg);
 }
+// TEMPORARY
+$fallbackImage = site_url('/wp-content/uploads/sites/5/2011/11/SiSiSiSiSiSiSiSiSiSiSi-1-1200x630.jpg');
 
-// Check for featured image and set the size for the version we want to use on social media sites.
-if ( isset($post) && has_post_thumbnail() ) {
-  $featuredImgId     = get_post_thumbnail_id();
-  $featuredImgObject = wp_get_attachment_image_src($featuredImgId, 'jcg-1200x630');
-  $featuredImg       = $featuredImgObject[0];
-  $featuredImgWidth  = $featuredImgObject[1];
-  $featuredImgHeight = $featuredImgObject[2];
-} else {
-  $featuredImg       = site_url('/wp-content/uploads/sites/5/2011/11/SiSiSiSiSiSiSiSiSiSiSi-1-1200x630.jpg');
-  $featuredImgWidth  = '1200';
-  $featuredImgHeight = '630';
-}
 
 if ( is_singular('films') ) { // Set post types first because otherwise single is always true and can't check for post-type
   $jcgDescription = get_field('synopsis', false, false);
   $ogType = 'video:movie';
   $cardType = 'player';
 } elseif ( is_singular() ) {
-  $jcgDescription = the_excerpt();
+  $jcgDescription = get_the_excerpt();
   $ogType = 'article';
   $cardType = 'summary_large_image';
 } else {
@@ -38,6 +23,7 @@ if ( is_singular('films') ) { // Set post types first because otherwise single i
 }
 ?>
 <!doctype html>
+  <html <?php language_attributes(); ?>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -66,15 +52,21 @@ if ( is_singular('films') ) { // Set post types first because otherwise single i
     <meta property="og:title" content="<?php the_title(); ?>" />
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
     <meta property="og:description" content="<?php echo $jcgDescription; ?>">
-    <meta property="og:url" content="<?php echo $linkbackUrl; ?>" />
+    <meta property="og:url" content="<?php echo get_permalink( $post->ID ); ?>" />
     <meta property="og:type" content="<?php echo $ogType; ?>" />
     <?php if ( is_singular('films') ) { ?>
     <meta property="video:release_date" content="<?php the_field('release_date');?>">
     <meta property="video:director" content="<?php echo get_page_link(20); // In this site the post with ID 20 is the about page. ?>">
     <?php } ?>
-    <meta property="og:image" content="<?php echo $featuredImg;  ?>">
-    <meta property="og:image:width" content="<?php echo $featuredImgWidth;  ?>">
-    <meta property="og:image:height" content="<?php echo $featuredImgHeight;  ?>">
+    <?php if ( has_post_thumbnail() ) { ?>
+    <meta property="og:image" content="<?php echo $featuredImg[0];  ?>">
+    <meta property="og:image:width" content="<?php echo $featuredImg[1];  ?>">
+    <meta property="og:image:height" content="<?php echo $featuredImg[2];  ?>">
+    <?php } else { ?>
+    <meta property="og:image" content="<?php echo $fallbackImage; ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <?php } ?>
     <?php
       /*------------------------------------------
 
@@ -87,30 +79,43 @@ if ( is_singular('films') ) { // Set post types first because otherwise single i
     <meta name="twitter:creator" content="@1cgonza">
     <meta name="twitter:title" content="<?php the_title(); ?>">
     <meta name="twitter:description" content="<?php echo $jcgDescription; ?>">
-    <meta name="twitter:domain" content="<?php echo $linkbackUrl; ?>">
+    <meta name="twitter:domain" content="<?php echo get_permalink( $post->ID ); ?>">
     <?php if ( is_singular('films') ) { ?>
     <meta name="twitter:player" content="<?php echo get_field('url', false, false); ?>">
     <meta name="twitter:player:height" content="500">
     <meta name="twitter:player:width" content="889">
     <?php } ?>
-    <meta name="twitter:image:src" content="<?php echo $featuredImg;  ?>">
+    <?php if ( has_post_thumbnail() ) { ?>
+    <meta name="twitter:image:src" content="<?php echo $featuredImg[0];  ?>">
+    <?php } else { ?>
+    <meta name="twitter:image:src" content="<?php echo $fallbackImage;  ?>">
+    <?php } ?>
 
     <?php wp_head(); ?>
   </head>
 
   <body <?php body_class(); ?>>
-    <header class="menu">
-      <nav role="navigation">
-        <?php wp_nav_menu(array(
-          'container'       => false,
-          'menu'            => 'The Main Menu',
-          'menu_class'      => 'main-nav',
-          'theme_location'  => 'main-nav',
-          'before'          => '',
-          'after'           => '',
-          'link_before'     => '',
-          'link_after'      => '',
-          'depth'           => 0
-        )); ?>
-      </nav>
-    </header> <?php // .menu ?>
+    <div id="container">
+      <div class="menu m-all t-1of5 d-1of10">
+        <div id="logo">
+          <a href="<?php echo home_url(); ?>" rel="nofollow">
+            <img src="<?php echo get_template_directory_uri(); ?>/library/images/sisisi-mandala.gif" alt="" />
+          </a>
+        </div>
+
+        <nav role="navigation">
+          <?php wp_nav_menu(array(
+            'container'       => false,
+            'container_class' => 'menu cf',                           // class of container (should you choose to use it)
+            'menu'            => __( 'The Main Menu', 'jcgtheme' ),   // nav name
+            'menu_class'      => 'nav top-nav cf',                    // adding custom nav class
+            'theme_location'  => 'main-nav',                          // where it's located in the theme
+            'before'          => '',                                  // before the menu
+            'after'           => '',                                  // after the menu
+            'link_before'     => '',                                  // before each link
+            'link_after'      => '',                                  // after each link
+            'depth'           => 0,                                   // limit the depth of the nav
+            'fallback_cb'     => ''                                   // fallback function (if there is one)
+          )); ?>
+        </nav>
+      </div>

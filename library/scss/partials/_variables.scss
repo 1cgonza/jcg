@@ -43,10 +43,6 @@ $link-hover:        lighten($link-color, 20%);
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;
 
-/****************
-MARGINS
-****************/
-$headerPadding: 54px;
 
 /*
 Here's a great tutorial on how to
@@ -61,4 +57,5 @@ TYPOGRAPHY
 // font stacks
 
 $sans-serif:		"Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif2:		"Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:         "Georgia", Cambria, Times New Roman, Times, serif;

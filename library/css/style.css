@@ -536,9 +536,6 @@ COLORS
 Need help w/ choosing your colors? Try this site out:
 http://0to255.com/
 *********************/
-/****************
-MARGINS
-****************/
 /*
 Here's a great tutorial on how to
 use color variables properly:
@@ -621,7 +618,6 @@ Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
-/* @include radial-gradient(#222,#000); */
 /*********************
 BOX SIZING
 *********************/
@@ -633,24 +629,6 @@ Site Name: Juan Camilo Gonz&aacute;lez
 Author: Juan Camilo Gonz&aacute;lez
 
 Stylesheet: Grid Stylesheet
-
-I've seperated the grid so you can swap it out easily. It's
-called at the top the style.scss stylesheet.
-
-There are a ton of grid solutions out there. You should definitely
-experiment with your own. Here are some recommendations:
-
-http://gridsetapp.com - Love this site. Responsive Grids made easy.
-http://susy.oddbird.net/ - Grids using Compass. Very elegant.
-http://gridpak.com/ - Create your own responsive grid.
-https://github.com/dope/lemonade - Neat lightweight grid.
-
-
-The grid below is a custom built thingy I modeled a bit after
-Gridset. It's VERY basic and probably shouldn't be used on
-your client projects. The idea is you learn how to roll your
-own grids. It's better in the long run and allows you full control
-over your project's layout.
 
 ******************************************************************/
 /*
@@ -1009,7 +987,7 @@ textarea,
   width: 100%;
   max-width: 300px;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: #f7f7f7;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
   input[type="text"]:focus, input[type="text"]:active,
@@ -1045,7 +1023,7 @@ textarea,
   textarea:active,
   .field:focus,
   .field:active {
-    background-color: whitesmoke; }
+    background-color: #fcfcfc; }
   input[type="text"].error, input[type="text"].is-invalid,
   input[type="password"].error,
   input[type="password"].is-invalid,
@@ -1254,17 +1232,18 @@ Author: Juan Camilo Gonz&aacute;lez
 Stylesheet: Base Mobile Stylesheet
 
 ******************************************************************/
-/*------------------------------------------
+/*********************
+GENERAL STYLES
+*********************/
+html, body {
+  width: 100%;
+  height: 100%; }
 
-                GENERAL STYLES
-
---------------------------------------------*/
 body {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 110%;
+  font-size: 100%;
   line-height: 1.4;
-  color: #333333;
-  font-weight: 300; }
+  color: #333333; }
 
 ::-moz-selection {
   background: #dadada;
@@ -1274,130 +1253,118 @@ body {
   background: #dadada;
   text-shadow: none; }
 
-#content {
-  padding-top: 54px; }
+#container {
+  min-height: 100%;
+  height: 100%; }
 
-/*------------------------------------------
-               CONTENT STYLING
---------------------------------------------*/
 .no-margin {
   margin: 0;
   padding: 0; }
 
-.center-text {
-  text-align: center; }
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  width: 90%;
+  margin: 0 auto; }
 
-/*------------------------------------------
-                    LINKS
---------------------------------------------*/
+/*********************
+LINK STYLES
+*********************/
 a, a:visited {
   color: #8c7c3d;
   text-decoration: none;
+  /* on hover */
+  /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
     color: #c0b06f; }
   a:link, a:visited:link {
+    /*
+    this highlights links on iPhones/iPads.
+    so it basically works like the :hover selector
+    for mobile devices.
+    */
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
-/*------------------------------------------
-              H1 - H5 STYLES
---------------------------------------------*/
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 300; }
   h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
     text-decoration: none; }
 
-h1 {
+h1, .h1 {
   font-size: 2.5em;
   line-height: 1.333em; }
 
-h2 {
+h2, .h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em; }
 
-h3 {
+h3, .h3 {
   font-size: 1.125em; }
 
-h4 {
+h4, .h4 {
   font-size: 1.1em;
   font-weight: 700; }
 
-h5 {
+h5, .h5 {
   font-size: 0.846em;
   line-height: 2.09em;
   text-transform: uppercase;
   letter-spacing: 2px; }
 
-/*------------------------------------------
-
-                    MENU
-
---------------------------------------------*/
+/*********************
+HEADER STYLES
+*********************/
 .menu {
-  z-index: 9999;
-  position: fixed;
-  width: 100%;
-  height: 54px;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* end .nav */ }
-  .menu nav ul {
-    margin: 0;
-    text-align: center;
-    /* nav li */ }
-    .menu nav ul li {
-      float: left;
-      width: 20%; }
-      .menu nav ul li a {
-        -webkit-transition: all 0.25s ease-in-out;
-        transition: all 0.25s ease-in-out;
-        display: block;
-        border-top: 3px solid;
-        text-decoration: none;
-        padding: 0.75em; }
-      .menu nav ul li.current-menu-item a, .menu nav ul li.current-menu-ancestor a {
-        border-color: #1f1f1f; }
-      .menu nav ul li ul.sub-menu,
-      .menu nav ul li ul.children {
-        left: 80%;
-        display: none; }
+  z-index: 9999; }
+  .menu #logo {
+    display: none; }
 
-/*------------------------------------------
+/*********************
+NAVIGATION STYLES
+*********************/
+.nav {
+  text-align: center;
+  border-bottom: 0;
+  margin: 0;
+  /* end .menu li */
+  /* highlight current page */
+  /* end current highlighters */ }
+  .nav li {
+    display: inline-block;
+    /*
+    so you really have to rethink your dropdowns for mobile.
+    you don't want to have it expand too much because the
+    screen is so small. How you manage your menu should
+    depend on the project. Here's some great info on it:
+    http://www.alistapart.com/articles/organizing-mobile/
+    */ }
+    .nav li a {
+      -webkit-transition: all 0.25s ease-in-out;
+      transition: all 0.25s ease-in-out;
+      display: block;
+      text-decoration: none;
+      padding: 0.75em;
+      /*
+      remember this is for mobile ONLY, so there's no need
+      to even declare hover styles here, you can do it in
+      the style.scss file where it's relevant. We want to
+      keep this file as small as possible!
+      */ }
+    .nav li ul.sub-menu,
+    .nav li ul.children {
+      top: 0;
+      position: absolute;
+      left: 80%;
+      display: none; }
 
-                    ARCHIVE
-
---------------------------------------------*/
-/*------------------------------------------
-
-                    SINGLE
-
---------------------------------------------*/
-/*------------------------------------------
-                      POST
---------------------------------------------*/
-/*------------------------------------------
-
-                    ABOUT
-
---------------------------------------------*/
-.about {
-  width: 60%;
-  margin: 0 auto; }
-
-.about-bio {
-  font-size: 135%; }
-
-.education-item {
-  padding: 1em 0;
-  display: table; }
-  .education-item .education-degree {
-    display: inline-table;
-    color: #858585; }
-  .education-item .education-institution {
-    display: inline-table;
-    padding-left: 2em; }
-
+/* end .nav */
 /*********************
 STYLES FOR CATEGORIES
 *********************/
@@ -1411,35 +1378,49 @@ STYLES FOR CATEGORIES
     background-color: rgba(255, 255, 255, 0.8);
     color: #1f1f1f; }
 .cat-item.cat-item-1 a, .cat-item.cat-item-1 a:visited {
-  background-color: #ffe826;
-  color: #8c7c3d; }
+  background-color: #ecd93d;
+  color: #1f1f1f; }
   .cat-item.cat-item-1 a:hover, .cat-item.cat-item-1 a:focus, .cat-item.cat-item-1 a:visited:hover, .cat-item.cat-item-1 a:visited:focus {
-    background-color: rgba(255, 232, 38, 0.8);
-    color: #1f1f1f; }
+    background-color: rgba(236, 217, 61, 0.8); }
 .cat-item.cat-item-20 a, .cat-item.cat-item-20 a:visited {
-  background-color: #f34c47;
+  background-color: #c45956;
   color: white; }
   .cat-item.cat-item-20 a:hover, .cat-item.cat-item-20 a:focus, .cat-item.cat-item-20 a:visited:hover, .cat-item.cat-item-20 a:visited:focus {
-    background-color: rgba(243, 76, 71, 0.8); }
+    background-color: rgba(196, 89, 86, 0.8); }
 .cat-item.cat-item-21 a, .cat-item.cat-item-21 a:visited {
-  background-color: #50d880;
-  color: #1f1f1f; }
-  .cat-item.cat-item-21 a:hover, .cat-item.cat-item-21 a:focus, .cat-item.cat-item-21 a:visited:hover, .cat-item.cat-item-21 a:visited:focus {
-    background-color: rgba(80, 216, 128, 0.8); }
-.cat-item.current-cat a {
-  border: 1px dotted; }
-
-.category-1 #description-box, .category-1 .article-header, .category-process #description-box, .category-process .article-header {
-  background-color: #ffe826;
-  color: #1f1f1f; }
-
-.category-20 #description-box, .category-20 .article-header, .category-references #description-box, .category-references .article-header {
-  background-color: #f34c47;
+  background-color: #56bc7a;
   color: white; }
+  .cat-item.cat-item-21 a:hover, .cat-item.cat-item-21 a:focus, .cat-item.cat-item-21 a:visited:hover, .cat-item.cat-item-21 a:visited:focus {
+    background-color: rgba(86, 188, 122, 0.8); }
 
-.category-21 #description-box, .category-21 .article-header, .category-inspiration #description-box, .category-inspiration .article-header {
-  background-color: #50d880;
+#description-box .archive-title, #description-box .description-title {
+  margin-bottom: 0.4em; }
+#description-box .blog-header-description {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 0.9em;
+  text-align: left;
+  padding: 1em;
+  background-color: #d2d2d2;
+  text-align: center; }
+#description-box .search-box {
+  margin-top: 1.5em; }
+
+.category-1 #description-box .blog-header-description, .category-process #description-box .blog-header-description {
+  background-color: #ecd93d;
   color: #1f1f1f; }
+.category-1 .post-header, .category-process .post-header {
+  background-color: #ecd93d; }
+
+.category-20 #description-box .blog-header-description, .category-references #description-box .blog-header-description {
+  background-color: #c45956; }
+.category-20 .post-header, .category-references .post-header {
+  background-color: #c45956; }
+
+.category-21 #description-box .blog-header-description, .category-inspiration #description-box .blog-header-description {
+  background-color: #56bc7a; }
+.category-21 .post-header, .category-inspiration .post-header {
+  background-color: #56bc7a; }
 
 .search-results #description-box, .search-no-results #description-box {
   background-color: #2472a4;
@@ -1456,11 +1437,10 @@ STYLES FOR CATEGORIES
   text-align: center; }
   #description-box h1 {
     margin: 0; }
-  #description-box .blog-header-description {
-    font-size: 0.9em; }
 
 #categories-menu {
-  padding: 1em; }
+  padding: 0;
+  margin: 0.45em; }
   #categories-menu .cat-item {
     display: inline-block; }
 
@@ -1473,153 +1453,124 @@ input[type="search"] {
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#content .title {
-  text-align: center;
-  margin: 0 0 1em 0;
-  padding: 0 0 .5em 0; }
-#content .wrapper {
-  margin: 0 auto;
-  display: block;
-  padding-top: 3em; }
-  #content .wrapper .hentry {
-    margin-bottom: 3em; }
-    #content .wrapper .hentry .header-meta {
-      position: absolute;
-      margin: -10px 0 0 -10px;
-      z-index: 1; }
-      #content .wrapper .hentry .header-meta .post-date {
-        font-size: 0.8em;
-        text-align: center;
-        width: 100px;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 20px 10px; }
-        #content .wrapper .hentry .header-meta .post-date p {
-          margin: 0; }
-        #content .wrapper .hentry .header-meta .post-date .post-weekday {
+#content {
+  height: 100%; }
+  #content .title {
+    text-align: center;
+    margin: 0 0 1em 0;
+    padding: 0 0 .5em 0; }
+  #content #posts-list {
+    margin: 0 auto;
+    display: block;
+    padding-top: 3em; }
+    #content #posts-list .hentry {
+      margin-bottom: 3em; }
+      #content #posts-list .hentry .header-meta {
+        position: absolute;
+        margin: -10px 0 0 -10px;
+        z-index: 1; }
+        #content #posts-list .hentry .header-meta .post-date {
           font-size: 0.8em;
-          letter-spacing: 1px; }
-        #content .wrapper .hentry .header-meta .post-date .post-year {
-          letter-spacing: 2px; }
-    #content .wrapper .hentry .post-image {
-      line-height: 0;
-      z-index: -1;
-      max-height: 325px;
-      overflow: hidden; }
-      #content .wrapper .hentry .post-image a, #content .wrapper .hentry .post-image a:visited {
-        -webkit-transition: all 0.1s ease-out;
-        transition: all 0.1s ease-out;
-        opacity: 1; }
-        #content .wrapper .hentry .post-image a:hover, #content .wrapper .hentry .post-image a:focus, #content .wrapper .hentry .post-image a:visited:hover, #content .wrapper .hentry .post-image a:visited:focus {
-          opacity: 0.8; }
-      #content .wrapper .hentry .post-image img {
-        width: 100%;
-        height: auto; }
-    #content .wrapper .hentry .entry-title {
-      width: 40%;
-      display: inline-block;
-      vertical-align: top; }
-    #content .wrapper .hentry .entry-excerpt {
-      width: 59%;
-      display: inline-block;
-      vertical-align: top;
-      padding: 0.5em 0 0 1.5em; }
-#content .entry-footer {
-  text-align: right;
-  font-size: 0.8em; }
-  #content .entry-footer .entry-tag {
-    margin: 0 0.3em; }
-    #content .entry-footer .entry-tag a, #content .entry-footer .entry-tag a:visited {
-      -webkit-transition: all 0.2s ease-out;
-      transition: all 0.2s ease-out;
-      padding: 0.5em;
-      background-color: rgba(0, 0, 0, 0.1);
-      color: rgba(0, 0, 0, 0.9); }
-      #content .entry-footer .entry-tag a:hover, #content .entry-footer .entry-tag a:focus, #content .entry-footer .entry-tag a:visited:hover, #content .entry-footer .entry-tag a:visited:focus {
-        background-color: rgba(0, 0, 0, 0.8);
-        color: rgba(255, 255, 255, 0.8); }
+          text-align: center;
+          width: 100px;
+          background-color: rgba(0, 0, 0, 0.8);
+          color: white;
+          padding: 20px 10px; }
+          #content #posts-list .hentry .header-meta .post-date p {
+            margin: 0; }
+          #content #posts-list .hentry .header-meta .post-date .post-weekday {
+            font-size: 0.8em;
+            letter-spacing: 1px; }
+          #content #posts-list .hentry .header-meta .post-date .post-year {
+            letter-spacing: 2px; }
+      #content #posts-list .hentry .post-image {
+        line-height: 0;
+        z-index: -1; }
+        #content #posts-list .hentry .post-image a, #content #posts-list .hentry .post-image a:visited {
+          -webkit-transition: all 0.1s ease-out;
+          transition: all 0.1s ease-out;
+          opacity: 1; }
+          #content #posts-list .hentry .post-image a:hover, #content #posts-list .hentry .post-image a:focus, #content #posts-list .hentry .post-image a:visited:hover, #content #posts-list .hentry .post-image a:visited:focus {
+            opacity: 0.8; }
+        #content #posts-list .hentry .post-image img {
+          width: 100%;
+          height: auto; }
+      #content #posts-list .hentry .entry-title {
+        width: 40%;
+        display: inline-block;
+        vertical-align: top; }
+      #content #posts-list .hentry .entry-excerpt {
+        width: 59%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0.5em 0 0 1.5em; }
+  #content .entry-footer {
+    text-align: right;
+    font-size: 0.8em; }
+    #content .entry-footer .entry-tag {
+      margin: 0 0.3em 1em 0;
+      display: inline-block; }
+      #content .entry-footer .entry-tag a, #content .entry-footer .entry-tag a:visited {
+        -webkit-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        padding: 0.5em;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.9); }
+        #content .entry-footer .entry-tag a:hover, #content .entry-footer .entry-tag a:focus, #content .entry-footer .entry-tag a:visited:hover, #content .entry-footer .entry-tag a:visited:focus {
+          background-color: rgba(0, 0, 0, 0.8);
+          color: rgba(255, 255, 255, 0.8); }
 
 /*********************
-     SINGLE POST
+	   SINGLE POST
 *********************/
-.single-post .post-date {
-  font-size: 0.8em;
+.single-post .article-header {
   text-align: center;
-  width: 100px;
-  background-color: black;
-  color: white;
-  padding: 20px 10px;
-  float: left;
-  margin-right: 2em; }
-  .single-post .post-date p {
-    margin: 0; }
-  .single-post .post-date .post-weekday {
-    font-size: 0.8em;
-    letter-spacing: 1px; }
-  .single-post .post-date .post-year {
-    letter-spacing: 2px; }
-.single-post .entry-title {
-  margin: 0;
-  padding: 1em;
-  text-align: center; }
-.single-post .author {
-  text-align: center;
-  padding-bottom: 1em; }
-.single-post .post-categories {
-  margin-top: 0.45em; }
-  .single-post .post-categories #categories-menu {
+  padding-bottom: 4em;
+  background-color: #fafafa; }
+  .single-post .article-header .entry-title {
     margin: 0;
-    padding: 0; }
+    padding: 1em 1em 0.2em 1em;
+    font-size: 4em; }
+  .single-post .article-header .article-date {
+    color: #9f9f9f; }
+  .single-post .article-header .author {
+    font-size: 1.1em; }
 .single-post .entry-footer {
+  margin: 0 auto;
   text-align: center !important; }
 
 #post-not-found {
   text-align: center; }
 
-/*------------------------------------------
+/*********************
+	  INFINITE SCROLL
+*********************/
+#infinite-footer {
+  display: none; }
 
-                    FILMS
-
---------------------------------------------*/
-/*------------------------------------------
-                    ARCHIVE
---------------------------------------------*/
-article {
-  position: relative; }
-  article .film-post-header {
-    position: absolute; }
-  article .film-post-excerpt {
-    position: absolute;
-    width: 50%;
-    right: 0; }
-
-.film-post-image img {
-  width: 100%;
-  height: auto; }
-
-/*------------------------------------------
-                    SINGLE
---------------------------------------------*/
-.single-films .film-header iframe {
-  width: 100%;
-  height: 270px;
-  z-index: 9999; }
-.single-films table {
-  font-size: 0.8em;
-  margin: 0 auto;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.3em; }
-  .single-films table td {
-    padding: 0 1em;
-    vertical-align: top; }
-    .single-films table td.festival-name {
-      border-bottom: 1px dotted #CCC; }
-    .single-films table td.country {
-      border: 1px dotted #CCC;
-      text-align: center;
-      font-size: 0.9em;
-      vertical-align: middle; }
+/*********************
+		    FILMS
+*********************/
+.film-header {
+  line-height: 0;
+  background-color: #000; }
+  .film-header #video-container {
+    position: relative;
+    text-align: center; }
+    .film-header #video-container .ratio {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 457px;
+      z-index: -1; }
+    .film-header #video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 812px;
+      z-index: 7999; }
 
 .film-description {
   text-align: center;
@@ -1637,8 +1588,7 @@ article {
       margin: 0; }
     #awards .award-item .award-item-text {
       display: table-cell;
-      vertical-align: bottom;
-      width: 250px; }
+      vertical-align: bottom; }
     #awards .award-item:before, #awards .award-item:after {
       content: '';
       width: 64px;
@@ -1651,8 +1601,25 @@ article {
       background: url(../images/laurel.png) -64px 0 no-repeat;
       background-position: right bottom; }
 
+table {
+  font-size: 0.8em;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.3em; }
+  table td {
+    padding: 0 1em;
+    vertical-align: top; }
+    table td.festival-name {
+      border-bottom: 1px dotted #CCC; }
+    table td.country {
+      border: 1px dotted #CCC;
+      text-align: center;
+      font-size: 0.9em;
+      vertical-align: middle; }
+
 /*********************
-    CONTACT
+		CONTACT
 *********************/
 #contact-wrapper {
   width: 90%;
@@ -1669,12 +1636,23 @@ article {
 
 /* entry content */
 .entry-content {
-  padding: 1.5em 1.5em 0; }
+  padding: 0;
+  font-size: 1.1em;
+  /*
+  image alignment on a screen this size may be
+  a bit difficult. It's set to start aligning
+  and floating images at the next breakpoint,
+  but it's up to you. Feel free to change it up.
+  */ }
   .entry-content p {
-    margin: 0 0 1.5em;
+    width: 80%;
+    margin: 0 auto 1em auto;
     line-height: 1.6; }
-  .entry-content ul, .entry-content ol {
-    line-height: 1.6; }
+    .entry-content p.wp-caption-text {
+      font-size: 0.8em;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1em 2em; }
   .entry-content table caption {
     margin: 0 0 7px;
     font-size: 0.75em;
@@ -1697,11 +1675,13 @@ article {
     .entry-content th:last-child {
       border-right: 0; }
   .entry-content blockquote {
-    margin: 0 0 1.5em 0.75em;
-    padding: 0 0 0 0.75em;
-    border-left: 3px solid #2980b9;
+    margin: 2em;
+    padding: 1em;
     font-style: italic;
-    color: #9fa6b4; }
+    color: #6c6c6c; }
+    .entry-content blockquote p {
+      width: 80%;
+      font-size: 1.3em; }
   .entry-content dd {
     margin-left: 0;
     font-size: 0.9em;
@@ -1730,41 +1710,83 @@ article {
 .wp-caption {
   max-width: 100%;
   background: #eee;
-  padding: 5px;
   /* images inside wp-caption */ }
   .wp-caption img {
     max-width: 100%;
     margin-bottom: 0;
     width: 100%; }
-  .wp-caption p.wp-caption-text {
-    font-size: 0.85em;
-    margin: 4px 0 7px;
-    padding: 0.5em;
-    text-align: center; }
 
 /* end .wp-caption */
 /* image gallery styles */
-.gallery {
-  text-align: center; }
-  .gallery dl {
-    display: inline-block; }
-
 /* end .gallery */
+/* gallery caption styles */
 .tags {
   margin: 0; }
 
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+.pagination,
+.wp-prev-next {
+  margin: 1.5em 0; }
+
+.pagination {
+  text-align: center; }
+  .pagination ul {
+    display: inline-block;
+    background-color: white;
+    white-space: nowrap;
+    padding: 0;
+    clear: both;
+    border-radius: 3px; }
+  .pagination li {
+    padding: 0;
+    margin: 0;
+    float: left;
+    display: inline;
+    overflow: hidden;
+    border-right: 1px solid #eaedf2; }
+  .pagination a, .pagination span {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    line-height: 1em;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0.75em;
+    min-width: 1em;
+    display: block;
+    color: #2980b9; }
+    .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
+      background-color: #2980b9;
+      color: white; }
+  .pagination .current {
+    cursor: default;
+    color: #333333; }
+    .pagination .current:hover, .pagination .current:focus {
+      background-color: white;
+      color: #333333; }
+
+/* end .bones_page_navi */
+/* fallback previous & next links */
+.wp-prev-next .prev-link {
+  float: left; }
+.wp-prev-next .next-link {
+  float: right; }
+
+/* end .wp-prev-next */
 /******************************************************************
 COMMENT STYLES
 ******************************************************************/
 /* h3 comment title */
 #comments-title {
   padding: 0.75em;
-  margin: 0;
-  border-top: 1px solid #f8f9fa; }
+  margin: 0; }
 
 .commentlist {
-  margin: 0;
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 0 auto !important;
+  padding-top: 4em; }
 
 .comment {
   position: relative;
@@ -1774,7 +1796,8 @@ COMMENT STYLES
   border-bottom: 1px solid #f8f9fa;
   /* vcard */
   /* end .commentlist .vcard */
-  /* end children */ }
+  /* end children */
+  /* general comment classes */ }
   .comment .comment-author {
     padding: 7px;
     border: 0; }
@@ -1799,7 +1822,9 @@ COMMENT STYLES
   .comment:last-child {
     margin-bottom: 0; }
   .comment .children {
-    margin: 0; }
+    margin: 0;
+    /* variations */
+    /* change number for different depth */ }
   .comment[class*=depth-] {
     margin-top: 1.1em; }
   .comment.depth-1 {
@@ -1810,10 +1835,11 @@ COMMENT STYLES
     margin-left: 7px;
     padding: 7px; }
   .comment.odd {
-    background-color: white; }
+    background-color: #ededed; }
   .comment.even {
-    background: #f8f9fa; }
+    background: #f7f7f7; }
 
+/* comment meta */
 /* comment content */
 .comment_content p {
   margin: 0.7335em 0 1.5em;
@@ -1865,6 +1891,8 @@ COMMENT FORM STYLES
 #comment-form-title {
   margin: 0 0 1.1em; }
 
+/* cancel comment reply link */
+/* logged in comments */
 /* allowed tags */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0; }
@@ -1872,6 +1900,23 @@ COMMENT FORM STYLES
 /* no comments */
 .nocomments {
   margin: 0 20px 1.1em; }
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+  background-color: #1f1f1f; }
+
+.widget ul li {
+  /* deep nesting */ }
+
+.no-widgets {
+  background-color: white;
+  padding: 1.5em;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  margin-bottom: 1.5em; }
 
 /*********************
 FOOTER STYLES
@@ -1883,19 +1928,16 @@ FOOTER STYLES
   padding: 2em;
   height: 200px; }
 
-/*------------------------------------------
-
-                    404
-
---------------------------------------------*/
-.error404 {
-  background-color: #1f1f1f;
-  color: white; }
-  .error404 #content {
-    text-align: center; }
-    .error404 #content h1 {
-      font-size: 10em; }
-
+/*
+if you checked out the link above:
+http://www.alistapart.com/articles/organizing-mobile/
+you'll want to style the footer nav
+a bit more in-depth. Remember to keep
+it simple because you'll have to
+override these styles for the desktop
+view.
+*/
+/* end .footer-links */
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -1964,24 +2006,7 @@ tweeners.
   check your menus here. do they look good?
   do they need tweaking?
   */
-  /* end .footer-links */
-  /*------------------------------------------
-  
-                      FILMS
-  
-  --------------------------------------------*/
-  /*------------------------------------------
-                      ARCHIVE
-  --------------------------------------------*/
-  /*------------------------------------------
-                      SINGLE
-  --------------------------------------------*/
-  .single-films table {
-    font-size: 100%; }
-  .single-films .film-header iframe {
-    width: 100%;
-    height: 430px;
-    max-width: 1050px; } }
+  /* end .footer-links */ }
 /*********************
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
@@ -1999,43 +2024,195 @@ you can add resource intensive styles.
   /*********************
   HEADER STYLES
   *********************/
+  .menu {
+    position: fixed;
+    height: 100%;
+    border-right: 1px dotted; }
+    .menu #logo {
+      display: block;
+      text-align: center; }
+
   /*********************
   NAVIGATION STYLES
   *********************/
+  .nav {
+    text-align: left;
+    width: 90%;
+    /* end .menu ul li */
+    /* highlight current page */
+    /* end current highlighters */ }
+    .nav li {
+      display: block;
+      position: relative;
+      /*
+      plan your menus and drop-downs wisely.
+      */
+      /* showing sub-menus */ }
+      .nav li.menu-item-has-children:after {
+        content: '\002B';
+        position: absolute;
+        right: 0;
+        top: 0.8em;
+        width: 0;
+        height: 0; }
+      .nav li ul.sub-menu,
+      .nav li ul.children {
+        border-top: 0;
+        z-index: 8999;
+        font-size: 0.7em;
+        text-align: center;
+        letter-spacing: 1px;
+        background-color: black;
+        font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        display: block;
+        left: -999em;
+        /* highlight sub-menu current page */ }
+        .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited,
+        .nav li ul.children li a,
+        .nav li ul.children li a:visited {
+          display: block;
+          width: 180px;
+          border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+          color: #eaedf2;
+          padding: 1em; }
+          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.sub-menu li a:visited:hover, .nav li ul.sub-menu li a:visited:focus,
+          .nav li ul.children li a:hover,
+          .nav li ul.children li a:focus,
+          .nav li ul.children li a:visited:hover,
+          .nav li ul.children li a:visited:focus {
+            color: #d1d7e2;
+            background-color: #1f1f1f; }
+        .nav li ul.sub-menu li:last-child a,
+        .nav li ul.children li:last-child a {
+          border-bottom: 0; }
+        .nav li ul.sub-menu:before,
+        .nav li ul.children:before {
+          content: '';
+          position: absolute;
+          left: -1.9em;
+          top: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 1em 2em 1em 0;
+          border-color: transparent #000000 transparent transparent; }
+      .nav li:hover ul {
+        left: 90%; }
+
+  /* end .nav */
   /*********************
   CONTENT
   *********************/
+  #content {
+    display: table;
+    margin-bottom: -200px;
+    padding-bottom: 200px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    #content #main, #content .sidebar {
+      display: table-cell; }
+
+  .entry-content {
+    font-size: 1.3em; }
+    .entry-content p {
+      width: 70%; }
+
+  .commentlist {
+    width: 70%; }
+
+  img.jcg-fullwidth {
+    width: 100%;
+    height: auto; }
+
+  .jcg-gallery {
+    background-color: #1f1f1f;
+    margin: 2em 0;
+    position: relative; }
+    .jcg-gallery .jcg-loading-image {
+      position: absolute;
+      color: white;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      z-index: 2; }
+    .jcg-gallery .jcg-gallery-image-container {
+      float: right;
+      width: 96%;
+      text-align: center;
+      z-index: 99999;
+      position: relative; }
+    .jcg-gallery a {
+      display: block;
+      line-height: 0;
+      border: 3px solid;
+      max-width: 4%; }
+      .jcg-gallery a img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0; }
+      .jcg-gallery a.current {
+        border: 3px dotted #c0b06f;
+        cursor: default; }
+
   /*********************
   		    FILMS
   *********************/
-  .film-description .film-synopsis {
-    padding: 0 25%; }
-
-  /*------------------------------------------
-  
-                      FILMS
-  
-  --------------------------------------------*/
-  /*------------------------------------------
-                      ARCHIVE
-  --------------------------------------------*/
-  /*------------------------------------------
-                      SINGLE
-  --------------------------------------------*/
-  .single-films table {
-    font-size: 100%; }
-  .single-films .film-header {
-    background: black;
+  #video-container {
+    background: #000;
     background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
-    background-image: radial-gradient(center, circle cover, #222222 0%, black 85%);
-    text-align: center;
-    height: 450px; }
-    .single-films .film-header iframe {
-      width: 100%;
-      height: 450px;
-      max-width: 800px; } }
+    background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
+
+  .film-description .film-synopsis {
+    padding: 0 25%; }
+
+  /*********************
+  SIDEBARS & ASIDES
+  *********************/
+  .widgettitle {
+    border-bottom: 2px solid #444;
+    margin-bottom: 0.75em; }
+
+  .widget {
+    padding: 0 10px;
+    margin: 2.2em 0; }
+    .widget ul li {
+      margin-bottom: 0.75em;
+      /* deep nesting */ }
+      .widget ul li ul {
+        margin-top: 0.75em;
+        padding-left: 1em; }
+
+  /* links widget */
+  /* meta widget */
+  /* pages widget */
+  /* recent-posts widget */
+  /* archives widget */
+  /* tag-cloud widget */
+  /* calendar widget */
+  /* category widget */
+  /* recent-comments widget */
+  /* search widget */
+  /* text widget */
+  /*********************
+  FOOTER STYLES
+  *********************/
+  /*
+  you'll probably need to do quite a bit
+  of overriding here if you styled them for
+  mobile. Make sure to double check these!
+  */
+  .footer-links ul li {
+    /*
+    be careful with the depth of your menus.
+    it's very rare to have multi-depth menus in
+    the footer.
+    */ }
+
+  /* end .footer-links */ }
 /*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
@@ -2071,51 +2248,30 @@ This is for the larger monitors and possibly full screen viewers.
   Stylesheet: Super Large Monitor Stylesheet
   
   ******************************************************************/
-  .blog-header-description {
-    padding: 0 7em; }
-
   /*********************
   		FILMS
   *********************/
-  .entry-content p, .entry-content ul, .entry-content ol {
-    padding: 0 15em; }
+  table {
+    font-size: 100%; }
+
+  .entry-content h2 {
+    text-align: center;
+    border-bottom: 1px dotted;
+    width: 35%;
+    margin: 0 auto 1em auto;
+    padding-bottom: 0.3em; }
+  .entry-content p {
+    width: 50%; }
+
+  .commentlist {
+    width: 50%; }
+
+  .single .entry-footer {
+    text-align: center; }
 
   .comment-respond {
     width: 60%;
-    margin: 0 auto; }
-
-  /*------------------------------------------
-  
-                      FILMS
-  
-  --------------------------------------------*/
-  /*------------------------------------------
-                      ARCHIVE
-  --------------------------------------------*/
-  article {
-    position: relative; }
-    article .film-post-header {
-      position: absolute; }
-    article .film-post-excerpt {
-      position: absolute;
-      width: 50%;
-      right: 0; }
-
-  .film-post-image img {
-    width: 100%;
-    height: auto; }
-
-  /*------------------------------------------
-                      SINGLE
-  --------------------------------------------*/
-  .single-films table {
-    font-size: 100%; }
-  .single-films .film-header {
-    height: 600px; }
-    .single-films .film-header iframe {
-      width: 100%;
-      height: 600px;
-      max-width: 1050px; } }
+    margin: 0 auto; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with

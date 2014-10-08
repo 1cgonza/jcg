@@ -3,7 +3,7 @@
   require_once( 'library/custom-post-type.php' );
   require_once( 'library/admin.php' );
 
-  function jcg_init() {
+  function jcg_ahoy() {
     add_filter( 'wp_title', 'rw_title', 10, 3 );
     add_filter( 'the_generator', 'jcg_rss_version' );
     add_filter( 'wp_head', 'jcg_remove_wp_widget_recent_comments_style', 1 );
@@ -13,10 +13,17 @@
 
     jcg_theme_support();
 
+    add_action( 'widgets_init', 'jcg_register_sidebars' );
     add_filter( 'the_content', 'jcg_filter_ptags_on_images' );
     add_filter( 'excerpt_more', 'jcg_excerpt_more' );
   }
-  add_action( 'after_setup_theme', 'jcg_init' );
+  add_action( 'after_setup_theme', 'jcg_ahoy' );
+
+  /************* OEMBED SIZE OPTIONS *************/
+
+  if ( ! isset( $content_width ) ) {
+  	$content_width = 640;
+  }
 
   /*------------------------------------
 
@@ -26,7 +33,7 @@
 
   add_image_size( 'jcg-1300x325', 1300, 325, true );
   add_image_size( 'jcg-1200x630', 1200, 630, true );
-  add_image_size( 'jcg-300x100', 300, 100, true );
+  add_image_size( 'jcg-300', 300, 100, true );
 
   function jcg_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
@@ -45,11 +52,29 @@
     ), $atts );
 
     $out['columns'] = $atts['columns'];
-    $out['size'] = $atts['size'];
+    $out['size']    = $atts['size'];
 
     return $out;
   }
   add_filter( 'shortcode_atts_gallery', 'jcg_gallery', 10, 3 );
+
+  /*------------------------------------
+
+                  SIDEBARS
+
+  --------------------------------------*/
+
+  function jcg_register_sidebars() {
+  	register_sidebar(array(
+      'id'            => 'sidebar1',
+      'name'          => 'Sidebar 1',
+      'description'   => 'The first (primary) sidebar.',
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="widgettitle">',
+      'after_title'   => '</h4>',
+  	));
+  }
 
   /*------------------------------------
 
@@ -84,12 +109,25 @@
 
   /*------------------------------------
 
+                  JETPACK
+
+  --------------------------------------*/
+  function jptweak_remove_share() {
+    remove_filter( 'the_excerpt', 'sharing_display',19 );
+    if ( class_exists( 'Jetpack_Likes' ) ) {
+      remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+    }
+  }
+  add_action( 'loop_start', 'jptweak_remove_share' );
+
+  /*------------------------------------
+
                GOOGLE FONTS
 
   --------------------------------------*/
 
   function jcg_fonts() {
-    wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Raleway:300,600');
+    wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,300');
     wp_enqueue_style( 'googleFonts');
   }
   add_action('wp_print_styles', 'jcg_fonts');

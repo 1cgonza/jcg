@@ -1,88 +1,64 @@
 <?php get_header(); ?>
 
-    <div id="content">
+			<div id="content" class="m-all t-4of5 d-9of10 last-col">
+				<div id="main" role="main">
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-      <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+						<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-        <header class="article-header">
-          <div class="header-meta">
-            <div class="post-date">
-              <p class="post-weekday"><?php the_time('l') ?></p>
-              <p class="post-month-day"><?php the_time('M d') ?></p>
-              <p class="post-year"><?php the_time('Y') ?></p>
-            </div>
+                <header class="article-header">
 
-            <?php the_title( '<h1 class="h2 entry-title cf">', '</a></h1>' ); ?>
-            <div class="vcard author">
-              <p>By: <?php the_author(); ?></p>
-            </div>
-          </div>
-        </header> <?php // end article header ?>
+                  <?php the_title( '<h1 class="entry-title cf">', '</a></h1>' ); ?>
+                  <div class="article-date"><p><?php the_time('l, M d, Y') ?></p></div>
 
-        <div class="post-categories">
-          <?php
-            $args = array(
-            'show_option_all'    => '',
-            'orderby'            => 'ID',
-            'order'              => 'ASC',
-            'style'              => 'list',
-            'show_count'         => 0,
-            'hide_empty'         => 1,
-            'use_desc_for_title' => 1,
-            'hierarchical'       => false,
-            'title_li'           => '',
-            'number'             => null,
-            'echo'               => 0,
-            'depth'              => 0,
-            'current_category'   => 0,
-            'pad_counts'         => 0,
-            'exclude_tree'       => '23',
-            'include'            => '',
-            'taxonomy'           => 'category',
-            'walker'             => null
-          );
-          // Load the categories call to a variable named $categoryList
-          $categoryList = wp_list_categories($args);
-          // Remove parenthesis around count numbers before rendering
-          $categoryList = preg_replace('~\((\d+)\)(?=\s*+<)~', '$1', $categoryList);
-          ?>
-          <ul id="categories-menu">
-            <li class="cat-item cat-item-all"><a href="<?php echo site_url(); ?>">All</a></li>
-            <?php echo $categoryList; ?>
-          </ul>
-        </div> <?php //.post-categories ?>
+                  <div class="vcard author">By: <?php the_author(); ?></div>
+                </header> <?php // end article header ?>
 
-        <section class="entry-content cf">
-          <?php the_content(); ?>
-        </section>
 
-        <footer class="entry-footer">
-          <?php
-            $posttags = get_the_tags();
-            if ($posttags) {
-              foreach($posttags as $tag) {
-                echo '<span class="entry-tag"><a href="' . get_tag_link( $tag->term_id ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $tag->name ) ) . '">'.$tag->name.'</a></span>';
-              }
-            }
-          ?>
-        </footer> <?php // end article footer ?>
+                <section class="entry-content cf">
+                  <?php the_content(); ?>
+                </section>
 
-      </article> <?php // end article ?>
+                <footer class="entry-footer">
 
-      <?php if( get_field('js') ) : ?>
-        <script type="text/javascript">
-          <?php echo get_field('js', $post->ID, false); ?>
-        </script>
-      <?php endif;
+                  <?php
+                    $posttags = get_the_tags();
+                    if ($posttags) {
+                      foreach($posttags as $tag) {
+                        echo '<span class="entry-tag"><a href="' . get_tag_link( $tag->term_id ) . '" title="' . esc_attr( sprintf("View all posts in %s", $tag->name) ) . '">' . $tag->name . '</a></span>';
+                      }
+                    }
+                  ?>
 
-    endwhile; else :
-      get_template_part('templates/content', 'error');
-    endif;
+                </footer> <?php // end article footer ?>
 
-    comments_template(); ?>
+              </article> <?php // end article ?>
 
-    </div> <?php // #content ?>
+              <?php if( get_field('js') ): ?>
+                <script type="text/javascript">
+                  <?php echo get_field('js', $post->ID, false); ?>
+                </script>
+              <?php endif; ?>
+
+					<?php endwhile; else : ?>
+
+						<article id="post-not-found" class="hentry cf">
+							<header class="article-header">
+								<h1><?php _e( 'Oops, Post Not Found!', 'jcgtheme' ); ?></h1>
+							</header>
+							<section class="entry-content">
+								<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'jcgtheme' ); ?></p>
+							</section>
+							<footer class="article-footer">
+								<p><?php _e( 'This is the error message in the single.php template.', 'jcgtheme' ); ?></p>
+							</footer>
+						</article>
+					<?php endif; ?>
+
+					<?php comments_template(); ?>
+				</div>
+
+			</div>
 
 <?php get_footer(); ?>

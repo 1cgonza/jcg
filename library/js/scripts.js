@@ -1,4 +1,25 @@
 /*
+ * IE8 ployfill for GetComputed Style (for Responsive Script below)
+ * If you don't want to support IE8, you can just remove this.
+*/
+if (!window.getComputedStyle) {
+  window.getComputedStyle = function(el, pseudo) {
+    this.el = el;
+    this.getPropertyValue = function(prop) {
+      var re = /(\-([a-z]){1})/g;
+      if (prop == 'float') prop = 'styleFloat';
+      if (re.test(prop)) {
+        prop = prop.replace(re, function () {
+          return arguments[2].toUpperCase();
+        });
+      }
+      return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+    }
+    return this;
+  }
+}
+
+/*
  * Get Viewport Dimensions
  * returns object with viewport dimensions to match css in width and height properties
  * ( source: http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript )
@@ -83,19 +104,83 @@ function loadGravatars() {
       jQuery(this).attr('src',jQuery(this).attr('data-gravatar'));
     });
 	}
-} // end function
+}
 
-
-/*
- * Put all your regular jQuery in here.
-*/
 jQuery(document).ready(function($) {
-
-  /*
-   * Let's fire off the gravatar function
-   * You can remove this if you don't need it
-  */
   loadGravatars();
 
+  /*===============================
+  =            GALLERY            =
+  ===============================*/
+  var windowHeight = window.innerHeight;
+  var containerW;
 
-}); /* end of as page load scripts */
+  function loadImage(path, height, target, containerW) {
+    $('<img src="'+ path +'">').load(function() {
+      $(this).height(height).css('opacity', '0').appendTo(target);
+
+      var imgWidth = $(this).width();
+
+      if (imgWidth < containerW) {
+        $(this).fadeTo('slow', 1);
+      } else {
+        $(this).height('auto');
+        $(this).width('100%');
+        $(this).fadeTo('slow', 1);
+      }
+
+    });
+  }
+
+  /*==========  SETUP GALLERY  ==========*/
+  $('.jcg-gallery').each(function(index) {
+    var firstImg = $(this).children('a').first();
+    var gallerySize = $(this).children('a').length;
+    var galleryClass = 'jcg-gallery-' + index;
+    $(this).css('height', windowHeight);
+    $(this).prepend('<div class="jcg-loading-image">loading</div>');
+    $(this).prepend('<div class="' + galleryClass + ' jcg-gallery-image-container"></div>');
+
+    containerW = $('.' + galleryClass).width();
+
+    firstImg.addClass('current');
+
+    /*==========  SETUP THUMBNAILS  ==========*/
+    $('.jcg-gallery a').each(function() {
+      var thumbSize = windowHeight / gallerySize | 0;
+      var borderW = 3;
+      var gap = 5;
+      $(this).width(thumbSize - (borderW * 2) - gap);
+      // if ( !$(this).hasClass('current') ) {
+      //   $(this).css('border', borderW + 'px solid');
+      // }
+    });
+
+    loadImage(firstImg.attr('href'), windowHeight, '.' + galleryClass, containerW);
+
+    /*==========  MOUSE EVENTS  ==========*/
+    $(this).children('a').on('click', function(event) {
+      event.preventDefault();
+      $(this).parent().children('a').removeClass(); // TODO: change this so it only applies to this specific gallery.
+      $(this).addClass('current');
+      $('.' + galleryClass).empty();
+
+      //check again just in case
+      windowHeight = window.innerHeight;
+      containerW = $('.' + galleryClass).width();
+      $(this).parent().css('height', windowHeight);
+
+      var galleryId = $(this).parent().attr('id');
+
+      $('html, body').animate({
+        scrollTop: $('#' + galleryId).offset().top
+      }, 200);
+
+      var imgPath = $(this).attr('href');
+      loadImage(imgPath, windowHeight, '.' + galleryClass, containerW);
+    });
+  });
+
+  /*-----  End of GALLERY  ------*/
+
+});
