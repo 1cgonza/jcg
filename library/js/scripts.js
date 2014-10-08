@@ -117,6 +117,8 @@ jQuery(document).ready(function($) {
 
   function loadImage(path, height, target, containerW) {
     $('<img src="'+ path +'">').load(function() {
+      //Make sure the container is empty so we only display one image at a time.
+      $(this).parent().empty();
       $(this).height(height).css('opacity', '0').appendTo(target);
 
       var imgWidth = $(this).width();
@@ -134,14 +136,15 @@ jQuery(document).ready(function($) {
 
   /*==========  SETUP GALLERY  ==========*/
   $('.jcg-gallery').each(function(index) {
-    var firstImg = $(this).children('a').first();
-    var gallerySize = $(this).children('a').length;
-    var galleryClass = 'jcg-gallery-' + index;
+    var firstImg     = $(this).children('a').first();
+    var gallerySize  = $(this).children('a').length;
+    var galleryClass = '.jcg-gallery-' + index;
+
     $(this).css('height', windowHeight);
     $(this).prepend('<div class="jcg-loading-image">loading</div>');
-    $(this).prepend('<div class="' + galleryClass + ' jcg-gallery-image-container"></div>');
+    $(this).prepend('<div class="' + 'jcg-gallery-' + index + ' jcg-gallery-image-container"></div>');
 
-    containerW = $('.' + galleryClass).width();
+    containerW = $(galleryClass).width();
 
     firstImg.addClass('current');
 
@@ -156,18 +159,18 @@ jQuery(document).ready(function($) {
       // }
     });
 
-    loadImage(firstImg.attr('href'), windowHeight, '.' + galleryClass, containerW);
+    loadImage(firstImg.attr('href'), windowHeight, galleryClass, containerW);
 
     /*==========  MOUSE EVENTS  ==========*/
     $(this).children('a').on('click', function(event) {
       event.preventDefault();
-      $(this).parent().children('a').removeClass(); // TODO: change this so it only applies to this specific gallery.
+      $(this).parent().children('a').removeClass();
       $(this).addClass('current');
-      $('.' + galleryClass).empty();
+      $(galleryClass).empty();
 
       //check again just in case
       windowHeight = window.innerHeight;
-      containerW = $('.' + galleryClass).width();
+      containerW = $(galleryClass).width();
       $(this).parent().css('height', windowHeight);
 
       var galleryId = $(this).parent().attr('id');
@@ -177,7 +180,7 @@ jQuery(document).ready(function($) {
       }, 200);
 
       var imgPath = $(this).attr('href');
-      loadImage(imgPath, windowHeight, '.' + galleryClass, containerW);
+      loadImage(imgPath, windowHeight, galleryClass, containerW);
     });
   });
 
