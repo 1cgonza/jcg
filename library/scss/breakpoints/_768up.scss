@@ -139,11 +139,11 @@ CONTENT
 	box-sizing: border-box;
 
 	#main, .sidebar{
-		display: table-cell;
+		// display: table-cell;
 	}
 }
 
-.entry-content {
+.entry-content, .mce-content-body {
 	font-size: 1.3em;
 	p {
 		width: 70%;
@@ -152,10 +152,6 @@ CONTENT
 
 .commentlist {
 	width: 70%;
-}
-img.jcg-fullwidth{
-	width: 100%;
-	height: auto;
 }
 
 .jcg-gallery {

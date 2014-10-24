@@ -135,17 +135,17 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 /* entry content */
-.entry-content {
+.entry-content, .mce-content-body {
   /* at this larger size, we can start to align images */ }
-  .entry-content .alignleft, .entry-content img.alignleft {
+  .entry-content .alignleft, .entry-content img.alignleft, .mce-content-body .alignleft, .mce-content-body img.alignleft {
     margin-right: 1.5em;
     display: inline;
     float: left; }
-  .entry-content .alignright, .entry-content img.alignright {
+  .entry-content .alignright, .entry-content img.alignright, .mce-content-body .alignright, .mce-content-body img.alignright {
     margin-left: 1.5em;
     display: inline;
     float: right; }
-  .entry-content .aligncenter, .entry-content img.aligncenter {
+  .entry-content .aligncenter, .entry-content img.aligncenter, .mce-content-body .aligncenter, .mce-content-body img.aligncenter {
     margin-right: auto;
     margin-left: auto;
     display: block;
@@ -256,20 +256,14 @@ CONTENT
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-  #content #main, #content .sidebar {
-    display: table-cell; }
 
-.entry-content {
+.entry-content, .mce-content-body {
   font-size: 1.3em; }
-  .entry-content p {
+  .entry-content p, .mce-content-body p {
     width: 70%; }
 
 .commentlist {
   width: 70%; }
-
-img.jcg-fullwidth {
-  width: 100%;
-  height: auto; }
 
 .jcg-gallery {
   background-color: #1f1f1f;

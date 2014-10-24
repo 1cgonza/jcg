@@ -139,7 +139,9 @@ jQuery(document).ready(function($) {
     var firstImg     = $(this).children('a').first();
     var gallerySize  = $(this).children('a').length;
     var galleryClass = '.jcg-gallery-' + index;
+    var galleryID    = 'jcg-gallery-container-' + index;
 
+    $(this).attr('id', galleryID);
     $(this).css('height', windowHeight);
     $(this).prepend('<div class="jcg-loading-image">loading</div>');
     $(this).prepend('<div class="' + 'jcg-gallery-' + index + ' jcg-gallery-image-container"></div>');

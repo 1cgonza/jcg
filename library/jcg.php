@@ -139,6 +139,8 @@ THEME SUPPORT
 
 // Adding WP 3+ Functions & Theme Support
 function jcg_theme_support() {
+  // this hooks the editor-styles.css
+  add_editor_style();
 
 	// wp thumbnails (sizes handled in functions.php)
 	add_theme_support( 'post-thumbnails' );
@@ -146,36 +148,8 @@ function jcg_theme_support() {
 	// default thumb size
 	set_post_thumbnail_size(125, 125, true);
 
-	// wp custom background (thx to @bransonwerner for update)
-	add_theme_support( 'custom-background',
-	    array(
-	    'default-image' => '',    // background image default
-	    'default-color' => '',    // background color default (dont add the #)
-	    'wp-head-callback' => '_custom_background_cb',
-	    'admin-head-callback' => '',
-	    'admin-preview-callback' => ''
-	    )
-	);
-
 	// rss thingy
 	add_theme_support('automatic-feed-links');
-
-	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
-
-	// adding post format support
-	add_theme_support( 'post-formats',
-		array(
-			'aside',             // title less blurb
-			'gallery',           // gallery of images
-			'link',              // quick link to other site
-			'image',             // an image
-			'quote',             // a quick quote
-			'status',            // a Facebook like status update
-			'video',             // video
-			'audio',             // audio
-			'chat'               // chat transcript
-		)
-	);
 
 	// wp menus
 	add_theme_support( 'menus' );
@@ -186,6 +160,42 @@ function jcg_theme_support() {
 			'main-nav' => __( 'The Main Menu', 'jcgtheme' ),   // main nav in header
 		)
 	);
+  /*===========================================
+  =            FORMATS POST EDITOR            =
+  ===========================================*/
+  // Callback function to insert 'styleselect' into the $buttons array
+  function oss_mce_buttons_2( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+  }
+  // Register our callback to the appropriate filter
+  add_filter('mce_buttons_2', 'oss_mce_buttons_2');
+
+  function jcg_mce_before_init_insert_formats( $init_array ) {
+    // Define the style_formats array
+    $style_formats = array(
+      // Each array child is a format with it's own settings
+      array(
+        'title' => 'JCG Gallery',
+        'block' => 'div',
+        'classes' => 'jcg-gallery',
+        'wrapper' => true,
+      ),
+      array(
+        'title' => 'Full Width',
+        'block' => 'div',
+        'classes' => 'jcg-fullwidth',
+        'wrapper' => true,
+      )
+    );
+    // Insert the array, JSON ENCODED, into 'style_formats'
+    $init_array['style_formats'] = json_encode( $style_formats );
+    return $init_array;
+  }
+  // Attach callback to 'tiny_mce_before_init'
+  add_filter( 'tiny_mce_before_init', 'jcg_mce_before_init_insert_formats' );
+
+  /*-----  End of FORMATS POST EDITOR  ------*/
 
   // JETPACK INFINITE SCROLL
   add_theme_support( 'infinite-scroll', array(
@@ -335,7 +345,9 @@ RANDOM CLEANUP ITEMS
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 function jcg_filter_ptags_on_images($content){
-   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+  $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+  $content = preg_replace('/<p>\s*(<span .*>*.<\/span>)\s*<\/p>/iU', '\1', $content);
+  return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 }
 
 // This removes the annoying […] to a Read More link

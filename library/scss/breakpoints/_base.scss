@@ -5,13 +5,13 @@ Author: Juan Camilo Gonz&aacute;lez
 Stylesheet: Base Mobile Stylesheet
 
 ******************************************************************/
-
+$wrap: 80%;
+$wrapW: 90%;
 /*********************
 GENERAL STYLES
 *********************/
 html, body{
 	width: 100%;
-	height: 100%;
 }
 body {
 	font-family: $sans-serif;
@@ -34,6 +34,14 @@ body {
 .no-margin{
 	margin: 0;
 	padding: 0;
+}
+
+.jcg-fullwidth, .jcg-fullwidth p {
+	width: 100%!important;
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 /*********************
@@ -600,11 +608,11 @@ table{
 
 
 		/* entry content */
-		.entry-content {
+		.entry-content, .mce-content-body {
 			padding: 0;
 			font-size: 1.1em;
 			p {
-				width: 80%;
+				width: $wrap;
 		    margin: 0 auto 1em auto;
 		    line-height: 1.6;
 		    &.wp-caption-text{
@@ -652,12 +660,13 @@ table{
 			}
 
 			blockquote {
-				margin: 2em;
-				padding: 1em;
+				margin: 0 auto;
+				padding: 2em 0;
 				font-style: italic;
 				color: lighten($black, 30%);
+				width: $wrapW;
 				p {
-					width: 80%;
+					width: 100%;
 					font-size: 1.3em;
 				}
 				&:before {}
@@ -748,6 +757,12 @@ table{
 	// the tag output
 	.tags {
 		margin: 0;
+	}
+
+	/*==========  VIDEO  ==========*/
+	video {
+    width: 100% !important;
+    height: auto !important;
 	}
 
 /******************************************************************
@@ -1065,45 +1080,6 @@ COMMENT FORM STYLES
 		margin: 0 20px 1.1em;
 	}
 
-/*********************
-SIDEBARS & ASIDES
-*********************/
-
-.sidebar {
-	background-color: $black;
-}
-
-	.widgettitle {}
-
-	.widget {
-
-		ul {
-
-			li {
-
-				&:first-child {}
-
-				&:last-child {}
-
-				a {}
-
-				/* deep nesting */
-				ul {}
-
-			}
-
-		}
-
-	}
-
-	.no-widgets {
-		background-color: $white;
-		padding: 1.5em;
-		text-align: center;
-		border: 1px solid $border-color;
-		border-radius: 2px;
-		margin-bottom: 1.5em;
-	}
 
 /*********************
 FOOTER STYLES

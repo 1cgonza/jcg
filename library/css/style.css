@@ -1236,8 +1236,7 @@ Stylesheet: Base Mobile Stylesheet
 GENERAL STYLES
 *********************/
 html, body {
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 body {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1260,6 +1259,12 @@ body {
 .no-margin {
   margin: 0;
   padding: 0; }
+
+.jcg-fullwidth, .jcg-fullwidth p {
+  width: 100% !important; }
+  .jcg-fullwidth img, .jcg-fullwidth p img {
+    width: 100%;
+    height: auto; }
 
 /*********************
 LAYOUT & GRID STYLES
@@ -1635,7 +1640,7 @@ table {
   margin: 4em 0; }
 
 /* entry content */
-.entry-content {
+.entry-content, .mce-content-body {
   padding: 0;
   font-size: 1.1em;
   /*
@@ -1644,50 +1649,51 @@ table {
   and floating images at the next breakpoint,
   but it's up to you. Feel free to change it up.
   */ }
-  .entry-content p {
+  .entry-content p, .mce-content-body p {
     width: 80%;
     margin: 0 auto 1em auto;
     line-height: 1.6; }
-    .entry-content p.wp-caption-text {
+    .entry-content p.wp-caption-text, .mce-content-body p.wp-caption-text {
       font-size: 0.8em;
       width: 100%;
       margin: 0 auto;
       padding: 1em 2em; }
-  .entry-content table caption {
+  .entry-content table caption, .mce-content-body table caption {
     margin: 0 0 7px;
     font-size: 0.75em;
     color: #9fa6b4;
     text-transform: uppercase;
     letter-spacing: 1px; }
-  .entry-content tr {
+  .entry-content tr, .mce-content-body tr {
     border-bottom: 1px dotted; }
-    .entry-content tr:nth-child(even) {
+    .entry-content tr:nth-child(even), .mce-content-body tr:nth-child(even) {
       background-color: #f8f9fa; }
-  .entry-content td {
+  .entry-content td, .mce-content-body td {
     padding: 7px;
     border-right: 1px dotted; }
-    .entry-content td:last-child {
+    .entry-content td:last-child, .mce-content-body td:last-child {
       border-right: 0; }
-  .entry-content th {
+  .entry-content th, .mce-content-body th {
     background-color: #f8f9fa;
     border-bottom: 1px dotted #eaedf2;
     border-right: 1px dotted #eaedf2; }
-    .entry-content th:last-child {
+    .entry-content th:last-child, .mce-content-body th:last-child {
       border-right: 0; }
-  .entry-content blockquote {
-    margin: 2em;
-    padding: 1em;
+  .entry-content blockquote, .mce-content-body blockquote {
+    margin: 0 auto;
+    padding: 2em 0;
     font-style: italic;
-    color: #6c6c6c; }
-    .entry-content blockquote p {
-      width: 80%;
+    color: #6c6c6c;
+    width: 90%; }
+    .entry-content blockquote p, .mce-content-body blockquote p {
+      width: 100%;
       font-size: 1.3em; }
-  .entry-content dd {
+  .entry-content dd, .mce-content-body dd {
     margin-left: 0;
     font-size: 0.9em;
     color: #787878;
     margin-bottom: 1.5em; }
-  .entry-content img {
+  .entry-content img, .mce-content-body img {
     margin: 0 0 1.5em 0;
     max-width: 100%;
     height: auto; }
@@ -1695,10 +1701,14 @@ table {
   .entry-content .size-full,
   .entry-content .size-large,
   .entry-content .size-medium,
-  .entry-content .size-thumbnail {
+  .entry-content .size-thumbnail, .mce-content-body .size-auto,
+  .mce-content-body .size-full,
+  .mce-content-body .size-large,
+  .mce-content-body .size-medium,
+  .mce-content-body .size-thumbnail {
     max-width: 100%;
     height: auto; }
-  .entry-content pre {
+  .entry-content pre, .mce-content-body pre {
     background: #1f1f1f;
     color: #f8f9fa;
     font-size: 0.9em;
@@ -1722,6 +1732,11 @@ table {
 /* gallery caption styles */
 .tags {
   margin: 0; }
+
+/*==========  VIDEO  ==========*/
+video {
+  width: 100% !important;
+  height: auto !important; }
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -1902,23 +1917,6 @@ COMMENT FORM STYLES
   margin: 0 20px 1.1em; }
 
 /*********************
-SIDEBARS & ASIDES
-*********************/
-.sidebar {
-  background-color: #1f1f1f; }
-
-.widget ul li {
-  /* deep nesting */ }
-
-.no-widgets {
-  background-color: white;
-  padding: 1.5em;
-  text-align: center;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  margin-bottom: 1.5em; }
-
-/*********************
 FOOTER STYLES
 *********************/
 .footer {
@@ -1982,17 +1980,17 @@ tweeners.
   POSTS & CONTENT STYLES
   *********************/
   /* entry content */
-  .entry-content {
+  .entry-content, .mce-content-body {
     /* at this larger size, we can start to align images */ }
-    .entry-content .alignleft, .entry-content img.alignleft {
+    .entry-content .alignleft, .entry-content img.alignleft, .mce-content-body .alignleft, .mce-content-body img.alignleft {
       margin-right: 1.5em;
       display: inline;
       float: left; }
-    .entry-content .alignright, .entry-content img.alignright {
+    .entry-content .alignright, .entry-content img.alignright, .mce-content-body .alignright, .mce-content-body img.alignright {
       margin-left: 1.5em;
       display: inline;
       float: right; }
-    .entry-content .aligncenter, .entry-content img.aligncenter {
+    .entry-content .aligncenter, .entry-content img.aligncenter, .mce-content-body .aligncenter, .mce-content-body img.aligncenter {
       margin-right: auto;
       margin-left: auto;
       display: block;
@@ -2110,20 +2108,14 @@ you can add resource intensive styles.
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
-    #content #main, #content .sidebar {
-      display: table-cell; }
 
-  .entry-content {
+  .entry-content, .mce-content-body {
     font-size: 1.3em; }
-    .entry-content p {
+    .entry-content p, .mce-content-body p {
       width: 70%; }
 
   .commentlist {
     width: 70%; }
-
-  img.jcg-fullwidth {
-    width: 100%;
-    height: auto; }
 
   .jcg-gallery {
     background-color: #1f1f1f;
@@ -2254,17 +2246,19 @@ This is for the larger monitors and possibly full screen viewers.
   table {
     font-size: 100%; }
 
-  .entry-content h2 {
+  .entry-content h2, .mce-content-body h2 {
     text-align: center;
     border-bottom: 1px dotted;
     width: 35%;
     margin: 0 auto 1em auto;
     padding-bottom: 0.3em; }
-  .entry-content p {
+  .entry-content p, .mce-content-body p {
     width: 50%; }
+  .entry-content blockquote, .mce-content-body blockquote {
+    width: 60%; }
 
   .commentlist {
-    width: 50%; }
+    width: 60%; }
 
   .single .entry-footer {
     text-align: center; }

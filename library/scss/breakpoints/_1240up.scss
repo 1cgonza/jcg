@@ -5,7 +5,8 @@ Author: Juan Camilo Gonz&aacute;lez
 Stylesheet: Super Large Monitor Stylesheet
 
 ******************************************************************/
-
+$wrap: 50%;
+$wrapW: 60%;
 
 /*********************
 		FILMS
@@ -14,7 +15,7 @@ table{
 	font-size: 100%;
 }
 
-.entry-content {
+.entry-content, .mce-content-body {
 	h2 {
     text-align: center;
     border-bottom: 1px dotted;
@@ -23,11 +24,14 @@ table{
     padding-bottom: 0.3em;
   }
   p {
-		width: 50%;
+		width: $wrap;
 	}
+  blockquote {
+    width: $wrapW;
+  }
 }
 .commentlist {
-  width: 50%;
+  width: $wrapW;
 }
 .single{
    .entry-footer {
@@ -36,6 +40,6 @@ table{
 }
 
 .comment-respond {
-	width: 60%;
+	width: $wrapW;
 	margin: 0 auto;
 }

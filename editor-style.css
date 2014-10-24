@@ -1,0 +1,6 @@
+@import url( 'library/css/style.css' );
+
+.jcg-gallery a {
+  display: inline-block;
+  max-width: 100%;
+}
