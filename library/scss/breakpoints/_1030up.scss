@@ -24,7 +24,9 @@ $wrapHalf: 25%;
 	width: $wrap;
 }
 
-iframe {
-  // padding: 1em $wrapHalf;
-  height: 500px;
+.hentry {
+	iframe {
+	  // padding: 1em $wrapHalf;
+	  height: 500px;
+	}
 }

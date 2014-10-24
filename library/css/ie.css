@@ -102,68 +102,6 @@ whatever you use in here.
 Site Name: Juan Camilo Gonz&aacute;lez
 Author: Juan Camilo Gonz&aacute;lez
 
-Stylesheet: 481px and Up Stylesheet
-
-******************************************************************/
-/*
-IMPORTANT NOTE ABOUT SASS 3.3 & UP
-You can't use @extend within media queries
-anymore, so just be aware that if you drop
-them in here, they won't work.
-*/
-/*********************
-NAVIGATION STYLES
-*********************/
-.menu {
-  /* end .menu ul */ }
-  .menu ul {
-    /* end .menu ul li */
-    /* highlight current page */
-    /* end current highlighters */ }
-    .menu ul li {
-      /*
-      plan your menus and drop-downs wisely.
-      */ }
-      .menu ul li a {
-        /*
-        you can use hover styles here even though this size
-        has the possibility of being a mobile device.
-        */ }
-
-/* end .menu */
-/*********************
-POSTS & CONTENT STYLES
-*********************/
-/* entry content */
-.entry-content, .mce-content-body {
-  /* at this larger size, we can start to align images */ }
-  .entry-content .alignleft, .entry-content img.alignleft, .mce-content-body .alignleft, .mce-content-body img.alignleft {
-    margin-right: 1.5em;
-    display: inline;
-    float: left; }
-  .entry-content .alignright, .entry-content img.alignright, .mce-content-body .alignright, .mce-content-body img.alignright {
-    margin-left: 1.5em;
-    display: inline;
-    float: right; }
-  .entry-content .aligncenter, .entry-content img.aligncenter, .mce-content-body .aligncenter, .mce-content-body img.aligncenter {
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-    clear: both; }
-
-/* end .entry-content */
-/*********************
-FOOTER STYLES
-*********************/
-/*
-check your menus here. do they look good?
-do they need tweaking?
-*/
-/* end .footer-links */
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
 Stylesheet: Tablet & Small Desktop Stylesheet
 
 ******************************************************************/
@@ -296,7 +234,7 @@ CONTENT
       border: 3px dotted #c0b06f;
       cursor: default; }
 
-iframe {
+.hentry iframe {
   width: 100%;
   padding: 0;
   height: 400px;
@@ -305,8 +243,10 @@ iframe {
   background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
   background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
   background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
-  iframe.jcg-fullwidth {
+  .hentry iframe.jcg-fullwidth {
     padding: 0 !important; }
+.hentry img {
+  padding: 0 15%; }
 
 /*********************
 		    FILMS
@@ -382,7 +322,7 @@ Stylesheet: Desktop Stylsheet
 #contact-wrapper {
   width: 50%; }
 
-iframe {
+.hentry iframe {
   height: 500px; }
 
 /*

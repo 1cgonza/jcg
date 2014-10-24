@@ -1264,7 +1264,11 @@ body {
   width: 100% !important; }
   .jcg-fullwidth img, .jcg-fullwidth p img {
     width: 100%;
-    height: auto; }
+    height: auto;
+    padding: 0 !important; }
+
+.jcg-gallery img {
+  padding: 0 !important; }
 
 /*********************
 LAYOUT & GRID STYLES
@@ -1499,7 +1503,8 @@ POSTS & CONTENT STYLES
             opacity: 0.8; }
         #content #posts-list .hentry .post-image img {
           width: 100%;
-          height: auto; }
+          height: auto;
+          padding: 0 !important; }
       #content #posts-list .hentry .entry-title {
         width: 40%;
         display: inline-block;
@@ -1526,7 +1531,7 @@ POSTS & CONTENT STYLES
           color: rgba(255, 255, 255, 0.8); }
 
 /*********************
-	   SINGLE POST
+     SINGLE POST
 *********************/
 .single-post .article-header {
   text-align: center;
@@ -1548,17 +1553,18 @@ POSTS & CONTENT STYLES
   text-align: center; }
 
 /*********************
-	  INFINITE SCROLL
+    INFINITE SCROLL
 *********************/
 #infinite-footer {
   display: none; }
 
-iframe {
+.hentry iframe {
   width: 100%;
-  height: 350px; }
+  height: 350px;
+  margin-bottom: 2em; }
 
 /*********************
-		    FILMS
+        FILMS
 *********************/
 .film-header {
   line-height: 0;
@@ -1629,7 +1635,7 @@ table {
       vertical-align: middle; }
 
 /*********************
-		CONTACT
+    CONTACT
 *********************/
 #contact-wrapper {
   width: 90%;
@@ -1663,6 +1669,8 @@ table {
       width: 100%;
       margin: 0 auto;
       padding: 1em 2em; }
+  .entry-content img, .mce-content-body img {
+    padding: 0; }
   .entry-content table caption, .mce-content-body table caption {
     margin: 0 0 7px;
     font-size: 0.75em;
@@ -2084,7 +2092,7 @@ you can add resource intensive styles.
         border: 3px dotted #c0b06f;
         cursor: default; }
 
-  iframe {
+  .hentry iframe {
     width: 100%;
     padding: 0;
     height: 400px;
@@ -2093,8 +2101,10 @@ you can add resource intensive styles.
     background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
-    iframe.jcg-fullwidth {
+    .hentry iframe.jcg-fullwidth {
       padding: 0 !important; }
+  .hentry img {
+    padding: 0 15%; }
 
   /*********************
   		    FILMS
@@ -2177,7 +2187,7 @@ you can add resource intensive styles.
   #contact-wrapper {
     width: 50%; }
 
-  iframe {
+  .hentry iframe {
     height: 500px; } }
 /*********************
 LARGE VIEWING SIZE
@@ -2218,9 +2228,11 @@ This is for the larger monitors and possibly full screen viewers.
     width: 60%;
     margin: 0 auto; }
 
-  iframe {
+  .hentry iframe {
     padding: 0 25%;
-    height: 500px; } }
+    height: 500px; }
+  .hentry img {
+    padding: 0 25%; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with

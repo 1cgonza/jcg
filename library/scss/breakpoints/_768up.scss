@@ -7,7 +7,7 @@ Stylesheet: Tablet & Small Desktop Stylesheet
 ******************************************************************/
 $wrap: 70%;
 $wrapW: 80%;
-$wrapHalf: 35%;
+$wrapHalf: 15%;
 
 /*********************
 HEADER STYLES
@@ -195,18 +195,23 @@ CONTENT
 	}
 }
 
-iframe {
-  width: 100%;
-  padding: 0;
-  height: 400px;
-  background: #000;
-  background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
-  background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
-  background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
-  background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
+.hentry {
+	iframe {
+	  width: 100%;
+	  padding: 0;
+	  height: 400px;
+	  background: #000;
+	  background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
+	  background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
+	  background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
+	  background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
 
-  &.jcg-fullwidth {
-    padding: 0!important;
+	  &.jcg-fullwidth {
+	    padding: 0!important;
+	  }
+	}
+	img {
+    padding: 0 $wrapHalf;
   }
 }
 

@@ -45,7 +45,12 @@ table{
 	margin: 0 auto;
 }
 
-iframe {
-  padding: 0 $wrapHalf;
-  height: 500px;
+.hentry {
+  iframe {
+    padding: 0 $wrapHalf;
+    height: 500px;
+  }
+  img {
+    padding: 0 $wrapHalf;
+  }
 }
