@@ -7,6 +7,7 @@ Stylesheet: Super Large Monitor Stylesheet
 ******************************************************************/
 $wrap: 50%;
 $wrapW: 60%;
+$wrapHalf: 25%;
 
 /*********************
 		FILMS
@@ -42,4 +43,9 @@ table{
 .comment-respond {
 	width: $wrapW;
 	margin: 0 auto;
+}
+
+iframe {
+  padding: 0 $wrapHalf;
+  height: 500px;
 }

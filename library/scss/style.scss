@@ -63,18 +63,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 // styles in base.scss
 @import "breakpoints/base";
 
-/*********************
-LARGER MOBILE DEVICES
-This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
-*********************/
-@media only screen and (min-width: 481px) {
-
-	// styles in 481up.scss
-	@import "breakpoints/481up";
-
-} // end of media query
 
 /*********************
 TABLET & SMALLER LAPTOPS

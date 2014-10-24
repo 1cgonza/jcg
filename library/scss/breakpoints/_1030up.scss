@@ -5,6 +5,10 @@ Author: Juan Camilo Gonz&aacute;lez
 Stylesheet: Desktop Stylsheet
 
 ******************************************************************/
+$wrap: 50%;
+$wrapW: 60%;
+$wrapHalf: 25%;
+
 .film-header{
 	#video-container{
 		iframe{
@@ -17,5 +21,10 @@ Stylesheet: Desktop Stylsheet
 		CONTACT
 *********************/
 #contact-wrapper{
-	width: 50%;
+	width: $wrap;
+}
+
+iframe {
+  // padding: 1em $wrapHalf;
+  height: 500px;
 }

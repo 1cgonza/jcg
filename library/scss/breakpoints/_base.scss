@@ -7,6 +7,9 @@ Stylesheet: Base Mobile Stylesheet
 ******************************************************************/
 $wrap: 80%;
 $wrapW: 90%;
+$wrapHalf: 40%;
+
+
 /*********************
 GENERAL STYLES
 *********************/
@@ -488,6 +491,12 @@ POSTS & CONTENT STYLES
 #infinite-footer{
 	display: none;
 }
+
+
+iframe {
+	width: 100%;
+  height: 350px;
+}
 /*********************
 		    FILMS
 *********************/
@@ -515,6 +524,7 @@ POSTS & CONTENT STYLES
 			height: 100%;
 			max-width: 812px;
 			z-index: 7999;
+			padding: 0!important;
 		}
 	}
 }

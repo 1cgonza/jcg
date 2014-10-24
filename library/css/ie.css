@@ -296,6 +296,18 @@ CONTENT
       border: 3px dotted #c0b06f;
       cursor: default; }
 
+iframe {
+  width: 100%;
+  padding: 0;
+  height: 400px;
+  background: #000;
+  background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
+  background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
+  background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
+  background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
+  iframe.jcg-fullwidth {
+    padding: 0 !important; }
+
 /*********************
 		    FILMS
 *********************/
@@ -369,6 +381,9 @@ Stylesheet: Desktop Stylsheet
 *********************/
 #contact-wrapper {
   width: 50%; }
+
+iframe {
+  height: 500px; }
 
 /*
 you can call the larger styles if you want, but there's really no need

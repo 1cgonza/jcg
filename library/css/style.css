@@ -1553,6 +1553,10 @@ POSTS & CONTENT STYLES
 #infinite-footer {
   display: none; }
 
+iframe {
+  width: 100%;
+  height: 350px; }
+
 /*********************
 		    FILMS
 *********************/
@@ -1575,7 +1579,8 @@ POSTS & CONTENT STYLES
       width: 100%;
       height: 100%;
       max-width: 812px;
-      z-index: 7999; }
+      z-index: 7999;
+      padding: 0 !important; }
 
 .film-description {
   text-align: center;
@@ -1937,75 +1942,6 @@ view.
 */
 /* end .footer-links */
 /*********************
-LARGER MOBILE DEVICES
-This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
-*********************/
-@media only screen and (min-width: 481px) {
-  /******************************************************************
-  Site Name: Juan Camilo Gonz&aacute;lez
-  Author: Juan Camilo Gonz&aacute;lez
-  
-  Stylesheet: 481px and Up Stylesheet
-  
-  ******************************************************************/
-  /*
-  IMPORTANT NOTE ABOUT SASS 3.3 & UP
-  You can't use @extend within media queries
-  anymore, so just be aware that if you drop
-  them in here, they won't work.
-  */
-  /*********************
-  NAVIGATION STYLES
-  *********************/
-  .menu {
-    /* end .menu ul */ }
-    .menu ul {
-      /* end .menu ul li */
-      /* highlight current page */
-      /* end current highlighters */ }
-      .menu ul li {
-        /*
-        plan your menus and drop-downs wisely.
-        */ }
-        .menu ul li a {
-          /*
-          you can use hover styles here even though this size
-          has the possibility of being a mobile device.
-          */ }
-
-  /* end .menu */
-  /*********************
-  POSTS & CONTENT STYLES
-  *********************/
-  /* entry content */
-  .entry-content, .mce-content-body {
-    /* at this larger size, we can start to align images */ }
-    .entry-content .alignleft, .entry-content img.alignleft, .mce-content-body .alignleft, .mce-content-body img.alignleft {
-      margin-right: 1.5em;
-      display: inline;
-      float: left; }
-    .entry-content .alignright, .entry-content img.alignright, .mce-content-body .alignright, .mce-content-body img.alignright {
-      margin-left: 1.5em;
-      display: inline;
-      float: right; }
-    .entry-content .aligncenter, .entry-content img.aligncenter, .mce-content-body .aligncenter, .mce-content-body img.aligncenter {
-      margin-right: auto;
-      margin-left: auto;
-      display: block;
-      clear: both; }
-
-  /* end .entry-content */
-  /*********************
-  FOOTER STYLES
-  *********************/
-  /*
-  check your menus here. do they look good?
-  do they need tweaking?
-  */
-  /* end .footer-links */ }
-/*********************
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
@@ -2148,6 +2084,18 @@ you can add resource intensive styles.
         border: 3px dotted #c0b06f;
         cursor: default; }
 
+  iframe {
+    width: 100%;
+    padding: 0;
+    height: 400px;
+    background: #000;
+    background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
+    background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
+    background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
+    background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
+    iframe.jcg-fullwidth {
+      padding: 0 !important; }
+
   /*********************
   		    FILMS
   *********************/
@@ -2227,7 +2175,10 @@ you can add resource intensive styles.
   		CONTACT
   *********************/
   #contact-wrapper {
-    width: 50%; } }
+    width: 50%; }
+
+  iframe {
+    height: 500px; } }
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
@@ -2265,7 +2216,11 @@ This is for the larger monitors and possibly full screen viewers.
 
   .comment-respond {
     width: 60%;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  iframe {
+    padding: 0 25%;
+    height: 500px; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
