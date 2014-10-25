@@ -1256,20 +1256,6 @@ body {
   min-height: 100%;
   height: 100%; }
 
-.no-margin {
-  margin: 0;
-  padding: 0; }
-
-.jcg-fullwidth, .jcg-fullwidth p {
-  width: 100% !important; }
-  .jcg-fullwidth img, .jcg-fullwidth p img {
-    width: 100%;
-    height: auto;
-    padding: 0 !important; }
-
-.jcg-gallery img {
-  padding: 0 !important; }
-
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -1504,7 +1490,8 @@ POSTS & CONTENT STYLES
         #content #posts-list .hentry .post-image img {
           width: 100%;
           height: auto;
-          padding: 0 !important; }
+          padding: 0 !important;
+          margin: 0 !important; }
       #content #posts-list .hentry .entry-title {
         width: 40%;
         display: inline-block;
@@ -1562,6 +1549,14 @@ POSTS & CONTENT STYLES
   width: 100%;
   height: 350px;
   margin-bottom: 2em; }
+.hentry img {
+  margin: 1.5em 0;
+  width: 100%;
+  height: auto; }
+.hentry .jcg-inline-img img {
+  padding: 0;
+  margin: 0;
+  width: initial !important; }
 
 /*********************
         FILMS
@@ -1648,6 +1643,7 @@ table {
     width: 100% !important; }
 
 .single section {
+  word-wrap: break-word;
   margin: 4em 0; }
 
 /* entry content */
@@ -1928,6 +1924,22 @@ COMMENT FORM STYLES
 /* no comments */
 .nocomments {
   margin: 0 20px 1.1em; }
+
+.no-margin {
+  margin: 0;
+  padding: 0; }
+
+.jcg-fullwidth, .jcg-fullwidth p {
+  width: 100% !important; }
+  .jcg-fullwidth img, .jcg-fullwidth p img {
+    width: 100%;
+    height: auto;
+    padding: 0 !important; }
+
+.jcg-gallery img {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: initial; }
 
 /*********************
 FOOTER STYLES

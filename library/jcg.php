@@ -186,6 +186,12 @@ function jcg_theme_support() {
         'block' => 'div',
         'classes' => 'jcg-fullwidth',
         'wrapper' => true,
+      ),
+      array(
+        'title' => 'Inline Image',
+        'inline' => 'span',
+        'classes' => 'jcg-inline-img',
+        'wrapper' => true,
       )
     );
     // Insert the array, JSON ENCODED, into 'style_formats'
