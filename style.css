@@ -1,17 +1,16 @@
 /******************************************************************
 Theme Name: JCG
 Description: Custom theme for juancgonzalez.com
-Author: Juan Camilo Gonz&aacute;lez
-Author URI: http://www.juancgonzalez.com
-Version: 0.1
-Tags: fluid-layout, responsive-layout, accessibility-ready, microformats
+Author: Juan Camilo Gonzalez
+Author URI: http://juancgonzalez.com/
+Version: 0.2
+Tags: responsive-layout
 
-License: WTFPL
-License URI: http://sam.zoy.org/wtfpl/
+License:            MIT License
+License URI:        http://opensource.org/licenses/MIT
 
 ******************************************************************/
 
-
-.sticky {}          /* DO NOT EDIT THIS */
-.gallery-caption {} /* THESE ARE USELESS */
-.bypostauthor {}    /* THEY ARE ONLY TO KEEP THEME CHECK HAPPY */
+.sticky {}
+.gallery-caption {}
+.bypostauthor{}

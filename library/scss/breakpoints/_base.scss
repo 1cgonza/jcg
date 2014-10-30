@@ -9,7 +9,6 @@ $wrap: 80%;
 $wrapW: 90%;
 $wrapHalf: 40%;
 
-
 /*********************
 GENERAL STYLES
 *********************/
@@ -42,7 +41,6 @@ LAYOUT & GRID STYLES
   width: 90%;
   margin: 0 auto;
 }
-
 /*********************
 LINK STYLES
 *********************/
@@ -710,9 +708,17 @@ table{
       and floating images at the next breakpoint,
       but it's up to you. Feel free to change it up.
       */
-      .alignleft, img.alignleft {}
-      .alignright, img.alignright {}
-      .aligncenter, img.aligncenter {}
+      .alignleft, img.alignleft {
+        float: left;
+      }
+      .alignright, img.alignright {
+        float: right;
+      }
+      .aligncenter, img.aligncenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       .size-auto,
       .size-full,

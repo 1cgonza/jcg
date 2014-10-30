@@ -1706,6 +1706,14 @@ table {
     margin: 0 0 1.5em 0;
     max-width: 100%;
     height: auto; }
+  .entry-content .alignleft, .entry-content img.alignleft, .mce-content-body .alignleft, .mce-content-body img.alignleft {
+    float: left; }
+  .entry-content .alignright, .entry-content img.alignright, .mce-content-body .alignright, .mce-content-body img.alignright {
+    float: right; }
+  .entry-content .aligncenter, .entry-content img.aligncenter, .mce-content-body .aligncenter, .mce-content-body img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
   .entry-content .size-auto,
   .entry-content .size-full,
   .entry-content .size-large,
