@@ -1,10 +1,3 @@
-
-			<!--footer class="footer m-all t-4of5 d-9of10 last-col" role="contentinfo">
-
-					<p class="source-org copyright">&copy; <?php //echo date('Y'); ?> <?php //bloginfo( 'name' ); ?>.</p>
-
-			</footer--> <?php // end footer ?>
-
 		</div> <?php // end #container ?>
 
 		<script>
