@@ -15,7 +15,6 @@
                   <div class="vcard author">By: <?php the_author(); ?></div>
                 </header> <?php // end article header ?>
 
-
                 <section class="entry-content cf">
                   <?php the_content(); ?>
                 </section>
@@ -56,6 +55,38 @@
 						</article>
 					<?php endif; ?>
 
+             <?php
+              $prevPost = get_previous_post();
+              $nextPost = get_next_post();
+
+              $postlinks = '<div class="posts-nav cf">';
+
+              if ($prevPost) {
+                $prevLink  = get_permalink($prevPost->ID);
+                $prevTitle = get_the_title($prevPost->ID);
+                $prevThumb = get_the_post_thumbnail($prevPost->ID, 'jcg-1300x325');
+
+                $postlinks .= '<div class="previous-post-link">';
+                  $postlinks .= '<h3 class="link-title"><a href="' . $prevLink . '" target="_self">' . $prevTitle . '</a></h3>';
+                  $postlinks .= '<a href="' . $prevLink . '" target="_self">' . $prevThumb . '</a>';
+                $postlinks .= '</div>';
+              }
+
+              if ($nextPost) {
+                $nextLink  = get_permalink($nextPost->ID);
+                $nextTitle = get_the_title($nextPost->ID);
+                $nextThumb = get_the_post_thumbnail($nextPost->ID, 'jcg-1300x325');
+
+                $postlinks .= '<div class="next-post-link">';
+                  $postlinks .= '<h3 class="link-title"><a href="' . $nextLink . '" target="_self">' . $nextTitle . '</a></h3>';
+                  $postlinks .= '<a href="' . $nextLink . '" target="_self">' . $nextThumb . '</a>';
+                $postlinks .= '</div>';
+              }
+
+              $postlinks .= '</div>'; // end .posts-nav
+
+              echo $postlinks;
+             ?>
 					<?php comments_template(); ?>
 				</div>
 
