@@ -96,7 +96,7 @@ if ( is_singular('films') ) { // Set post types first because otherwise single i
 
   <body <?php body_class(); ?>>
     <div id="container">
-      <div class="menu m-all t-1of5 d-1of10">
+      <div id="main-sidebar" class="m-all t-1of5 d-1of10">
         <div id="logo">
           <a href="<?php echo home_url(); ?>" rel="nofollow">
             <img src="<?php echo get_template_directory_uri(); ?>/library/images/sisisi-mandala.gif" alt="" />
@@ -106,16 +106,16 @@ if ( is_singular('films') ) { // Set post types first because otherwise single i
         <nav role="navigation">
           <?php wp_nav_menu(array(
             'container'       => false,
-            'container_class' => 'menu cf',                           // class of container (should you choose to use it)
-            'menu'            => __( 'The Main Menu', 'jcgtheme' ),   // nav name
-            'menu_class'      => 'nav top-nav cf',                    // adding custom nav class
-            'theme_location'  => 'main-nav',                          // where it's located in the theme
-            'before'          => '',                                  // before the menu
-            'after'           => '',                                  // after the menu
-            'link_before'     => '',                                  // before each link
-            'link_after'      => '',                                  // after each link
-            'depth'           => 0,                                   // limit the depth of the nav
-            'fallback_cb'     => ''                                   // fallback function (if there is one)
+            'container_class' => 'cf',
+            'menu'            => 'The Main Menu',
+            'menu_class'      => 'nav top-nav cf',
+            'theme_location'  => 'main-nav',
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '',
+            'link_after'      => '',
+            'depth'           => 0,
+            'fallback_cb'     => ''
           )); ?>
         </nav>
       </div>
