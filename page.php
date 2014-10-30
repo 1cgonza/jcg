@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 			<div id="content" class="m-all t-4of5 d-9of10 last-col">
-				<div id="main" role="main">
+
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -30,7 +30,6 @@
 						</article>
 					<?php endif; ?>
 
-				</div>
 			</div>
 
 <?php get_footer(); ?>
