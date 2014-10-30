@@ -1,17 +1,25 @@
 /******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
+ * Site Name: JCG
+ * Site URI: http://juancgonzalez.com
+ * Author: Juan Camilo Gonzalez
 
-Stylesheet: Base Mobile Stylesheet
+ * BASE STYLES
+ ******************************************************************/
+/**
 
-******************************************************************/
+  TODO:
+  - Change cat colors from hard coded css to options page in wp dashboard.
+
+**/
+
 $wrap: 80%;
 $wrapW: 90%;
 $wrapHalf: 40%;
 
-/*********************
-GENERAL STYLES
-*********************/
+/*======================================
+=            GENERAL STYLES            =
+======================================*/
+
 html, body{
   width: 100%;
 }
@@ -34,47 +42,51 @@ body {
   height: 100%;
 }
 
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-.wrap {
-  width: 90%;
-  margin: 0 auto;
-}
-/*********************
-LINK STYLES
-*********************/
+
+/*-----  End of GENERAL STYLES  ------*/
+
+
+/*=============================
+=            LINKS            =
+=============================*/
 
 a, a:visited {
   color: $link-color;
   text-decoration: none;
 
-  /* on hover */
   &:hover, &:focus {
     color: $link-hover;
   }
 
-  /* on click */
-  &:active {
-
-  }
-
-  /* mobile tap color */
   &:link {
-    /*
-    this highlights links on iPhones/iPads.
-    so it basically works like the :hover selector
-    for mobile devices.
-    */
     -webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
   }
 }
 
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
+.entry-tag {
+  margin: 0 0.3em 1em 0;
+  display: inline-block;
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  a, a:visited {
+    @include transition(all 0.2s ease-out);
+    padding: 0.5em;
+    background-color: black(0.1);
+    color: black(0.9);
+
+    &:hover, &:focus {
+      background-color: black(0.8);
+      color: white(0.8);
+    }
+  }
+}
+
+/*-----  End of LINKS  ------*/
+
+/*====================================
+=            <H#> TITLES             =
+====================================*/
+
+h1, h2, h3, h4, h5, {
   text-rendering: optimizelegibility;
   font-weight: 300;
   a {
@@ -82,46 +94,53 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   }
 }
 
-h1, .h1 {
+h1 {
   font-size: 2.5em;
   line-height: 1.333em;
 }
 
-h2, .h2 {
+h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em;
 }
 
-h3, .h3 {
+h3 {
   font-size: 1.125em;
 }
 
-h4, .h4 {
+h4 {
   font-size: 1.1em;
   font-weight: 700;
 }
 
-h5, .h5 {
+h5 {
   font-size: 0.846em;
   line-height: 2.09em;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-/*********************
-HEADER STYLES
-*********************/
-.menu{
+/*-----  End of <H#> TITLES   ------*/
+
+/*====================================
+=            MAIN SIDEBAR            =
+====================================*/
+
+#main-sidebar{
   z-index: 9999;
+
   #logo{
     display: none;
   }
 }
 
-/*********************
-NAVIGATION STYLES
-*********************/
+/*-----  End of MAIN SIDEBAR  ------*/
+
+/*==========================================
+=            SIDEBAR NAVIGATION            =
+==========================================*/
+
 .nav {
   text-align: center;
   border-bottom: 0;
@@ -134,74 +153,90 @@ NAVIGATION STYLES
       display: block;
       text-decoration: none;
       padding: 0.75em;
-
-      /*
-      remember this is for mobile ONLY, so there's no need
-      to even declare hover styles here, you can do it in
-      the style.scss file where it's relevant. We want to
-      keep this file as small as possible!
-      */
-      &:hover, &:focus {
-
-      }
     }
 
-    &:first-child {}
-
-    &:last-child {}
-
-    /*
-    so you really have to rethink your dropdowns for mobile.
-    you don't want to have it expand too much because the
-    screen is so small. How you manage your menu should
-    depend on the project. Here's some great info on it:
-    http://www.alistapart.com/articles/organizing-mobile/
-    */
     ul.sub-menu,
     ul.children {
       top: 0;
       position: absolute;
       left: 80%;
       display: none;
-
-
-      li {
-
-        a {
-
-          &:hover,
-          &:focus {}
-
-          &:link {}
-
-        }
-
-        &:first-child {}
-
-        &:last-child {}
-
-      }
-
     }
 
-  } /* end .menu li */
+  }
+}
 
-  /* highlight current page */
-  li.current-menu-item,
-  li.current_page_item,
-  li.current-page-ancestor {
+/*-----  End of SIDEBAR NAVIGATION  ------*/
 
-    a {}
+/*====================================
+=            POSTS HEADER            =
+====================================*/
 
-  }  /* end current highlighters */
+#description-box {
+  margin: 0;
+  padding: 2em;
+  background-color: $black;
+  color: $white;
+  text-align: center;
 
-} /* end .nav */
+  h1{
+    margin: 0;
+  }
 
-/*********************
-STYLES FOR CATEGORIES
-*********************/
-.cat-item{
-  a, a:visited{
+  .archive-title, .description-title {
+    margin-bottom: 0.4em;
+  }
+
+  .blog-header-description {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.9em;
+    text-align: left;
+    padding: 1em;
+    background-color: lighten($black, 70%);
+    text-align: center;
+  }
+
+  .search-box {
+    margin-top: 1.5em;
+  }
+}
+
+.search-results, .search-no-results{
+  #description-box{
+    background-color: darken($blue, 5%);
+    color: white;
+  }
+}
+
+/*==========  SEARCH  ==========*/
+
+input[type="search"]{
+  margin: 0 auto;
+  max-width: 250px;
+  display: inline-block;
+  padding: 0.75em;
+}
+
+.search-submit{
+  @extend .blue-btn;
+}
+
+/*-----  End of POSTS HEADER  ------*/
+
+/*==================================
+=            CATEGORIES            =
+==================================*/
+
+#categories-menu{
+  padding: 0;
+  margin: 0.45em;
+}
+
+.cat-item {
+  display: inline-block;
+
+  a, a:visited {
     @include transition(all 0.2s ease-out);
     padding: 0.5em;
     background-color: $black;
@@ -212,6 +247,7 @@ STYLES FOR CATEGORIES
       color: $black;
     }
   }
+
   // Styles for each category
   &.cat-item-1{
     a, a:visited {
@@ -246,23 +282,6 @@ STYLES FOR CATEGORIES
   }
 }
 
-#description-box {
-  .archive-title, .description-title {
-    margin-bottom: 0.4em;
-  }
-  .blog-header-description {
-    width: 50%;
-    margin: 0 auto;
-    font-size: 0.9em;
-    text-align: left;
-    padding: 1em;
-    background-color: lighten($black, 70%);
-    text-align: center;
-  }
-  .search-box {
-    margin-top: 1.5em;
-  }
-}
 .category-1, .category-process{
   #description-box {
     .blog-header-description{
@@ -297,165 +316,166 @@ STYLES FOR CATEGORIES
   }
 }
 
-.search-results, .search-no-results{
-  #description-box{
-    background-color: darken($blue, 5%);
-    color: white;
-  }
-}
+/*-----  End of CATEGORIES  ------*/
 
 
-/*********************
-     PAGE HEADERS
-*********************/
-#description-box{
-  margin: 0;
-  padding: 2em;
-  background-color: $black;
-  color: $white;
-  text-align: center;
+/*=====================================
+=            POSTS ARCHIVE            =
+=====================================*/
 
-  h1{
-    margin: 0;
-  }
-}
-#categories-menu{
-  padding: 0;
-  margin: 0.45em;
-  .cat-item{
-    display: inline-block;
-  }
-}
-input[type="search"]{
+#posts-list {
   margin: 0 auto;
-  max-width: 250px;
-  display: inline-block;
-  padding: 0.75em;
-}
-.search-submit{
-  @extend .blue-btn;
-}
+  display: block;
+  padding-top: 3em;
 
-/*********************
-POSTS & CONTENT STYLES
-*********************/
-#content {
-  height: 100%;
+  .hentry {
+    margin-bottom: 3em;
 
-  .title{
-    text-align: center;
-    //border-bottom: 1px dotted;
-    margin: 0 0 1em 0;
-    padding: 0 0 .5em 0;
-  }
+    .header-meta {
+      position: absolute;
+      margin: -10px 0 0 -10px;
+      z-index: 1;
 
-  //POSTS
-  #posts-list{
-    margin: 0 auto;
-    display: block;
-    padding-top: 3em;
+      .post-date {
+        p{
+          margin: 0;
+        }
 
-    .hentry{
-      margin-bottom: 3em;
+        font-size: 0.8em;
+        text-align: center;
+        width: 100px;
+        background-color: black(0.8);
+        color: white;
+        padding: 20px 10px;
 
-      .header-meta{
-        position: absolute;
-        margin: -10px 0 0 -10px;
-        z-index: 1;
-
-        .post-date{
-          p{
-            margin: 0;
-          }
-
+        .post-weekday {
           font-size: 0.8em;
-          text-align: center;
-          width: 100px;
-          background-color: black(0.8);
-          color: white;
-          padding: 20px 10px;
-
-          .post-weekday{
-            font-size: 0.8em;
-            letter-spacing: 1px;
-          }
-          .post-year{
-            letter-spacing: 2px;
-          }
+          letter-spacing: 1px;
         }
-      } // end .header-meta
-
-      .post-image{
-        line-height: 0;
-        z-index: -1;
-        a, a:visited {
-          @include transition(all 0.1s ease-out);
-          opacity: 1;
-
-          &:hover, &:focus {
-            opacity: 0.8;
-          }
-        }
-        img{
-          width: 100%;
-          height: auto;
-          padding: 0!important;
-          margin: 0!important;
-        }
-      }
-
-      .entry-title{
-        width: 40%;
-        display: inline-block;
-        vertical-align: top;
-      }
-      .entry-excerpt{
-        width: 59%;
-        display: inline-block;
-        vertical-align: top;
-        padding: 0.5em 0 0 1.5em;
-      }
-
-    } // end .hentry
-
-  } // end #posts-list
-  .entry-footer {
-    text-align: right;
-    font-size: 0.8em;
-
-    .entry-tag{
-      margin: 0 0.3em 1em 0;
-      display: inline-block;
-
-      a, a:visited {
-        @include transition(all 0.2s ease-out);
-        padding: 0.5em;
-        background-color: black(0.1);
-        color: black(0.9);
-
-        &:hover, &:focus {
-          background-color: black(0.8);
-          color: white(0.8);
+        .post-year {
+          letter-spacing: 2px;
         }
       }
     }
+
+    .post-image {
+      line-height: 0;
+      z-index: -1;
+
+      a, a:visited {
+        @include transition(all 0.1s ease-out);
+        opacity: 1;
+
+        &:hover, &:focus {
+          opacity: 0.8;
+        }
+      }
+
+      img{
+        width: 100%;
+        height: auto;
+        padding: 0!important;
+        margin: 0!important;
+      }
+
+    }
+
+    .entry-title {
+      width: 40%;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .entry-excerpt {
+      width: 59%;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0.5em 0 0 1.5em;
+    }
+
+    .entry-footer {
+      text-align: right;
+      font-size: 0.8em;
+    }
+
   }
-} // end #content
+
+}
+
+
+/*-----  End of POSTS ARCHIVE  ------*/
+
 
 /*********************
      SINGLE POST
 *********************/
-.single-post{
-  .article-header{
+
+#posts-nav {
+  position: fixed;
+  z-index: 99999;
+  bottom: 0;
+
+  .post-nav-item {
+    width: 50%;
+    position: relative;
+
+    &:hover {
+      .post-nav-full::before {
+        content: ''!important;
+      }
+    }
+
+    a {
+      display: block;
+    }
+
+    .post-nav-full {
+      .post-nav-icon {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        background-color: black(0.5);
+        color: white;
+        cursor: pointer;
+        display: none;
+      }
+    }
+
+    .link-title {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+    }
+  }
+
+  #previous-post-link {
+    float: left;
+  }
+
+  #next-post-link {
+    float: right;
+  }
+
+}
+
+.single-post {
+
+  .article-header {
     text-align: center;
     padding-bottom: 4em;
     background-color: darken($white, 2%);
-    .entry-title{
+
+    .entry-title {
       margin: 0;
       padding: 1em 1em 0.2em 1em;
       font-size: 4em;
     }
-    .article-date{
+
+    .article-date {
       color: lighten($black, 50%);
     }
     .author {
@@ -499,101 +519,104 @@ POSTS & CONTENT STYLES
     }
   }
 }
-/*********************
-        FILMS
-*********************/
-.film-header{
-  line-height: 0;
-  background-color: #000;
-  #video-container{
-    position: relative;
+
+/*=============================
+=            FILMS            =
+=============================*/
+
+.type-films {
+
+  .film-header {
+    line-height: 0;
+    background-color: #000;
+
+    #video-container {
+      position: relative;
+      text-align: center;
+
+      .ratio {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 457px;
+        z-index: -1;
+        padding: 0;
+        margin: 0;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:100%;
+        height: 100%;
+        max-width: 812px;
+        z-index: 7999;
+        padding: 0!important;
+      }
+    }
+  }
+
+  .film-description {
+    text-align: center;
+    padding: 0 1em;
+
+    .film-synopsis {
+      margin-top: 2em;
+    }
+  }
+
+  #awards {
     text-align: center;
 
-    .ratio{
-      display: block;
-      width: 100%;
-      height: auto;
-      //height: 100%;
-      max-height: 457px;
-      //
-      z-index: -1;
-    }
-    iframe{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width:100%;
-      height: 100%;
-      max-width: 812px;
-      z-index: 7999;
-      padding: 0!important;
+    .award-item {
+      padding: 1em;
+      display: inline-table;
+      font-size: 0.85em;
+
+      p, h1, h2 {
+        margin: 0;
+      }
+
+      .award-item-text {
+        display: table-cell;
+        vertical-align: bottom;
+      }
+
+      &:before, &:after {
+        content: '';
+        width: 64px;
+        height: 150px;
+        display: block;
+      }
+
+      &:before {
+        background: url(../images/laurel.png) 0 0 no-repeat;
+        background-position: left bottom;
+      }
+
+      &:after {
+        background: url(../images/laurel.png) -64px 0  no-repeat;
+        background-position: right bottom;
+      }
     }
   }
-}
 
-.film-description{
-  text-align: center;
-  padding: 0 1em;
-  .film-synopsis{
-    //text-align: left;
-    margin-top: 2em;
+  .column-title {
+    text-align: center;
+    margin: 0 0 1em 0;
+    padding: 0 0 .5em 0;
   }
+
 }
 
-#awards{
-  text-align: center;
-  .award-item{
-    padding: 1em;
-    display: inline-table;
-    font-size: 0.85em;
-    p, h1, h2{
-      margin: 0;
-    }
-    .award-item-text{
-      display: table-cell;
-      vertical-align: bottom;
-    }
-    &:before, &:after{
-      content: '';
-      width: 64px;
-      height: 150px;
-      display: block;
-    }
-    &:before{
-      background: url(../images/laurel.png) 0 0 no-repeat;
-      background-position: left bottom;
-    }
-    &:after{
-      background: url(../images/laurel.png) -64px 0  no-repeat;
-      background-position: right bottom;
-    }
-  }
-}
-table{
-  font-size: 0.8em;
-  margin: 0 auto;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.3em;
-  td{
-    padding: 0 1em;
-    vertical-align: top;
-    &.festival-name{
-      border-bottom: 1px dotted #CCC;
-    }
-    &.country{
-      border: 1px dotted #CCC;
-      text-align: center;
-      font-size: 0.9em;
-      vertical-align: middle;
-    }
-  }
-}
+/*-----  End of FILMS  ------*/
 
 
-/*********************
-    CONTACT
-*********************/
+/*===============================
+=            CONTACT            =
+===============================*/
+
 #contact-wrapper{
   width: 90%;
   margin: 0 auto;
@@ -612,182 +635,143 @@ table{
 }
 
 
-.single{
-  section{
-    word-wrap: break-word;
+/*-----  End of CONTACT  ------*/
+
+/*===============================
+=            CONTENT            =
+===============================*/
+
+#content {
+
+  .wrap {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  section {
     margin: 4em 0;
   }
-}
 
+  .entry-content, .mce-content-body {
+    padding: 0;
+    font-size: 1.1em;
+    word-wrap: break-word;
 
-    /* entry content */
-    .entry-content, .mce-content-body {
-      padding: 0;
-      font-size: 1.1em;
-      p {
-        width: $wrap;
-        margin: 0 auto 1em auto;
-        line-height: 1.6;
-        &.wp-caption-text{
-          font-size: 0.8em;
-          width: 100%;
-          margin: 0 auto;
-          padding: 1em 2em;
-          }
-      }
-      img {
-        padding: 0;
-      }
-      table {
-        caption {
-          margin: 0 0 7px;
-          font-size: 0.75em;
-          color: $meta-gray;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-      }
+    p {
+      width: $wrap;
+      margin: 0 auto 1em auto;
+      line-height: 1.6;
 
-      tr {
-        border-bottom: 1px dotted;
-
-        &:nth-child(even) {
-          background-color: $light-gray;
-        }
-      }
-
-      td {
-        padding: 7px;
-        border-right: 1px dotted;
-
-        &:last-child {
-          border-right: 0;
-        }
-      }
-
-      th {
-        background-color: $light-gray;
-        border-bottom: 1px dotted $gray;
-        border-right: 1px dotted $gray;
-
-        &:last-child {
-          border-right: 0;
-        }
-      }
-
-      blockquote {
+      &.wp-caption-text{
+        font-size: 0.8em;
+        width: 100%;
         margin: 0 auto;
-        padding: 2em 0;
-        font-style: italic;
-        color: lighten($black, 30%);
-        width: $wrapW;
-        p {
-          width: 100%;
-          font-size: 1.3em;
-        }
-        &:before {}
-
+        padding: 1em 2em;
       }
 
-      dd {
-        margin-left: 0;
-        font-size: 0.9em;
-        color: #787878;
-        margin-bottom: 1.5em;
+    }
+
+    img {
+      padding: 0;
+      margin: 0 0 1.5em 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    blockquote {
+      margin: 0 auto;
+      padding: 2em 0;
+      font-style: italic;
+      color: lighten($black, 30%);
+      width: $wrapW;
+
+      p {
+        width: 100%!important;
+        font-size: 1.3em;
       }
 
-      img {
-        margin: 0 0 1.5em 0;
-        max-width: 100%;
-        height: auto;
-      }
+    }
 
-      /*
-      image alignment on a screen this size may be
-      a bit difficult. It's set to start aligning
-      and floating images at the next breakpoint,
-      but it's up to you. Feel free to change it up.
-      */
-      .alignleft, img.alignleft {
-        float: left;
-      }
-      .alignright, img.alignright {
-        float: right;
-      }
-      .aligncenter, img.aligncenter {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .alignleft, img.alignleft {
+      float: left;
+    }
+    .alignright, img.alignright {
+      float: right;
+    }
+    .aligncenter, img.aligncenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-      .size-auto,
-      .size-full,
-      .size-large,
-      .size-medium,
-      .size-thumbnail {
-        max-width: 100%;
-        height: auto;
-      }
+    .size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
+      max-width: 100%;
+      height: auto;
+    }
 
-      pre {
-        background: $black;
-        color: $light-gray;
-        font-size: 0.9em;
-        padding: 1.5em;
-        margin: 0 0 1.5em;
-        border-radius: 3px;
-      }
+    pre {
+      background: $black;
+      color: $light-gray;
+      font-size: 0.9em;
+      padding: 1.5em;
+      margin: 0 0 1.5em;
+      border-radius: 3px;
+    }
 
-    } /* end .entry-content */
+    /*==========  IMAGE CAPTION  ==========*/
 
     .wp-caption {
-      max-width: 100%;
+      width: $wrap!important;
+      margin: 0 auto 1em auto;
       background: #eee;
 
-      /* images inside wp-caption */
       img {
         max-width: 100%;
         margin-bottom: 0;
         width: 100%;
+        padding: 0!important;
       }
+    }
 
-    } /* end .wp-caption */
+    /*==========  VIDEO  ==========*/
 
-    /* image gallery styles */
-    .gallery {
+    video {
+      width: 100% !important;
+      height: auto !important;
+    }
 
-      dl {
-
-        a {}
-
-        img {}
-
-      }
-
-      dt {}
-
-      dd {}
-
-    } /* end .gallery */
-
-    /* gallery caption styles */
-    .gallery-caption {}
-
-    .size-full {}
-    .size-large {}
-    .size-medium {}
-    .size-thumbnail {}
-
-  // the tag output
-  .tags {
-    margin: 0;
   }
 
-  /*==========  VIDEO  ==========*/
-  video {
-    width: 100% !important;
-    height: auto !important;
+  /*==========  TABLES  ==========*/
+
+  table {
+    font-size: 0.8em;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.3em;
+
+    td {
+      padding: 0 1em;
+      vertical-align: top;
+
+      &.festival-name {
+        border-bottom: 1px dotted #CCC;
+      }
+
+      &.country {
+        border: 1px dotted #CCC;
+        text-align: center;
+        font-size: 0.9em;
+        vertical-align: middle;
+      }
+    }
   }
+
+} // end #content
+
+
+/*-----  End of CONTENT  ------*/
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -846,32 +830,11 @@ PAGE NAVI STYLES
       }
     }
 
-  } /* end .bones_page_navi */
+  }
 
-  /* fallback previous & next links */
-  .wp-prev-next {
-
-    ul {}
-
-    .prev-link {
-      float: left;
-    }
-
-    .next-link {
-      float: right;
-    }
-
-  } /* end .wp-prev-next */
-
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-
-/* h3 comment title */
-#comments-title {
-  padding: 0.75em;
-  margin: 0;
-}
+/*================================
+=            COMMENTS            =
+================================*/
 
 .commentlist {
   list-style-type: none;
@@ -879,28 +842,22 @@ COMMENT STYLES
   padding-top: 4em;
 }
 
+
+/*-----  End of COMMENTS  ------*/
+
+
+
 .comment {
   position: relative;
-  clear: both;
   overflow: hidden;
   padding: 1.5em;
-  border-bottom: 1px solid $light-gray;
 
-  .comment-author {
-    padding: 7px;
-    border: 0;
-  }
-
-  /* vcard */
   .vcard {
-    margin-left: 50px;
+    margin: 1em 1em 0 6em;
 
     cite.fn {
       font-weight: 700;
       font-style: normal;
-
-      a.url {}
-
     }
 
     time {
@@ -910,25 +867,22 @@ COMMENT STYLES
 
       a {
         color: $meta-gray;
-        text-decoration: none;
 
         &:hover {
-          text-decoration: underline;
+          color: $black;
         }
 
       }
 
     }
 
-    .photo {}
-
     .avatar {
       position: absolute;
-      left: 16px;
-      border-radius: 50%;
+      left: 1.5em;
+      top: 1.5em;
     }
 
-  } /* end .commentlist .vcard */
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -936,24 +890,10 @@ COMMENT STYLES
 
   .children {
     margin: 0;
-
-    li {}
-
-      /* variations */
-      .comment {}
-      .alt {}
-      .odd {}
-      .even {}
-      .depth-1 {}           /* change number for different depth */
-      .byuser {}
-      .bypostauthor {}
-      .comment-author-admin {}
-
-  } /* end children */
-
+  }
 
   &[class*=depth-] {
-    margin-top: 1.1em;
+    margin: 1.1em -1.3em 0 -1.3em;
   }
 
   &.depth-1 {
@@ -961,94 +901,36 @@ COMMENT STYLES
     margin-top: 0;
   }
 
-  &:not(.depth-1) {
-    margin-top: 0;
-    margin-left: 7px;
-    padding: 7px;
-  }
-
-  &.depth-2 {}
-  &.depth-3 {}
-  &.depth-4 {}
-  &.depth-5 {}
-
-  /* general comment classes */
-  &.alt {}
   &.odd {
-    background-color: darken($white, 7%);
+    background-color: darken($white, 5%);
   }
   &.even {
-    background: darken($white, 3%);
+    background: darken($white, 2%);
   }
-  &.parent {}
-  &.comment {}
-  &.children {}
-  &.pingback {}
-  &.bypostauthor {}
-  &.comment-author {}
-  &.comment-author-admin {}
-  &.thread-alt {}
-  &.thread-odd {}
-  &.thread-even {}
 }
 
-
-
-
-  /* comment meta */
-  .comment-meta {
-
-    a {}
-
+.comment_content {
+  p {
+    margin: 0.7335em 0 1.5em;
+    font-size: 1em;
+    line-height: 1.5em;
   }
+}
 
-  .commentmetadata {
-
-    a {}
-
-  }
-
-  /* comment content */
-  .comment_content {
-
-    p {
-      margin: 0.7335em 0 1.5em;
-      font-size: 1em;
-      line-height: 1.5em;
-    }
-
-  } /* end .commentlist .comment_content */
-
-  /* comment reply link */
-  .comment-reply-link {
-    @extend .black-btn;
-    //font-size: 0.9em;
-    float: right;
-
-    &:hover,
-    &:focus {
-    }
-
-  } /* end .commentlist .comment-reply-link */
-
-  /* edit comment link */
-  .comment-edit-link {
-    font-style: italic;
-    margin: 0 7px;
-    text-decoration: none;
-    font-size: 0.9em;
-  }
-
-
+.comment-reply-link {
+  @extend .black-btn;
+  float: right;
+}
+.comment-edit-link {
+  font-style: italic;
+  margin: 0 7px;
+  text-decoration: none;
+  font-size: 0.9em;
+}
 
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
-
-.comment-respond {
-  @extend .cf;
-  padding: 1.5em;
-}
 
   #reply-title {
     margin: 0;
@@ -1074,32 +956,19 @@ COMMENT FORM STYLES
     font-size: 0.9em;
   }
 
-  /* comment submit button */
   #submit {
     @extend .black-btn;
     float: right;
-    //font-size: 1em;
   }
 
-  /* comment form title */
   #comment-form-title {
     margin: 0 0 1.1em;
   }
 
-  /* cancel comment reply link */
-  #cancel-comment-reply {
-    a {}
-  }
-
-  /* logged in comments */
-  .comments-logged-in-as {}
-
-  /* allowed tags */
   #allowed_tags {
     margin: 1.5em 10px 0.7335em 0;
   }
 
-  /* no comments */
   .nocomments {
     margin: 0 20px 1.1em;
   }
@@ -1124,37 +993,3 @@ COMMENT FORM STYLES
     width: initial;
   }
 }
-
-/*********************
-FOOTER STYLES
-*********************/
-
-.footer {
-  clear: both;
-  background-color: $black;
-  color: $light-gray;
-  padding: 2em;
-  height: 200px;
-}
-
-  /*
-  if you checked out the link above:
-  http://www.alistapart.com/articles/organizing-mobile/
-  you'll want to style the footer nav
-  a bit more in-depth. Remember to keep
-  it simple because you'll have to
-  override these styles for the desktop
-  view.
-  */
-  .footer-links {
-
-    ul {
-
-      li {}
-
-    }
-
-  } /* end .footer-links */
-
-
-  .copyright {}

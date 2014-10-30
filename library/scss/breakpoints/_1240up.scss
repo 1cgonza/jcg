@@ -1,56 +1,106 @@
 /******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
+ * Site Name: JCG
+ * Site URI: http://juancgonzalez.com
+ * Author: Juan Camilo Gonzalez
 
-Stylesheet: Super Large Monitor Stylesheet
-
-******************************************************************/
+ * 1240-UP STYLES
+ ******************************************************************/
 $wrap: 50%;
 $wrapW: 60%;
 $wrapHalf: 25%;
 
-/*********************
-		FILMS
-*********************/
-table{
-	font-size: 100%;
-}
+#content {
 
-.entry-content, .mce-content-body {
-	h2 {
-    text-align: center;
-    border-bottom: 1px dotted;
-    width: 35%;
-    margin: 0 auto 1em auto;
-    padding-bottom: 0.3em;
+  /*==========  POST CONTENT SECTION  ==========*/
+
+  .entry-content, .mce-content-body {
+
+    h2 {
+      text-align: center;
+      border-bottom: 1px dotted;
+      width: 35%;
+      margin: 0 auto 1em auto;
+      padding-bottom: 0.3em;
+    }
+
+    p {
+      width: $wrap;
+    }
+
+    blockquote {
+      width: $wrapW;
+    }
+
+    iframe {
+      padding: 0 $wrapHalf;
+      height: 500px;
+    }
+
+    img {
+      padding: 0 $wrapHalf;
+    }
+
+    .wp-caption {
+      width: $wrap!important;
+    }
+
   }
-  p {
-		width: $wrap;
-	}
-  blockquote {
+
+  /*==========  POST FOOTER  ==========*/
+
+  .entry-footer {
+    text-align: center;
+  }
+
+  /*==========  COMMENTS  ==========*/
+
+  .commentlist {
     width: $wrapW;
   }
-}
-.commentlist {
-  width: $wrapW;
-}
-.single{
-   .entry-footer {
-    text-align: center;
-   }
+
+  .comment-respond {
+    width: $wrapW;
+    margin: 0 auto;
+  }
+
+
+  /*==========  TABLES  ==========*/
+
+  table {
+    font-size: 100%;
+  }
+
 }
 
-.comment-respond {
-	width: $wrapW;
-	margin: 0 auto;
+/*===================================
+=            SINGLE POST            =
+===================================*/
+
+#posts-nav {
+
+  .post-nav-full {
+    .link-title {
+      display: block;
+      position: absolute;
+      width: 100%;
+      background-color: black(0.6);
+      font-size: 0.85em;
+      letter-spacing: 1px;
+      text-align: center;
+      top: 1.6em;
+      margin: 0;
+      padding: 0;
+
+      a, a:visited {
+        color: lighten($link-color, 40%);
+
+        &:hover, &:focus {
+          color: $white;
+        }
+      }
+    }
+  }
+
 }
 
-.hentry {
-  iframe {
-    padding: 0 $wrapHalf;
-    height: 500px;
-  }
-  img {
-    padding: 0 $wrapHalf;
-  }
-}
+/*-----  End of SINGLE POST  ------*/

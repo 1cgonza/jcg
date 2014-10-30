@@ -466,12 +466,12 @@ table {
   white-space: nowrap;
   overflow: hidden; }
 
-.clearfix, .cf, .comment-respond {
+.clearfix, .cf {
   zoom: 1; }
-  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, .cf:after, .comment-respond:after {
+  .clearfix:before, .clearfix:after, .cf:before, .cf:after {
     content: "";
     display: table; }
-  .clearfix:after, .cf:after, .comment-respond:after {
+  .clearfix:after, .cf:after {
     clear: both; }
 
 /*
@@ -1226,15 +1226,21 @@ you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
 /******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
+ * Site Name: JCG
+ * Site URI: http://juancgonzalez.com
+ * Author: Juan Camilo Gonzalez
 
-Stylesheet: Base Mobile Stylesheet
+ * BASE STYLES
+ ******************************************************************/
+/**
 
-******************************************************************/
-/*********************
-GENERAL STYLES
-*********************/
+  TODO:
+  - Change cat colors from hard coded css to options page in wp dashboard.
+
+**/
+/*======================================
+=            GENERAL STYLES            =
+======================================*/
 html, body {
   width: 100%; }
 
@@ -1256,102 +1262,88 @@ body {
   min-height: 100%;
   height: 100%; }
 
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-.wrap {
-  width: 90%;
-  margin: 0 auto; }
-
-/*********************
-LINK STYLES
-*********************/
+/*-----  End of GENERAL STYLES  ------*/
+/*=============================
+=            LINKS            =
+=============================*/
 a, a:visited {
   color: #8c7c3d;
-  text-decoration: none;
-  /* on hover */
-  /* on click */
-  /* mobile tap color */ }
+  text-decoration: none; }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
     color: #c0b06f; }
   a:link, a:visited:link {
-    /*
-    this highlights links on iPhones/iPads.
-    so it basically works like the :hover selector
-    for mobile devices.
-    */
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+.entry-tag {
+  margin: 0 0.3em 1em 0;
+  display: inline-block; }
+  .entry-tag a, .entry-tag a:visited {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.9); }
+    .entry-tag a:hover, .entry-tag a:focus, .entry-tag a:visited:hover, .entry-tag a:visited:focus {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: rgba(255, 255, 255, 0.8); }
+
+/*-----  End of LINKS  ------*/
+/*====================================
+=            <H#> TITLES             =
+====================================*/
+h1, h2, h3, h4, h5 {
   text-rendering: optimizelegibility;
   font-weight: 300; }
-  h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
+  h1 a, h2 a, h3 a, h4 a, h5 a {
     text-decoration: none; }
 
-h1, .h1 {
+h1 {
   font-size: 2.5em;
   line-height: 1.333em; }
 
-h2, .h2 {
+h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em; }
 
-h3, .h3 {
+h3 {
   font-size: 1.125em; }
 
-h4, .h4 {
+h4 {
   font-size: 1.1em;
   font-weight: 700; }
 
-h5, .h5 {
+h5 {
   font-size: 0.846em;
   line-height: 2.09em;
   text-transform: uppercase;
   letter-spacing: 2px; }
 
-/*********************
-HEADER STYLES
-*********************/
-.menu {
+/*-----  End of <H#> TITLES   ------*/
+/*====================================
+=            MAIN SIDEBAR            =
+====================================*/
+#main-sidebar {
   z-index: 9999; }
-  .menu #logo {
+  #main-sidebar #logo {
     display: none; }
 
-/*********************
-NAVIGATION STYLES
-*********************/
+/*-----  End of MAIN SIDEBAR  ------*/
+/*==========================================
+=            SIDEBAR NAVIGATION            =
+==========================================*/
 .nav {
   text-align: center;
   border-bottom: 0;
-  margin: 0;
-  /* end .menu li */
-  /* highlight current page */
-  /* end current highlighters */ }
+  margin: 0; }
   .nav li {
-    display: inline-block;
-    /*
-    so you really have to rethink your dropdowns for mobile.
-    you don't want to have it expand too much because the
-    screen is so small. How you manage your menu should
-    depend on the project. Here's some great info on it:
-    http://www.alistapart.com/articles/organizing-mobile/
-    */ }
+    display: inline-block; }
     .nav li a {
       -webkit-transition: all 0.25s ease-in-out;
       transition: all 0.25s ease-in-out;
       display: block;
       text-decoration: none;
-      padding: 0.75em;
-      /*
-      remember this is for mobile ONLY, so there's no need
-      to even declare hover styles here, you can do it in
-      the style.scss file where it's relevant. We want to
-      keep this file as small as possible!
-      */ }
+      padding: 0.75em; }
     .nav li ul.sub-menu,
     .nav li ul.children {
       top: 0;
@@ -1359,47 +1351,76 @@ NAVIGATION STYLES
       left: 80%;
       display: none; }
 
-/* end .nav */
-/*********************
-STYLES FOR CATEGORIES
-*********************/
-.cat-item a, .cat-item a:visited {
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  padding: 0.5em;
+/*-----  End of SIDEBAR NAVIGATION  ------*/
+/*====================================
+=            POSTS HEADER            =
+====================================*/
+#description-box {
+  margin: 0;
+  padding: 2em;
   background-color: #1f1f1f;
-  color: white; }
-  .cat-item a:hover, .cat-item a:focus, .cat-item a:visited:hover, .cat-item a:visited:focus {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #1f1f1f; }
-.cat-item.cat-item-1 a, .cat-item.cat-item-1 a:visited {
-  background-color: #ecd93d;
-  color: #1f1f1f; }
-  .cat-item.cat-item-1 a:hover, .cat-item.cat-item-1 a:focus, .cat-item.cat-item-1 a:visited:hover, .cat-item.cat-item-1 a:visited:focus {
-    background-color: rgba(236, 217, 61, 0.8); }
-.cat-item.cat-item-20 a, .cat-item.cat-item-20 a:visited {
-  background-color: #c45956;
-  color: white; }
-  .cat-item.cat-item-20 a:hover, .cat-item.cat-item-20 a:focus, .cat-item.cat-item-20 a:visited:hover, .cat-item.cat-item-20 a:visited:focus {
-    background-color: rgba(196, 89, 86, 0.8); }
-.cat-item.cat-item-21 a, .cat-item.cat-item-21 a:visited {
-  background-color: #56bc7a;
-  color: white; }
-  .cat-item.cat-item-21 a:hover, .cat-item.cat-item-21 a:focus, .cat-item.cat-item-21 a:visited:hover, .cat-item.cat-item-21 a:visited:focus {
-    background-color: rgba(86, 188, 122, 0.8); }
-
-#description-box .archive-title, #description-box .description-title {
-  margin-bottom: 0.4em; }
-#description-box .blog-header-description {
-  width: 50%;
-  margin: 0 auto;
-  font-size: 0.9em;
-  text-align: left;
-  padding: 1em;
-  background-color: #d2d2d2;
+  color: white;
   text-align: center; }
-#description-box .search-box {
-  margin-top: 1.5em; }
+  #description-box h1 {
+    margin: 0; }
+  #description-box .archive-title, #description-box .description-title {
+    margin-bottom: 0.4em; }
+  #description-box .blog-header-description {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.9em;
+    text-align: left;
+    padding: 1em;
+    background-color: #d2d2d2;
+    text-align: center; }
+  #description-box .search-box {
+    margin-top: 1.5em; }
+
+.search-results #description-box, .search-no-results #description-box {
+  background-color: #2472a4;
+  color: white; }
+
+/*==========  SEARCH  ==========*/
+input[type="search"] {
+  margin: 0 auto;
+  max-width: 250px;
+  display: inline-block;
+  padding: 0.75em; }
+
+/*-----  End of POSTS HEADER  ------*/
+/*==================================
+=            CATEGORIES            =
+==================================*/
+#categories-menu {
+  padding: 0;
+  margin: 0.45em; }
+
+.cat-item {
+  display: inline-block; }
+  .cat-item a, .cat-item a:visited {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    padding: 0.5em;
+    background-color: #1f1f1f;
+    color: white; }
+    .cat-item a:hover, .cat-item a:focus, .cat-item a:visited:hover, .cat-item a:visited:focus {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #1f1f1f; }
+  .cat-item.cat-item-1 a, .cat-item.cat-item-1 a:visited {
+    background-color: #ecd93d;
+    color: #1f1f1f; }
+    .cat-item.cat-item-1 a:hover, .cat-item.cat-item-1 a:focus, .cat-item.cat-item-1 a:visited:hover, .cat-item.cat-item-1 a:visited:focus {
+      background-color: rgba(236, 217, 61, 0.8); }
+  .cat-item.cat-item-20 a, .cat-item.cat-item-20 a:visited {
+    background-color: #c45956;
+    color: white; }
+    .cat-item.cat-item-20 a:hover, .cat-item.cat-item-20 a:focus, .cat-item.cat-item-20 a:visited:hover, .cat-item.cat-item-20 a:visited:focus {
+      background-color: rgba(196, 89, 86, 0.8); }
+  .cat-item.cat-item-21 a, .cat-item.cat-item-21 a:visited {
+    background-color: #56bc7a;
+    color: white; }
+    .cat-item.cat-item-21 a:hover, .cat-item.cat-item-21 a:focus, .cat-item.cat-item-21 a:visited:hover, .cat-item.cat-item-21 a:visited:focus {
+      background-color: rgba(86, 188, 122, 0.8); }
 
 .category-1 #description-box .blog-header-description, .category-process #description-box .blog-header-description {
   background-color: #ecd93d;
@@ -1417,109 +1438,95 @@ STYLES FOR CATEGORIES
 .category-21 .post-header, .category-inspiration .post-header {
   background-color: #56bc7a; }
 
-.search-results #description-box, .search-no-results #description-box {
-  background-color: #2472a4;
-  color: white; }
-
-/*********************
-     PAGE HEADERS
-*********************/
-#description-box {
-  margin: 0;
-  padding: 2em;
-  background-color: #1f1f1f;
-  color: white;
-  text-align: center; }
-  #description-box h1 {
-    margin: 0; }
-
-#categories-menu {
-  padding: 0;
-  margin: 0.45em; }
-  #categories-menu .cat-item {
-    display: inline-block; }
-
-input[type="search"] {
+/*-----  End of CATEGORIES  ------*/
+/*=====================================
+=            POSTS ARCHIVE            =
+=====================================*/
+#posts-list {
   margin: 0 auto;
-  max-width: 250px;
-  display: inline-block;
-  padding: 0.75em; }
-
-/*********************
-POSTS & CONTENT STYLES
-*********************/
-#content {
-  height: 100%; }
-  #content .title {
-    text-align: center;
-    margin: 0 0 1em 0;
-    padding: 0 0 .5em 0; }
-  #content #posts-list {
-    margin: 0 auto;
-    display: block;
-    padding-top: 3em; }
-    #content #posts-list .hentry {
-      margin-bottom: 3em; }
-      #content #posts-list .hentry .header-meta {
-        position: absolute;
-        margin: -10px 0 0 -10px;
-        z-index: 1; }
-        #content #posts-list .hentry .header-meta .post-date {
+  display: block;
+  padding-top: 3em; }
+  #posts-list .hentry {
+    margin-bottom: 3em; }
+    #posts-list .hentry .header-meta {
+      position: absolute;
+      margin: -10px 0 0 -10px;
+      z-index: 1; }
+      #posts-list .hentry .header-meta .post-date {
+        font-size: 0.8em;
+        text-align: center;
+        width: 100px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px 10px; }
+        #posts-list .hentry .header-meta .post-date p {
+          margin: 0; }
+        #posts-list .hentry .header-meta .post-date .post-weekday {
           font-size: 0.8em;
-          text-align: center;
-          width: 100px;
-          background-color: rgba(0, 0, 0, 0.8);
-          color: white;
-          padding: 20px 10px; }
-          #content #posts-list .hentry .header-meta .post-date p {
-            margin: 0; }
-          #content #posts-list .hentry .header-meta .post-date .post-weekday {
-            font-size: 0.8em;
-            letter-spacing: 1px; }
-          #content #posts-list .hentry .header-meta .post-date .post-year {
-            letter-spacing: 2px; }
-      #content #posts-list .hentry .post-image {
-        line-height: 0;
-        z-index: -1; }
-        #content #posts-list .hentry .post-image a, #content #posts-list .hentry .post-image a:visited {
-          -webkit-transition: all 0.1s ease-out;
-          transition: all 0.1s ease-out;
-          opacity: 1; }
-          #content #posts-list .hentry .post-image a:hover, #content #posts-list .hentry .post-image a:focus, #content #posts-list .hentry .post-image a:visited:hover, #content #posts-list .hentry .post-image a:visited:focus {
-            opacity: 0.8; }
-        #content #posts-list .hentry .post-image img {
-          width: 100%;
-          height: auto;
-          padding: 0 !important;
-          margin: 0 !important; }
-      #content #posts-list .hentry .entry-title {
-        width: 40%;
-        display: inline-block;
-        vertical-align: top; }
-      #content #posts-list .hentry .entry-excerpt {
-        width: 59%;
-        display: inline-block;
-        vertical-align: top;
-        padding: 0.5em 0 0 1.5em; }
-  #content .entry-footer {
-    text-align: right;
-    font-size: 0.8em; }
-    #content .entry-footer .entry-tag {
-      margin: 0 0.3em 1em 0;
-      display: inline-block; }
-      #content .entry-footer .entry-tag a, #content .entry-footer .entry-tag a:visited {
-        -webkit-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out;
-        padding: 0.5em;
-        background-color: rgba(0, 0, 0, 0.1);
-        color: rgba(0, 0, 0, 0.9); }
-        #content .entry-footer .entry-tag a:hover, #content .entry-footer .entry-tag a:focus, #content .entry-footer .entry-tag a:visited:hover, #content .entry-footer .entry-tag a:visited:focus {
-          background-color: rgba(0, 0, 0, 0.8);
-          color: rgba(255, 255, 255, 0.8); }
+          letter-spacing: 1px; }
+        #posts-list .hentry .header-meta .post-date .post-year {
+          letter-spacing: 2px; }
+    #posts-list .hentry .post-image {
+      line-height: 0;
+      z-index: -1; }
+      #posts-list .hentry .post-image a, #posts-list .hentry .post-image a:visited {
+        -webkit-transition: all 0.1s ease-out;
+        transition: all 0.1s ease-out;
+        opacity: 1; }
+        #posts-list .hentry .post-image a:hover, #posts-list .hentry .post-image a:focus, #posts-list .hentry .post-image a:visited:hover, #posts-list .hentry .post-image a:visited:focus {
+          opacity: 0.8; }
+      #posts-list .hentry .post-image img {
+        width: 100%;
+        height: auto;
+        padding: 0 !important;
+        margin: 0 !important; }
+    #posts-list .hentry .entry-title {
+      width: 40%;
+      display: inline-block;
+      vertical-align: top; }
+    #posts-list .hentry .entry-excerpt {
+      width: 59%;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0.5em 0 0 1.5em; }
+    #posts-list .hentry .entry-footer {
+      text-align: right;
+      font-size: 0.8em; }
 
+/*-----  End of POSTS ARCHIVE  ------*/
 /*********************
      SINGLE POST
 *********************/
+#posts-nav {
+  position: fixed;
+  z-index: 99999;
+  bottom: 0; }
+  #posts-nav .post-nav-item {
+    width: 50%;
+    position: relative; }
+    #posts-nav .post-nav-item:hover .post-nav-full::before {
+      content: "" !important; }
+    #posts-nav .post-nav-item a {
+      display: block; }
+    #posts-nav .post-nav-item .post-nav-full .post-nav-icon {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      cursor: pointer;
+      display: none; }
+    #posts-nav .post-nav-item .link-title {
+      display: none; }
+    #posts-nav .post-nav-item img {
+      width: 100%;
+      height: auto;
+      vertical-align: bottom; }
+  #posts-nav #previous-post-link {
+    float: left; }
+  #posts-nav #next-post-link {
+    float: right; }
+
 .single-post .article-header {
   text-align: center;
   padding-bottom: 4em;
@@ -1558,22 +1565,24 @@ POSTS & CONTENT STYLES
   margin: 0;
   width: initial !important; }
 
-/*********************
-        FILMS
-*********************/
-.film-header {
+/*=============================
+=            FILMS            =
+=============================*/
+.type-films .film-header {
   line-height: 0;
   background-color: #000; }
-  .film-header #video-container {
+  .type-films .film-header #video-container {
     position: relative;
     text-align: center; }
-    .film-header #video-container .ratio {
+    .type-films .film-header #video-container .ratio {
       display: block;
       width: 100%;
       height: auto;
       max-height: 457px;
-      z-index: -1; }
-    .film-header #video-container iframe {
+      z-index: -1;
+      padding: 0;
+      margin: 0; }
+    .type-films .film-header #video-container iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -1582,56 +1591,42 @@ POSTS & CONTENT STYLES
       max-width: 812px;
       z-index: 7999;
       padding: 0 !important; }
-
-.film-description {
+.type-films .film-description {
   text-align: center;
   padding: 0 1em; }
-  .film-description .film-synopsis {
+  .type-films .film-description .film-synopsis {
     margin-top: 2em; }
-
-#awards {
+.type-films #awards {
   text-align: center; }
-  #awards .award-item {
+  .type-films #awards .award-item {
     padding: 1em;
     display: inline-table;
     font-size: 0.85em; }
-    #awards .award-item p, #awards .award-item h1, #awards .award-item h2 {
+    .type-films #awards .award-item p, .type-films #awards .award-item h1, .type-films #awards .award-item h2 {
       margin: 0; }
-    #awards .award-item .award-item-text {
+    .type-films #awards .award-item .award-item-text {
       display: table-cell;
       vertical-align: bottom; }
-    #awards .award-item:before, #awards .award-item:after {
+    .type-films #awards .award-item:before, .type-films #awards .award-item:after {
       content: '';
       width: 64px;
       height: 150px;
       display: block; }
-    #awards .award-item:before {
+    .type-films #awards .award-item:before {
       background: url(../images/laurel.png) 0 0 no-repeat;
       background-position: left bottom; }
-    #awards .award-item:after {
+    .type-films #awards .award-item:after {
       background: url(../images/laurel.png) -64px 0 no-repeat;
       background-position: right bottom; }
+.type-films .column-title {
+  text-align: center;
+  margin: 0 0 1em 0;
+  padding: 0 0 .5em 0; }
 
-table {
-  font-size: 0.8em;
-  margin: 0 auto;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.3em; }
-  table td {
-    padding: 0 1em;
-    vertical-align: top; }
-    table td.festival-name {
-      border-bottom: 1px dotted #CCC; }
-    table td.country {
-      border: 1px dotted #CCC;
-      text-align: center;
-      font-size: 0.9em;
-      vertical-align: middle; }
-
-/*********************
-    CONTACT
-*********************/
+/*-----  End of FILMS  ------*/
+/*===============================
+=            CONTACT            =
+===============================*/
 #contact-wrapper {
   width: 90%;
   margin: 0 auto; }
@@ -1642,119 +1637,94 @@ table {
   #contact-wrapper textarea {
     width: 100% !important; }
 
-.single section {
-  word-wrap: break-word;
-  margin: 4em 0; }
-
-/* entry content */
-.entry-content, .mce-content-body {
-  padding: 0;
-  font-size: 1.1em;
-  /*
-  image alignment on a screen this size may be
-  a bit difficult. It's set to start aligning
-  and floating images at the next breakpoint,
-  but it's up to you. Feel free to change it up.
-  */ }
-  .entry-content p, .mce-content-body p {
-    width: 80%;
-    margin: 0 auto 1em auto;
-    line-height: 1.6; }
-    .entry-content p.wp-caption-text, .mce-content-body p.wp-caption-text {
-      font-size: 0.8em;
-      width: 100%;
+/*-----  End of CONTACT  ------*/
+/*===============================
+=            CONTENT            =
+===============================*/
+#content {
+  /*==========  TABLES  ==========*/ }
+  #content .wrap {
+    width: 90%;
+    margin: 0 auto; }
+  #content section {
+    margin: 4em 0; }
+  #content .entry-content, #content .mce-content-body {
+    padding: 0;
+    font-size: 1.1em;
+    word-wrap: break-word;
+    /*==========  IMAGE CAPTION  ==========*/
+    /*==========  VIDEO  ==========*/ }
+    #content .entry-content p, #content .mce-content-body p {
+      width: 80%;
+      margin: 0 auto 1em auto;
+      line-height: 1.6; }
+      #content .entry-content p.wp-caption-text, #content .mce-content-body p.wp-caption-text {
+        font-size: 0.8em;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1em 2em; }
+    #content .entry-content img, #content .mce-content-body img {
+      padding: 0;
+      margin: 0 0 1.5em 0;
+      max-width: 100%;
+      height: auto; }
+    #content .entry-content blockquote, #content .mce-content-body blockquote {
       margin: 0 auto;
-      padding: 1em 2em; }
-  .entry-content img, .mce-content-body img {
-    padding: 0; }
-  .entry-content table caption, .mce-content-body table caption {
-    margin: 0 0 7px;
-    font-size: 0.75em;
-    color: #9fa6b4;
-    text-transform: uppercase;
-    letter-spacing: 1px; }
-  .entry-content tr, .mce-content-body tr {
-    border-bottom: 1px dotted; }
-    .entry-content tr:nth-child(even), .mce-content-body tr:nth-child(even) {
-      background-color: #f8f9fa; }
-  .entry-content td, .mce-content-body td {
-    padding: 7px;
-    border-right: 1px dotted; }
-    .entry-content td:last-child, .mce-content-body td:last-child {
-      border-right: 0; }
-  .entry-content th, .mce-content-body th {
-    background-color: #f8f9fa;
-    border-bottom: 1px dotted #eaedf2;
-    border-right: 1px dotted #eaedf2; }
-    .entry-content th:last-child, .mce-content-body th:last-child {
-      border-right: 0; }
-  .entry-content blockquote, .mce-content-body blockquote {
+      padding: 2em 0;
+      font-style: italic;
+      color: #6c6c6c;
+      width: 90%; }
+      #content .entry-content blockquote p, #content .mce-content-body blockquote p {
+        width: 100% !important;
+        font-size: 1.3em; }
+    #content .entry-content .alignleft, #content .entry-content img.alignleft, #content .mce-content-body .alignleft, #content .mce-content-body img.alignleft {
+      float: left; }
+    #content .entry-content .alignright, #content .entry-content img.alignright, #content .mce-content-body .alignright, #content .mce-content-body img.alignright {
+      float: right; }
+    #content .entry-content .aligncenter, #content .entry-content img.aligncenter, #content .mce-content-body .aligncenter, #content .mce-content-body img.aligncenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+    #content .entry-content .size-auto, #content .entry-content .size-full, #content .entry-content .size-large, #content .entry-content .size-medium, #content .entry-content .size-thumbnail, #content .mce-content-body .size-auto, #content .mce-content-body .size-full, #content .mce-content-body .size-large, #content .mce-content-body .size-medium, #content .mce-content-body .size-thumbnail {
+      max-width: 100%;
+      height: auto; }
+    #content .entry-content pre, #content .mce-content-body pre {
+      background: #1f1f1f;
+      color: #f8f9fa;
+      font-size: 0.9em;
+      padding: 1.5em;
+      margin: 0 0 1.5em;
+      border-radius: 3px; }
+    #content .entry-content .wp-caption, #content .mce-content-body .wp-caption {
+      width: 80% !important;
+      margin: 0 auto 1em auto;
+      background: #eee; }
+      #content .entry-content .wp-caption img, #content .mce-content-body .wp-caption img {
+        max-width: 100%;
+        margin-bottom: 0;
+        width: 100%;
+        padding: 0 !important; }
+    #content .entry-content video, #content .mce-content-body video {
+      width: 100% !important;
+      height: auto !important; }
+  #content table {
+    font-size: 0.8em;
     margin: 0 auto;
-    padding: 2em 0;
-    font-style: italic;
-    color: #6c6c6c;
-    width: 90%; }
-    .entry-content blockquote p, .mce-content-body blockquote p {
-      width: 100%;
-      font-size: 1.3em; }
-  .entry-content dd, .mce-content-body dd {
-    margin-left: 0;
-    font-size: 0.9em;
-    color: #787878;
-    margin-bottom: 1.5em; }
-  .entry-content img, .mce-content-body img {
-    margin: 0 0 1.5em 0;
-    max-width: 100%;
-    height: auto; }
-  .entry-content .alignleft, .entry-content img.alignleft, .mce-content-body .alignleft, .mce-content-body img.alignleft {
-    float: left; }
-  .entry-content .alignright, .entry-content img.alignright, .mce-content-body .alignright, .mce-content-body img.alignright {
-    float: right; }
-  .entry-content .aligncenter, .entry-content img.aligncenter, .mce-content-body .aligncenter, .mce-content-body img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
-  .entry-content .size-auto,
-  .entry-content .size-full,
-  .entry-content .size-large,
-  .entry-content .size-medium,
-  .entry-content .size-thumbnail, .mce-content-body .size-auto,
-  .mce-content-body .size-full,
-  .mce-content-body .size-large,
-  .mce-content-body .size-medium,
-  .mce-content-body .size-thumbnail {
-    max-width: 100%;
-    height: auto; }
-  .entry-content pre, .mce-content-body pre {
-    background: #1f1f1f;
-    color: #f8f9fa;
-    font-size: 0.9em;
-    padding: 1.5em;
-    margin: 0 0 1.5em;
-    border-radius: 3px; }
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.3em; }
+    #content table td {
+      padding: 0 1em;
+      vertical-align: top; }
+      #content table td.festival-name {
+        border-bottom: 1px dotted #CCC; }
+      #content table td.country {
+        border: 1px dotted #CCC;
+        text-align: center;
+        font-size: 0.9em;
+        vertical-align: middle; }
 
-/* end .entry-content */
-.wp-caption {
-  max-width: 100%;
-  background: #eee;
-  /* images inside wp-caption */ }
-  .wp-caption img {
-    max-width: 100%;
-    margin-bottom: 0;
-    width: 100%; }
-
-/* end .wp-caption */
-/* image gallery styles */
-/* end .gallery */
-/* gallery caption styles */
-.tags {
-  margin: 0; }
-
-/*==========  VIDEO  ==========*/
-video {
-  width: 100% !important;
-  height: auto !important; }
-
+/*-----  End of CONTENT  ------*/
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -1799,42 +1769,21 @@ PAGE NAVI STYLES
       background-color: white;
       color: #333333; }
 
-/* end .bones_page_navi */
-/* fallback previous & next links */
-.wp-prev-next .prev-link {
-  float: left; }
-.wp-prev-next .next-link {
-  float: right; }
-
-/* end .wp-prev-next */
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-/* h3 comment title */
-#comments-title {
-  padding: 0.75em;
-  margin: 0; }
-
+/*================================
+=            COMMENTS            =
+================================*/
 .commentlist {
   list-style-type: none;
   margin: 0 auto !important;
   padding-top: 4em; }
 
+/*-----  End of COMMENTS  ------*/
 .comment {
   position: relative;
-  clear: both;
   overflow: hidden;
-  padding: 1.5em;
-  border-bottom: 1px solid #f8f9fa;
-  /* vcard */
-  /* end .commentlist .vcard */
-  /* end children */
-  /* general comment classes */ }
-  .comment .comment-author {
-    padding: 7px;
-    border: 0; }
+  padding: 1.5em; }
   .comment .vcard {
-    margin-left: 50px; }
+    margin: 1em 1em 0 6em; }
     .comment .vcard cite.fn {
       font-weight: 700;
       font-style: normal; }
@@ -1843,48 +1792,35 @@ COMMENT STYLES
       font-size: 0.9em;
       font-style: italic; }
       .comment .vcard time a {
-        color: #9fa6b4;
-        text-decoration: none; }
+        color: #9fa6b4; }
         .comment .vcard time a:hover {
-          text-decoration: underline; }
+          color: #1f1f1f; }
     .comment .vcard .avatar {
       position: absolute;
-      left: 16px;
-      border-radius: 50%; }
+      left: 1.5em;
+      top: 1.5em; }
   .comment:last-child {
     margin-bottom: 0; }
   .comment .children {
-    margin: 0;
-    /* variations */
-    /* change number for different depth */ }
+    margin: 0; }
   .comment[class*=depth-] {
-    margin-top: 1.1em; }
+    margin: 1.1em -1.3em 0 -1.3em; }
   .comment.depth-1 {
     margin-left: 0;
     margin-top: 0; }
-  .comment:not(.depth-1) {
-    margin-top: 0;
-    margin-left: 7px;
-    padding: 7px; }
   .comment.odd {
-    background-color: #ededed; }
+    background-color: #f2f2f2; }
   .comment.even {
-    background: #f7f7f7; }
+    background: #fafafa; }
 
-/* comment meta */
-/* comment content */
 .comment_content p {
   margin: 0.7335em 0 1.5em;
   font-size: 1em;
   line-height: 1.5em; }
 
-/* end .commentlist .comment_content */
-/* comment reply link */
 .comment-reply-link {
   float: right; }
 
-/* end .commentlist .comment-reply-link */
-/* edit comment link */
 .comment-edit-link {
   font-style: italic;
   margin: 0 7px;
@@ -1894,9 +1830,6 @@ COMMENT STYLES
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
-.comment-respond {
-  padding: 1.5em; }
-
 #reply-title {
   margin: 0; }
 
@@ -1915,21 +1848,15 @@ COMMENT FORM STYLES
   background-color: #f8f9fa;
   font-size: 0.9em; }
 
-/* comment submit button */
 #submit {
   float: right; }
 
-/* comment form title */
 #comment-form-title {
   margin: 0 0 1.1em; }
 
-/* cancel comment reply link */
-/* logged in comments */
-/* allowed tags */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0; }
 
-/* no comments */
 .nocomments {
   margin: 0 20px 1.1em; }
 
@@ -1950,26 +1877,6 @@ COMMENT FORM STYLES
   width: initial; }
 
 /*********************
-FOOTER STYLES
-*********************/
-.footer {
-  clear: both;
-  background-color: #1f1f1f;
-  color: #f8f9fa;
-  padding: 2em;
-  height: 200px; }
-
-/*
-if you checked out the link above:
-http://www.alistapart.com/articles/organizing-mobile/
-you'll want to style the footer nav
-a bit more in-depth. Remember to keep
-it simple because you'll have to
-override these styles for the desktop
-view.
-*/
-/* end .footer-links */
-/*********************
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
@@ -1977,38 +1884,33 @@ you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 768px) {
   /******************************************************************
-  Site Name: Juan Camilo Gonz&aacute;lez
-  Author: Juan Camilo Gonz&aacute;lez
+   * Site Name: JCG
+   * Site URI: http://juancgonzalez.com
+   * Author: Juan Camilo Gonzalez
   
-  Stylesheet: Tablet & Small Desktop Stylesheet
-  
-  ******************************************************************/
-  /*********************
-  HEADER STYLES
-  *********************/
-  .menu {
+   * 768-UP STYLES
+   ******************************************************************/
+  /*====================================
+  =            MAIN SIDEBAR            =
+  ====================================*/
+  #main-sidebar {
     position: fixed;
     height: 100%;
     border-right: 1px dotted; }
-    .menu #logo {
+    #main-sidebar #logo {
       display: block;
       text-align: center; }
 
-  /*********************
-  NAVIGATION STYLES
-  *********************/
+  /*-----  End of MAIN SIDEBAR  ------*/
+  /*==========================================
+  =            SIDEBAR NAVIGATION            =
+  ==========================================*/
   .nav {
     text-align: left;
-    width: 90%;
-    /* end .menu ul li */
-    /* highlight current page */
-    /* end current highlighters */ }
+    width: 90%; }
     .nav li {
       display: block;
       position: relative;
-      /*
-      plan your menus and drop-downs wisely.
-      */
       /* showing sub-menus */ }
       .nav li.menu-item-has-children:after {
         content: '\002B';
@@ -2017,8 +1919,7 @@ you can add resource intensive styles.
         top: 0.8em;
         width: 0;
         height: 0; }
-      .nav li ul.sub-menu,
-      .nav li ul.children {
+      .nav li ul.sub-menu, .nav li ul.children {
         border-top: 0;
         z-index: 8999;
         font-size: 0.7em;
@@ -2027,28 +1928,19 @@ you can add resource intensive styles.
         background-color: black;
         font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         display: block;
-        left: -999em;
-        /* highlight sub-menu current page */ }
-        .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited,
-        .nav li ul.children li a,
-        .nav li ul.children li a:visited {
+        left: -999em; }
+        .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
           display: block;
           width: 180px;
           border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
           color: #eaedf2;
           padding: 1em; }
-          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.sub-menu li a:visited:hover, .nav li ul.sub-menu li a:visited:focus,
-          .nav li ul.children li a:hover,
-          .nav li ul.children li a:focus,
-          .nav li ul.children li a:visited:hover,
-          .nav li ul.children li a:visited:focus {
+          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.sub-menu li a:visited:hover, .nav li ul.sub-menu li a:visited:focus, .nav li ul.children li a:hover, .nav li ul.children li a:focus, .nav li ul.children li a:visited:hover, .nav li ul.children li a:visited:focus {
             color: #d1d7e2;
             background-color: #1f1f1f; }
-        .nav li ul.sub-menu li:last-child a,
-        .nav li ul.children li:last-child a {
+        .nav li ul.sub-menu li:last-child a, .nav li ul.children li:last-child a {
           border-bottom: 0; }
-        .nav li ul.sub-menu:before,
-        .nav li ul.children:before {
+        .nav li ul.sub-menu:before, .nav li ul.children:before {
           content: '';
           position: absolute;
           left: -1.9em;
@@ -2061,26 +1953,43 @@ you can add resource intensive styles.
       .nav li:hover ul {
         left: 90%; }
 
-  /* end .nav */
-  /*********************
-  CONTENT
-  *********************/
+  /*-----  End of SIDEBAR NAVIGATION  ------*/
+  /*===============================
+  =            CONTENT            =
+  ===============================*/
   #content {
-    display: table;
-    margin-bottom: -200px;
     padding-bottom: 200px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-
-  .entry-content, .mce-content-body {
-    font-size: 1.3em; }
-    .entry-content p, .mce-content-body p {
+    box-sizing: border-box;
+    /*==========  POST CONTENT SECTION  ==========*/
+    /*==========  COMMENTS  ==========*/ }
+    #content .entry-content, #content .mce-content-body {
+      font-size: 1.3em; }
+      #content .entry-content p, #content .mce-content-body p {
+        width: 70%; }
+      #content .entry-content iframe, #content .mce-content-body iframe {
+        width: 100%;
+        padding: 0;
+        height: 400px;
+        background: #000;
+        background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
+        background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
+        background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
+        background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
+        #content .entry-content iframe.jcg-fullwidth, #content .mce-content-body iframe.jcg-fullwidth {
+          padding: 0 !important; }
+      #content .entry-content img, #content .mce-content-body img {
+        padding: 0 15%; }
+      #content .entry-content .wp-caption, #content .mce-content-body .wp-caption {
+        width: 70% !important; }
+    #content .commentlist {
       width: 70%; }
 
-  .commentlist {
-    width: 70%; }
-
+  /*-----  End of CONTENT  ------*/
+  /*===================================
+  =            JCG GALLERY            =
+  ===================================*/
   .jcg-gallery {
     background-color: #1f1f1f;
     margin: 2em 0;
@@ -2112,77 +2021,20 @@ you can add resource intensive styles.
         border: 3px dotted #c0b06f;
         cursor: default; }
 
-  .hentry iframe {
-    width: 100%;
-    padding: 0;
-    height: 400px;
+  /*-----  End of JCG GALLERY  ------*/
+  /*=============================
+  =            FILMS            =
+  =============================*/
+  .type-films #video-container {
     background: #000;
     background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
     background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
-    .hentry iframe.jcg-fullwidth {
-      padding: 0 !important; }
-  .hentry img {
-    padding: 0 15%; }
-
-  /*********************
-  		    FILMS
-  *********************/
-  #video-container {
-    background: #000;
-    background-image: -webkit-radial-gradient(center, circle cover, #222222 0%, black 85%);
-    background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
-    background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
-    background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
-
-  .film-description .film-synopsis {
+  .type-films .film-description .film-synopsis {
     padding: 0 25%; }
 
-  /*********************
-  SIDEBARS & ASIDES
-  *********************/
-  .widgettitle {
-    border-bottom: 2px solid #444;
-    margin-bottom: 0.75em; }
-
-  .widget {
-    padding: 0 10px;
-    margin: 2.2em 0; }
-    .widget ul li {
-      margin-bottom: 0.75em;
-      /* deep nesting */ }
-      .widget ul li ul {
-        margin-top: 0.75em;
-        padding-left: 1em; }
-
-  /* links widget */
-  /* meta widget */
-  /* pages widget */
-  /* recent-posts widget */
-  /* archives widget */
-  /* tag-cloud widget */
-  /* calendar widget */
-  /* category widget */
-  /* recent-comments widget */
-  /* search widget */
-  /* text widget */
-  /*********************
-  FOOTER STYLES
-  *********************/
-  /*
-  you'll probably need to do quite a bit
-  of overriding here if you styled them for
-  mobile. Make sure to double check these!
-  */
-  .footer-links ul li {
-    /*
-    be careful with the depth of your menus.
-    it's very rare to have multi-depth menus in
-    the footer.
-    */ }
-
-  /* end .footer-links */ }
+  /*-----  End of FILMS  ------*/ }
 /*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
@@ -2191,68 +2043,98 @@ you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 1030px) {
   /******************************************************************
-  Site Name: Juan Camilo Gonz&aacute;lez
-  Author: Juan Camilo Gonz&aacute;lez
+   * Site Name: JCG
+   * Site URI: http://juancgonzalez.com
+   * Author: Juan Camilo Gonzalez
   
-  Stylesheet: Desktop Stylsheet
-  
-  ******************************************************************/
-  .film-header #video-container iframe {
+   * 1030-UP STYLES
+   ******************************************************************/
+  /*=============================
+  =            FILMS            =
+  =============================*/
+  .type-films .film-header #video-container iframe {
     left: 50%;
     margin-left: -406px; }
 
-  /*********************
-  		CONTACT
-  *********************/
+  /*-----  End of FILMS  ------*/
+  /*===============================
+  =            CONTACT            =
+  ===============================*/
   #contact-wrapper {
     width: 50%; }
 
-  .hentry iframe {
-    height: 500px; } }
+  /*-----  End of CONTACT  ------*/
+  /*===============================
+  =            CONTENT            =
+  ===============================*/
+  #content .entry-content iframe, #content .mce-content-body iframe {
+    height: 500px; }
+
+  /*-----  End of CONTENT  ------*/ }
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 *********************/
 @media only screen and (min-width: 1240px) {
   /******************************************************************
-  Site Name: Juan Camilo Gonz&aacute;lez
-  Author: Juan Camilo Gonz&aacute;lez
+   * Site Name: JCG
+   * Site URI: http://juancgonzalez.com
+   * Author: Juan Camilo Gonzalez
   
-  Stylesheet: Super Large Monitor Stylesheet
-  
-  ******************************************************************/
-  /*********************
-  		FILMS
-  *********************/
-  table {
-    font-size: 100%; }
+   * 1240-UP STYLES
+   ******************************************************************/
+  #content {
+    /*==========  POST CONTENT SECTION  ==========*/
+    /*==========  POST FOOTER  ==========*/
+    /*==========  COMMENTS  ==========*/
+    /*==========  TABLES  ==========*/ }
+    #content .entry-content h2, #content .mce-content-body h2 {
+      text-align: center;
+      border-bottom: 1px dotted;
+      width: 35%;
+      margin: 0 auto 1em auto;
+      padding-bottom: 0.3em; }
+    #content .entry-content p, #content .mce-content-body p {
+      width: 50%; }
+    #content .entry-content blockquote, #content .mce-content-body blockquote {
+      width: 60%; }
+    #content .entry-content iframe, #content .mce-content-body iframe {
+      padding: 0 25%;
+      height: 500px; }
+    #content .entry-content img, #content .mce-content-body img {
+      padding: 0 25%; }
+    #content .entry-content .wp-caption, #content .mce-content-body .wp-caption {
+      width: 50% !important; }
+    #content .entry-footer {
+      text-align: center; }
+    #content .commentlist {
+      width: 60%; }
+    #content .comment-respond {
+      width: 60%;
+      margin: 0 auto; }
+    #content table {
+      font-size: 100%; }
 
-  .entry-content h2, .mce-content-body h2 {
+  /*===================================
+  =            SINGLE POST            =
+  ===================================*/
+  #posts-nav .post-nav-full .link-title {
+    display: block;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 0.85em;
+    letter-spacing: 1px;
     text-align: center;
-    border-bottom: 1px dotted;
-    width: 35%;
-    margin: 0 auto 1em auto;
-    padding-bottom: 0.3em; }
-  .entry-content p, .mce-content-body p {
-    width: 50%; }
-  .entry-content blockquote, .mce-content-body blockquote {
-    width: 60%; }
+    top: 1.6em;
+    margin: 0;
+    padding: 0; }
+    #posts-nav .post-nav-full .link-title a, #posts-nav .post-nav-full .link-title a:visited {
+      color: #dfd7b6; }
+      #posts-nav .post-nav-full .link-title a:hover, #posts-nav .post-nav-full .link-title a:focus, #posts-nav .post-nav-full .link-title a:visited:hover, #posts-nav .post-nav-full .link-title a:visited:focus {
+        color: white; }
 
-  .commentlist {
-    width: 60%; }
-
-  .single .entry-footer {
-    text-align: center; }
-
-  .comment-respond {
-    width: 60%;
-    margin: 0 auto; }
-
-  .hentry iframe {
-    padding: 0 25%;
-    height: 500px; }
-  .hentry img {
-    padding: 0 25%; } }
+  /*-----  End of SINGLE POST  ------*/ }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with

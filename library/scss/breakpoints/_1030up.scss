@@ -1,32 +1,59 @@
 /******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
+ * Site Name: JCG
+ * Site URI: http://juancgonzalez.com
+ * Author: Juan Camilo Gonzalez
 
-Stylesheet: Desktop Stylsheet
-
-******************************************************************/
+ * 1030-UP STYLES
+ ******************************************************************/
 $wrap: 50%;
 $wrapW: 60%;
 $wrapHalf: 25%;
 
-.film-header{
-	#video-container{
-		iframe{
-			left: 50%;
-			margin-left: -406px;
-		}
-	}
-}
-/*********************
-		CONTACT
-*********************/
-#contact-wrapper{
-	width: $wrap;
+/*=============================
+=            FILMS            =
+=============================*/
+
+.type-films {
+
+  .film-header {
+
+    #video-container {
+      iframe {
+        left: 50%;
+        margin-left: -406px;
+      }
+    }
+
+  }
 }
 
-.hentry {
-	iframe {
-	  // padding: 1em $wrapHalf;
-	  height: 500px;
-	}
+/*-----  End of FILMS  ------*/
+
+
+
+/*===============================
+=            CONTACT            =
+===============================*/
+
+#contact-wrapper {
+  width: $wrap;
 }
+
+/*-----  End of CONTACT  ------*/
+
+
+/*===============================
+=            CONTENT            =
+===============================*/
+
+#content {
+
+  .entry-content, .mce-content-body {
+    iframe {
+      height: 500px;
+    }
+  }
+
+}
+
+/*-----  End of CONTENT  ------*/

@@ -188,4 +188,35 @@ jQuery(document).ready(function($) {
 
   /*-----  End of GALLERY  ------*/
 
+  $('.post-nav-item').hover( function() {
+    $(this).removeClass('on');
+    $(this).find('.post-nav-icon').fadeOut('fast');
+    $(this).animate({ top: 0 }, 'fast');
+  }, function() {
+    var postNavItemH = $('.post-nav-item').height();
+
+    $(this).find('.post-nav-icon').fadeIn('fast');
+    $(this).animate({ top: postNavItemH - 22 }, 'slow');
+  });
+
+  $(window).load(function() {
+    var postNavItemH = $('.post-nav-item').height();
+
+    if ( $('#next-post-link').hasClass('on')) {
+      $('#next-post-link').animate({
+        top: postNavItemH - 22
+      }, 'slow', function() {
+        $(this).find('.post-nav-icon').fadeIn();
+      });
+    }
+
+    if ( $('#previous-post-link').hasClass('on')) {
+      $('#previous-post-link').animate({
+        top: postNavItemH - 22
+      }, 'slow', function() {
+        $(this).find('.post-nav-icon').fadeIn();
+      });
+    }
+
+  });
 });

@@ -1,381 +1,228 @@
 /******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
+ * Site Name: JCG
+ * Site URI: http://juancgonzalez.com
+ * Author: Juan Camilo Gonzalez
 
-Stylesheet: Tablet & Small Desktop Stylesheet
-
-******************************************************************/
+ * 768-UP STYLES
+ ******************************************************************/
 $wrap: 70%;
 $wrapW: 80%;
 $wrapHalf: 15%;
 
-/*********************
-HEADER STYLES
-*********************/
+/*====================================
+=            MAIN SIDEBAR            =
+====================================*/
 
-.menu {
-	position: fixed;
-	height: 100%;
-	border-right: 1px dotted;
-	#logo{
-		display: block;
-		text-align: center;
-	}
-}
-
-/*********************
-NAVIGATION STYLES
-*********************/
-
-.nav {
-	text-align: left;
-	width: 90%;
-	li {
-		display: block;
-		position: relative;
-		&.menu-item-has-children{
-			&:after{
-				content: '\002B';
-				position: absolute;
-				right:0;
-				top: 0.8em;
-				width: 0;
-				height: 0;
-			}
-			a {
-				&:hover, &:focus {
-					//background-color: black(1);
-					//text-decoration: underline;
-					//background-color: black(0.8);
-				}
-			}
-		}
-
-		&:first-child {}
-		&:last-child {}
-
-		/*
-		plan your menus and drop-downs wisely.
-		*/
-		ul.sub-menu,
-		ul.children {
-			//margin-top: 0;
-			border-top: 0;
-			z-index: 8999;
-			font-size: 0.7em;
-			text-align: center;
-			letter-spacing: 1px;
-			background-color: black(1);
-			font-family: $sans-serif2;
-			display: block;
-			left: -999em;
-
-			li {
-				a, a:visited {
-					display: block;
-					width: 180px;
-					border-bottom: 1px dotted white(0.2);
-					color: $gray;
-					padding: 1em;
-
-					&:hover, &:focus {
-						color: darken($gray, 8%);
-						background-color: $black;
-					}
-
-					&:active {
-
-					}
-				}
-				&:last-child {
-					a {
-						border-bottom: 0;
-					}
-				}
-			}
-
-			/* highlight sub-menu current page */
-			li.current-menu-item,
-			li.current_page_item,
-			li.current-page-ancestor {
-				a {}
-			}
-			&:before{
-				content: '';
-				position: absolute;
-				left:-1.9em;
-				top: 0;
-				width: 0;
-				height: 0;
-				border-style: solid;
-				border-width: 1em 2em 1em 0;
-				border-color: transparent #000000 transparent transparent;
-			}
-		}
-
-
-		/* showing sub-menus */
-		&:hover ul {
-			left: 90%;
-		}
-
-	} /* end .menu ul li */
-
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
-		a {}
-	}  /* end current highlighters */
-
-} /* end .nav */
-
-/*********************
-CONTENT
-*********************/
-#content{
-	display: table;
-	margin-bottom: -200px;
-	padding-bottom: 200px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-
-	#main, .sidebar{
-		// display: table-cell;
-	}
-}
-
-.entry-content, .mce-content-body {
-	font-size: 1.3em;
-	p {
-		width: 70%;
-	}
-}
-
-.commentlist {
-	width: 70%;
-}
-
-.jcg-gallery {
-	background-color: $black;
-	margin: 2em 0;
-	position: relative;
-	.jcg-loading-image{
-		position: absolute;
-		color: white;
-		text-align: center;
-		left: 50%;
-		top: 50%;
-		z-index: 2;
-	}
-	.jcg-gallery-image-container{
-		float: right;
-		width: 96%;
-		text-align: center;
-		z-index: 99999;
-		position: relative;
-	}
-	a {
-		display: block;
-		line-height: 0;
-		border: 3px solid;
-		max-width: 4%;
-		// margin: 0 5px 5px 5px;
-		img {
-			width: 100%;
-			height: auto;
-			margin: 0;
-			padding: 0;
-		}
-		&.current {
-			border: 3px dotted $link-hover;
-			cursor: default;
-		}
-	}
-}
-
-.hentry {
-	iframe {
-	  width: 100%;
-	  padding: 0;
-	  height: 400px;
-	  background: #000;
-	  background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
-	  background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
-	  background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
-	  background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
-
-	  &.jcg-fullwidth {
-	    padding: 0!important;
-	  }
-	}
-	img {
-    padding: 0 $wrapHalf;
+#main-sidebar {
+  position: fixed;
+  height: 100%;
+  border-right: 1px dotted;
+  #logo{
+    display: block;
+    text-align: center;
   }
 }
 
-/*********************
-		    FILMS
-*********************/
-#video-container{
-	background: #000;
-	background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
-	background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
-	background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
-	background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
+/*-----  End of MAIN SIDEBAR  ------*/
+
+/*==========================================
+=            SIDEBAR NAVIGATION            =
+==========================================*/
+
+.nav {
+  text-align: left;
+  width: 90%;
+  li {
+    display: block;
+    position: relative;
+    &.menu-item-has-children{
+      &:after{
+        content: '\002B';
+        position: absolute;
+        right:0;
+        top: 0.8em;
+        width: 0;
+        height: 0;
+      }
+    }
+
+    ul.sub-menu, ul.children {
+      border-top: 0;
+      z-index: 8999;
+      font-size: 0.7em;
+      text-align: center;
+      letter-spacing: 1px;
+      background-color: black(1);
+      font-family: $sans-serif2;
+      display: block;
+      left: -999em;
+
+      li {
+        a, a:visited {
+          display: block;
+          width: 180px;
+          border-bottom: 1px dotted white(0.2);
+          color: $gray;
+          padding: 1em;
+
+          &:hover, &:focus {
+            color: darken($gray, 8%);
+            background-color: $black;
+          }
+        }
+        &:last-child {
+          a {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      &:before{
+        content: '';
+        position: absolute;
+        left:-1.9em;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 1em 2em 1em 0;
+        border-color: transparent #000000 transparent transparent;
+      }
+    }
+
+    /* showing sub-menus */
+    &:hover ul {
+      left: 90%;
+    }
+
+  }
+
 }
-.film-description{
-	.film-synopsis{
-		padding: 0 25%;
-	}
+
+/*-----  End of SIDEBAR NAVIGATION  ------*/
+
+/*===============================
+=            CONTENT            =
+===============================*/
+
+#content{
+  padding-bottom: 200px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /*==========  POST CONTENT SECTION  ==========*/
+
+  .entry-content, .mce-content-body {
+    font-size: 1.3em;
+
+    p {
+      width: $wrap;
+    }
+
+    iframe {
+      width: 100%;
+      padding: 0;
+      height: 400px;
+      background: #000;
+      background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
+      background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
+      background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
+      background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
+
+      &.jcg-fullwidth {
+        padding: 0!important;
+      }
+    }
+
+    img {
+      padding: 0 $wrapHalf;
+    }
+
+    .wp-caption {
+      width: $wrap!important;
+    }
+  }
+
+  /*==========  COMMENTS  ==========*/
+
+  .commentlist {
+    width: 70%;
+  }
 }
 
-/*********************
-SIDEBARS & ASIDES
-*********************/
+/*-----  End of CONTENT  ------*/
 
-.sidebar {
+/*===================================
+=            JCG GALLERY            =
+===================================*/
 
+.jcg-gallery {
+  background-color: $black;
+  margin: 2em 0;
+  position: relative;
+
+  .jcg-loading-image {
+    position: absolute;
+    color: white;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+  }
+
+  .jcg-gallery-image-container {
+    float: right;
+    width: 96%;
+    text-align: center;
+    z-index: 99999;
+    position: relative;
+  }
+
+  a {
+    display: block;
+    line-height: 0;
+    border: 3px solid;
+    max-width: 4%;
+
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    &.current {
+      border: 3px dotted $link-hover;
+      cursor: default;
+    }
+  }
 }
 
-	.widgettitle {
-		border-bottom: 2px solid #444;
-		margin-bottom: 0.75em;
-	}
 
-	.widget {
-		padding: 0 10px;
-		margin: 2.2em 0;
+/*-----  End of JCG GALLERY  ------*/
 
-		ul {
-			li {
-				margin-bottom: 0.75em;
+/*=============================
+=            FILMS            =
+=============================*/
 
-				&:first-child {}
-				&:last-child {}
-				a {}
-				/* deep nesting */
+.type-films {
 
-				ul {
-					margin-top: 0.75em;
-					padding-left: 1em;
-				}
-			}
-		}
-	}
+  #video-container {
+    background: #000;
+    background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
+    background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
+    background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
+    background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
+  }
 
+  .film-description {
 
-	/* links widget */
-	.widget_links {}
-	.widget_links ul {}
-	.widget_links ul li {}
-	.widget_links ul li a {}
+    .film-synopsis {
+      padding: 0 25%;
+    }
 
-	/* meta widget */
-	.widget_meta {}
-	.widget_meta ul {}
-	.widget_meta ul li {}
-	.widget_meta ul li a {}
+  }
+}
 
-	/* pages widget */
-	.widget_pages {}
-	.widget_pages ul {}
-	.widget_pages ul li {}
-	.widget_pages ul li a {}
-
-	/* recent-posts widget */
-	.widget_recent_entries {}
-	.widget_recent_entries ul {}
-	.widget_recent_entries ul li {}
-	.widget_recent_entries ul li a {}
-
-	/* archives widget */
-	.widget_archive {}
-	.widget_archive ul {}
-	.widget_archive ul li {}
-	.widget_archive ul li a {}
-	.widget_archive select {}
-	.widget_archive option {}
-
-	/* tag-cloud widget */
-	.widget_links {}
-	.widget_links li:after {}
-	.widget_links li:before {}
-	.widget_tag_cloud {}
-	.widget_tag_cloud a {}
-	.widget_tag_cloud a:after {}
-	.widget_tag_cloud a:before {}
-
-	/* calendar widget */
-	.widget_calendar {}
-	#calendar_wrap {}
-	#calendar_wrap th {}
-	#calendar_wrap td {}
-	#wp-calendar tr td {}
-	#wp-calendar caption {}
-	#wp-calendar a {}
-	#wp-calendar #today {}
-	#wp-calendar #prev {}
-	#wp-calendar #next {}
-	#wp-calendar #next a {}
-	#wp-calendar #prev a {}
-
-	/* category widget */
-	.widget_categories {}
-	.widget_categories ul {}
-	.widget_categories ul li {}
-	.widget_categories ul ul.children {}
-	.widget_categories a {}
-	.widget_categories select{}
-	.widget_categories select#cat {}
-	.widget_categories select.postform {}
-	.widget_categories option {}
-	.widget_categories .level-0 {}
-	.widget_categories .level-1 {}
-	.widget_categories .level-2 {}
-	.widget_categories .level-3 {}
-
-	/* recent-comments widget */
-	.recentcomments {}
-	#recentcomments {}
-	#recentcomments li {}
-	#recentcomments li a {}
-	.widget_recent_comments {}
-
-	/* search widget */
-	#searchform {}
-	.widget_search {}
-	.screen-reader-text {}
-
-	/* text widget */
-	.textwidget {}
-	.widget_text {}
-	.textwidget p {}
-
-
-/*********************
-FOOTER STYLES
-*********************/
-
-/*
-you'll probably need to do quite a bit
-of overriding here if you styled them for
-mobile. Make sure to double check these!
-*/
-.footer-links {
-	ul {
-		li {
-			a {
-				&:hover {}
-			}
-			/*
-			be careful with the depth of your menus.
-			it's very rare to have multi-depth menus in
-			the footer.
-			*/
-			ul {}
-		}
-	}
-} /* end .footer-links */
-
+/*-----  End of FILMS  ------*/
