@@ -33,12 +33,14 @@
 
   add_image_size( 'jcg-1300x325', 1300, 325, true );
   add_image_size( 'jcg-1200x630', 1200, 630, true );
+  add_image_size( 'jcg-900x100', 900, 100, true);
   add_image_size( 'jcg-300', 300, 100, true );
 
   function jcg_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
       'jcg-1300x325' => '1300px by 325px',
       'jcg-1200x630' => '1200px by 630px',
+      'jcg-post-nav' => '900px by 100px',
       'jcg-300x100'  => '300px by 100px',
     ) );
   }
@@ -88,7 +90,7 @@
       <article  class="cf">
         <header class="comment-author vcard">
           <?php $bgauthemail = get_comment_author_email(); ?>
-          <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=40" class="load-gravatar avatar avatar-48 photo" height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
+          <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=80" class="load-gravatar avatar avatar-48 photo" height="80" width="80" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
 
           <?php printf( '<cite class="fn">%1$s</cite> %2$s', get_comment_author_link(), edit_comment_link( '(Edit)','  ','') ) ?>
           <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( 'F jS, Y' ); ?> </a></time>
