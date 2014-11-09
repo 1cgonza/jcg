@@ -1,26 +1,28 @@
-/******************************************************************
- * Site Name: JCG
- * Site URI: http://juancgonzalez.com
- * Author: Juan Camilo Gonzalez
+//******************************************************************
+// Site Name: JCG
+// Site URI: http://juancgonzalez.com
+// Author: Juan Camilo Gonzalez
 
- * 1240-UP STYLES
- ******************************************************************/
+// 1240-UP STYLES
+//******************************************************************
+
 $wrap: 50%;
-$wrapW: 60%;
-$wrapHalf: 25%;
+$wrap-w: 60%;
+$wrap-half: 25%;
 
 #content {
 
   /*==========  POST CONTENT SECTION  ==========*/
 
-  .entry-content, .mce-content-body {
+  .entry-content,
+  .mce-content-body {
 
     h2 {
       text-align: center;
       border-bottom: 1px dotted;
       width: 35%;
-      margin: 0 auto 1em auto;
-      padding-bottom: 0.3em;
+      margin: 0 auto 1em;
+      padding-bottom: .3em;
     }
 
     p {
@@ -28,16 +30,16 @@ $wrapHalf: 25%;
     }
 
     blockquote {
-      width: $wrapW;
+      width: $wrap-w;
     }
 
     iframe {
-      padding: 0 $wrapHalf;
+      padding: 0 $wrap-half;
       height: 500px;
     }
 
     img {
-      padding: 0 $wrapHalf;
+      padding: 0 $wrap-half;
     }
 
     .wp-caption {
@@ -55,12 +57,12 @@ $wrapHalf: 25%;
   /*==========  COMMENTS  ==========*/
 
   .commentlist {
-    width: $wrapW;
+    width: $wrap-w;
   }
 
   .comment-respond {
-    width: $wrapW;
     margin: 0 auto;
+    width: $wrap-w;
   }
 
 
@@ -72,35 +74,33 @@ $wrapHalf: 25%;
 
 }
 
-/*===================================
-=            SINGLE POST            =
-===================================*/
+//===================================
+//           SINGLE POST            |
+//===================================
 
-#posts-nav {
+.post-nav-full {
+  .link-title {
+    display: block;
+    position: absolute;
+    width: 100%;
+    background-color: black(.6);
+    font-size: .85em;
+    letter-spacing: 1px;
+    text-align: center;
+    top: 1.6em;
+    margin: 0;
+    padding: 0;
 
-  .post-nav-full {
-    .link-title {
-      display: block;
-      position: absolute;
-      width: 100%;
-      background-color: black(0.6);
-      font-size: 0.85em;
-      letter-spacing: 1px;
-      text-align: center;
-      top: 1.6em;
-      margin: 0;
-      padding: 0;
+    a,
+    a:visited {
+      color: lighten($link-color, 40%);
 
-      a, a:visited {
-        color: lighten($link-color, 40%);
-
-        &:hover, &:focus {
-          color: $white;
-        }
+      &:hover,
+      &:focus {
+        color: $white;
       }
     }
   }
-
 }
 
-/*-----  End of SINGLE POST  ------*/
+//-----  End of SINGLE POST  ------//

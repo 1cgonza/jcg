@@ -1,20 +1,3 @@
-/*! JCG */
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Main Stylesheet
-
-Helpful articles on Sass file organization:
-http://thesassway.com/advanced/modular-css-naming-conventions
-
-******************************************************************/
-/*********************
-IMPORTING PARTIALS
-These files are needed at the beginning so that we establish all
-our mixins, functions, and variables that we'll be using across
-the whole project.
-*********************/
 /* normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
 /* ==========================================================================
    HTML5 display definitions
@@ -482,161 +465,6 @@ span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic; }
 
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Typography
-
-Need to import a font or set of icons for your site? Drop them in
-here or just use this to establish your typographical grid. Or not.
-Do whatever you want to...GOSH!
-
-Helpful Articles:
-http://trentwalton.com/2012/06/19/fluid-type/
-http://ia.net/blog/responsive-typography-the-basics/
-http://alistapart.com/column/responsive-typography-is-a-physical-discipline
-
-******************************************************************/
-/*********************
-FONT FACE (IN YOUR FACE)
-*********************/
-/*  To embed your own fonts, use this syntax
-  and place your fonts inside the
-  library/fonts folder. For more information
-  on embedding fonts, go to:
-  http://www.fontsquirrel.com/
-  Be sure to remove the comment brackets.
-*/
-/*  @font-face {
-      font-family: 'Font Name';
-      src: url('library/fonts/font-name.eot');
-      src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
-      font-weight: normal;
-      font-style: normal;
-  }
-*/
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Variables
-
-Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
-
-******************************************************************/
-/*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
-*********************/
-/*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
-*/
-/*********************
-TYPOGRAPHY
-*********************/
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Sass Functions
-
-For more info on functions, go here:
-http://sass-lang.com/documentation/Sass/Script/Functions.html
-
-******************************************************************/
-/*********************
-COLOR FUNCTIONS
-These are helpful when you're working
-with shadows and such things. It's essentially
-a quicker way to write RGBA.
-
-Example:
-box-shadow: 0 0 4px black(0.3);
-compiles to:
-box-shadow: 0 0 4px rgba(0,0,0,0.3);
-*********************/
-/*********************
-RESPONSIVE HELPER FUNCTION
-If you're creating a responsive site, then
-you've probably already read
-Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
-
-Here's a nice little helper function for calculating
-target / context
-as mentioned in that book.
-
-Example:
-width: cp(650px, 1000px);
-or
-width: calc-percent(650px, 1000px);
-both compile to:
-width: 65%;
-*********************/
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Mixins Stylesheet
-
-This is where you can take advantage of Sass' great features: Mixins.
-I won't go in-depth on how they work exactly,
-there are a few articles below that will help do that. What I will
-tell you is that this will help speed up simple changes like
-changing a color or adding CSS3 techniques gradients.
-
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
-remember less is more.
-
-Helpful:
-http://sachagreif.com/useful-sass-mixins/
-http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
-http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
-
-******************************************************************/
-/*********************
-TRANSITION
-*********************/
-/*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include transition(all 0.2s ease-in-out);
-*/
-/*********************
-CSS3 GRADIENTS
-Be careful with these since they can
-really slow down your CSS. Don't overdo it.
-*********************/
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SIZING
-*********************/
-/* @include box-sizing(border-box); */
-/* NOTE: value of "padding-box" is only supported in Gecko. So
-probably best not to use it. I mean, were you going to anyway? */
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Grid Stylesheet
-
-******************************************************************/
-/*
-Mobile Grid Styles
-These are the widths for the mobile grid.
-There are four types, but you can add or customize
-them however you see fit.
-*/
 @media (max-width: 767px) {
   .m-all {
     display: inline-block;
@@ -667,7 +495,6 @@ them however you see fit.
     display: inline-block;
     vertical-align: top;
     width: 75%; } }
-/* Portrait tablet to landscape */
 @media (min-width: 768px) and (max-width: 1239px) {
   .t-all {
     display: inline-block;
@@ -718,7 +545,6 @@ them however you see fit.
     display: inline-block;
     vertical-align: top;
     width: 80%; } }
-/* Landscape to small desktop */
 @media (min-width: 1240px) {
   .d-all {
     display: inline-block;
@@ -838,13 +664,6 @@ them however you see fit.
   float: right;
   padding-right: 0; }
 
-/*********************
-IMPORTING MODULES
-Modules are reusable blocks or elements we use throughout the project.
-We can break them up as much as we want or just keep them all in one.
-I mean, you can do whatever you want. The world is your oyster. Unless
-you hate oysters, then the world is your peanut butter & jelly sandwich.
-*********************/
 /******************************************************************
 Site Name: Juan Camilo Gonz&aacute;lez
 Author: Juan Camilo Gonz&aacute;lez
@@ -876,39 +695,15 @@ you can just remove this stylesheet.
   border-color: #deeaae;
   background: #e6efc2; }
 
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Button Styles
-
-Buttons are a pretty important part of your site's style, so it's
-important to have a consistent baseline for them. Use this stylesheet
-to create all kinds of buttons.
-
-Helpful Links:
-http://galp.in/blog/2011/08/02/the-ui-guide-part-1-buttons/
-
-******************************************************************/
-/*********************
-BUTTON DEFAULTS
-We're gonna use a placeholder selector here
-so we can use common styles. We then use this
-to load up the defaults in all our buttons.
-
-Here's a quick video to show how it works:
-http://www.youtube.com/watch?v=hwdVpKiJzac
-
-*********************/
 .black-btn, .pushbutton-wide, .comment-reply-link, #submit, .blue-btn, .search-submit {
   display: inline-block;
   position: relative;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: white;
-  font-size: 0.9em;
+  font-size: .9em;
   font-weight: normal;
-  padding: 0.8em;
+  padding: .8em;
   border: 0;
   cursor: pointer;
   -webkit-transition: background-color 0.14s ease-in-out;
@@ -919,11 +714,6 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   .black-btn:active, .pushbutton-wide:active, .comment-reply-link:active, #submit:active, .blue-btn:active, .search-submit:active {
     top: 1px; }
 
-/*
-An example button.
-You can use this example if you want. Just replace all the variables
-and it will create a button dependant on those variables.
-*/
 .black-btn, .pushbutton-wide, .comment-reply-link, #submit {
   background-color: #1f1f1f; }
   .black-btn:hover, .pushbutton-wide:hover, .comment-reply-link:hover, #submit:hover, .black-btn:focus, .pushbutton-wide:focus, .comment-reply-link:focus, #submit:focus {
@@ -938,26 +728,6 @@ and it will create a button dependant on those variables.
   .blue-btn:active, .search-submit:active {
     background-color: lighetn(#2980b9, 5%); }
 
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Form Styles
-
-We put all the form and button styles in here to setup a consistent
-look. If we need to customize them, we can do this in the main
-stylesheets and just override them. Easy Peasy.
-
-You're gonna see a few data-uri thingies down there. If you're not
-sure what they are, check this link out:
-http://css-tricks.com/data-uris/
-If you want to create your own, use this helpful link:
-http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/
-
-******************************************************************/
-/*********************
-INPUTS
-*********************/
 input[type="text"],
 input[type="password"],
 input[type="datetime"],
@@ -976,8 +746,8 @@ select,
 textarea,
 .field {
   display: block;
-  font-size: 0.9em;
-  padding: 0.5em;
+  font-size: .9em;
+  padding: .5em;
   margin-bottom: 14px;
   color: #333333;
   vertical-align: middle;
@@ -1139,7 +909,7 @@ textarea,
   .field.is-disabled {
     cursor: not-allowed;
     border-color: #cfcfcf;
-    opacity: 0.6; }
+    opacity: .6; }
     input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[type="text"].is-disabled:focus, input[type="text"].is-disabled:active,
     input[type="password"][disabled]:focus,
     input[type="password"][disabled]:active,
@@ -1208,40 +978,21 @@ textarea,
       background-color: #d5edf8; }
 
 textarea {
-  max-width: 100%;
   min-height: 120px;
+  max-width: 100%;
   line-height: 1.5em; }
 
 select {
   -webkit-appearance: none;
-  /* 1 */
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAHCAYAAADXhRcnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEOEZCMjYxMEYwNUUxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEOEZCMjYxMUYwNUUxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQ4RkIyNjBFRjA1RTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ4RkIyNjBGRjA1RTExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Vxkp9gAAAI9JREFUeNpidHFxucHAwKAOxE+AmJmBMPgLxDJAfJMFSKwD4kqoAClgA+P///8ZXF1dPaCGcBKh6QcQB+3evXs7WDMIAA2QB1I7gFgDj0aQFz2BGh+AOEwwUaDAQyBlCMR7cGjcC5KHaQQBuM3IAOiKTiBVhiTUDdRUhq4Oq2aoAelAahIQ5wM1zsCmBiDAADhYMJXVZ9u9AAAAAElFTkSuQmCC);
-  background-repeat: no-repeat;
-  background-position: 97.5% center; }
+  background-position: 97.5% center;
+  background-repeat: no-repeat; }
 
-/*********************
-BASE (MOBILE) SIZE
-This are the mobile styles. It's what people see on their phones. If
-you set a great foundation, you won't need to add too many styles in
-the other stylesheets. Remember, keep it light: Speed is Important.
-*********************/
-/******************************************************************
- * Site Name: JCG
- * Site URI: http://juancgonzalez.com
- * Author: Juan Camilo Gonzalez
-
- * BASE STYLES
- ******************************************************************/
-/**
-
-  TODO:
-  - Change cat colors from hard coded css to options page in wp dashboard.
-
-**/
 /*======================================
 =            GENERAL STYLES            =
 ======================================*/
-html, body {
+html,
+body {
   width: 100%; }
 
 body {
@@ -1259,31 +1010,38 @@ body {
   text-shadow: none; }
 
 #container {
-  min-height: 100%;
-  height: 100%; }
+  height: 100%;
+  min-height: 100%; }
 
 /*-----  End of GENERAL STYLES  ------*/
 /*=============================
 =            LINKS            =
 =============================*/
-a, a:visited {
+a,
+a:visited {
   color: #8c7c3d;
   text-decoration: none; }
-  a:hover, a:focus, a:visited:hover, a:visited:focus {
+  a:hover, a:focus,
+  a:visited:hover,
+  a:visited:focus {
     color: #c0b06f; }
-  a:link, a:visited:link {
+  a:link,
+  a:visited:link {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
 .entry-tag {
-  margin: 0 0.3em 1em 0;
-  display: inline-block; }
-  .entry-tag a, .entry-tag a:visited {
+  display: inline-block;
+  margin: 0 .3em 1em 0; }
+  .entry-tag a,
+  .entry-tag a:visited {
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    padding: 0.5em;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.9); }
-    .entry-tag a:hover, .entry-tag a:focus, .entry-tag a:visited:hover, .entry-tag a:visited:focus {
+    padding: .5em;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.1); }
+    .entry-tag a:hover, .entry-tag a:focus,
+    .entry-tag a:visited:hover,
+    .entry-tag a:visited:focus {
       background-color: rgba(0, 0, 0, 0.8);
       color: rgba(255, 255, 255, 0.8); }
 
@@ -1291,10 +1049,18 @@ a, a:visited {
 /*====================================
 =            <H#> TITLES             =
 ====================================*/
-h1, h2, h3, h4, h5 {
-  text-rendering: optimizelegibility;
-  font-weight: 300; }
-  h1 a, h2 a, h3 a, h4 a, h5 a {
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+  text-rendering: optimizelegibility; }
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a {
     text-decoration: none; }
 
 h1 {
@@ -1304,7 +1070,7 @@ h1 {
 h2 {
   font-size: 1.75em;
   line-height: 1.4em;
-  margin-bottom: 0.375em; }
+  margin-bottom: .375em; }
 
 h3 {
   font-size: 1.125em; }
@@ -1314,7 +1080,7 @@ h4 {
   font-weight: 700; }
 
 h5 {
-  font-size: 0.846em;
+  font-size: .846em;
   line-height: 2.09em;
   text-transform: uppercase;
   letter-spacing: 2px; }
@@ -1343,7 +1109,7 @@ h5 {
       transition: all 0.25s ease-in-out;
       display: block;
       text-decoration: none;
-      padding: 0.75em; }
+      padding: .75em; }
     .nav li ul.sub-menu,
     .nav li ul.children {
       top: 0;
@@ -1363,12 +1129,13 @@ h5 {
   text-align: center; }
   #description-box h1 {
     margin: 0; }
-  #description-box .archive-title, #description-box .description-title {
-    margin-bottom: 0.4em; }
+  #description-box .archive-title,
+  #description-box .description-title {
+    margin-bottom: .4em; }
   #description-box .blog-header-description {
     width: 50%;
     margin: 0 auto;
-    font-size: 0.9em;
+    font-size: .9em;
     text-align: left;
     padding: 1em;
     background-color: #d2d2d2;
@@ -1376,45 +1143,55 @@ h5 {
   #description-box .search-box {
     margin-top: 1.5em; }
 
-.search-results #description-box, .search-no-results #description-box {
+.search-results #description-box,
+.search-no-results #description-box {
   background-color: #2472a4;
-  color: white; }
+  color: #fff; }
 
 /*==========  SEARCH  ==========*/
 input[type="search"] {
   margin: 0 auto;
   max-width: 250px;
   display: inline-block;
-  padding: 0.75em; }
+  padding: .75em; }
 
 /*-----  End of POSTS HEADER  ------*/
 /*==================================
 =            CATEGORIES            =
 ==================================*/
 #categories-menu {
-  padding: 0;
-  margin: 0.45em; }
+  margin: .45em;
+  padding: 0; }
 
 .cat-item {
   display: inline-block; }
-  .cat-item a, .cat-item a:visited {
+  .cat-item a,
+  .cat-item a:visited {
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    padding: 0.5em;
+    padding: .5em;
     background-color: #1f1f1f;
     color: white; }
-    .cat-item a:hover, .cat-item a:focus, .cat-item a:visited:hover, .cat-item a:visited:focus {
+    .cat-item a:hover, .cat-item a:focus,
+    .cat-item a:visited:hover,
+    .cat-item a:visited:focus {
       background-color: rgba(255, 255, 255, 0.8);
       color: #1f1f1f; }
-  .cat-item.cat-item-1 a, .cat-item.cat-item-1 a:visited {
+  .cat-item.cat-item-1 a,
+  .cat-item.cat-item-1 a:visited {
     background-color: #ecd93d;
     color: #1f1f1f; }
-    .cat-item.cat-item-1 a:hover, .cat-item.cat-item-1 a:focus, .cat-item.cat-item-1 a:visited:hover, .cat-item.cat-item-1 a:visited:focus {
+    .cat-item.cat-item-1 a:hover, .cat-item.cat-item-1 a:focus,
+    .cat-item.cat-item-1 a:visited:hover,
+    .cat-item.cat-item-1 a:visited:focus {
       background-color: rgba(236, 217, 61, 0.8); }
-  .cat-item.cat-item-20 a, .cat-item.cat-item-20 a:visited {
+  .cat-item.cat-item-20 a,
+  .cat-item.cat-item-20 a:visited {
     background-color: #c45956;
     color: white; }
-    .cat-item.cat-item-20 a:hover, .cat-item.cat-item-20 a:focus, .cat-item.cat-item-20 a:visited:hover, .cat-item.cat-item-20 a:visited:focus {
+    .cat-item.cat-item-20 a:hover, .cat-item.cat-item-20 a:focus,
+    .cat-item.cat-item-20 a:visited:hover,
+    .cat-item.cat-item-20 a:visited:focus {
       background-color: rgba(196, 89, 86, 0.8); }
   .cat-item.cat-item-21 a, .cat-item.cat-item-21 a:visited {
     background-color: #56bc7a;
@@ -1422,20 +1199,26 @@ input[type="search"] {
     .cat-item.cat-item-21 a:hover, .cat-item.cat-item-21 a:focus, .cat-item.cat-item-21 a:visited:hover, .cat-item.cat-item-21 a:visited:focus {
       background-color: rgba(86, 188, 122, 0.8); }
 
-.category-1 #description-box .blog-header-description, .category-process #description-box .blog-header-description {
+.category-1 #description-box .blog-header-description,
+.category-process #description-box .blog-header-description {
   background-color: #ecd93d;
   color: #1f1f1f; }
-.category-1 .post-header, .category-process .post-header {
+.category-1 .post-header,
+.category-process .post-header {
   background-color: #ecd93d; }
 
-.category-20 #description-box .blog-header-description, .category-references #description-box .blog-header-description {
+.category-20 #description-box .blog-header-description,
+.category-references #description-box .blog-header-description {
   background-color: #c45956; }
-.category-20 .post-header, .category-references .post-header {
+.category-20 .post-header,
+.category-references .post-header {
   background-color: #c45956; }
 
-.category-21 #description-box .blog-header-description, .category-inspiration #description-box .blog-header-description {
+.category-21 #description-box .blog-header-description,
+.category-inspiration #description-box .blog-header-description {
   background-color: #56bc7a; }
-.category-21 .post-header, .category-inspiration .post-header {
+.category-21 .post-header,
+.category-inspiration .post-header {
   background-color: #56bc7a; }
 
 /*-----  End of CATEGORIES  ------*/
@@ -1453,28 +1236,31 @@ input[type="search"] {
       margin: -10px 0 0 -10px;
       z-index: 1; }
       #posts-list .hentry .header-meta .post-date {
-        font-size: 0.8em;
+        font-size: .8em;
         text-align: center;
         width: 100px;
         background-color: rgba(0, 0, 0, 0.8);
-        color: white;
+        color: #fff;
         padding: 20px 10px; }
         #posts-list .hentry .header-meta .post-date p {
           margin: 0; }
         #posts-list .hentry .header-meta .post-date .post-weekday {
-          font-size: 0.8em;
+          font-size: .8em;
           letter-spacing: 1px; }
         #posts-list .hentry .header-meta .post-date .post-year {
           letter-spacing: 2px; }
     #posts-list .hentry .post-image {
       line-height: 0;
       z-index: -1; }
-      #posts-list .hentry .post-image a, #posts-list .hentry .post-image a:visited {
+      #posts-list .hentry .post-image a,
+      #posts-list .hentry .post-image a:visited {
         -webkit-transition: all 0.1s ease-out;
         transition: all 0.1s ease-out;
         opacity: 1; }
-        #posts-list .hentry .post-image a:hover, #posts-list .hentry .post-image a:focus, #posts-list .hentry .post-image a:visited:hover, #posts-list .hentry .post-image a:visited:focus {
-          opacity: 0.8; }
+        #posts-list .hentry .post-image a:hover, #posts-list .hentry .post-image a:focus,
+        #posts-list .hentry .post-image a:visited:hover,
+        #posts-list .hentry .post-image a:visited:focus {
+          opacity: .8; }
       #posts-list .hentry .post-image img {
         width: 100%;
         height: auto;
@@ -1488,10 +1274,10 @@ input[type="search"] {
       width: 59%;
       display: inline-block;
       vertical-align: top;
-      padding: 0.5em 0 0 1.5em; }
+      padding: .5em 0 0 1.5em; }
     #posts-list .hentry .entry-footer {
-      text-align: right;
-      font-size: 0.8em; }
+      font-size: .8em;
+      text-align: right; }
 
 /*-----  End of POSTS ARCHIVE  ------*/
 /*********************
@@ -1513,7 +1299,7 @@ input[type="search"] {
       text-align: center;
       width: 100%;
       background-color: rgba(0, 0, 0, 0.5);
-      color: white;
+      color: #fff;
       cursor: pointer;
       display: none; }
     #posts-nav .post-nav-item .link-title {
@@ -1533,7 +1319,7 @@ input[type="search"] {
   background-color: #fafafa; }
   .single-post .article-header .entry-title {
     margin: 0;
-    padding: 1em 1em 0.2em 1em;
+    padding: 1em 1em .2em;
     font-size: 4em; }
   .single-post .article-header .article-date {
     color: #9f9f9f; }
@@ -1592,44 +1378,46 @@ input[type="search"] {
       z-index: 7999;
       padding: 0 !important; }
 .type-films .film-description {
-  text-align: center;
-  padding: 0 1em; }
+  padding: 0 1em;
+  text-align: center; }
   .type-films .film-description .film-synopsis {
     margin-top: 2em; }
 .type-films #awards {
   text-align: center; }
   .type-films #awards .award-item {
-    padding: 1em;
     display: inline-table;
-    font-size: 0.85em; }
-    .type-films #awards .award-item p, .type-films #awards .award-item h1, .type-films #awards .award-item h2 {
+    font-size: .85em;
+    padding: 1em; }
+    .type-films #awards .award-item p,
+    .type-films #awards .award-item h1,
+    .type-films #awards .award-item h2 {
       margin: 0; }
     .type-films #awards .award-item .award-item-text {
       display: table-cell;
       vertical-align: bottom; }
     .type-films #awards .award-item:before, .type-films #awards .award-item:after {
       content: '';
-      width: 64px;
+      display: block;
       height: 150px;
-      display: block; }
+      width: 64px; }
     .type-films #awards .award-item:before {
-      background: url(../images/laurel.png) 0 0 no-repeat;
+      background: 'url(../images/laurel.png)' 0 0 no-repeat;
       background-position: left bottom; }
     .type-films #awards .award-item:after {
-      background: url(../images/laurel.png) -64px 0 no-repeat;
+      background: 'url(../images/laurel.png)' -64px 0  no-repeat;
       background-position: right bottom; }
 .type-films .column-title {
-  text-align: center;
-  margin: 0 0 1em 0;
-  padding: 0 0 .5em 0; }
+  margin: 0 0 1em;
+  padding: 0 0 .5em;
+  text-align: center; }
 
 /*-----  End of FILMS  ------*/
 /*===============================
 =            CONTACT            =
 ===============================*/
 #contact-wrapper {
-  width: 90%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 90%; }
   #contact-wrapper div {
     margin-bottom: 1em; }
   #contact-wrapper label {
@@ -1644,84 +1432,112 @@ input[type="search"] {
 #content {
   /*==========  TABLES  ==========*/ }
   #content .wrap {
-    width: 90%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    width: 90%; }
   #content section {
     margin: 4em 0; }
-  #content .entry-content, #content .mce-content-body {
-    padding: 0;
+  #content .entry-content,
+  #content .mce-content-body {
     font-size: 1.1em;
+    padding: 0;
     word-wrap: break-word;
     /*==========  IMAGE CAPTION  ==========*/
     /*==========  VIDEO  ==========*/ }
-    #content .entry-content p, #content .mce-content-body p {
-      width: 80%;
-      margin: 0 auto 1em auto;
-      line-height: 1.6; }
-      #content .entry-content p.wp-caption-text, #content .mce-content-body p.wp-caption-text {
-        font-size: 0.8em;
-        width: 100%;
+    #content .entry-content p,
+    #content .mce-content-body p {
+      line-height: 1.6;
+      margin: 0 auto 1em;
+      width: 80%; }
+      #content .entry-content p.wp-caption-text,
+      #content .mce-content-body p.wp-caption-text {
+        font-size: .8em;
         margin: 0 auto;
-        padding: 1em 2em; }
-    #content .entry-content img, #content .mce-content-body img {
-      padding: 0;
-      margin: 0 0 1.5em 0;
+        padding: 1em 2em;
+        width: 100%; }
+    #content .entry-content img,
+    #content .mce-content-body img {
       max-width: 100%;
+      margin: 0 0 1.5em;
+      padding: 0;
       height: auto; }
-    #content .entry-content blockquote, #content .mce-content-body blockquote {
+    #content .entry-content blockquote,
+    #content .mce-content-body blockquote {
+      color: #6c6c6c;
+      font-style: italic;
       margin: 0 auto;
       padding: 2em 0;
-      font-style: italic;
-      color: #6c6c6c;
       width: 90%; }
-      #content .entry-content blockquote p, #content .mce-content-body blockquote p {
-        width: 100% !important;
-        font-size: 1.3em; }
-    #content .entry-content .alignleft, #content .entry-content img.alignleft, #content .mce-content-body .alignleft, #content .mce-content-body img.alignleft {
+      #content .entry-content blockquote p,
+      #content .mce-content-body blockquote p {
+        font-size: 1.3em;
+        width: 100% !important; }
+    #content .entry-content .alignleft,
+    #content .entry-content img.alignleft,
+    #content .mce-content-body .alignleft,
+    #content .mce-content-body img.alignleft {
       float: left; }
-    #content .entry-content .alignright, #content .entry-content img.alignright, #content .mce-content-body .alignright, #content .mce-content-body img.alignright {
+    #content .entry-content .alignright,
+    #content .entry-content img.alignright,
+    #content .mce-content-body .alignright,
+    #content .mce-content-body img.alignright {
       float: right; }
-    #content .entry-content .aligncenter, #content .entry-content img.aligncenter, #content .mce-content-body .aligncenter, #content .mce-content-body img.aligncenter {
+    #content .entry-content .aligncenter,
+    #content .entry-content img.aligncenter,
+    #content .mce-content-body .aligncenter,
+    #content .mce-content-body img.aligncenter {
       display: block;
       margin-left: auto;
       margin-right: auto; }
-    #content .entry-content .size-auto, #content .entry-content .size-full, #content .entry-content .size-large, #content .entry-content .size-medium, #content .entry-content .size-thumbnail, #content .mce-content-body .size-auto, #content .mce-content-body .size-full, #content .mce-content-body .size-large, #content .mce-content-body .size-medium, #content .mce-content-body .size-thumbnail {
-      max-width: 100%;
-      height: auto; }
-    #content .entry-content pre, #content .mce-content-body pre {
+    #content .entry-content .size-auto,
+    #content .entry-content .size-full,
+    #content .entry-content .size-large,
+    #content .entry-content .size-medium,
+    #content .entry-content .size-thumbnail,
+    #content .mce-content-body .size-auto,
+    #content .mce-content-body .size-full,
+    #content .mce-content-body .size-large,
+    #content .mce-content-body .size-medium,
+    #content .mce-content-body .size-thumbnail {
+      height: auto;
+      max-width: 100%; }
+    #content .entry-content pre,
+    #content .mce-content-body pre {
       background: #1f1f1f;
+      border-radius: 3px;
       color: #f8f9fa;
-      font-size: 0.9em;
-      padding: 1.5em;
+      font-size: .9em;
       margin: 0 0 1.5em;
-      border-radius: 3px; }
-    #content .entry-content .wp-caption, #content .mce-content-body .wp-caption {
-      width: 80% !important;
-      margin: 0 auto 1em auto;
-      background: #eee; }
-      #content .entry-content .wp-caption img, #content .mce-content-body .wp-caption img {
-        max-width: 100%;
+      padding: 1.5em; }
+    #content .entry-content .wp-caption,
+    #content .mce-content-body .wp-caption {
+      background: #eee;
+      margin: 0 auto 1em;
+      width: 80% !important; }
+      #content .entry-content .wp-caption img,
+      #content .mce-content-body .wp-caption img {
         margin-bottom: 0;
+        padding: 0 !important;
         width: 100%;
-        padding: 0 !important; }
-    #content .entry-content video, #content .mce-content-body video {
-      width: 100% !important;
-      height: auto !important; }
+        max-width: 100%; }
+    #content .entry-content video,
+    #content .mce-content-body video {
+      height: auto !important;
+      width: 100% !important; }
   #content table {
-    font-size: 0.8em;
+    font-size: .8em;
     margin: 0 auto;
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 0.3em; }
+    border-spacing: 0 .3em; }
     #content table td {
       padding: 0 1em;
       vertical-align: top; }
       #content table td.festival-name {
-        border-bottom: 1px dotted #CCC; }
+        border-bottom: 1px dotted #ccc; }
       #content table td.country {
-        border: 1px dotted #CCC;
+        border: 1px dotted #ccc;
         text-align: center;
-        font-size: 0.9em;
+        font-size: .9em;
         vertical-align: middle; }
 
 /*-----  End of CONTENT  ------*/
@@ -1748,7 +1564,8 @@ PAGE NAVI STYLES
     display: inline;
     overflow: hidden;
     border-right: 1px solid #eaedf2; }
-  .pagination a, .pagination span {
+  .pagination a,
+  .pagination span {
     margin: 0;
     text-decoration: none;
     padding: 0;
@@ -1759,7 +1576,9 @@ PAGE NAVI STYLES
     min-width: 1em;
     display: block;
     color: #2980b9; }
-    .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
+    .pagination a:hover, .pagination a:focus,
+    .pagination span:hover,
+    .pagination span:focus {
       background-color: #2980b9;
       color: white; }
   .pagination .current {
@@ -1785,11 +1604,11 @@ PAGE NAVI STYLES
   .comment .vcard {
     margin: 1em 1em 0 6em; }
     .comment .vcard cite.fn {
-      font-weight: 700;
-      font-style: normal; }
+      font-style: normal;
+      font-weight: 700; }
     .comment .vcard time {
       display: block;
-      font-size: 0.9em;
+      font-size: .9em;
       font-style: italic; }
       .comment .vcard time a {
         color: #9fa6b4; }
@@ -1804,7 +1623,7 @@ PAGE NAVI STYLES
   .comment .children {
     margin: 0; }
   .comment[class*=depth-] {
-    margin: 1.1em -1.3em 0 -1.3em; }
+    margin: 1.1em -1.3em 0; }
   .comment.depth-1 {
     margin-left: 0;
     margin-top: 0; }
@@ -1825,7 +1644,7 @@ PAGE NAVI STYLES
   font-style: italic;
   margin: 0 7px;
   text-decoration: none;
-  font-size: 0.9em; }
+  font-size: .9em; }
 
 /******************************************************************
 COMMENT FORM STYLES
@@ -1841,12 +1660,12 @@ COMMENT FORM STYLES
     color: #333333; }
 
 .comment-form-comment {
-  margin: 1.5em 0 0.75em; }
+  margin: 1.5em 0 .75em; }
 
 .form-allowed-tags {
   padding: 1.5em;
   background-color: #f8f9fa;
-  font-size: 0.9em; }
+  font-size: .9em; }
 
 #submit {
   float: right; }
@@ -1855,7 +1674,7 @@ COMMENT FORM STYLES
   margin: 0 0 1.1em; }
 
 #allowed_tags {
-  margin: 1.5em 10px 0.7335em 0; }
+  margin: 1.5em 10px .7335em 0; }
 
 .nocomments {
   margin: 0 20px 1.1em; }
@@ -1864,11 +1683,13 @@ COMMENT FORM STYLES
   margin: 0;
   padding: 0; }
 
-.jcg-fullwidth, .jcg-fullwidth p {
+.jcg-fullwidth,
+.jcg-fullwidth p {
   width: 100% !important; }
-  .jcg-fullwidth img, .jcg-fullwidth p img {
-    width: 100%;
+  .jcg-fullwidth img,
+  .jcg-fullwidth p img {
     height: auto;
+    width: 100%;
     padding: 0 !important; }
 
 .jcg-gallery img {
@@ -1876,20 +1697,7 @@ COMMENT FORM STYLES
   padding: 0 !important;
   width: initial; }
 
-/*********************
-TABLET & SMALLER LAPTOPS
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
-*********************/
 @media only screen and (min-width: 768px) {
-  /******************************************************************
-   * Site Name: JCG
-   * Site URI: http://juancgonzalez.com
-   * Author: Juan Camilo Gonzalez
-  
-   * 768-UP STYLES
-   ******************************************************************/
   /*====================================
   =            MAIN SIDEBAR            =
   ====================================*/
@@ -1910,16 +1718,16 @@ you can add resource intensive styles.
     width: 90%; }
     .nav li {
       display: block;
-      position: relative;
-      /* showing sub-menus */ }
+      position: relative; }
       .nav li.menu-item-has-children:after {
         content: '\002B';
         position: absolute;
         right: 0;
-        top: 0.8em;
+        top: .8em;
         width: 0;
         height: 0; }
-      .nav li ul.sub-menu, .nav li ul.children {
+      .nav li ul.sub-menu,
+      .nav li ul.children {
         border-top: 0;
         z-index: 8999;
         font-size: 0.7em;
@@ -1929,18 +1737,29 @@ you can add resource intensive styles.
         font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         display: block;
         left: -999em; }
-        .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
+        .nav li ul.sub-menu li a,
+        .nav li ul.sub-menu li a:visited,
+        .nav li ul.children li a,
+        .nav li ul.children li a:visited {
           display: block;
           width: 180px;
           border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
           color: #eaedf2;
           padding: 1em; }
-          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.sub-menu li a:visited:hover, .nav li ul.sub-menu li a:visited:focus, .nav li ul.children li a:hover, .nav li ul.children li a:focus, .nav li ul.children li a:visited:hover, .nav li ul.children li a:visited:focus {
+          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus,
+          .nav li ul.sub-menu li a:visited:hover,
+          .nav li ul.sub-menu li a:visited:focus,
+          .nav li ul.children li a:hover,
+          .nav li ul.children li a:focus,
+          .nav li ul.children li a:visited:hover,
+          .nav li ul.children li a:visited:focus {
             color: #d1d7e2;
             background-color: #1f1f1f; }
-        .nav li ul.sub-menu li:last-child a, .nav li ul.children li:last-child a {
+        .nav li ul.sub-menu li:last-child a,
+        .nav li ul.children li:last-child a {
           border-bottom: 0; }
-        .nav li ul.sub-menu:before, .nav li ul.children:before {
+        .nav li ul.sub-menu:before,
+        .nav li ul.children:before {
           content: '';
           position: absolute;
           left: -1.9em;
@@ -1949,7 +1768,7 @@ you can add resource intensive styles.
           height: 0;
           border-style: solid;
           border-width: 1em 2em 1em 0;
-          border-color: transparent #000000 transparent transparent; }
+          border-color: transparent #000 transparent transparent; }
       .nav li:hover ul {
         left: 90%; }
 
@@ -1964,11 +1783,14 @@ you can add resource intensive styles.
     box-sizing: border-box;
     /*==========  POST CONTENT SECTION  ==========*/
     /*==========  COMMENTS  ==========*/ }
-    #content .entry-content, #content .mce-content-body {
+    #content .entry-content,
+    #content .mce-content-body {
       font-size: 1.3em; }
-      #content .entry-content p, #content .mce-content-body p {
+      #content .entry-content p,
+      #content .mce-content-body p {
         width: 70%; }
-      #content .entry-content iframe, #content .mce-content-body iframe {
+      #content .entry-content iframe,
+      #content .mce-content-body iframe {
         width: 100%;
         padding: 0;
         height: 400px;
@@ -1977,11 +1799,14 @@ you can add resource intensive styles.
         background-image: -moz-radial-gradient(center, circle cover, #222222 0%, black 85%);
         background-image: -o-radial-gradient(center, circle cover, #222222 0%, black 85%);
         background-image: radial-gradient(center, circle cover, #222222 0%, black 85%); }
-        #content .entry-content iframe.jcg-fullwidth, #content .mce-content-body iframe.jcg-fullwidth {
+        #content .entry-content iframe.jcg-fullwidth,
+        #content .mce-content-body iframe.jcg-fullwidth {
           padding: 0 !important; }
-      #content .entry-content img, #content .mce-content-body img {
+      #content .entry-content img,
+      #content .mce-content-body img {
         padding: 0 15%; }
-      #content .entry-content .wp-caption, #content .mce-content-body .wp-caption {
+      #content .entry-content .wp-caption,
+      #content .mce-content-body .wp-caption {
         width: 70% !important; }
     #content .commentlist {
       width: 70%; }
@@ -1996,7 +1821,7 @@ you can add resource intensive styles.
     position: relative; }
     .jcg-gallery .jcg-loading-image {
       position: absolute;
-      color: white;
+      color: #fff;
       text-align: center;
       left: 50%;
       top: 50%;
@@ -2035,24 +1860,11 @@ you can add resource intensive styles.
     padding: 0 25%; }
 
   /*-----  End of FILMS  ------*/ }
-/*********************
-DESKTOP
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
-*********************/
 @media only screen and (min-width: 1030px) {
-  /******************************************************************
-   * Site Name: JCG
-   * Site URI: http://juancgonzalez.com
-   * Author: Juan Camilo Gonzalez
-  
-   * 1030-UP STYLES
-   ******************************************************************/
   /*=============================
   =            FILMS            =
   =============================*/
-  .type-films .film-header #video-container iframe {
+  .film-header #video-container iframe {
     left: 50%;
     margin-left: -406px; }
 
@@ -2067,171 +1879,112 @@ you can add resource intensive styles.
   /*===============================
   =            CONTENT            =
   ===============================*/
-  #content .entry-content iframe, #content .mce-content-body iframe {
+  #content .entry-content iframe,
+  #content .mce-content-body iframe {
     height: 500px; }
 
   /*-----  End of CONTENT  ------*/ }
-/*********************
-LARGE VIEWING SIZE
-This is for the larger monitors and possibly full screen viewers.
-*********************/
 @media only screen and (min-width: 1240px) {
-  /******************************************************************
-   * Site Name: JCG
-   * Site URI: http://juancgonzalez.com
-   * Author: Juan Camilo Gonzalez
-  
-   * 1240-UP STYLES
-   ******************************************************************/
   #content {
     /*==========  POST CONTENT SECTION  ==========*/
     /*==========  POST FOOTER  ==========*/
     /*==========  COMMENTS  ==========*/
     /*==========  TABLES  ==========*/ }
-    #content .entry-content h2, #content .mce-content-body h2 {
+    #content .entry-content h2,
+    #content .mce-content-body h2 {
       text-align: center;
       border-bottom: 1px dotted;
       width: 35%;
-      margin: 0 auto 1em auto;
-      padding-bottom: 0.3em; }
-    #content .entry-content p, #content .mce-content-body p {
+      margin: 0 auto 1em;
+      padding-bottom: .3em; }
+    #content .entry-content p,
+    #content .mce-content-body p {
       width: 50%; }
-    #content .entry-content blockquote, #content .mce-content-body blockquote {
+    #content .entry-content blockquote,
+    #content .mce-content-body blockquote {
       width: 60%; }
-    #content .entry-content iframe, #content .mce-content-body iframe {
+    #content .entry-content iframe,
+    #content .mce-content-body iframe {
       padding: 0 25%;
       height: 500px; }
-    #content .entry-content img, #content .mce-content-body img {
+    #content .entry-content img,
+    #content .mce-content-body img {
       padding: 0 25%; }
-    #content .entry-content .wp-caption, #content .mce-content-body .wp-caption {
+    #content .entry-content .wp-caption,
+    #content .mce-content-body .wp-caption {
       width: 50% !important; }
     #content .entry-footer {
       text-align: center; }
     #content .commentlist {
       width: 60%; }
     #content .comment-respond {
-      width: 60%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      width: 60%; }
     #content table {
       font-size: 100%; }
 
-  /*===================================
-  =            SINGLE POST            =
-  ===================================*/
-  #posts-nav .post-nav-full .link-title {
+  .post-nav-full .link-title {
     display: block;
     position: absolute;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    font-size: 0.85em;
+    font-size: .85em;
     letter-spacing: 1px;
     text-align: center;
     top: 1.6em;
     margin: 0;
     padding: 0; }
-    #posts-nav .post-nav-full .link-title a, #posts-nav .post-nav-full .link-title a:visited {
+    .post-nav-full .link-title a,
+    .post-nav-full .link-title a:visited {
       color: #dfd7b6; }
-      #posts-nav .post-nav-full .link-title a:hover, #posts-nav .post-nav-full .link-title a:focus, #posts-nav .post-nav-full .link-title a:visited:hover, #posts-nav .post-nav-full .link-title a:visited:focus {
-        color: white; }
-
-  /*-----  End of SINGLE POST  ------*/ }
-/*********************
-RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
-other displays with a 2x resolution. You can also create a media
-query for retina AND a certain size if you want. Go Nuts.
-*********************/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /******************************************************************
-  Site Name: Juan Camilo Gonz&aacute;lez
-  Author: Juan Camilo Gonz&aacute;lez
-  
-  Stylesheet: Retina Screens & Devices Stylesheet
-  
-  ******************************************************************/
-  /* 
-  
-  EXAMPLE 
-  Let's say you have an image and you need to make sure it looks ok
-  on retina screens. Let's say we have an icon which dimension are
-  24px x 24px. In your regular stylesheets, it would look something
-  like this:
-  
-  .icon {
-  	width: 24px;
-  	height: 24px;
-  	background: url(img/test.png) no-repeat;
-  }
-  
-  For retina screens, we have to make some adjustments, so that image
-  doesn't look blurry. So, taking into account the image above and the
-  dimensions, this is what we would put in our retina stylesheet:
-  
-  .icon {
-  	background: url(img/test@2x.png) no-repeat;
-  	background-size: 24px 24px;
-  }
-  
-  So, you would create the same icon, but at double the resolution, meaning 
-  it would be 48px x 48px. You'd name it the same, but with a @2x at the end
-  (this is pretty standard practice). Set the background image so it matches
-  the original dimensions and you are good to go. 
-  
-  */ }
-/*********************
-PRINT STYLESHEET
-Feel free to customize this. Remember to add things that won't make
-sense to print at the bottom. Things like nav, ads, and forms should
-be set to display none.
-*********************/
+      .post-nav-full .link-title a:hover, .post-nav-full .link-title a:focus,
+      .post-nav-full .link-title a:visited:hover,
+      .post-nav-full .link-title a:visited:focus {
+        color: white; } }
 @media print {
-  /******************************************************************
-  Site Name: Juan Camilo Gonz&aacute;lez
-  Author: Juan Camilo Gonz&aacute;lez
-  
-  Stylesheet: Print Stylesheet
-  
-  This is the print stylesheet. There's probably not a lot
-  of reasons to edit this stylesheet. If you want to
-  though, go for it.
-  
-  ******************************************************************/
   * {
     background: transparent !important;
-    color: black !important;
+    color: #000 !important;
     text-shadow: none !important;
     filter: none !important;
     -ms-filter: none !important; }
 
-  a, a:visited {
+  a,
+  a:visited {
     color: #444 !important;
     text-decoration: underline; }
-    a:after, a:visited:after {
+    a:after,
+    a:visited:after {
       content: " (" attr(href) ")"; }
-    a abbr[title]:after, a:visited abbr[title]:after {
+    a abbr[title]:after,
+    a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
 
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
-    content: ""; }
+    content: ''; }
 
-  pre, blockquote {
+  pre,
+  blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
   thead {
     display: table-header-group; }
 
-  tr, img {
+  tr,
+  img {
     page-break-inside: avoid; }
 
   img {
     max-width: 100% !important; }
 
   @page {
-    margin: 0.5cm; }
-  p, h2, h3 {
+    margin: .5cm; }
+  p,
+  h2,
+  h3 {
     orphans: 3;
     widows: 3; }
 

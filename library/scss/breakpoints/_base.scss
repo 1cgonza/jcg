@@ -1,81 +1,85 @@
-/******************************************************************
- * Site Name: JCG
- * Site URI: http://juancgonzalez.com
- * Author: Juan Camilo Gonzalez
+//******************************************************************
+// Site Name: JCG
+// Site URI: http://juancgonzalez.com
+// Author: Juan Camilo Gonzalez
 
- * BASE STYLES
- ******************************************************************/
-/**
+// BASE STYLES
+//******************************************************************
 
-  TODO:
-  - Change cat colors from hard coded css to options page in wp dashboard.
-
-**/
+//  TODO:
+//  - Change cat colors from hard coded css to options page in wp dashboard.
 
 $wrap: 80%;
-$wrapW: 90%;
-$wrapHalf: 40%;
+$wrap-w: 90%;
+$wrap-half: 40%;
 
 /*======================================
 =            GENERAL STYLES            =
 ======================================*/
 
-html, body{
+html,
+body {
   width: 100%;
 }
+
 body {
   font-family: $sans-serif;
   font-size: 100%;
   line-height: 1.4;
   color: $text-color;
 }
+
 ::-moz-selection {
-    background: #dadada;
-    text-shadow: none;
-}
-::selection {
-    background: #dadada;
-    text-shadow: none;
-}
-#container{
-  min-height:100%;
-  height: 100%;
+  background: #dadada;
+  text-shadow: none;
 }
 
+::selection {
+  background: #dadada;
+  text-shadow: none;
+}
+
+#container {
+  height: 100%;
+  min-height: 100%;
+}
 
 /*-----  End of GENERAL STYLES  ------*/
-
 
 /*=============================
 =            LINKS            =
 =============================*/
 
-a, a:visited {
+a,
+a:visited {
   color: $link-color;
   text-decoration: none;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $link-hover;
   }
 
   &:link {
-    -webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+    -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
   }
 }
 
 .entry-tag {
-  margin: 0 0.3em 1em 0;
   display: inline-block;
+  margin: 0 .3em 1em 0;
 
-  a, a:visited {
-    @include transition(all 0.2s ease-out);
-    padding: 0.5em;
-    background-color: black(0.1);
-    color: black(0.9);
+  a,
+  a:visited {
+    @include transition(all .2s ease-out);
+    padding: .5em;
+    color: black(.9);
+    background-color: black(.1);
 
-    &:hover, &:focus {
-      background-color: black(0.8);
-      color: white(0.8);
+    &:hover,
+    &:focus {
+      background-color: black(.8);
+      color: white(.8);
     }
   }
 }
@@ -86,9 +90,14 @@ a, a:visited {
 =            <H#> TITLES             =
 ====================================*/
 
-h1, h2, h3, h4, h5, {
-  text-rendering: optimizelegibility;
+h1,
+h2,
+h3,
+h4,
+h5, {
   font-weight: 300;
+  text-rendering: optimizelegibility;
+
   a {
     text-decoration: none;
   }
@@ -102,7 +111,7 @@ h1 {
 h2 {
   font-size: 1.75em;
   line-height: 1.4em;
-  margin-bottom: 0.375em;
+  margin-bottom: .375em;
 }
 
 h3 {
@@ -115,7 +124,7 @@ h4 {
 }
 
 h5 {
-  font-size: 0.846em;
+  font-size: .846em;
   line-height: 2.09em;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -127,10 +136,10 @@ h5 {
 =            MAIN SIDEBAR            =
 ====================================*/
 
-#main-sidebar{
+#main-sidebar {
   z-index: 9999;
 
-  #logo{
+  #logo {
     display: none;
   }
 }
@@ -148,11 +157,12 @@ h5 {
 
   li {
     display: inline-block;
+
     a {
-      @include transition(all 0.25s ease-in-out);
+      @include transition(all .25s ease-in-out);
       display: block;
       text-decoration: none;
-      padding: 0.75em;
+      padding: .75em;
     }
 
     ul.sub-menu,
@@ -179,18 +189,19 @@ h5 {
   color: $white;
   text-align: center;
 
-  h1{
+  h1 {
     margin: 0;
   }
 
-  .archive-title, .description-title {
-    margin-bottom: 0.4em;
+  .archive-title,
+  .description-title {
+    margin-bottom: .4em;
   }
 
   .blog-header-description {
     width: 50%;
     margin: 0 auto;
-    font-size: 0.9em;
+    font-size: .9em;
     text-align: left;
     padding: 1em;
     background-color: lighten($black, 70%);
@@ -202,23 +213,24 @@ h5 {
   }
 }
 
-.search-results, .search-no-results{
-  #description-box{
+.search-results,
+.search-no-results {
+  #description-box {
     background-color: darken($blue, 5%);
-    color: white;
+    color: #fff;
   }
 }
 
 /*==========  SEARCH  ==========*/
 
-input[type="search"]{
+input[type="search"] {
   margin: 0 auto;
   max-width: 250px;
   display: inline-block;
-  padding: 0.75em;
+  padding: .75em;
 }
 
-.search-submit{
+.search-submit {
   @extend .blue-btn;
 }
 
@@ -228,89 +240,106 @@ input[type="search"]{
 =            CATEGORIES            =
 ==================================*/
 
-#categories-menu{
+#categories-menu {
+  margin: .45em;
   padding: 0;
-  margin: 0.45em;
 }
 
 .cat-item {
   display: inline-block;
 
-  a, a:visited {
-    @include transition(all 0.2s ease-out);
-    padding: 0.5em;
+  a,
+  a:visited {
+    @include transition(all .2s ease-out);
+    padding: .5em;
     background-color: $black;
     color: $white;
 
-    &:hover, &:focus {
-      background-color: white(0.8);
+    &:hover,
+    &:focus {
+      background-color: white(.8);
       color: $black;
     }
   }
 
   // Styles for each category
-  &.cat-item-1{
-    a, a:visited {
+  &.cat-item-1 {
+    a,
+    a:visited {
       background-color: process(1);
       color: $black;
 
-      &:hover, &:focus {
-        background-color: process(0.8);
+      &:hover,
+      &:focus {
+        background-color: process(.8);
       }
     }
   }
-  &.cat-item-20{
-    a, a:visited {
+
+  &.cat-item-20 {
+    a,
+    a:visited {
       background-color: reference(1);
       color: $white;
 
-      &:hover, &:focus {
-        background-color: reference(0.8);
+      &:hover,
+      &:focus {
+        background-color: reference(.8);
       }
     }
   }
 
-  &.cat-item-21{
+  &.cat-item-21 {
     a, a:visited {
       background-color: inspiration(1);
       color: $white;
 
-      &:hover, &:focus {
-        background-color: inspiration(0.8);
+      &:hover,
+      &:focus {
+        background-color: inspiration(.8);
       }
     }
   }
 }
 
-.category-1, .category-process{
+.category-1,
+.category-process {
+
   #description-box {
-    .blog-header-description{
+    .blog-header-description {
       background-color: process(1);
       color: $black;
     }
   }
+
   .post-header {
     background-color: process(1);
   }
 }
 
-.category-20, .category-references{
+.category-20,
+.category-references {
+
   #description-box {
-    .blog-header-description{
+    .blog-header-description {
       background-color: reference(1);
     }
   }
+
   .post-header {
     background-color: reference(1);
   }
 }
 
-.category-21, .category-inspiration{
-  #description-box{
-    .blog-header-description{
+.category-21,
+.category-inspiration {
+
+  #description-box {
+    .blog-header-description {
       background-color: inspiration(1);
     }
   }
+
   .post-header {
     background-color: inspiration(1);
   }
@@ -337,21 +366,22 @@ input[type="search"]{
       z-index: 1;
 
       .post-date {
-        p{
+        p {
           margin: 0;
         }
 
-        font-size: 0.8em;
+        font-size: .8em;
         text-align: center;
         width: 100px;
-        background-color: black(0.8);
-        color: white;
+        background-color: black(.8);
+        color: #fff;
         padding: 20px 10px;
 
         .post-weekday {
-          font-size: 0.8em;
+          font-size: .8em;
           letter-spacing: 1px;
         }
+
         .post-year {
           letter-spacing: 2px;
         }
@@ -362,16 +392,18 @@ input[type="search"]{
       line-height: 0;
       z-index: -1;
 
-      a, a:visited {
-        @include transition(all 0.1s ease-out);
+      a,
+      a:visited {
+        @include transition(all .1s ease-out);
         opacity: 1;
 
-        &:hover, &:focus {
-          opacity: 0.8;
+        &:hover,
+        &:focus {
+          opacity: .8;
         }
       }
 
-      img{
+      img {
         width: 100%;
         height: auto;
         padding: 0!important;
@@ -390,21 +422,19 @@ input[type="search"]{
       width: 59%;
       display: inline-block;
       vertical-align: top;
-      padding: 0.5em 0 0 1.5em;
+      padding: .5em 0 0 1.5em;
     }
 
     .entry-footer {
+      font-size: .8em;
       text-align: right;
-      font-size: 0.8em;
     }
 
   }
 
 }
 
-
 /*-----  End of POSTS ARCHIVE  ------*/
-
 
 /*********************
      SINGLE POST
@@ -430,15 +460,17 @@ input[type="search"]{
     }
 
     .post-nav-full {
+
       .post-nav-icon {
         position: absolute;
         text-align: center;
         width: 100%;
-        background-color: black(0.5);
-        color: white;
+        background-color: black(.5);
+        color: #fff;
         cursor: pointer;
         display: none;
       }
+
     }
 
     .link-title {
@@ -471,32 +503,33 @@ input[type="search"]{
 
     .entry-title {
       margin: 0;
-      padding: 1em 1em 0.2em 1em;
+      padding: 1em 1em .2em;
       font-size: 4em;
     }
 
     .article-date {
       color: lighten($black, 50%);
     }
+
     .author {
       font-size: 1.1em;
     }
   }
 
-  .entry-footer{
+  .entry-footer {
     margin: 0 auto;
     text-align: center!important;
   }
 }
 
-#post-not-found{
+#post-not-found {
   text-align: center;
 }
 
 /*********************
     INFINITE SCROLL
 *********************/
-#infinite-footer{
+#infinite-footer {
   display: none;
 }
 
@@ -506,11 +539,13 @@ input[type="search"]{
     height: 350px;
     margin-bottom: 2em;
   }
+
   img {
     margin: 1.5em 0;
     width: 100%;
     height: auto;
   }
+
   .jcg-inline-img {
     img {
       padding: 0;
@@ -548,7 +583,7 @@ input[type="search"]{
         position: absolute;
         top: 0;
         left: 0;
-        width:100%;
+        width: 100%;
         height: 100%;
         max-width: 812px;
         z-index: 7999;
@@ -558,8 +593,8 @@ input[type="search"]{
   }
 
   .film-description {
-    text-align: center;
     padding: 0 1em;
+    text-align: center;
 
     .film-synopsis {
       margin-top: 2em;
@@ -570,11 +605,13 @@ input[type="search"]{
     text-align: center;
 
     .award-item {
-      padding: 1em;
       display: inline-table;
-      font-size: 0.85em;
+      font-size: .85em;
+      padding: 1em;
 
-      p, h1, h2 {
+      p,
+      h1,
+      h2 {
         margin: 0;
       }
 
@@ -583,29 +620,30 @@ input[type="search"]{
         vertical-align: bottom;
       }
 
-      &:before, &:after {
+      &:before,
+      &:after {
         content: '';
-        width: 64px;
-        height: 150px;
         display: block;
+        height: 150px;
+        width: 64px;
       }
 
       &:before {
-        background: url(../images/laurel.png) 0 0 no-repeat;
+        background: 'url(../images/laurel.png)' 0 0 no-repeat;
         background-position: left bottom;
       }
 
       &:after {
-        background: url(../images/laurel.png) -64px 0  no-repeat;
+        background: 'url(../images/laurel.png)' -64px 0  no-repeat;
         background-position: right bottom;
       }
     }
   }
 
   .column-title {
+    margin: 0 0 1em;
+    padding: 0 0 .5em;
     text-align: center;
-    margin: 0 0 1em 0;
-    padding: 0 0 .5em 0;
   }
 
 }
@@ -617,20 +655,24 @@ input[type="search"]{
 =            CONTACT            =
 ===============================*/
 
-#contact-wrapper{
-  width: 90%;
+#contact-wrapper {
   margin: 0 auto;
-  div{
+  width: 90%;
+
+  div {
     margin-bottom: 1em;
   }
-  label{
+
+  label {
     font-weight: normal!important;
   }
-  textarea{
+
+  textarea {
     width: 100%!important;
   }
 }
-.pushbutton-wide{
+
+.pushbutton-wide {
   @extend .black-btn;
 }
 
@@ -644,100 +686,110 @@ input[type="search"]{
 #content {
 
   .wrap {
-    width: 90%;
     margin: 0 auto;
+    width: 90%;
   }
 
   section {
     margin: 4em 0;
   }
 
-  .entry-content, .mce-content-body {
-    padding: 0;
+  .entry-content,
+  .mce-content-body {
     font-size: 1.1em;
+    padding: 0;
     word-wrap: break-word;
 
     p {
-      width: $wrap;
-      margin: 0 auto 1em auto;
       line-height: 1.6;
+      margin: 0 auto 1em;
+      width: $wrap;
 
-      &.wp-caption-text{
-        font-size: 0.8em;
-        width: 100%;
+      &.wp-caption-text {
+        font-size: .8em;
         margin: 0 auto;
         padding: 1em 2em;
+        width: 100%;
       }
 
     }
 
     img {
-      padding: 0;
-      margin: 0 0 1.5em 0;
       max-width: 100%;
+      margin: 0 0 1.5em;
+      padding: 0;
       height: auto;
     }
 
     blockquote {
+      color: lighten($black, 30%);
+      font-style: italic;
       margin: 0 auto;
       padding: 2em 0;
-      font-style: italic;
-      color: lighten($black, 30%);
-      width: $wrapW;
+      width: $wrap-w;
 
       p {
-        width: 100%!important;
         font-size: 1.3em;
+        width: 100%!important;
       }
 
     }
 
-    .alignleft, img.alignleft {
+    .alignleft,
+    img.alignleft {
       float: left;
     }
-    .alignright, img.alignright {
+
+    .alignright,
+    img.alignright {
       float: right;
     }
-    .aligncenter, img.aligncenter {
+
+    .aligncenter,
+    img.aligncenter {
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
-      max-width: 100%;
+    .size-auto,
+    .size-full,
+    .size-large,
+    .size-medium,
+    .size-thumbnail {
       height: auto;
+      max-width: 100%;
     }
 
     pre {
       background: $black;
-      color: $light-gray;
-      font-size: 0.9em;
-      padding: 1.5em;
-      margin: 0 0 1.5em;
       border-radius: 3px;
+      color: $light-gray;
+      font-size: .9em;
+      margin: 0 0 1.5em;
+      padding: 1.5em;
     }
 
     /*==========  IMAGE CAPTION  ==========*/
 
     .wp-caption {
-      width: $wrap!important;
-      margin: 0 auto 1em auto;
       background: #eee;
+      margin: 0 auto 1em;
+      width: $wrap!important;
 
       img {
-        max-width: 100%;
         margin-bottom: 0;
-        width: 100%;
         padding: 0!important;
+        width: 100%;
+        max-width: 100%;
       }
     }
 
     /*==========  VIDEO  ==========*/
 
     video {
-      width: 100% !important;
-      height: auto !important;
+      height: auto!important;
+      width: 100%!important;
     }
 
   }
@@ -745,24 +797,24 @@ input[type="search"]{
   /*==========  TABLES  ==========*/
 
   table {
-    font-size: 0.8em;
+    font-size: .8em;
     margin: 0 auto;
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 0.3em;
+    border-spacing: 0 .3em;
 
     td {
       padding: 0 1em;
       vertical-align: top;
 
       &.festival-name {
-        border-bottom: 1px dotted #CCC;
+        border-bottom: 1px dotted #ccc;
       }
 
       &.country {
-        border: 1px dotted #CCC;
+        border: 1px dotted #ccc;
         text-align: center;
-        font-size: 0.9em;
+        font-size: .9em;
         vertical-align: middle;
       }
     }
@@ -781,56 +833,59 @@ PAGE NAVI STYLES
 .wp-prev-next {
   margin: 1.5em 0;
 }
-  .pagination{
-    text-align: center;
 
-    ul {
-      display: inline-block;
-      background-color: $white;
-      white-space: nowrap;
-      padding: 0;
-      clear: both;
-      border-radius: 3px;
-    }
+.pagination {
+  text-align: center;
 
-    li {
-      padding: 0;
-      margin: 0;
-      float: left;
-      display: inline;
-      overflow: hidden;
-      border-right: 1px solid $gray;
-    }
-
-    a, span {
-      margin: 0;
-      text-decoration: none;
-      padding: 0;
-      line-height: 1em;
-      font-size: 1em;
-      font-weight: normal;
-      padding: 0.75em;
-      min-width: 1em;
-      display: block;
-      color: $blue;
-
-      &:hover, &:focus {
-        background-color: $blue;
-        color: $white;
-      }
-    }
-
-    .current{
-      cursor: default;
-      color: $text-color;
-
-      &:hover, &:focus {
-        background-color: $white;
-        color: $text-color;
-      }
-    }
-
+  ul {
+    display: inline-block;
+    background-color: $white;
+    white-space: nowrap;
+    padding: 0;
+    clear: both;
+    border-radius: 3px;
   }
+
+  li {
+    padding: 0;
+    margin: 0;
+    float: left;
+    display: inline;
+    overflow: hidden;
+    border-right: 1px solid $gray;
+  }
+
+  a,
+  span {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    line-height: 1em;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0.75em;
+    min-width: 1em;
+    display: block;
+    color: $blue;
+
+    &:hover,
+    &:focus {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  .current {
+    cursor: default;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      background-color: $white;
+      color: $text-color;
+    }
+  }
+}
 
 /*================================
 =            COMMENTS            =
@@ -842,10 +897,7 @@ PAGE NAVI STYLES
   padding-top: 4em;
 }
 
-
 /*-----  End of COMMENTS  ------*/
-
-
 
 .comment {
   position: relative;
@@ -856,13 +908,13 @@ PAGE NAVI STYLES
     margin: 1em 1em 0 6em;
 
     cite.fn {
-      font-weight: 700;
       font-style: normal;
+      font-weight: 700;
     }
 
     time {
       display: block;
-      font-size: 0.9em;
+      font-size: .9em;
       font-style: italic;
 
       a {
@@ -893,7 +945,7 @@ PAGE NAVI STYLES
   }
 
   &[class*=depth-] {
-    margin: 1.1em -1.3em 0 -1.3em;
+    margin: 1.1em -1.3em 0;
   }
 
   &.depth-1 {
@@ -904,6 +956,7 @@ PAGE NAVI STYLES
   &.odd {
     background-color: darken($white, 5%);
   }
+
   &.even {
     background: darken($white, 2%);
   }
@@ -921,71 +974,75 @@ PAGE NAVI STYLES
   @extend .black-btn;
   float: right;
 }
+
 .comment-edit-link {
   font-style: italic;
   margin: 0 7px;
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: .9em;
 }
 
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
 
-  #reply-title {
-    margin: 0;
+#reply-title {
+  margin: 0;
+}
+
+.logged-in-as {
+  color: $meta-gray;
+  font-style: italic;
+  margin: 0;
+
+  a {
+    color: $text-color;
   }
+}
 
-  .logged-in-as {
-    color: $meta-gray;
-    font-style: italic;
-    margin: 0;
+.comment-form-comment {
+  margin: 1.5em 0 .75em;
+}
 
-    a {
-      color: $text-color;
-    }
-  }
+.form-allowed-tags {
+  padding: 1.5em;
+  background-color: $light-gray;
+  font-size: .9em;
+}
 
-  .comment-form-comment {
-    margin: 1.5em 0 0.75em;
-  }
+#submit {
+  @extend .black-btn;
+  float: right;
+}
 
-  .form-allowed-tags {
-    padding: 1.5em;
-    background-color: $light-gray;
-    font-size: 0.9em;
-  }
+#comment-form-title {
+  margin: 0 0 1.1em;
+}
 
-  #submit {
-    @extend .black-btn;
-    float: right;
-  }
+#allowed_tags {
+  margin: 1.5em 10px .7335em 0;
+}
 
-  #comment-form-title {
-    margin: 0 0 1.1em;
-  }
+.nocomments {
+  margin: 0 20px 1.1em;
+}
 
-  #allowed_tags {
-    margin: 1.5em 10px 0.7335em 0;
-  }
-
-  .nocomments {
-    margin: 0 20px 1.1em;
-  }
-
-.no-margin{
+.no-margin {
   margin: 0;
   padding: 0;
 }
 
-.jcg-fullwidth, .jcg-fullwidth p {
+.jcg-fullwidth,
+.jcg-fullwidth p {
   width: 100%!important;
+
   img {
-    width: 100%;
     height: auto;
+    width: 100%;
     padding: 0!important;
   }
 }
+
 .jcg-gallery {
   img {
     margin: 0!important;

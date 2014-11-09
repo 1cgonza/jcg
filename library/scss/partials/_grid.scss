@@ -1,20 +1,8 @@
-/******************************************************************
-Site Name: Juan Camilo Gonz&aacute;lez
-Author: Juan Camilo Gonz&aacute;lez
-
-Stylesheet: Grid Stylesheet
-
-******************************************************************/
 @mixin grid-col {
   display: inline-block;
   vertical-align: top;
 }
-/*
-Mobile Grid Styles
-These are the widths for the mobile grid.
-There are four types, but you can add or customize
-them however you see fit.
-*/
+
 @media (max-width: 767px) {
   .m-all {
     @include grid-col;
@@ -45,11 +33,8 @@ them however you see fit.
     @include grid-col;
     width: 75%;
   }
+}
 
-} // end mobile styles
-
-
-/* Portrait tablet to landscape */
 @media (min-width: 768px) and (max-width: 1239px) {
   .t-all {
     @include grid-col;
@@ -101,11 +86,10 @@ them however you see fit.
     width: 80%;
   }
 
-} // end tablet
+}
 
-/* Landscape to small desktop */
 @media (min-width: 1240px) {
-  .d-all  {
+  .d-all {
     @include grid-col;
     width: 100%;
   }
@@ -204,6 +188,7 @@ them however you see fit.
     @include grid-col;
     width: 10%;
   }
+
   .d-9of10 {
     @include grid-col;
     width: 90%;
@@ -218,8 +203,7 @@ them however you see fit.
     @include grid-col;
     width: 8.33%;
   }
-
-} // end desktop styles
+}
 
 .last-col {
   float: right;
