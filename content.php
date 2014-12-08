@@ -35,9 +35,9 @@
 
                 <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 
-                <section class="entry-excerpt cf">
+                <div class="entry-excerpt cf">
                   <?php the_excerpt(); ?>
-                </section> <?php // end article section ?>
+                </div> <?php // end article section ?>
 
                 <footer class="entry-footer">
 

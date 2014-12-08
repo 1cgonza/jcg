@@ -413,16 +413,17 @@ input[type="search"] {
     }
 
     .entry-title {
-      width: 40%;
-      display: inline-block;
-      vertical-align: top;
+      text-align: center;
+      // width: 40%;
+      // display: inline-block;
+      // vertical-align: top;
     }
 
     .entry-excerpt {
-      width: 59%;
-      display: inline-block;
-      vertical-align: top;
-      padding: .5em 0 0 1.5em;
+      // width: 59%;
+      // display: inline-block;
+      // vertical-align: top;
+      padding: .5em 1.5em;
     }
 
     .entry-footer {
@@ -504,7 +505,6 @@ input[type="search"] {
     .entry-title {
       margin: 0;
       padding: 1em 1em .2em;
-      font-size: 4em;
     }
 
     .article-date {
@@ -559,6 +559,12 @@ input[type="search"] {
 =            FILMS            =
 =============================*/
 
+.post-type-archive-films {
+  section {
+    margin: 0 !important;
+  }
+}
+
 .type-films {
 
   .film-header {
@@ -570,7 +576,7 @@ input[type="search"] {
       text-align: center;
 
       .ratio {
-        display: block;
+        // display: block;
         width: 100%;
         height: auto;
         max-height: 457px;
@@ -582,7 +588,7 @@ input[type="search"] {
       iframe {
         position: absolute;
         top: 0;
-        left: 0;
+        // left: 0;
         width: 100%;
         height: 100%;
         max-width: 812px;
@@ -629,12 +635,12 @@ input[type="search"] {
       }
 
       &:before {
-        background: 'url(../images/laurel.png)' 0 0 no-repeat;
+        background: url('../images/laurel.png') 0 0 no-repeat;
         background-position: left bottom;
       }
 
       &:after {
-        background: 'url(../images/laurel.png)' -64px 0  no-repeat;
+        background: url('../images/laurel.png') -64px 0  no-repeat;
         background-position: right bottom;
       }
     }
@@ -822,8 +828,158 @@ input[type="search"] {
 
 } // end #content
 
+/*==========  ABOUT  ==========*/
+
+.about {
+  #profile {
+    background-color: $black;
+    color: $white;
+
+    #portrait {
+      width: 100%;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    h1 {
+      background-color: lighten($black, 1%);
+      border-left: 1px dotted;
+      border-right: 1px dotted;
+      margin: .5em 2em 1em;
+      padding: 1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    #social-links {
+      text-align: center;
+
+      li {
+        display: inline-block;
+        margin-left: 0.2em;
+      }
+    }
+
+    #about-info {
+      width: 100%;
+      padding: 0 1em 1em;
+    }
+  }
+
+  .education-item {
+    display: table;
+
+    .years {
+      display: table-cell;
+    }
+
+    .education-info {
+      display: table-cell;
+      padding-left: 1em;
+    }
+  }
+}
+
 
 /*-----  End of CONTENT  ------*/
+
+/*====================================
+=            SOCIAL LINKS            =
+====================================*/
+
+#social-links {
+  .social-icon {
+    background-image: url('../images/social-logos.png');
+    background-repeat: no-repeat;
+    border: 0;
+    color: transparent;
+    display: block;
+    font: 0/0 a;
+    height: 50px;
+    text-shadow: none;
+    width: 50px;
+  }
+
+  .github {
+    background-position: 0 -50px;
+
+    &:hover,
+    &:focus {
+      background-position: 0 0;
+    }
+  }
+
+  .vimeo {
+    background-position: -50px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -50px 0;
+    }
+  }
+
+  .facebook {
+    background-position: -100px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -100px 0;
+    }
+  }
+
+  .flickr {
+    background-position: -150px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -150px 0;
+    }
+  }
+
+  .linkedin {
+    background-position: -200px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -200px 0;
+    }
+  }
+
+  .imdb {
+    background-position: -250px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -250px 0;
+    }
+  }
+
+  .youtube {
+    background-position: -300px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -300px 0;
+    }
+  }
+
+  .twitter {
+    background-position: -350px -50px;
+
+    &:hover,
+    &:focus {
+      background-position: -350px 0;
+    }
+  }
+}
+
+
+/*-----  End of SOCIAL LINKS  ------*/
+
+
 
 /******************************************************************
 PAGE NAVI STYLES

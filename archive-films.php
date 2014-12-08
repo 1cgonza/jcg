@@ -20,7 +20,7 @@
 
                 </header>
 
-                <?php the_title( '<h1 class="h2 entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' ); ?>
+                <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 
                 <section class="entry-excerpt cf">
                  	<?php the_field('synopsis'); ?>

@@ -235,3 +235,29 @@ $wrap-half: 15%;
 }
 
 /*-----  End of FILMS  ------*/
+
+/*=============================
+=            ABOUT            =
+=============================*/
+.about {
+  #profile {
+
+    #portrait {
+      float: left;
+      width: 50%;
+      line-height: 0;
+    }
+
+    #about-info {
+      float: left;
+      width: 50%;
+      padding: 0 1.5em 1em;
+    }
+
+  }
+}
+
+
+/*-----  End of ABOUT  ------*/
+
+

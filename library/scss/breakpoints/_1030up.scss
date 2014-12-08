@@ -52,4 +52,53 @@ $wrap-half: 25%;
 
 }
 
+.single-post {
+  .article-header {
+    .entry-title {
+      font-size: 4em;
+    }
+  }
+}
+
+#posts-list {
+
+  .hentry {
+
+    .entry-title {
+      text-align: left;
+      width: 40%;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .entry-excerpt {
+      width: 59%;
+      display: inline-block;
+      vertical-align: top;
+      padding: .5em 0 0 1.5em;
+    }
+
+  }
+
+}
 /*-----  End of CONTENT  ------*/
+
+/*=============================
+=            ABOUT            =
+=============================*/
+.about {
+  #profile {
+
+    #portrait {
+      width: 40%;
+    }
+
+    #about-info {
+      width: 60%;
+    }
+
+  }
+}
+
+
+/*-----  End of ABOUT  ------*/

@@ -62,7 +62,7 @@ function custom_post_types() {
 			'has_archive'         => false,
 			'capability_type'     => 'post',
 			'hierarchical'        => false,
-			'supports'            => array( 'title', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions', 'sticky'),
+			'supports'            => array( 'title', 'author', 'thumbnail'),
 			'taxonomies' 					=> array('post_tag')
 	 	)
 	);
