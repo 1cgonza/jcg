@@ -1,22 +1,18 @@
-//******************************************************************
-// Site Name: JCG
-// Site URI: http://juancgonzalez.com
-// Author: Juan Camilo Gonzalez
-
-// 1240-UP STYLES
-//******************************************************************
-
-$wrap: 50%;
-$wrap-w: 60%;
-$wrap-half: 25%;
+/******************************************************************
+  Site Name: JCG
+  Site URI: http://juancgonzalez.com
+  Author: Juan Camilo Gonzalez
+  1240-UP STYLES
+******************************************************************/
+$wrap: 70%;
+$wrap-w: 80%;
+$wrap-half: 15%;
 
 #content {
 
   /*==========  POST CONTENT SECTION  ==========*/
-
   .entry-content,
   .mce-content-body {
-
     h2 {
       text-align: center;
       border-bottom: 1px dotted;
@@ -49,13 +45,11 @@ $wrap-half: 25%;
   }
 
   /*==========  POST FOOTER  ==========*/
-
   .entry-footer {
     text-align: center;
   }
 
   /*==========  COMMENTS  ==========*/
-
   .commentlist {
     width: $wrap-w;
   }
@@ -65,19 +59,19 @@ $wrap-half: 25%;
     width: $wrap-w;
   }
 
-
   /*==========  TABLES  ==========*/
-
   table {
     font-size: 100%;
   }
-
 }
 
-//===================================
-//           SINGLE POST            |
-//===================================
+.contact-aside {
+  font-size: .8vw;
+}
 
+/*===================================
+=            SINGLE POST            =
+===================================*/
 .post-nav-full {
   .link-title {
     display: block;
@@ -102,16 +96,26 @@ $wrap-half: 25%;
     }
   }
 }
+/*-----  End of SINGLE POST  ------*/
 
-//-----  End of SINGLE POST  ------//
-
+/*=============================
+=            FILMS            =
+=============================*/
+.film-header {
+  #video-container {
+    iframe {
+      left: 50%;
+      margin-left: -515px;
+    }
+  }
+}
+/*-----  End of FILMS  ------*/
 
 /*=============================
 =            ABOUT            =
 =============================*/
-.about {
+.page-template-page-about {
   #profile {
-
     #portrait {
       width: 30%;
     }
@@ -119,9 +123,6 @@ $wrap-half: 25%;
     #about-info {
       width: 70%;
     }
-
   }
 }
-
-
 /*-----  End of ABOUT  ------*/

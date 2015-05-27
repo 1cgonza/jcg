@@ -1,14 +1,15 @@
-//******************************************************************
-// Site Name: JCG
-// Site URI: http://juancgonzalez.com
-// Author: Juan Camilo Gonzalez
+/******************************************************************
+  Site Name: JCG
+  Site URI: http://juancgonzalez.com
+  Author: Juan Camilo Gonzalez
+  BASE STYLES
+******************************************************************/
+/**
 
-// BASE STYLES
-//******************************************************************
+  TODO:
+  - Change cat colors from hard coded css to options page in wp dashboard.
 
-//  TODO:
-//  - Change cat colors from hard coded css to options page in wp dashboard.
-
+**/
 $wrap: 80%;
 $wrap-w: 90%;
 $wrap-half: 40%;
@@ -16,7 +17,6 @@ $wrap-half: 40%;
 /*======================================
 =            GENERAL STYLES            =
 ======================================*/
-
 html,
 body {
   width: 100%;
@@ -43,13 +43,11 @@ body {
   height: 100%;
   min-height: 100%;
 }
-
 /*-----  End of GENERAL STYLES  ------*/
 
 /*=============================
 =            LINKS            =
 =============================*/
-
 a,
 a:visited {
   color: $link-color;
@@ -83,13 +81,11 @@ a:visited {
     }
   }
 }
-
 /*-----  End of LINKS  ------*/
 
 /*====================================
 =            <H#> TITLES             =
 ====================================*/
-
 h1,
 h2,
 h3,
@@ -129,59 +125,52 @@ h5 {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 /*-----  End of <H#> TITLES   ------*/
-
-/*====================================
-=            MAIN SIDEBAR            =
-====================================*/
-
-#main-sidebar {
-  z-index: 9999;
-
-  #logo {
-    display: none;
-  }
-}
-
-/*-----  End of MAIN SIDEBAR  ------*/
 
 /*==========================================
 =            SIDEBAR NAVIGATION            =
 ==========================================*/
+#main-sidebar {
+  .nav {
+    text-align: center;
+    border-bottom: 0;
+    margin: 0;
 
-.nav {
-  text-align: center;
-  border-bottom: 0;
-  margin: 0;
+    li {
+      display: inline-block;
 
-  li {
-    display: inline-block;
+      a, a:visited {
+        @include transition(all .25s ease-in-out);
+        display: block;
+        text-decoration: none;
+        padding: 1em 0;
+        color: $white;
+        background-color: lighten($link-color, 10%);
 
-    a {
-      @include transition(all .25s ease-in-out);
-      display: block;
-      text-decoration: none;
-      padding: .75em;
+        &:hover,
+        &:focus {
+          color: $black;
+          background-color: lighten($link-color, 40%);
+        }
+
+        &:link {
+          -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
+        }
+      }
+
+      ul.sub-menu,
+      ul.children {
+        display: none;
+      }
+
     }
-
-    ul.sub-menu,
-    ul.children {
-      top: 0;
-      position: absolute;
-      left: 80%;
-      display: none;
-    }
-
   }
 }
-
 /*-----  End of SIDEBAR NAVIGATION  ------*/
 
 /*====================================
 =            POSTS HEADER            =
 ====================================*/
-
 #description-box {
   margin: 0;
   padding: 2em;
@@ -195,7 +184,8 @@ h5 {
 
   .archive-title,
   .description-title {
-    margin-bottom: .4em;
+    margin-bottom: 1em;
+    font-size: 2em;
   }
 
   .blog-header-description {
@@ -222,7 +212,6 @@ h5 {
 }
 
 /*==========  SEARCH  ==========*/
-
 input[type="search"] {
   margin: 0 auto;
   max-width: 250px;
@@ -233,25 +222,25 @@ input[type="search"] {
 .search-submit {
   @extend .blue-btn;
 }
-
 /*-----  End of POSTS HEADER  ------*/
 
 /*==================================
 =            CATEGORIES            =
 ==================================*/
-
 #categories-menu {
-  margin: .45em;
+  margin: 0;
   padding: 0;
 }
 
 .cat-item {
   display: inline-block;
+  margin-bottom: 0.3em;
 
   a,
   a:visited {
     @include transition(all .2s ease-out);
     padding: .5em;
+    display: block;
     background-color: $black;
     color: $white;
 
@@ -344,47 +333,47 @@ input[type="search"] {
     background-color: inspiration(1);
   }
 }
-
 /*-----  End of CATEGORIES  ------*/
-
 
 /*=====================================
 =            POSTS ARCHIVE            =
 =====================================*/
-
 #posts-list {
   margin: 0 auto;
   display: block;
-  padding-top: 3em;
+  padding-top: 2em;
 
   .hentry {
     margin-bottom: 3em;
 
     .header-meta {
       position: absolute;
-      margin: -10px 0 0 -10px;
+      margin: 0;
       z-index: 1;
 
       .post-date {
         p {
           margin: 0;
+          display: inline-block;
         }
 
         font-size: .8em;
-        text-align: center;
-        width: 100px;
-        background-color: black(.8);
+        text-align: left;
+        background-color: black(.7);
         color: #fff;
-        padding: 20px 10px;
+        padding: 10px 10px;
 
         .post-weekday {
-          font-size: .8em;
           letter-spacing: 1px;
         }
 
         .post-year {
           letter-spacing: 2px;
         }
+      }
+
+      .post-categories {
+        font-size: 0.8em;
       }
     }
 
@@ -404,26 +393,22 @@ input[type="search"] {
       }
 
       img {
-        width: 100%;
         height: auto;
-        padding: 0!important;
-        margin: 0!important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
       }
 
     }
 
     .entry-title {
       text-align: center;
-      // width: 40%;
-      // display: inline-block;
-      // vertical-align: top;
+      font-size: 1.5em;
+      padding: 0 1.5em;
     }
 
     .entry-excerpt {
-      // width: 59%;
-      // display: inline-block;
-      // vertical-align: top;
-      padding: .5em 1.5em;
+      margin: 0;
     }
 
     .entry-footer {
@@ -434,69 +419,33 @@ input[type="search"] {
   }
 
 }
-
 /*-----  End of POSTS ARCHIVE  ------*/
 
-/*********************
-     SINGLE POST
-*********************/
-
-#posts-nav {
-  position: fixed;
-  z-index: 99999;
-  bottom: 0;
-
-  .post-nav-item {
-    width: 50%;
-    position: relative;
-
-    &:hover {
-      .post-nav-full::before {
-        content: ''!important;
-      }
-    }
-
-    a {
-      display: block;
-    }
-
-    .post-nav-full {
-
-      .post-nav-icon {
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        background-color: black(.5);
-        color: #fff;
-        cursor: pointer;
-        display: none;
-      }
-
-    }
-
-    .link-title {
-      display: none;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      vertical-align: bottom;
-    }
+/*===================================
+=            SINGLE PAGE            =
+===================================*/
+.page {
+  .article-header {
+    text-align: center;
+    padding-bottom: 4em;
+    background-color: darken($white, 2%);
   }
 
-  #previous-post-link {
-    float: left;
+  .entry-title {
+    margin: 0;
+    padding: 1em 1em .2em;
   }
-
-  #next-post-link {
-    float: right;
-  }
-
 }
 
-.single-post {
 
+/*-----  End of SINGLE PAGE  ------*/
+
+
+
+/*====================================
+=            SINGLE POSTS            =
+====================================*/
+.single-post {
   .article-header {
     text-align: center;
     padding-bottom: 4em;
@@ -526,13 +475,6 @@ input[type="search"] {
   text-align: center;
 }
 
-/*********************
-    INFINITE SCROLL
-*********************/
-#infinite-footer {
-  display: none;
-}
-
 .hentry {
   iframe {
     width: 100%;
@@ -554,150 +496,19 @@ input[type="search"] {
     }
   }
 }
-
-/*=============================
-=            FILMS            =
-=============================*/
-
-.post-type-archive-films {
-  section {
-    margin: 0 !important;
-  }
-}
-
-.type-films {
-
-  .film-header {
-    line-height: 0;
-    background-color: #000;
-
-    #video-container {
-      position: relative;
-      text-align: center;
-
-      .ratio {
-        // display: block;
-        width: 100%;
-        height: auto;
-        max-height: 457px;
-        z-index: -1;
-        padding: 0;
-        margin: 0;
-      }
-
-      iframe {
-        position: absolute;
-        top: 0;
-        // left: 0;
-        width: 100%;
-        height: 100%;
-        max-width: 812px;
-        z-index: 7999;
-        padding: 0!important;
-      }
-    }
-  }
-
-  .film-description {
-    padding: 0 1em;
-    text-align: center;
-
-    .film-synopsis {
-      margin-top: 2em;
-    }
-  }
-
-  #awards {
-    text-align: center;
-
-    .award-item {
-      display: inline-table;
-      font-size: .85em;
-      padding: 1em;
-
-      p,
-      h1,
-      h2 {
-        margin: 0;
-      }
-
-      .award-item-text {
-        display: table-cell;
-        vertical-align: bottom;
-      }
-
-      &:before,
-      &:after {
-        content: '';
-        display: block;
-        height: 150px;
-        width: 64px;
-      }
-
-      &:before {
-        background: url('../images/laurel.png') 0 0 no-repeat;
-        background-position: left bottom;
-      }
-
-      &:after {
-        background: url('../images/laurel.png') -64px 0  no-repeat;
-        background-position: right bottom;
-      }
-    }
-  }
-
-  .column-title {
-    margin: 0 0 1em;
-    padding: 0 0 .5em;
-    text-align: center;
-  }
-
-}
-
-/*-----  End of FILMS  ------*/
-
-
-/*===============================
-=            CONTACT            =
-===============================*/
-
-#contact-wrapper {
-  margin: 0 auto;
-  width: 90%;
-
-  div {
-    margin-bottom: 1em;
-  }
-
-  label {
-    font-weight: normal!important;
-  }
-
-  textarea {
-    width: 100%!important;
-  }
-}
-
-.pushbutton-wide {
-  @extend .black-btn;
-}
-
-
-/*-----  End of CONTACT  ------*/
+/*-----  End of SINGLE POSTS  ------*/
 
 /*===============================
 =            CONTENT            =
 ===============================*/
-
 #content {
-
   .wrap {
     margin: 0 auto;
     width: 90%;
   }
 
   section {
-    margin: 4em 0;
+    margin: 2.5em 0;
   }
 
   .entry-content,
@@ -777,7 +588,6 @@ input[type="search"] {
     }
 
     /*==========  IMAGE CAPTION  ==========*/
-
     .wp-caption {
       background: #eee;
       margin: 0 auto 1em;
@@ -792,7 +602,6 @@ input[type="search"] {
     }
 
     /*==========  VIDEO  ==========*/
-
     video {
       height: auto!important;
       width: 100%!important;
@@ -800,37 +609,185 @@ input[type="search"] {
 
   }
 
-  /*==========  TABLES  ==========*/
+}
+/*-----  End of CONTENT  ------*/
 
-  table {
-    font-size: .8em;
-    margin: 0 auto;
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 .3em;
+/*==========  TABLES  ==========*/
+table {
+  font-size: .8em;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 .3em;
 
-    td {
-      padding: 0 1em;
-      vertical-align: top;
+  td {
+    padding: 0 1em;
+    vertical-align: top;
 
-      &.festival-name {
-        border-bottom: 1px dotted #ccc;
+    &.festival-name {
+      border-bottom: 1px dotted #ccc;
+    }
+
+    &.country {
+      border: 1px dotted #ccc;
+      text-align: center;
+      font-size: .9em;
+      vertical-align: middle;
+    }
+  }
+}
+
+/*=============================
+=            FILMS            =
+=============================*/
+.type-films {
+  .film-header {
+    line-height: 0;
+    background-color: #000;
+
+    #video-container {
+      position: relative;
+      text-align: center;
+
+      .ratio {
+        width: 100%;
+        height: auto;
+        max-height: 589px;
+        z-index: -1;
+        padding: 0;
+        margin: 0;
       }
 
-      &.country {
-        border: 1px dotted #ccc;
-        text-align: center;
-        font-size: .9em;
-        vertical-align: middle;
+      iframe {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 1030px;
+        z-index: 7999;
+        padding: 0!important;
       }
     }
   }
 
-} // end #content
+  .film-description {
+    padding: 0 1em;
+    text-align: center;
 
-/*==========  ABOUT  ==========*/
+    .film-title {
+      margin: 0;
+    }
 
-.about {
+    .film-synopsis {
+      margin-top: 2em;
+    }
+  }
+
+  #awards {
+    text-align: center;
+
+    .award-item {
+      display: inline-table;
+      font-size: .85em;
+      padding: 1em;
+
+      p,
+      h1,
+      h2 {
+        margin: 0;
+      }
+
+      .award-item-text {
+        display: table-cell;
+        vertical-align: bottom;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        height: 150px;
+        width: 64px;
+      }
+
+      &::before {
+        background: url('../images/laurel.png') 0 0 no-repeat;
+        background-position: left bottom;
+      }
+
+      &::after {
+        background: url('../images/laurel.png') -64px 0  no-repeat;
+        background-position: right bottom;
+      }
+    }
+  }
+
+  .column-title {
+    margin: 0 0 1em;
+    padding: 0 0 .5em;
+    text-align: center;
+  }
+
+}
+/*-----  End of FILMS  ------*/
+
+/*===============================
+=            CONTACT            =
+===============================*/
+.jcg-contact-info {
+  width: 100%;
+  text-align: center;
+
+  .contact-item {
+    margin-right: 1em;
+    &::before {
+      content: '';
+      vertical-align: middle;
+      display: inline-block;
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: .4em;
+    }
+  }
+
+  .primary-email {
+    &::before {
+      background: url('../images/icon-email.svg');
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 100% 100%;
+    }
+  }
+
+  .phone-number {
+    &::before {
+      background: url('../images/icon-phone.svg');
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 100% 100%;
+    }
+  }
+
+  #social-links {
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin-right: 0.1em;
+    }
+  }
+}
+/*-----  End of CONTACT  ------*/
+
+/*=============================
+=            ABOUT            =
+=============================*/
+.page-template-page-about {
+  h2 {
+    border-bottom: 1px dotted;
+    padding-left: 1em;
+  }
+
   #profile {
     background-color: $black;
     color: $white;
@@ -844,52 +801,96 @@ input[type="search"] {
       }
     }
 
-    h1 {
-      background-color: lighten($black, 1%);
-      border-left: 1px dotted;
-      border-right: 1px dotted;
-      margin: .5em 2em 1em;
-      padding: 1em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    #social-links {
-      text-align: center;
-
-      li {
-        display: inline-block;
-        margin-left: 0.2em;
-      }
-    }
-
     #about-info {
       width: 100%;
       padding: 0 1em 1em;
+
+      h1 {
+        text-align: center;
+        font-size: 2em;
+      }
     }
   }
 
-  .education-item {
-    display: table;
+  #about-content {
+    width: 90%;
+    margin: 3em auto;
 
-    .years {
-      display: table-cell;
+    #bio {
+      font-size: 1.2em;
+    }
+  }
+
+  table.jcg-cv-table {
+    td {
+      padding: 0;
+    }
+  }
+
+  .jcg-cv-item {
+    margin-bottom: 1em;
+    width: 100%;
+
+    .jcg-cv-item-col1 {
+      text-align: right;
     }
 
-    .education-info {
-      display: table-cell;
+    .jcg-cv-item-col2 {
       padding-left: 1em;
+      width: 86%;
+    }
+
+    p {
+      margin: 0.2em;
+    }
+
+    .education-type,
+    .award-type {
+      padding-right: .5em;
+      font-weight: bold;
+      color: $dark-blue;
+    }
+
+    .award-type {
+      &::before {
+        content: '';
+        background: url('../images/icon-badge.svg');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+        display: inline-block;
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: .4em;
+        vertical-align: middle;
+      }
+    }
+
+    .award-type-film-festival {
+      &::before {
+        background: url('../images/icon-laurel.svg');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+      }
+    }
+
+    .award-type-full-scholarship,
+    .award-type-academic {
+      &::before {
+        background: url('../images/icon-academic.svg');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% 100%;
+      }
     }
   }
 }
-
-
-/*-----  End of CONTENT  ------*/
+/*-----  End of ABOUT  ------*/
 
 /*====================================
 =            SOCIAL LINKS            =
 ====================================*/
-
 #social-links {
   .social-icon {
     background-image: url('../images/social-logos.png');
@@ -904,7 +905,7 @@ input[type="search"] {
   }
 
   .github {
-    background-position: 0 -50px;
+    background-position: 0 100%;
 
     &:hover,
     &:focus {
@@ -913,102 +914,100 @@ input[type="search"] {
   }
 
   .vimeo {
-    background-position: -50px -50px;
+    background-position: 14.5% 100%;
 
     &:hover,
     &:focus {
-      background-position: -50px 0;
+      background-position: 14.5% 0;
     }
   }
 
   .facebook {
-    background-position: -100px -50px;
+    background-position: 28.5% 100%;
 
     &:hover,
     &:focus {
-      background-position: -100px 0;
+      background-position: 28.5% 0;
     }
   }
 
   .flickr {
-    background-position: -150px -50px;
+    background-position: 42.8% 100%;
 
     &:hover,
     &:focus {
-      background-position: -150px 0;
+      background-position: 42.8% 0;
     }
   }
 
   .linkedin {
-    background-position: -200px -50px;
+    background-position: 57% 100%;
 
     &:hover,
     &:focus {
-      background-position: -200px 0;
+      background-position: 57% 0;
     }
   }
 
   .imdb {
-    background-position: -250px -50px;
+    background-position: 71.5% 100%;
 
     &:hover,
     &:focus {
-      background-position: -250px 0;
+      background-position: 71.5% 0;
     }
   }
 
   .youtube {
-    background-position: -300px -50px;
+    background-position: 85.8% 100%;
 
     &:hover,
     &:focus {
-      background-position: -300px 0;
+      background-position: 85.8% 0;
     }
   }
 
   .twitter {
-    background-position: -350px -50px;
+    background-position: 100% 100%;
 
     &:hover,
     &:focus {
-      background-position: -350px 0;
+      background-position: 100% 0;
     }
   }
 }
-
-
 /*-----  End of SOCIAL LINKS  ------*/
 
-
-
-/******************************************************************
-PAGE NAVI STYLES
-******************************************************************/
-
-.pagination,
-.wp-prev-next {
-  margin: 1.5em 0;
+/*===============================
+=            CONTACT            =
+===============================*/
+.contact-wrapper {
+  color: $white;
+  background-color: $black;
 }
 
+.menu-item-contact {
+  display: block;
+}
+
+.contact-aside {
+  display: none;
+}
+
+/*================================
+=            PAGE NAV            =
+================================*/
 .pagination {
   text-align: center;
 
   ul {
     display: inline-block;
-    background-color: $white;
-    white-space: nowrap;
-    padding: 0;
-    clear: both;
-    border-radius: 3px;
   }
 
   li {
     padding: 0;
     margin: 0;
     float: left;
-    display: inline;
-    overflow: hidden;
-    border-right: 1px solid $gray;
   }
 
   a,
@@ -1022,11 +1021,11 @@ PAGE NAVI STYLES
     padding: 0.75em;
     min-width: 1em;
     display: block;
-    color: $blue;
+    color: $link-color;
 
     &:hover,
     &:focus {
-      background-color: $blue;
+      background-color: $black;
       color: $white;
     }
   }
@@ -1042,18 +1041,16 @@ PAGE NAVI STYLES
     }
   }
 }
+/*-----  End of PAGE NAV  ------*/
 
 /*================================
 =            COMMENTS            =
 ================================*/
-
 .commentlist {
   list-style-type: none;
   margin: 0 auto!important;
   padding-top: 4em;
 }
-
-/*-----  End of COMMENTS  ------*/
 
 .comment {
   position: relative;
@@ -1079,9 +1076,7 @@ PAGE NAVI STYLES
         &:hover {
           color: $black;
         }
-
       }
-
     }
 
     .avatar {
@@ -1138,10 +1133,7 @@ PAGE NAVI STYLES
   font-size: .9em;
 }
 
-/******************************************************************
-COMMENT FORM STYLES
-******************************************************************/
-
+/*==========  COMMENTS FORM  ==========*/
 #reply-title {
   margin: 0;
 }
@@ -1182,7 +1174,11 @@ COMMENT FORM STYLES
 .nocomments {
   margin: 0 20px 1.1em;
 }
+/*-----  End of COMMENTS  ------*/
 
+/*=======================================
+=            EXTRA NORMALIZE            =
+=======================================*/
 .no-margin {
   margin: 0;
   padding: 0;
@@ -1206,3 +1202,4 @@ COMMENT FORM STYLES
     width: initial;
   }
 }
+/*-----  End of EXTRA NORMALIZE  ------*/

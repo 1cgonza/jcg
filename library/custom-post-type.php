@@ -91,5 +91,3 @@ register_taxonomy( 'cv_cat',
 		'rewrite'           => array( 'slug' => 'cv' )
 	)
 );
-
-?>

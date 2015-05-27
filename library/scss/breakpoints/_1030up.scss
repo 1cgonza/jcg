@@ -1,94 +1,50 @@
-//******************************************************************
-// Site Name: JCG
-// Site URI: http://juancgonzalez.com
-// Author: Juan Camilo Gonzalez
-
-// 1030-UP STYLES
-//******************************************************************
-
-$wrap: 50%;
-$wrap-w: 60%;
-$wrap-half: 25%;
-
-/*=============================
-=            FILMS            =
-=============================*/
-
-.film-header {
-
-  #video-container {
-    iframe {
-      left: 50%;
-      margin-left: -406px;
-    }
-  }
-
-}
-
-/*-----  End of FILMS  ------*/
+/******************************************************************
+  Site Name: JCG
+  Site URI: http://juancgonzalez.com
+  Author: Juan Camilo Gonzalez
+  1030-UP STYLES
+******************************************************************/
+$wrap: 70%;
+$wrap-w: 80%;
+$wrap-half: 15%;
 
 /*===============================
 =            CONTACT            =
 ===============================*/
-
 #contact-wrapper {
   width: $wrap;
 }
-
 /*-----  End of CONTACT  ------*/
 
 /*===============================
 =            CONTENT            =
 ===============================*/
-
 #content {
-
   .entry-content,
   .mce-content-body {
     iframe {
       height: 500px;
     }
   }
-
-}
-
-.single-post {
-  .article-header {
-    .entry-title {
-      font-size: 4em;
-    }
-  }
 }
 
 #posts-list {
-
   .hentry {
-
-    .entry-title {
-      text-align: left;
-      width: 40%;
-      display: inline-block;
-      vertical-align: top;
-    }
-
     .entry-excerpt {
       width: 59%;
       display: inline-block;
       vertical-align: top;
-      padding: .5em 0 0 1.5em;
+      padding-left: 1.5em;
     }
-
   }
-
 }
 /*-----  End of CONTENT  ------*/
 
 /*=============================
 =            ABOUT            =
 =============================*/
-.about {
+.page-template-page-about {
   #profile {
-
     #portrait {
       width: 40%;
     }
@@ -96,9 +52,10 @@ $wrap-half: 25%;
     #about-info {
       width: 60%;
     }
+  }
 
+  #about-content {
+    width: 60%;
   }
 }
-
-
 /*-----  End of ABOUT  ------*/

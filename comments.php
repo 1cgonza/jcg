@@ -7,7 +7,6 @@ if ( post_password_required() ) {
 
 ?>
 
-
   <?php if ( have_comments() ) : ?>
 
     <section class="commentlist">

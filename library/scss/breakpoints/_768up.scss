@@ -1,11 +1,9 @@
-//******************************************************************
-// Site Name: JCG
-// Site URI: http://juancgonzalez.com
-// Author: Juan Camilo Gonzalez
-
-// 768UP STYLES
-//******************************************************************
-
+/******************************************************************
+  Site Name: JCG
+  Site URI: http://juancgonzalez.com
+  Author: Juan Camilo Gonzalez
+  768UP STYLES
+******************************************************************/
 $wrap: 70%;
 $wrap-w: 80%;
 $wrap-half: 15%;
@@ -13,106 +11,133 @@ $wrap-half: 15%;
 /*====================================
 =            MAIN SIDEBAR            =
 ====================================*/
-
 #main-sidebar {
   position: fixed;
   height: 100%;
   border-right: 1px dotted;
+  overflow: auto;
+  padding-bottom: 3em;
 
   #logo {
-    display: block;
-    text-align: center;
-  }
-}
+    margin: 0.5em 0.3em 0 0.3em;
 
-/*-----  End of MAIN SIDEBAR  ------*/
+    a,
+    a:visited {
+      color: $black;
+      @include transition(color 0.2s ease-in-out);
 
-/*==========================================
-=            SIDEBAR NAVIGATION            =
-==========================================*/
+      &:hover,
+      &:focus {
+        color: lighten($black, 40%);
+      }
 
-.nav {
-  text-align: left;
-  width: 90%;
-
-  li {
-    display: block;
-    position: relative;
-
-    &.menu-item-has-children {
-
-      &:after {
-        content: '\002B';
-        position: absolute;
-        right: 0;
-        top: .8em;
-        width: 0;
-        height: 0;
+      &:link {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
       }
     }
+  }
 
-    ul.sub-menu,
-    ul.children {
-      border-top: 0;
-      z-index: 8999;
-      font-size: 0.7em;
-      text-align: center;
-      letter-spacing: 1px;
-      background-color: black(1);
-      font-family: $sans-serif2;
+  .nav {
+    text-align: left;
+    padding: 0.7em;
+
+    li {
       display: block;
-      left: -999em;
+      position: relative;
 
-      li {
-        a,
-        a:visited {
-          display: block;
-          width: 180px;
-          border-bottom: 1px dotted white(.2);
-          color: $gray;
-          padding: 1em;
+      a, a:visited {
+        color: $link-color;
+        background-color: transparent;
 
-          &:hover,
-          &:focus {
-            color: darken($gray, 8%);
-            background-color: $black;
-          }
+        &:hover,
+        &:focus {
+          color: $link-hover;
+          background-color: transparent;
         }
 
-        &:last-child {
-          a {
-            border-bottom: 0;
+        &:link {
+          -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
+        }
+      }
+
+      ul.sub-menu,
+      ul.children {
+        font-size: 0.6em;
+        letter-spacing: 1px;
+        font-family: $sans-serif2;
+        display: block;
+
+        li {
+          a,
+          a:visited {
+            display: block;
+            padding: 0.3em 0;
           }
         }
       }
 
-      &:before {
-        content: '';
-        position: absolute;
-        left: -1.9em;
-        top: 0;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 1em 2em 1em 0;
-        border-color: transparent #000 transparent transparent;
+      &.menu-item-has-children {
+        a {
+          padding-bottom: 0;
+        }
+
+        .sub-menu a {
+          border-bottom: 0;
+        }
+      }
+
+      &.current-menu-item {
+        a {
+          color: $black;
+        }
       }
     }
-
-    &:hover ul {
-      left: 90%;
-    }
-
   }
 
+  .nav .menu-item-contact {
+    display: none;
+  }
 }
 
-/*-----  End of SIDEBAR NAVIGATION  ------*/
+.contact-aside {
+  display: block;
+  font-size: 1.2vw;
+  padding: 1em;
+
+  .contact-title {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .jcg-contact-info {
+    text-align: left;
+  }
+
+  .primary-email,
+  .phone-number {
+    display: block;
+    margin-bottom: .5em;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  #social-links {
+    text-align: left;
+
+    .social-icon {
+      width: 25px;
+      height: 25px;
+      background-size: 200px 50px;
+    }
+  }
+}
+/*-----  End of MAIN SIDEBAR  ------*/
 
 /*===============================
 =            CONTENT            =
 ===============================*/
-
 #content {
   padding-bottom: 200px;
   -webkit-box-sizing: border-box;
@@ -120,7 +145,6 @@ $wrap-half: 15%;
   box-sizing: border-box;
 
   /*==========  POST CONTENT SECTION  ==========*/
-
   .entry-content,
   .mce-content-body {
     font-size: 1.3em;
@@ -154,18 +178,55 @@ $wrap-half: 15%;
   }
 
   /*==========  COMMENTS  ==========*/
-
   .commentlist {
     width: 70%;
   }
 }
 
+#posts-list {
+  .hentry {
+    .header-meta {
+
+      .post-date {
+        text-align: center;
+        width: 100px;
+        background-color: black(.8);
+        padding: 20px 10px;
+
+        p {
+          display: block;
+        }
+
+        .post-weekday {
+          font-size: .8em;
+        }
+
+        .post-year {
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    .entry-excerpt-title {
+      text-align: left;
+      width: 40%;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0;
+      margin: 1em 0;
+
+      .excerpt-title {
+        font-size: 1.5em;
+        margin: 0;
+      }
+    }
+  }
+}
 /*-----  End of CONTENT  ------*/
 
 /*===================================
 =            JCG GALLERY            =
 ===================================*/
-
 .jcg-gallery {
   background-color: $black;
   margin: 2em 0;
@@ -207,16 +268,12 @@ $wrap-half: 15%;
     }
   }
 }
-
-
 /*-----  End of JCG GALLERY  ------*/
 
 /*=============================
 =            FILMS            =
 =============================*/
-
 .type-films {
-
   #video-container {
     background: #000;
     background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
@@ -226,38 +283,31 @@ $wrap-half: 15%;
   }
 
   .film-description {
-
     .film-synopsis {
       padding: 0 25%;
     }
-
   }
 }
-
 /*-----  End of FILMS  ------*/
 
 /*=============================
 =            ABOUT            =
 =============================*/
-.about {
+.page-template-page-about {
   #profile {
-
     #portrait {
-      float: left;
+      display: inline-block;
+      vertical-align: middle;
       width: 50%;
       line-height: 0;
     }
 
     #about-info {
-      float: left;
+      display: inline-block;
+      vertical-align: middle;
       width: 50%;
       padding: 0 1.5em 1em;
     }
-
   }
 }
-
-
 /*-----  End of ABOUT  ------*/
-
-
