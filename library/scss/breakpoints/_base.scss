@@ -828,8 +828,6 @@ table {
   }
 
   .jcg-cv-item {
-    margin-bottom: 1em;
-    width: 100%;
 
     .jcg-cv-item-col1 {
       text-align: right;
@@ -841,17 +839,15 @@ table {
     }
 
     p {
-      margin: 0.2em;
+      margin: 0.5em 0;
     }
 
-    .education-type,
-    .award-type {
-      padding-right: .5em;
-      font-weight: bold;
+    .jcg-cv-item-type {
+      padding-right: 0.3em;
       color: $dark-blue;
     }
 
-    .award-type {
+    .jcg-cv-item-type-awards {
       &::before {
         content: '';
         background: url('../images/icon-badge.svg');
@@ -866,7 +862,7 @@ table {
       }
     }
 
-    .award-type-film-festival {
+    .jcg-cv-item-type-awards-film-festival {
       &::before {
         background: url('../images/icon-laurel.svg');
         background-repeat: no-repeat;
@@ -875,8 +871,10 @@ table {
       }
     }
 
-    .award-type-full-scholarship,
-    .award-type-academic {
+    .jcg-cv-item-type-awards-full-scholarship,
+    .jcg-cv-item-type-awards-fellowship,
+    .jcg-cv-item-type-awards-scholarship,
+    .jcg-cv-item-type-awards-academic {
       &::before {
         background: url('../images/icon-academic.svg');
         background-repeat: no-repeat;
