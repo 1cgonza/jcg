@@ -1,12 +1,63 @@
+/*
+ * IE8 ployfill for GetComputed Style (for Responsive Script below)
+ * If you don't want to support IE8, you can just remove this.
+*/
+if (!window.getComputedStyle) {
+  window.getComputedStyle = function(el, pseudo) {
+    this.el = el;
+    this.getPropertyValue = function(prop) {
+      var re = /(\-([a-z]){1})/g;
+      if (prop == 'float') prop = 'styleFloat';
+      if (re.test(prop)) {
+        prop = prop.replace(re, function () {
+          return arguments[2].toUpperCase();
+        });
+      }
+      return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+    };
+    return this;
+  };
+}
+
+/*
+ * Get Viewport Dimensions
+ * returns object with viewport dimensions to match css in width and height properties
+ * ( source: http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript )
+*/
+function updateViewportDimensions() {
+	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
+	return {width:x,height:y};
+}
+// setting the viewport width
+var viewport = updateViewportDimensions();
+
+/*
+ * Throttle Resize-triggered Events
+ * Wrap your actions in this function to throttle the frequency of firing them off, for better performance, esp. on mobile.
+ * ( source: http://stackoverflow.com/questions/2854407/javascript-jquery-window-resize-how-to-fire-after-the-resize-is-completed )
+*/
+var waitForFinalEvent = (function () {
+	var timers = {};
+	return function (callback, ms, uniqueId) {
+		if (!uniqueId) { uniqueId = "Don't call this twice without a uniqueId"; }
+		if (timers[uniqueId]) { clearTimeout (timers[uniqueId]); }
+		timers[uniqueId] = setTimeout(callback, ms);
+	};
+})();
+
+// how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
+var timeToWaitForLast = 100;
+
+
 function loadGravatars() {
   // set the viewport using the function above
-  viewport = updateViewportDimensions();
+	viewport = updateViewportDimensions();
   // if the viewport is tablet or larger, we load in the gravatars
-  if (viewport.width >= 768) {
-    jQuery('.comment img[data-gravatar]').each(function(){
+	if (viewport.width >= 768) {
+		jQuery('.comment img[data-gravatar]').each(function(){
       jQuery(this).attr('src',jQuery(this).attr('data-gravatar'));
     });
-  }
+	}
 }
 
 jQuery(document).ready(function($) {
