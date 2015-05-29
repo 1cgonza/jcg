@@ -98,17 +98,20 @@
   }
 
   /*==========  JETPACK  ==========*/
+  // Remove Open Graph from header
+  add_filter( 'jetpack_enable_open_graph', '__return_false' );
+
+  add_action('loop_start', 'jptweak_remove_share');
   function jptweak_remove_share() {
     remove_filter('the_excerpt', 'sharing_display',19);
     if ( class_exists('Jetpack_Likes') ) {
       remove_filter('the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1);
     }
   }
-  add_action('loop_start', 'jptweak_remove_share');
 
   /*==========  GOOGLE FONTS  ==========*/
   function jcg_fonts() {
-    wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,300');
+    wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,600');
     wp_enqueue_style( 'googleFonts');
   }
   add_action('wp_print_styles', 'jcg_fonts');
