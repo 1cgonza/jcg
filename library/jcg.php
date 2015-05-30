@@ -317,11 +317,11 @@ function jcg_contact_info() {
 =            CV            =
 ==========================*/
 class JCGCV {
-  public function __construct($category, $contentSeparator, $dateformatstring) {
+  public function __construct($category) {
     $this->content = '';
     $this->category = $category;
-    $this->separator = $contentSeparator;
-    $this->date_format = $dateformatstring;
+    $this->separator = ', ';
+    $this->date_format = 'Y';
 
     $this->jcg_query_cv_meta();
   }
