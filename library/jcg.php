@@ -1,10 +1,6 @@
 <?php
 
 function jcg_head_cleanup() {
-  // category feeds
-  // remove_action( 'wp_head', 'feed_links_extra', 3 );
-  // post and comment feeds
-  // remove_action( 'wp_head', 'feed_links', 2 );
   // EditURI link
   remove_action( 'wp_head', 'rsd_link' );
   // windows live writer
@@ -23,8 +19,7 @@ function jcg_head_cleanup() {
   add_filter( 'style_loader_src', 'jcg_remove_wp_ver_css_js', 9999 );
   // remove Wp version from scripts
   add_filter( 'script_loader_src', 'jcg_remove_wp_ver_css_js', 9999 );
-
-} /* end jcg head cleanup */
+}
 
 // remove WP version from RSS
 function jcg_rss_version() {
@@ -71,6 +66,9 @@ function jcg_scripts_and_styles() {
     // register main stylesheet
     wp_register_style('jcg-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
 
+    // Google Fonts
+    wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,600');
+
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1) ) {
       wp_enqueue_script( 'comment-reply' );
@@ -81,6 +79,7 @@ function jcg_scripts_and_styles() {
 
     // enqueue styles and scripts
     wp_enqueue_script('jcg-modernizr');
+    wp_enqueue_style('google-fonts');
     wp_enqueue_style('jcg-stylesheet');
 
     wp_enqueue_script('jquery');
@@ -231,7 +230,8 @@ function jcg_page_navi() {
 
 function jcg_get_current_url() {
   global $post;
-  if ( is_home() ) {
+
+  if ( is_home() || is_404() ) {
     $url = get_bloginfo('url');
   }
   elseif ( is_tax() ) {
@@ -242,7 +242,8 @@ function jcg_get_current_url() {
   }
   elseif ( is_post_type_archive() ) {
     $url = get_post_type_archive_link( get_query_var('post_type') );
-  } else {
+  }
+  else {
     $url = get_permalink($post->ID);
   }
   return $url;
@@ -250,7 +251,7 @@ function jcg_get_current_url() {
 
 function jcg_get_page_metadata() {
   global $post;
-  $metaData           = get_post_custom($post->ID);
+
   $themeOptions       = (array)get_option('jcg_theme_options');
   $defaultDescription = !empty($themeOptions['description']) ? $themeOptions['description'] : '';
   $defaultImage       = !empty($themeOptions['image']) ? $themeOptions['image'] : '';
@@ -268,26 +269,30 @@ function jcg_get_page_metadata() {
     $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'jcg-1200x630');
     $returnArray['featuredImg'] = $thumbnail[0];
   }
-  /**
-  * Set post types first because otherwise single is always true and can't check for post-type
-  **/
-  if ( is_singular('films') && !empty($metaData['synopsis']) ) {
-    $returnArray['description'] = $metaData['synopsis'][0];
-    $returnArray['ogType']      = 'video.movie';
-    $returnArray['cardType']    = 'player';
-  } elseif ( is_singular() && !is_page() ) {
-    $newExcerpt = wp_strip_all_tags($post->post_content, true);
-    $newExcerpt = wp_trim_words($newExcerpt, 100, '...');
 
-    $returnArray['description'] = $newExcerpt;
-    $returnArray['ogType'] = 'article';
+  if ( !empty($post) ) {
+    $metaData = get_post_custom($post->ID);
+    /**
+    * Set post types first because otherwise single is always true and can't check for post-type
+    **/
+    if ( is_singular('films') && !empty($metaData['synopsis']) ) {
+      $returnArray['description'] = $metaData['synopsis'][0];
+      $returnArray['ogType']      = 'video.movie';
+      $returnArray['cardType']    = 'player';
+    } elseif ( is_singular() && !is_page() ) {
+      $newExcerpt = wp_strip_all_tags($post->post_content, true);
+      $newExcerpt = wp_trim_words($newExcerpt, 100, '...');
+
+      $returnArray['description'] = $newExcerpt;
+      $returnArray['ogType'] = 'article';
+    }
   }
   return $returnArray;
 }
 
 function jcg_contact_info() {
   $externalLinks = [];
-  $aboutData = (array)get_option('jcg_about_options');
+  $aboutData     = (array)get_option('jcg_about_options');
   $primaryEmail  = !empty( $aboutData['email'] ) ? antispambot($aboutData['email']) : NULL;
   $phone         = !empty( $aboutData['phone'] ) ? $aboutData['phone'] : NULL;
   /*==========  SOCIAL LINKS  ==========*/
@@ -419,7 +424,7 @@ class JCGCV {
   }
 
   public function jcg_cv_get_item_type($postID) {
-    $cvType = '';
+    $cvType    = '';
     $childrens = [];
     $postTerms = get_the_terms($postID, 'cv_cat');
 
@@ -441,7 +446,6 @@ class JCGCV {
     if ( !empty($dateStart) ) {
       $startUNIX = strtotime($dateStart);
       $startYear = date_i18n($this->date_format, $startUNIX);
-
       $datesRange = $startYear;
 
       if ($currentCheck == '1') {
