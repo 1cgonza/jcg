@@ -1,43 +1,15 @@
 <?php get_header(); ?>
 
-			<div id="content">
+  <article id="post-not-found" class="hentry cf">
 
-				<div id="inner-content" class="wrap cf">
+    <header class="article-header">
+      <h1>404</h1>
+    </header>
 
-					<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+    <section class="entry-content">
+      <p>The page you are looking for does not exist.</p>
+    </section>
 
-						<article id="post-not-found" class="hentry cf">
-
-							<header class="article-header">
-
-								<h1><?php _e( 'Epic 404 - Article Not Found', 'jcgtheme' ); ?></h1>
-
-							</header> <?php // end article header ?>
-
-							<section class="entry-content">
-
-								<p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'jcgtheme' ); ?></p>
-
-							</section> <?php // end article section ?>
-
-							<section class="search">
-
-									<p><?php get_search_form(); ?></p>
-
-							</section> <?php // end search section ?>
-
-							<footer class="article-footer">
-
-									<p><?php _e( 'This is the 404.php template.', 'jcgtheme' ); ?></p>
-
-							</footer> <?php // end article footer ?>
-
-						</article> <?php // end article ?>
-
-					</div> <?php // end #main ?>
-
-				</div> <?php // end #inner-content ?>
-
-			</div> <?php // end #content ?>
+  </article>
 
 <?php get_footer(); ?>
