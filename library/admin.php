@@ -29,7 +29,7 @@
       'jcg_options',
       'jcg_render_options',
       'dashicons-hammer',
-      8
+      10
     );
 
     add_submenu_page(
@@ -199,14 +199,14 @@
   function jcg_render_social() {
     $options = (array)get_option('jcg_about_options');
     $socialAccounts = array(
-      'github' => 'GitHub',
-      'vimeo' => 'Vimeo',
-      'youtube' => 'YouTube',
+      'github'   => 'GitHub',
+      'vimeo'    => 'Vimeo',
+      'youtube'  => 'YouTube',
       'facebook' => 'Facebook',
-      'twitter' => 'Twitter',
-      'flickr' => 'Flickr',
+      'twitter'  => 'Twitter',
+      'flickr'   => 'Flickr',
       'linkedin' => 'LinkedIn',
-      'imdb' => 'IMDB'
+      'imdb'     => 'IMDB'
     );
 
     $social = '';
