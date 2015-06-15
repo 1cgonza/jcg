@@ -6,7 +6,6 @@
   add_action('after_setup_theme', 'jcg_init');
 
   function jcg_init() {
-    // add_filter( 'wp_title', 'rw_title', 10, 3 );
     add_action('init', 'disable_emojis');
     add_filter('the_generator', 'jcg_rss_version');
     add_filter('wp_head', 'jcg_remove_wp_widget_recent_comments_style', 1);
@@ -73,28 +72,57 @@
 
   /*==========  COMMENTS LAYOUT  ==========*/
   function jcg_comments($comment, $args, $depth) {
-    $GLOBALS['comment'] = $comment; ?>
-    <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
-      <article  class="cf">
-        <header class="comment-author vcard">
-          <?php $bgauthemail = get_comment_author_email(); ?>
-          <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=80" class="load-gravatar avatar avatar-48 photo" height="80" width="80" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
+    $GLOBALS['comment'] = $comment;
 
-          <?php printf( '<cite class="fn">%1$s</cite> %2$s', get_comment_author_link(), edit_comment_link( '(Edit)','  ','') ) ?>
-          <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( 'F jS, Y' ); ?> </a></time>
+    $commClasses     = comment_class('cf', $comment->comment_ID, $comment->comment_post_ID, false);
+    $commDate        = new DateTime($comment->comment_date);
 
-        </header>
-        <?php if ($comment->comment_approved == '0') : ?>
-          <div class="alert alert-info">
-            <p><?php echo 'Your comment is awaiting moderation.'; ?></p>
-          </div>
-        <?php endif; ?>
-        <section class="comment_content cf">
-          <?php comment_text() ?>
-        </section>
-        <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-      </article>
-  <?php
+    $gravatarData    = md5( strtolower( trim( get_comment_author_email() ) ) );
+    $gravatarDefault = get_template_directory_uri() . '/library/images/nothing.gif';
+    $gravatarSize    = 80;
+    $gravatarURL     = 'http://www.gravatar.com/avatar/' . $gravatarData . '?d=' . urlencode($gravatarDefault) . '&s=' . $gravatarSize;
+
+    $ossComment = '<div id="comment-' . $comment->comment_ID . '" ' . $commClasses . '>';
+
+      $ossComment .= '<article class="cf">';
+
+        $ossComment .= '<header class="comment-author vcard">';
+
+          /*==========  GRAVATAR  ==========*/
+          $ossComment .= '<img class="avatar" src="' . $gravatarURL . '" alt="" />';
+
+          /*==========  AUTHOR  ==========*/
+          $ossComment .= '<a class="comment-edit-link" href="' . get_edit_comment_link() . '" target="_self">(Edit) </a>';
+          $ossComment .= '<cite class="comment-author">' . get_comment_author_link() . ' </cite>';
+
+          /*==========  TIMESTAMP  ==========*/
+          $ossComment .= '<time datetime="' . $commDate->format('Y-m-j') . '">' . $commDate->format('F jS, Y') . '</time>';
+
+        $ossComment .= '</header>';
+
+        /*==========  WAITING MODERATION  ==========*/
+        if ($comment->comment_approved == '0') {
+          $ossComment .= '<div class="alert alert-info">';
+            $ossComment .= '<p>Your comment is awaiting moderation.</p>';
+          $ossComment .= '</div>';
+        }
+
+        /*==========  COMMENT CONTENT  ==========*/
+        $ossComment .= '<section class="comment_content cf">';
+          $ossComment .= get_comment_text( $comment->comment_ID );
+        $ossComment .= '</section>';
+
+        /*==========  REPLY BUTTON  ==========*/
+        $replyArgs = array(
+          'depth'     => $depth,
+          'max_depth' => $args['max_depth']
+        );
+        $ossComment .= get_comment_reply_link( array_merge($args, $replyArgs) );
+
+      $ossComment .= '</article>';
+
+    // WP closes this div. (If you add the closing tag the HTML structure breaks)
+    echo $ossComment;
   }
 
   /*==========  JETPACK  ==========*/
@@ -108,10 +136,3 @@
       remove_filter('the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1);
     }
   }
-
-  /*==========  GOOGLE FONTS  ==========*/
-  function jcg_fonts() {
-    wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,600');
-    wp_enqueue_style( 'googleFonts');
-  }
-  add_action('wp_print_styles', 'jcg_fonts');
