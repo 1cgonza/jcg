@@ -4,9 +4,9 @@
   Author: Juan Camilo Gonzalez
   768UP STYLES
 ******************************************************************/
-$wrap: 70%;
-$wrap-w: 80%;
-$wrap-half: 15%;
+$wrap: 80%;
+$wrap-w: 90%;
+$wrap-half: 10%;
 
 /*====================================
 =            MAIN SIDEBAR            =
@@ -20,21 +20,7 @@ $wrap-half: 15%;
 
   #logo {
     margin: 0.5em 0.3em 0 0.3em;
-
-    a,
-    a:visited {
-      color: $black;
-      @include transition(color 0.2s ease-in-out);
-
-      &:hover,
-      &:focus {
-        color: lighten($black, 40%);
-      }
-
-      &:link {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
-      }
-    }
+    text-align: left;
   }
 
   .nav {
@@ -48,6 +34,7 @@ $wrap-half: 15%;
       a, a:visited {
         color: $link-color;
         background-color: transparent;
+        padding: 1em 0;
 
         &:hover,
         &:focus {
@@ -185,8 +172,13 @@ $wrap-half: 15%;
 
 #posts-list {
   .hentry {
-    .header-meta {
+    margin-bottom: 3em;
 
+    section {
+      padding: 0;
+    }
+
+    .header-meta {
       .post-date {
         text-align: center;
         width: 100px;
@@ -209,11 +201,8 @@ $wrap-half: 15%;
 
     .entry-excerpt-title {
       text-align: left;
-      width: 40%;
       display: inline-block;
       vertical-align: top;
-      padding: 0;
-      margin: 1em 0;
 
       .excerpt-title {
         font-size: 1.5em;
@@ -300,6 +289,11 @@ $wrap-half: 15%;
       vertical-align: middle;
       width: 50%;
       line-height: 0;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
     }
 
     #about-info {
