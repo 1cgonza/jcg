@@ -30,15 +30,14 @@
       <?php } ?>
     </div>
 
-  </header> <?php // end article header ?>
+  </header>
 
-  <section class="entry-excerpt-title">
+  <section class="entry-excerpt-title m-all t-all d-2of5 ld-2of5">
     <?php the_title( '<h2 class="excerpt-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-  </section>
-
-  <section class="entry-excerpt cf">
+  </section><!--
+  --><section class="entry-excerpt m-all t-all d-3of5 ld-3of5">
     <?php the_excerpt(); ?>
-  </section> <?php // end article section ?>
+  </section>
 
   <footer class="entry-footer">
     <?php

@@ -11,15 +11,14 @@
     </div>
   </header>
 
-  <section class="entry-excerpt-title">
+  <section class="entry-excerpt-title m-all t-all d-2of5 ld-2of5">
     <?php
     $date = new DateTime( get_post_meta($post->ID, 'release_date', true) );
     $year = date_format($date, 'Y');
     the_title( '<h2 class="excerpt-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', ' (' . $year . ')</a></h2>' );
     ?>
-  </section>
-
-  <section class="entry-excerpt cf">
+  </section><!--
+  --><section class="entry-excerpt m-all t-all d-3of5 ld-3of5">
     <?php the_field('synopsis'); ?>
   </section> <?php // end article section ?>
 

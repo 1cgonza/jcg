@@ -43,7 +43,7 @@ $metaData = jcg_get_page_metadata();
   </head>
 
   <body <?php body_class(); ?>>
-    <aside id="main-sidebar" class="m-all t-1of5 d-1of7">
+    <aside id="main-sidebar" class="m-all t-1of5 d-1of7 ld-1of7">
       <h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow">JCG</a></h1>
 
       <nav role="navigation">
@@ -67,4 +67,4 @@ $metaData = jcg_get_page_metadata();
       </section>
     </aside>
 
-    <main id="content" class="m-all t-4of5 d-6of7 last-col">
+    <main id="content" class="m-all t-4of5 d-6of7 ld-6of7 last-col">

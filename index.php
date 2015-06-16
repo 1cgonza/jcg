@@ -2,7 +2,7 @@
 
   <?php get_template_part('header', 'blog'); ?>
 
-  <div id="posts-list" class="m-all t-4of5 d-4of5">
+  <div id="posts-list" class="m-all t-4of5 d-4of5 ld-4of5">
   <?php
     if ( have_posts() ) :
       while (have_posts()) : the_post();
