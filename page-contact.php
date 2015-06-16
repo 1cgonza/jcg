@@ -4,9 +4,9 @@
 */
 get_header(); ?>
 
-  <div class="contact-wrapper">
-    <h1>Contact</h1>
+  <header id="description-box">
+    <h1 class="description-title">Contact</h1>
     <?php echo jcg_contact_info(); ?>
-  </div>
+  </header>
 
 <?php get_footer(); ?>
