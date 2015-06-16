@@ -12,7 +12,7 @@
 **/
 $wrap: 80%;
 $wrap-w: 90%;
-$wrap-half: 40%;
+$wrap-half: 10%;
 
 /*======================================
 =            GENERAL STYLES            =
@@ -131,10 +131,29 @@ h5 {
 =            SIDEBAR NAVIGATION            =
 ==========================================*/
 #main-sidebar {
+  #logo {
+    margin: 0.5em;
+    text-align: center;
+
+    a,
+    a:visited {
+      color: $black;
+      @include transition(color 0.2s ease-in-out);
+
+      &:hover,
+      &:focus {
+        color: lighten($black, 40%);
+      }
+
+      &:link {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
+      }
+    }
+  }
+
   .nav {
     text-align: center;
-    border-bottom: 0;
-    margin: 0;
+    margin: 0 0 1em;
 
     li {
       display: inline-block;
@@ -143,7 +162,7 @@ h5 {
         @include transition(all .25s ease-in-out);
         display: block;
         text-decoration: none;
-        padding: 1em 0;
+        padding: 1em;
         color: $white;
         background-color: lighten($link-color, 10%);
 
@@ -344,7 +363,11 @@ input[type="search"] {
   padding-top: 2em;
 
   .hentry {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
+
+    section {
+      padding: 0 2em;
+    }
 
     .header-meta {
       position: absolute;
@@ -416,9 +439,21 @@ input[type="search"] {
       text-align: right;
     }
 
-  }
+    .entry-excerpt-title {
+      text-align: center;
+      display: block;
+      padding: 0;
+      margin: 1em 0 0;
 
+      .excerpt-title {
+        font-size: 1.5em;
+        margin: 0;
+      }
+    }
+
+  }
 }
+
 /*-----  End of POSTS ARCHIVE  ------*/
 
 /*===================================
@@ -439,8 +474,6 @@ input[type="search"] {
 
 
 /*-----  End of SINGLE PAGE  ------*/
-
-
 
 /*====================================
 =            SINGLE POSTS            =
@@ -614,7 +647,6 @@ input[type="search"] {
 
 /*==========  TABLES  ==========*/
 table {
-  font-size: .8em;
   margin: 0 auto;
   width: 100%;
   border-collapse: separate;
@@ -793,12 +825,7 @@ table {
     color: $white;
 
     #portrait {
-      width: 100%;
-
-      img {
-        height: auto;
-        width: 100%;
-      }
+      display: none;
     }
 
     #about-info {
