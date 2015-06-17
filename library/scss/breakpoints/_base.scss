@@ -535,6 +535,21 @@ input[type="search"] {
 =            CONTENT            =
 ===============================*/
 #content {
+  /*================================
+  =            FIX GRID            =
+  ================================*/
+  // There is an invisible space when using display-block which breaks the layout that use % values for their width.
+  // First sets the container font-sise to 0 to eliminate the space.
+  // Then restore the font size in the sections inside.
+  article.films {
+    font-size: 0;
+
+    header, section {
+      font-size: 16px;
+    }
+  }
+  /*-----  End of FIX GRID  ------*/
+
   .wrap {
     margin: 0 auto;
     width: 90%;
