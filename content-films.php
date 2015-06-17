@@ -80,7 +80,7 @@
     wp_reset_postdata();
   ?>
 
-  <section id="credits" class="m-all t-1of2 d-1of2">
+  <section id="credits" class="m-all t-all d-1of2 ld-1of2">
     <h2 class="column-title">Credits</h2>
     <div class="wrap">
       <?php the_field('credits'); ?>
@@ -115,7 +115,7 @@
     );
     $selection = new WP_Query( $festivals_args );
     if ( $selection->have_posts() ) {
-      echo '<section id="screenings" class="m-all t-1of2 d-1of2">';
+      echo '<section id="screenings" class="m-all t-all d-1of2 ld-1of2">';
         echo '<h2 class="column-title">Official Selections</h2>';
         echo '<table class="wrap">';
 
