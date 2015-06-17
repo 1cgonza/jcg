@@ -1,8 +1,17 @@
+<?php
+  $postMetaData = get_post_custom($post->ID);
+  $iframe      = $postMetaData['url'][0];
+  $releaseDate = $postMetaData['release_date'][0];
+  $synopsis    = $postMetaData['synopsis'][0];
+  $credits     = $postMetaData['credits'][0];
+  $dateformatstring = 'Y';
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
   <header class="film-header">
     <div id='video-container'>
-      <?php the_field('embed_code'); ?>
+      <?php echo apply_filters( 'the_content', $iframe ); ?>
       <img class="ratio" src="<?php echo get_template_directory_uri(); ?>/library/images/ratio.gif" />
     </div>
   </header>
@@ -10,10 +19,10 @@
   <section class="film-description cf">
     <h1 class="single-title film-title" itemprop="name"><?php the_title(); ?></h1>
     <?php
-    $date = new DateTime( get_post_meta($post->ID, 'release_date', true) );
+    $date = new DateTime($releaseDate);
     ?>
     <h3 class="no-margin" itemprop="dateCreated"><?php echo date_format($date, 'Y'); ?></h3>
-    <div class="film-synopsis" itemprop="description"><?php the_field('synopsis'); ?></div>
+    <div class="film-synopsis" itemprop="description"><?php echo $synopsis; ?></div>
   </section>
 
 
@@ -35,63 +44,58 @@
       'meta_query'     => array(
         array(
           'key'     => 'related_films',
-          'value'   => '"' . get_the_ID() . '"',
+          'value'   => '"' . $post->ID . '"',
           'compare' => 'LIKE'
         )
       )
     );
     $awards = new WP_Query( $awards_args );
-    if ( $awards->have_posts() ) {
-      echo '<section id="awards">';
+    if ( $awards->have_posts() ) :
+  ?>
 
-        while ($awards->have_posts() ) {
-          $awards->the_post();
-          $dateformatstring = "Y";
-          $unixtimestamp = strtotime(get_field('date_start'));
-          $website_url = get_field('website_url');
-
-          // Get the label name because using the get_field will only show the slug.
-
-          // Call all the information contained in the custom field. It can be echoed using print_r($field);
-          $field = get_field_object('award_type');
-          // Now we check which option is selected
-          $value = get_field('award_type');
-          // Selects the label in the array
-          $awardLabel = $field['choices'][ $value ];
-
-          echo '<div class="award-item ' . get_field('award_type') . '">';
-            echo '<div class="award-item-text">';
-              echo '<h2>' . $awardLabel . '</h2>';
-              echo '<p class="award-title">' . get_field('award_title') . '</p>';
-              echo '<p class="award-festival-name">';
-                if ( $website_url ) {
-                  echo '<a title="' . get_the_title() . '" href="' . get_field('website_url') . '" target="_blank">' . get_the_title() . '</a>';
-                } else {
-                  echo get_the_title();
-                }
-              echo '</p>';
-              echo '<p class="award-festival-country">' . get_field('country') . '</p>';
-              echo '<h2 class="award-festival-year">' . date_i18n($dateformatstring, $unixtimestamp) . '</h2>';
-            echo '</div>';
-          echo '</div>';
-        }
-      echo '</section>';
-    }
+  <section id="awards">
+    <?php
+      while ($awards->have_posts() ) :
+        $awards->the_post();
+        $awardMetaData    = get_post_custom($post->ID);
+        $givenBy          = get_the_title();
+        $unixtimestamp    = strtotime( $awardMetaData['date_start'][0] );
+        $websiteURL       = $awardMetaData['website_url'][0];
+        $awardType        = $awardMetaData['award_type'][0];
+        $awardTitle       = $awardMetaData['award_title'][0];
+        $awardCountry     = $awardMetaData['country'][0];
+    ?>
+      <div class="award-item <?php echo $awardType; ?>">
+        <div class="award-item-text">
+          <h2><?php echo ucfirst($awardType); ?></h2>
+          <p class="award-title"><?php echo $awardTitle; ?></p>
+          <p class="award-festival-name">
+            <?php if ( !empty($websiteURL) ) { ?>
+              <a href="<?php echo $websiteURL; ?>" target="_blank"><?php echo $givenBy; ?></a>
+            <?php } else {
+              echo $givenBy;
+            } ?>
+          </p>
+          <p class="award-festival-country"><?php echo $awardCountry; ?></p>
+          <h2 class="award-festival-year"><?php echo date_i18n($dateformatstring, $unixtimestamp); ?></h2>
+        </div>
+      </div>
+    <?php endwhile; ?>
+  </section>
+  <?php
+    endif;
     wp_reset_postdata();
   ?>
 
   <section id="credits" class="m-all t-all d-1of2 ld-1of2">
     <h2 class="column-title">Credits</h2>
     <div class="wrap">
-      <?php the_field('credits'); ?>
+      <?php echo apply_filters( 'the_content', $credits ); ?>
     </div>
-  </section><!--
---><?php
-    /*------------------------------------
+  </section>
 
-               OFFICIAL SELECTIONS
-
-    --------------------------------------*/
+  <?php
+    /*==========  OFFICIAL SELECTIONS  ==========*/
     $festivals_args = array(
       'post_type' => 'cv_meta',
       'tax_query' => array(
@@ -108,39 +112,43 @@
       'meta_query'     => array(
         array(
           'key'     => 'related_films',
-          'value'   => '"' . get_the_ID() . '"',
+          'value'   => '"' . $post->ID . '"',
           'compare' => 'LIKE'
         )
       )
     );
     $selection = new WP_Query( $festivals_args );
-    if ( $selection->have_posts() ) {
-      echo '<section id="screenings" class="m-all t-all d-1of2 ld-1of2">';
-        echo '<h2 class="column-title">Official Selections</h2>';
-        echo '<table class="wrap">';
+    if ( $selection->have_posts() ) :
+  ?>
 
-        while ($selection->have_posts() ) {
-          $selection->the_post();
-          $dateformatstring = "Y";
-          $unixtimestamp = strtotime(get_field('date_start'));
-          $website_url = get_field('website_url');
-
-          echo '<tr>';
-            echo '<td class="year">' . date_i18n($dateformatstring, $unixtimestamp) . '</td>';
-            echo '<td class="festival-name">';
-              if ( $website_url ) {
-                echo '<a title="' . get_the_title() . '" href="' . get_field('website_url') . '" target="_blank">' . get_the_title() . '</a>';
-              } else {
-                echo get_the_title();
-              }
-            echo '</td>';
-            echo '<td class="country">' . get_field('country') . '</td>';
-          echo '</tr>';
-        }
-
-        echo '</table>';
-      echo '</section>';
-    }
+  <section id="screenings" class="m-all t-all d-1of2 ld-1of2">
+      <h2 class="column-title">Official Selections</h2>
+      <table class="wrap">
+        <?php
+          while ($selection->have_posts() ) :
+            $selection->the_post();
+            $selectionMetaData = get_post_custom($post->ID);
+            $unixtimestamp     = strtotime( $selectionMetaData['date_start'][0] );
+            $websiteURL        = $selectionMetaData['website_url'][0];
+            $venue             = get_the_title();
+            $selectionCountry  = $selectionMetaData['country'][0];
+        ?>
+          <tr>
+            <td class="year"><?php echo date_i18n($dateformatstring, $unixtimestamp); ?></td>
+            <td class="festival-name">
+              <?php if ( !empty($websiteURL) ) { ?>
+                <a title="<?php echo $venue; ?>" href="<?php echo $websiteURL; ?>" target="_blank"><?php echo $venue; ?></a>
+              <?php } else {
+                echo $venue;
+              } ?>
+            </td>
+            <td class="country"><?php echo $selectionCountry; ?></td>
+          </tr>
+        <?php endwhile; ?>
+      </table>
+    </section>
+  <?php
+    endif;
     wp_reset_postdata();
   ?>
 
