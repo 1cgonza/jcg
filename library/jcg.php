@@ -296,8 +296,9 @@ function jcg_get_page_metadata() {
     /**
     * Set post types first because otherwise single is always true and can't check for post-type
     **/
-    if ( is_singular('films') && !empty($metaData['synopsis']) ) {
-      $returnArray['description'] = $metaData['synopsis'][0];
+    if ( is_singular('films') || !empty($metaData['synopsis'][0]) ) {
+
+      $returnArray['description'] = wp_strip_all_tags( $metaData['synopsis'][0], true );
       $returnArray['ogType']      = 'video.movie';
       $returnArray['cardType']    = 'player';
     } elseif ( is_singular() && !is_page() ) {
