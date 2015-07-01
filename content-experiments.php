@@ -22,7 +22,7 @@
   $dateformatstring = 'Y';
 
   /*==========  OFFICIAL SELECTIONS  ==========*/
-  $selection = jcg_query_cv_posts($post->ID, 'official-selection');
+  $selection = jcg_query_cv_posts($post->ID, array('exhibitions', 'film-exhibition') );
   $selectionCheck = $selection->have_posts();
 
   /*==========  AWARDS  ==========*/

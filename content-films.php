@@ -6,7 +6,7 @@
   $credits          = $postMetaData['credits'][0];
   $dateformatstring = 'Y';
   $awards           = jcg_query_cv_posts($post->ID, 'awards');
-  $selection        = jcg_query_cv_posts($post->ID, 'official-selection');
+  $selection        = jcg_query_cv_posts($post->ID, array('exhibitions', 'film-exhibition') );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
