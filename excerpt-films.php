@@ -1,13 +1,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
     <div class="post-image">
-      <?php if ( has_post_thumbnail() ) { ?>
+      <?php if ( has_post_thumbnail() ) : ?>
         <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('jcg-1300x325'); ?></a>
-      <?php } else { ?>
+      <?php else : ?>
         <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/library/images/no-image.png" alt="<?php the_title(); ?>" />
+          <img src="http://placehold.it/800x200/ECECEC/d2d2d2?text=%20" alt="<?php the_title(); ?>" />
         </a>
-      <?php } ?>
+      <?php endif; ?>
     </div>
   </header>
 
@@ -17,10 +17,16 @@
     $year = date_format($date, 'Y');
     the_title( '<h2 class="excerpt-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', ' (' . $year . ')</a></h2>' );
     ?>
-  </section><!--
-  --><section class="entry-excerpt m-all t-all d-3of5 ld-3of5">
-    <?php the_field('synopsis'); ?>
-  </section> <?php // end article section ?>
+  </section>
+
+  <section class="entry-excerpt m-all t-all d-3of5 ld-3of5">
+    <?php
+      $summary = get_post_meta($post->ID, 'synopsis', true);
+      if ( !empty($summary) ) {
+        echo apply_filters('the_content', $summary);
+      }
+    ?>
+  </section>
 
   <footer class="entry-footer">
     <?php
