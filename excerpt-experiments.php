@@ -43,7 +43,7 @@
       </div>
     <?php
 
-      if ( !empty($link) && $postMeta['embed_video'] == 0 ) {
+      if ( !empty($link) && $postMeta['embed_video'][0] == 0 ) {
         echo '<a class="launch-btn" href="' . $link . '" target="_blank">Launch</a>';
       }
 
