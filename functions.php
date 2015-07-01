@@ -1,7 +1,5 @@
 <?php
   require_once('library/jcg.php');
-  require_once('library/custom-post-type.php');
-  require_once('library/admin.php');
 
   add_action('after_setup_theme', 'jcg_init');
 
@@ -128,11 +126,3 @@
   /*==========  JETPACK  ==========*/
   // Remove Open Graph from header
   add_filter( 'jetpack_enable_open_graph', '__return_false' );
-
-  add_action('loop_start', 'jptweak_remove_share');
-  function jptweak_remove_share() {
-    remove_filter('the_excerpt', 'sharing_display',19);
-    if ( class_exists('Jetpack_Likes') ) {
-      remove_filter('the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1);
-    }
-  }
