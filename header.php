@@ -61,10 +61,13 @@ $metaData = jcg_get_page_metadata();
           'fallback_cb'     => ''
         )); ?>
       </nav>
+
       <section class="contact-aside">
         <h3 class="contact-title">Contact</h3>
         <?php echo jcg_contact_info(); ?>
       </section>
+
+      <?php echo do_shortcode( '[jetpack_subscription_form title="" subscribe_text=""]' ); ?>
     </aside>
 
     <main id="content" class="m-all t-4of5 d-6of7 ld-6of7 last-col">
