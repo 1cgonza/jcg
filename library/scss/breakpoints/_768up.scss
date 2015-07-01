@@ -34,7 +34,7 @@ $wrap-half: 10%;
       a, a:visited {
         color: $link-color;
         background-color: transparent;
-        padding: 1em 0;
+        padding: 0.5em 0;
 
         &:hover,
         &:focus {
@@ -165,6 +165,10 @@ $wrap-half: 10%;
   }
 
   /*==========  COMMENTS  ==========*/
+  .comment-respond {
+    width: $wrap-w;
+  }
+
   .commentlist {
     width: 70%;
   }
@@ -172,7 +176,7 @@ $wrap-half: 10%;
 
 #posts-list {
   .hentry {
-    margin-bottom: 3em;
+    margin-bottom: 50px;
 
     section {
       padding: 0;
@@ -262,19 +266,17 @@ $wrap-half: 10%;
 /*=============================
 =            FILMS            =
 =============================*/
-.type-films {
-  #video-container {
-    background: #000;
-    background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
-    background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
-    background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
-    background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
-  }
+#video-container {
+  background: #000;
+  background-image: -webkit-radial-gradient(center, circle cover, #222 0%, #000 85%);
+  background-image: -moz-radial-gradient(center, circle cover, #222 0%, #000 85%);
+  background-image: -o-radial-gradient(center, circle cover, #222 0%, #000 85%);
+  background-image: radial-gradient(center, circle cover, #222 0%, #000 85%);
+}
 
-  .film-description {
-    .film-synopsis {
-      padding: 0 25%;
-    }
+.project-description {
+  .project-synopsis {
+    padding: 0 25%;
   }
 }
 /*-----  End of FILMS  ------*/

@@ -9,7 +9,7 @@
   padding: .8em;
   border: 0;
   cursor: pointer;
-  @include transition(background-color .14s ease-in-out);
+  @include transition(all .2s ease-out);
 
   &:hover,
   &:focus {
@@ -24,7 +24,7 @@
 
 .black-btn {
   @extend %btn;
-  background-color: $black;
+  background-color: lighten($black, 20%);
 
   &:hover,
   &:focus {
@@ -32,7 +32,55 @@
   }
 
   &:active {
-    background-color: lighetn($black, 5%);
+    background-color: lighten($black, 5%);
+  }
+}
+
+%whitelink {
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: darken($white, 10%);
+  }
+
+  &:link {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
+  }
+}
+
+%lightlink {
+  color: lighten($link-color, 15%);
+
+  &:hover,
+  &:focus {
+    color: lighten($link-hover, 15%);
+  }
+}
+
+%whitebtn {
+  @extend %btn;
+  background-color: darken($white, 10%);
+  color: $black;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $white;
+    color: $black;
+  }
+}
+
+%linkbtn {
+  @extend %btn;
+  background-color: $link-color;
+  color: lighten($link-color, 50%);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $link-hover;
+    color: black(.8) !important;
   }
 }
 

@@ -65,11 +65,11 @@ a:visited {
 
 .entry-tag {
   display: inline-block;
-  margin: 0 .3em 1em 0;
+  margin: 0 .3em 0.3em 0;
 
   a,
   a:visited {
-    @include transition(all .2s ease-out);
+    @extend %btn;
     padding: .5em;
     color: black(.9);
     background-color: black(.1);
@@ -80,6 +80,16 @@ a:visited {
       color: white(.8);
     }
   }
+}
+
+a.launch-btn,
+a.launch-btn:visited {
+  @extend %linkbtn;
+  width: 100%;
+  text-align: center;
+  margin: 1em 0;
+  max-width: 300px;
+  display: block;
 }
 /*-----  End of LINKS  ------*/
 
@@ -184,6 +194,33 @@ h5 {
 
     }
   }
+
+  .jetpack_subscription_widget {
+    font-size: 0.85em;
+    padding: 1em;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .success {
+      background-color: $alert-yellow;
+      padding: 0.5em;
+    }
+
+    .widgettitle {
+      font-size: 1em;
+      margin-top: 0;
+    }
+
+    input {
+      padding: 0.5em;
+      margin: 0;
+      width: 100%;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
 }
 /*-----  End of SIDEBAR NAVIGATION  ------*/
 
@@ -192,18 +229,14 @@ h5 {
 ====================================*/
 #description-box {
   margin: 0;
-  padding: 2em;
   background-color: $black;
   color: $white;
   text-align: center;
 
-  h1 {
-    margin: 0;
-  }
-
   .archive-title,
   .description-title {
-    margin-bottom: 1em;
+    margin: 0;
+    padding: 1em;
     font-size: 2em;
   }
 
@@ -219,6 +252,7 @@ h5 {
 
   .search-box {
     margin-top: 1.5em;
+    padding-bottom: 2em;
   }
 }
 
@@ -363,8 +397,6 @@ input[type="search"] {
   padding-top: 2em;
 
   .hentry {
-    margin-bottom: 2em;
-
     section {
       padding: 0 2em;
     }
@@ -402,7 +434,12 @@ input[type="search"] {
 
     .post-image {
       line-height: 0;
-      z-index: -1;
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      padding-bottom: 25%;
+      position: relative;
+      text-align: center;
 
       a,
       a:visited {
@@ -420,8 +457,10 @@ input[type="search"] {
         margin: 0 !important;
         padding: 0 !important;
         width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
-
     }
 
     .entry-title {
@@ -450,11 +489,99 @@ input[type="search"] {
         margin: 0;
       }
     }
-
   }
 }
 
 /*-----  End of POSTS ARCHIVE  ------*/
+
+#posts-list.archive-page-experiments {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+
+  .hentry {
+    padding: 50px;
+    margin: 0;
+    font-size: 0;
+
+    /*==========  DARK SECTION  ==========*/
+  //     background-image: url('https://farm1.staticflickr.com/412/18928859801_2011faf859_h.jpg');
+  // background-size: cover;
+  // background-blend-mode: multiply;
+  // background-color: #353434;
+  // color: white;
+    &.entry-style-dark {
+      background-color: black;
+      color: white;
+
+      .excerpt-summary {
+        a, a:visited {
+          @extend %lightlink;
+        }
+      }
+    }
+
+    /*==========  LIGHT SECTION  ==========*/
+    &.entry-style-light {
+      // Uses default styles, no need ti add new rules
+    }
+
+    header {
+      width: 50%;
+      float: left;
+      padding-right: 20px;
+
+      .post-image {
+        padding: 0;
+        height: auto;
+
+        img {
+          position: relative;
+        }
+
+      }
+    }
+
+    .excerpt-info {
+      font-size: 16px;
+      width: 50%;
+      float: right;
+      margin: 0;
+      padding: 0;
+
+      .excerpt-title {
+        padding: 0;
+        margin: 0;
+
+        a,
+        a:visited {
+          // @extend %whitelink;
+        }
+      }
+    }
+
+    .read-more {
+      padding: 1em 0;
+      display: block;
+    }
+
+    .post-tags {
+      padding-top: 2em;
+    }
+
+    .entry-tag {
+      font-size: 0.8em;
+
+      a,
+      a:visited {
+        @extend %whitebtn;
+        padding: 0.5em;
+      }
+    }
+  }
+
+}
 
 /*===================================
 =            SINGLE PAGE            =
@@ -481,7 +608,7 @@ input[type="search"] {
 .single {
   .article-header {
     text-align: center;
-    padding-bottom: 4em;
+    padding-bottom: 2em;
     background-color: darken($white, 2%);
 
     .entry-title {
@@ -541,11 +668,15 @@ input[type="search"] {
   // There is an invisible space when using display-block which breaks the layout that use % values for their width.
   // First sets the container font-sise to 0 to eliminate the space.
   // Then restore the font size in the sections inside.
-  article.films {
-    font-size: 0;
+  article {
 
-    header, section {
-      font-size: 16px;
+    &.films,
+    &.experiments {
+      font-size: 0;
+
+      header, section {
+        font-size: 16px;
+      }
     }
   }
   /*-----  End of FIX GRID  ------*/
@@ -556,7 +687,7 @@ input[type="search"] {
   }
 
   section {
-    margin: 2.5em 0;
+    padding: 2.5em 0;
   }
 
   .entry-content,
@@ -657,6 +788,10 @@ input[type="search"] {
 
   }
 
+  .entry-style-dark {
+    color: $white;
+  }
+
 }
 /*-----  End of CONTENT  ------*/
 
@@ -687,85 +822,23 @@ table {
 /*=============================
 =            FILMS            =
 =============================*/
-.type-films {
-  .film-header {
-    line-height: 0;
-    background-color: #000;
+.type-films,
+.type-experiments {
 
-    #video-container {
-      position: relative;
-      text-align: center;
-
-      .ratio {
-        width: 100%;
-        height: auto;
-        max-height: 589px;
-        z-index: -1;
-        padding: 0;
-        margin: 0;
-      }
-
-      iframe {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        max-width: 1030px;
-        z-index: 7999;
-        padding: 0!important;
-      }
-    }
-  }
-
-  .film-description {
+  .project-description {
     padding: 0 1em;
     text-align: center;
 
-    .film-title {
+    .project-title {
       margin: 0;
     }
 
-    .film-synopsis {
+    .project-synopsis {
       margin-top: 2em;
     }
-  }
 
-  #awards {
-    text-align: center;
-
-    .award-item {
-      display: inline-table;
-      font-size: .85em;
-      padding: 1em;
-
-      p,
-      h1,
-      h2 {
-        margin: 0;
-      }
-
-      .award-item-text {
-        display: table-cell;
-        vertical-align: bottom;
-      }
-
-      &::before,
-      &::after {
-        content: '';
-        display: block;
-        height: 150px;
-        width: 64px;
-      }
-
-      &::before {
-        background: url('../images/laurel.png') 0 0 no-repeat;
-        background-position: left bottom;
-      }
-
-      &::after {
-        background: url('../images/laurel.png') -64px 0  no-repeat;
-        background-position: right bottom;
-      }
+    .launch-btn {
+      margin: 2em auto;
     }
   }
 
@@ -776,8 +849,90 @@ table {
   }
 
 }
+
+#video-container {
+  position: relative;
+  text-align: center;
+
+  .ratio {
+    width: 100%;
+    height: auto;
+    max-height: 589px;
+    z-index: -1;
+    padding: 0;
+    margin: 0;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 1030px;
+    z-index: 7999;
+    padding: 0!important;
+  }
+}
 /*-----  End of FILMS  ------*/
 
+#awards {
+  text-align: center;
+
+  .award-item {
+    display: inline-table;
+    font-size: .85em;
+    padding: 1em;
+
+    p,
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    .award-item-text {
+      display: table-cell;
+      vertical-align: bottom;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      height: 150px;
+      width: 64px;
+    }
+
+    &::before {
+      background: url('../images/laurel.png') 0 0 no-repeat;
+      background-position: left bottom;
+    }
+
+    &::after {
+      background: url('../images/laurel.png') -64px 0  no-repeat;
+      background-position: right bottom;
+    }
+  }
+}
+
+#credits {
+  p {
+    margin: 0.3em 0;
+  }
+
+  &.no-exhibitions {
+    display: block;
+    margin: 0 auto;
+
+    .column-title {
+      // text-align: left;
+    }
+
+    .wrap {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
 /*===============================
 =            CONTACT            =
 ===============================*/
@@ -1086,6 +1241,11 @@ table {
 /*================================
 =            COMMENTS            =
 ================================*/
+.comment-respond {
+  margin: 4em auto;
+  width: $wrap-w;
+}
+
 .commentlist {
   list-style-type: none;
   margin: 0 auto!important;

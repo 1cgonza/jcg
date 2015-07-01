@@ -53,7 +53,6 @@ $wrap-half: 15%;
   }
 
   .comment-respond {
-    margin: 0 auto;
     width: $wrap-w;
   }
 
@@ -99,15 +98,36 @@ $wrap-half: 15%;
 /*=============================
 =            FILMS            =
 =============================*/
-.film-header {
-  #video-container {
-    iframe {
-      left: 50%;
-      margin-left: -515px;
-    }
+#video-container {
+  iframe {
+    left: 50%;
+    margin-left: -515px;
   }
 }
 /*-----  End of FILMS  ------*/
+
+/*===================================
+=            EXPERIMENTS            =
+===================================*/
+.post-type-archive-experiments {
+  #posts-list {
+
+    .hentry {
+      header {
+        .post-image {
+          img {
+            width: 70%;
+          }
+
+        }
+      }
+
+    }
+  }
+}
+/*-----  End of EXPERIMENTS  ------*/
+
+
 
 /*=============================
 =            ABOUT            =

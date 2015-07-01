@@ -76,6 +76,20 @@ textarea,
 
 } // end input defaults
 
+input[type='submit'] {
+  @extend %btn;
+  background-color: lighten($black, 20%);
+
+  &:hover,
+  &:focus {
+    background-color: lighten($black, 4%);
+  }
+
+  &:active {
+    background-color: lighten($black, 5%);
+  }
+}
+
 // textareas
 textarea {
   min-height: 120px;
