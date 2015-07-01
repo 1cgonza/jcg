@@ -844,7 +844,6 @@ table {
 
   .column-title {
     margin: 0 0 1em;
-    padding: 0 0 .5em;
     text-align: center;
   }
 
@@ -852,12 +851,11 @@ table {
 
 #video-container {
   position: relative;
-  text-align: center;
 
   .ratio {
     width: 100%;
     height: auto;
-    max-height: 589px;
+    max-height: 583px;
     z-index: -1;
     padding: 0;
     margin: 0;
