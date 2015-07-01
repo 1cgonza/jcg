@@ -291,12 +291,6 @@ function jcg_get_page_metadata() {
     'url'         => jcg_get_current_url()
   );
 
-  /*==========  FEATRED IMAGE  ==========*/
-  if ( has_post_thumbnail() ) {
-    $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'jcg-1200x630');
-    $returnArray['featuredImg'] = $thumbnail[0];
-  }
-
   if ( !empty($post) ) {
     $metaData = get_post_custom($post->ID);
     /**
@@ -312,6 +306,18 @@ function jcg_get_page_metadata() {
 
       $returnArray['description'] = $newExcerpt;
       $returnArray['ogType'] = 'article';
+    }
+
+    /*==========  FEATRED IMAGE  ==========*/
+    if ( has_post_thumbnail() ) {
+      $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'jcg-1200x630');
+      $returnArray['featuredImg'] = $thumbnail[0];
+    }
+    elseif ( !empty($metaData['background_image'][0]) ) {
+      $returnArray['featuredImg'] = $metaData['background_image'][0];
+    }
+    elseif ( !empty($metaData['gallery_thumbnail'][0]) ) {
+      $returnArray['featuredImg'] = $metaData['gallery_thumbnail'][0];
     }
   }
   return $returnArray;
