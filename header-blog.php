@@ -6,7 +6,7 @@
     if ( is_category() ) {
       $catDescription = category_description();
 
-      if (empty( $catDescription) ) {
+      if ( empty( $catDescription) ) {
         $archiveTitle = single_cat_title('', false);
       }
     }
@@ -14,7 +14,7 @@
       $archiveTitle = single_term_title('', false);
     }
     elseif ( is_tag() ) {
-      $archiveTitle = single_tag_title('', false);
+      $archiveTitle = single_tag_title('Tag: ', false);
     }
     elseif ( is_author() ) {
       global $post;
@@ -31,6 +31,9 @@
     }
     elseif ( is_search() ) {
       $archiveTitle = 'Search results for: ' . esc_attr( get_search_query() );
+    }
+    elseif ( is_post_type_archive() ) {
+      $archiveTitle = '';
     }
     else {
       $archiveTitle = 'Blog';
@@ -68,13 +71,19 @@
   if ( !empty($catDescription) ) {
     echo '<div class="blog-header-description">' . $catDescription . '</div>';
   }
-  echo '<ul id="categories-menu">';
-    echo '<li class="cat-item cat-item-all current-cat"><a href="' . site_url() . '">All</a></li>' . $categoryList;
-  echo '</ul>';
-  ?>
 
-  <div class="search-box">
-    <?php get_search_form(); ?>
-  </div>
+  if ( is_home() || is_category() ) : ?>
+
+    <ul id="categories-menu">
+      <li class="cat-item cat-item-all current-cat"><a href="/blog">All</a></li>
+      <?php echo $categoryList; ?>
+    </ul>
+
+    <div class="search-box">
+      <?php get_search_form(); ?>
+    </div>
+
+  <?php endif; ?>
+
 </header>
 <?php jcg_page_navi(); ?>
