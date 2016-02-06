@@ -1,12 +1,12 @@
 <?php
-  $postMetaData     = get_post_custom($post->ID);
-  $link             = $postMetaData['url'][0] ? $postMetaData['url'][0] : '';
-  $releaseDate      = $postMetaData['release_date'][0] ? $postMetaData['release_date'][0] : '';
-  $synopsis         = $postMetaData['synopsis'][0] ? $postMetaData['synopsis'][0] : '';
-  $credits          = $postMetaData['credits'][0] ? $postMetaData['credits'][0] : '';
-  $styleClass       = !empty( $postMetaData['excerpt_style'][0] ) ? 'entry-style-' . $postMetaData['excerpt_style'][0] : '';
-  $styles           = '';
-  $articleStyles    = '';
+  $postMetaData  = get_post_custom($post->ID);
+  $link          = $postMetaData['url'][0] ? $postMetaData['url'][0] : '';
+  $releaseDate   = $postMetaData['release_date'][0] ? $postMetaData['release_date'][0] : '';
+  $synopsis      = $postMetaData['synopsis'][0] ? $postMetaData['synopsis'][0] : '';
+  $credits       = $postMetaData['credits'][0] ? $postMetaData['credits'][0] : '';
+  $styleClass    = !empty( $postMetaData['header_style'][0] ) ? 'entry-style-' . $postMetaData['header_style'][0] : '';
+  $styles        = '';
+  $articleStyles = '';
 
   if ( $postMetaData['background_image'][0] && $postMetaData['background_overlay'][0] ) {
     $styles = 'background-image:url(' . $postMetaData['background_image'][0] . ');';
@@ -48,7 +48,7 @@
     ?>
     <h3 class="no-margin" itemprop="dateCreated"><?php echo date_format($date, 'Y'); ?></h3>
     <div class="project-synopsis" itemprop="description"><?php echo $synopsis; ?></div>
-    <?php if ($postMetaData['embed_video'][0] == 0) : ?>
+    <?php if ( !empty($link) && $postMetaData['embed_video'][0] == 0) : ?>
       <a class="launch-btn" href="<?php echo $link; ?>" target="_blank">Launch</a>
     <?php endif; ?>
   </section>
@@ -122,5 +122,12 @@
     </table>
   </section>
   <?php endif; wp_reset_postdata(); ?>
+
+  <?php if ( !empty($post->post_content) ) : ?>
+    <section id="documentation" class="entry-content cf">
+      <h2>Documentation</h2>
+      <?php the_content(); ?>
+    </section>
+  <?php endif; ?>
 
 </article>

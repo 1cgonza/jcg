@@ -1,8 +1,16 @@
 <?php
   $postMeta = get_post_custom();
-  $thumb = !empty( $postMeta['gallery_thumbnail'][0] ) ? $postMeta['gallery_thumbnail'][0] : '';
+  $thumb = !empty( $postMeta['excerpt_thumbnail'][0] ) ? $postMeta['excerpt_thumbnail'][0] : '';
   $styleClass = !empty( $postMeta['excerpt_style'][0] ) ? 'entry-style-' . $postMeta['excerpt_style'][0] : '';
-  $inlineCSS = !empty( $postMeta['background'][0] ) ? 'style="background-color:' . $postMeta['background'][0] . '" ' : '';
+
+  $inlineCSS = '';
+  if ( !empty($postMeta['excerpt_background_css'][0]) ) {
+    $inlineCSS =  'style="' . $postMeta['excerpt_background_css'][0] . '"';
+  }
+  elseif ( !empty($postMeta['excerpt_background_color'][0]) ) {
+    $inlineCSS = 'style="background-color:' . $postMeta['excerpt_background_color'][0] . ';"';
+  }
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf ' . $styleClass); ?> role="article" <?php echo $inlineCSS; ?> itemscope itemtype="http://schema.org/BlogPosting">
