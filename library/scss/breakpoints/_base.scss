@@ -693,8 +693,14 @@ input[type="search"] {
   .entry-content,
   .mce-content-body {
     font-size: 1.1em;
-    padding: 0;
     word-wrap: break-word;
+
+    h2 {
+      text-align: center;
+      border-bottom: 1px dotted;
+      margin: 0 auto 1em;
+      padding-bottom: .3em;
+    }
 
     p {
       line-height: 1.6;

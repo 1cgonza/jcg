@@ -25,6 +25,11 @@ $wrap-half: 15%;
 #content {
   .entry-content,
   .mce-content-body {
+
+    h2 {
+      width: 50%;
+    }
+
     iframe {
       height: 500px;
     }
