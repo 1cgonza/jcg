@@ -8,7 +8,7 @@ get_header();
 
   $profilePic = get_the_post_thumbnail($post->ID, 'large');
   $authorName = get_bloginfo('name');
-  $bio         = !empty($aboutData['bio'])  ? apply_filters( 'the_content', $aboutData['bio'] ) : '';
+  $bio        = !empty($aboutData['bio'])  ? apply_filters( 'the_content', $aboutData['bio'] ) : '';
 
   $cvSections = array(
     'education',
@@ -40,8 +40,8 @@ get_header();
   $about = '<div id="about-content">';
     $about .= '<div id="bio">' . $bio . '</div>';
     foreach ($cvSections as $section) {
-      $cvSection = new JCGCV($section);
-      $about .= $cvSection->content;
+      $cvSection = new CV_Builder($section);
+      $about .= $cvSection->render();
     }
   $about .= '</div>'; // end #about-content
 
