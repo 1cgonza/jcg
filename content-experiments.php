@@ -1,25 +1,27 @@
 <?php
-  $postMetaData  = get_post_custom($post->ID);
-  $link          = $postMetaData['url'][0] ? $postMetaData['url'][0] : '';
-  $releaseDate   = $postMetaData['release_date'][0] ? $postMetaData['release_date'][0] : '';
-  $synopsis      = $postMetaData['synopsis'][0] ? $postMetaData['synopsis'][0] : '';
-  $credits       = $postMetaData['credits'][0] ? $postMetaData['credits'][0] : '';
-  $styleClass    = !empty( $postMetaData['header_style'][0] ) ? 'entry-style-' . $postMetaData['header_style'][0] : '';
-  $styles        = '';
+  $dateFormat   = 'Y';
+  $link         = get_post_meta( $post->ID, '_jcg_url',           true );
+  $releaseDate  = get_post_meta( $post->ID, '_jcg_release_date',  true );
+  $synopsis     = get_post_meta( $post->ID, '_jcg_synopsis',      true );
+  $credits      = get_post_meta( $post->ID, '_jcg_credits',       true );
+  $headerStyle  = get_post_meta( $post->ID, '_jcg_header_style',  true );
+  $bgImage      = get_post_meta( $post->ID, '_jcg_header_background_image',   true );
+  $bgOverlay    = get_post_meta( $post->ID, '_jcg_header_background_overlay', true );
+  $embedCheck   = get_post_meta( $post->ID, '_jcg_embed_video',  true );
+
+  $styleClass    = !empty($headerStyle) ? 'entry-style-' . $headerStyle : '';
   $articleStyles = '';
 
-  if ( $postMetaData['background_image'][0] && $postMetaData['background_overlay'][0] ) {
-    $styles = 'background-image:url(' . $postMetaData['background_image'][0] . ');';
-    $styles .= 'background-color:' . $postMetaData['background_overlay'][0] . ';';
+  if ($bgImage && $bgOverlay) {
+    $styles = 'background-image:url(' . $bgImage . ');';
+    $styles .= 'background-color:' . $bgOverlay . ';';
     $styles .= 'background-size:cover;';
     $styles .= 'background-blend-mode: multiply;';
-  }
 
-  if ( !empty($styles) && $postMetaData['embed_video'][0] == 0 ) {
-    $articleStyles = 'style="' . $styles . '"';
+    if ($embedCheck == 0) {
+      $articleStyles = 'style="' . $styles . '"';
+    }
   }
-
-  $dateformatstring = 'Y';
 
   /*==========  OFFICIAL SELECTIONS  ==========*/
   $selection = jcg_query_cv_posts($post->ID, array('exhibitions', 'film-exhibition') );
@@ -33,9 +35,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
   <header class="project-header">
-  <?php if ($postMetaData['embed_video'][0] == 1) : ?>
+  <?php if ($embedCheck == 1) : ?>
     <div id='video-container'>
-      <?php echo apply_filters( 'the_content', $link ); ?>
+      <?php if ( !empty($link) ) {
+        echo apply_filters( 'the_content', $link );
+      } ?>
+
       <img class="ratio" src="<?php echo get_template_directory_uri(); ?>/library/images/ratio.gif" />
     </div>
   <?php endif; ?>
@@ -43,12 +48,18 @@
 
   <section class="project-description cf <?php echo $styleClass; ?>" <?php echo $articleStyles; ?>>
     <h1 class="single-title project-title" itemprop="name"><?php the_title(); ?></h1>
-    <?php
-    $date = new DateTime($releaseDate);
+
+    <?php if ( !empty($releaseDate) ) :
+      $date = new DateTime($releaseDate);
     ?>
     <h3 class="no-margin" itemprop="dateCreated"><?php echo date_format($date, 'Y'); ?></h3>
+    <?php endif; ?>
+
+    <?php if ( !empty($synopsis) ) : ?>
     <div class="project-synopsis" itemprop="description"><?php echo $synopsis; ?></div>
-    <?php if ( !empty($link) && $postMetaData['embed_video'][0] == 0) : ?>
+    <?php endif; ?>
+
+    <?php if ( !empty($link) && $embedCheck == 0) : ?>
       <a class="launch-btn" href="<?php echo $link; ?>" target="_blank">Launch</a>
     <?php endif; ?>
   </section>
@@ -61,11 +72,11 @@
         $awards->the_post();
         $awardMetaData = get_post_custom($post->ID);
         $givenBy       = get_the_title();
-        $unixtimestamp = strtotime( $awardMetaData['date_start'][0] );
-        $websiteURL    = $awardMetaData['website_url'][0];
-        $awardType     = $awardMetaData['award_type'][0];
-        $awardTitle    = $awardMetaData['award_title'][0];
-        $awardCountry  = $awardMetaData['country'][0];
+        $unixtimestamp = strtotime( $awardMetaData['_cv_date_start'][0] );
+        $websiteURL    = $awardMetaData['_cv_website_url'][0];
+        $awardType     = $awardMetaData['_cv_award_type'][0];
+        $awardTitle    = $awardMetaData['_cv_award_title'][0];
+        $awardCountry  = $awardMetaData['_cv_country'][0];
     ?>
       <div class="award-item <?php echo $awardType; ?>">
         <div class="award-item-text">
@@ -79,19 +90,21 @@
             } ?>
           </p>
           <p class="award-festival-country"><?php echo $awardCountry; ?></p>
-          <h2 class="award-festival-year"><?php echo date_i18n($dateformatstring, $unixtimestamp); ?></h2>
+          <h2 class="award-festival-year"><?php echo date_i18n($dateFormat, $unixtimestamp); ?></h2>
         </div>
       </div>
     <?php endwhile; ?>
   </section>
   <?php endif; wp_reset_postdata(); ?>
 
+  <?php if ( !empty($credits) ) : ?>
   <section id="credits" class="m-all t-all d-1of2 ld-1of2 <?php echo !$selectionCheck ? 'no-exhibitions' : ''; ?>">
     <h2 class="column-title">Credits</h2>
     <div class="wrap">
       <?php echo apply_filters( 'the_content', $credits ); ?>
     </div>
   </section>
+  <?php endif; ?>
 
   <?php if ($selectionCheck) : ?>
 
@@ -102,13 +115,13 @@
         while ($selection->have_posts() ) :
           $selection->the_post();
           $selectionMetaData = get_post_custom($post->ID);
-          $unixtimestamp     = strtotime( $selectionMetaData['date_start'][0] );
-          $websiteURL        = $selectionMetaData['website_url'][0];
+          $unixtimestamp     = strtotime( $selectionMetaData['_cv_date_start'][0] );
+          $websiteURL        = $selectionMetaData['_cv_website_url'][0];
           $venue             = get_the_title();
-          $selectionCountry  = $selectionMetaData['country'][0];
+          $selectionCountry  = $selectionMetaData['_cv_country'][0];
       ?>
         <tr>
-          <td class="year"><?php echo date_i18n($dateformatstring, $unixtimestamp); ?></td>
+          <td class="year"><?php echo date_i18n($dateFormat, $unixtimestamp); ?></td>
           <td class="festival-name">
             <?php if ( !empty($websiteURL) ) { ?>
               <a title="<?php echo $venue; ?>" href="<?php echo $websiteURL; ?>" target="_blank"><?php echo $venue; ?></a>

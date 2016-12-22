@@ -1,9 +1,9 @@
 <?php
   $postMetaData     = get_post_custom($post->ID);
-  $iframe           = $postMetaData['url'][0];
-  $releaseDate      = $postMetaData['release_date'][0];
-  $synopsis         = $postMetaData['synopsis'][0];
-  $credits          = $postMetaData['credits'][0];
+  $iframe           = $postMetaData['_jcg_url'][0];
+  $releaseDate      = $postMetaData['_jcg_release_date'][0];
+  $synopsis         = $postMetaData['_jcg_synopsis'][0];
+  $credits          = $postMetaData['_jcg_credits'][0];
   $dateformatstring = 'Y';
   $awards           = jcg_query_cv_posts($post->ID, 'awards');
   $selection        = jcg_query_cv_posts($post->ID, array('exhibitions', 'film-exhibition') );
@@ -35,11 +35,11 @@
         $awards->the_post();
         $awardMetaData    = get_post_custom($post->ID);
         $givenBy          = get_the_title();
-        $unixtimestamp    = strtotime( $awardMetaData['date_start'][0] );
-        $websiteURL       = $awardMetaData['website_url'][0];
-        $awardType        = $awardMetaData['award_type'][0];
-        $awardTitle       = $awardMetaData['award_title'][0];
-        $awardCountry     = $awardMetaData['country'][0];
+        $unixtimestamp    = strtotime( $awardMetaData['_cv_date_start'][0] );
+        $websiteURL       = $awardMetaData['_cv_website_url'][0];
+        $awardType        = $awardMetaData['_cv_award_type'][0];
+        $awardTitle       = $awardMetaData['_cv_award_title'][0];
+        $awardCountry     = $awardMetaData['_cv_country'][0];
     ?>
     <div class="award-item <?php echo $awardType; ?>">
       <div class="award-item-text">
@@ -78,10 +78,10 @@
         while ($selection->have_posts() ) :
           $selection->the_post();
           $selectionMetaData = get_post_custom($post->ID);
-          $unixtimestamp     = strtotime( $selectionMetaData['date_start'][0] );
-          $websiteURL        = $selectionMetaData['website_url'][0];
+          $unixtimestamp     = strtotime( $selectionMetaData['_cv_date_start'][0] );
+          $websiteURL        = $selectionMetaData['_cv_website_url'][0];
           $venue             = get_the_title();
-          $selectionCountry  = $selectionMetaData['country'][0];
+          $selectionCountry  = $selectionMetaData['_cv_country'][0];
       ?>
       <tr>
         <td class="year"><?php echo date_i18n($dateformatstring, $unixtimestamp); ?></td>

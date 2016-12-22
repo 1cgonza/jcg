@@ -13,7 +13,7 @@
 
   <section class="entry-excerpt-title m-all t-all d-2of5 ld-2of5">
     <?php
-    $date = new DateTime( get_post_meta($post->ID, 'release_date', true) );
+    $date = new DateTime( get_post_meta($post->ID, '_jcg_release_date', true) );
     $year = date_format($date, 'Y');
     the_title( '<h2 class="excerpt-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', ' (' . $year . ')</a></h2>' );
     ?>
@@ -21,7 +21,7 @@
 
   <section class="entry-excerpt m-all t-all d-3of5 ld-3of5">
     <?php
-      $summary = get_post_meta($post->ID, 'synopsis', true);
+      $summary = get_post_meta($post->ID, '_jcg_synopsis', true);
       if ( !empty($summary) ) {
         echo apply_filters('the_content', $summary);
       }

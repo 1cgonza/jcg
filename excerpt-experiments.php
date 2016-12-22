@@ -1,14 +1,18 @@
 <?php
-  $postMeta = get_post_custom();
-  $thumb = !empty( $postMeta['excerpt_thumbnail'][0] ) ? $postMeta['excerpt_thumbnail'][0] : '';
-  $styleClass = !empty( $postMeta['excerpt_style'][0] ) ? 'entry-style-' . $postMeta['excerpt_style'][0] : '';
+  $thumb      = get_post_meta( $post->ID, '_jcg_excerpt_thumbnail',         true );
+  $styleClass = get_post_meta( $post->ID, '_jcg_excerpt_style',             true );
+  $bgCSS      = get_post_meta( $post->ID, '_jcg_excerpt_background_css',    true );
+  $bgColor    = get_post_meta( $post->ID, '_jcg_excerpt_background_color',  true );
+  $synopsis   = get_post_meta( $post->ID, '_jcg_synopsis',                  true );
+  $embedCheck = get_post_meta( $post->ID, '_jcg_embed_video',               true );
+
+  $styleClass = !empty($styleClass) ? 'entry-style-' . $styleClass : '';
 
   $inlineCSS = '';
-  if ( !empty($postMeta['excerpt_background_css'][0]) ) {
-    $inlineCSS =  'style="' . $postMeta['excerpt_background_css'][0] . '"';
-  }
-  elseif ( !empty($postMeta['excerpt_background_color'][0]) ) {
-    $inlineCSS = 'style="background-color:' . $postMeta['excerpt_background_color'][0] . ';"';
+  if ( !empty($bgCSS) ) {
+    $inlineCSS =  'style="' . $bgCSS . '"';
+  } elseif ( !empty($bgColor) ) {
+    $inlineCSS = 'style="background-color:' . $bgColor . ';"';
   }
 
 ?>
@@ -30,16 +34,17 @@
 
   <section class="excerpt-info">
     <?php
-      $link = get_post_meta($post->ID, 'url', true);
-      $date = new DateTime( get_post_meta($post->ID, 'release_date', true) );
-      $year = date_format($date, 'Y');
-      $posttags = get_the_tags();
+      $link     = get_post_meta($post->ID, '_jcg_url', true);
+      $date     = new DateTime( get_post_meta($post->ID, '_jcg_release_date', true) );
+      $year     = date_format($date, 'Y');
+      $postTags = get_the_tags();
     ?>
       <div class="excerpt-summary">
         <?php the_title( '<h2 class="excerpt-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', ' (' . $year . ')</a></h2>' ); ?>
-        <?php if ( !empty( $postMeta['synopsis'][0] ) ) : ?>
+
+        <?php if ( !empty($synopsis) ) : ?>
           <div class="project-synosis">
-            <?php echo apply_filters( 'the_content', $postMeta['synopsis'][0] ); ?>
+            <?php echo apply_filters( 'the_content', $synopsis ); ?>
           </div>
         <?php endif; ?>
 
@@ -51,13 +56,13 @@
       </div>
     <?php
 
-      if ( !empty($link) && $postMeta['embed_video'][0] == 0 ) {
+      if ( !empty($link) && $embedCheck == 0 ) {
         echo '<a class="launch-btn" href="' . $link . '" target="_blank">Launch</a>';
       }
 
-      if ($posttags) {
+      if ($postTags) {
         echo '<div class="post-tags">';
-        foreach($posttags as $tag) {
+        foreach($postTags as $tag) {
           echo '<span class="entry-tag"><a href="' . get_tag_link( $tag->term_id ) . '" title="' . esc_attr( sprintf("View all posts in %s", $tag->name) ) . '">' . $tag->name . '</a></span>';
         }
         echo '</div>';

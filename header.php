@@ -9,11 +9,7 @@ $metaData = jcg_get_page_metadata();
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="<?php echo $metaData['description']; ?>">
     <link rel="author" href="https://plus.google.com/+JuanCamiloGonz%C3%A1lezJ/posts">
-    <?php /*==========  FAVICON  ==========*/ ?>
-    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-icon-touch.png">
-    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
+
     <?php /*==========  OPEN GRAPH  ==========*/ ?>
     <meta property="og:title" content="<?php the_title(); ?>" />
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
@@ -21,7 +17,7 @@ $metaData = jcg_get_page_metadata();
     <meta property="og:url" content="<?php echo $metaData['url']; ?>" />
     <meta property="og:type" content="<?php echo $metaData['ogType']; ?>" />
     <?php if ( is_singular('films') ) { ?>
-    <meta property="video:release_date" content="<?php the_field('release_date');?>">
+    <meta property="video:release_date" content="<?php echo get_post_meta($post->ID, 'release_date', true);?>">
     <meta property="video:director" content="<?php echo get_page_link(20); // In this site the post with ID 20 is the about page. ?>">
     <?php } ?>
     <meta property="og:image" content="<?php echo $metaData['featuredImg']; ?>">
@@ -33,7 +29,7 @@ $metaData = jcg_get_page_metadata();
     <meta name="twitter:description" content="<?php echo $metaData['description']; ?>">
     <meta name="twitter:domain" content="<?php global $post; echo $metaData['url']; ?>">
     <?php if ( is_singular('films') ) { ?>
-    <meta name="twitter:player" content="<?php echo get_field('url', false, false); ?>">
+    <meta name="twitter:player" content="<?php echo get_post_meta($post->ID, 'url', true); ?>">
     <meta name="twitter:player:height" content="500">
     <meta name="twitter:player:width" content="889">
     <?php } ?>
@@ -44,7 +40,11 @@ $metaData = jcg_get_page_metadata();
 
   <body <?php body_class(); ?>>
     <aside id="main-sidebar" class="m-all t-1of5 d-1of7 ld-1of7">
-      <h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow">JCG</a></h1>
+
+      <?php $logo = get_theme_mod('site_logo', false);
+      if ( !empty($logo) ) : ?>
+      <h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php echo get_theme_mod('site_logo'); ?></a></h1>
+      <?php endif; ?>
 
       <nav role="navigation">
         <?php wp_nav_menu(array(
