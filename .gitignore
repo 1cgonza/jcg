@@ -1,8 +1,8 @@
 # OS hidden files
 .DS_Store
 
-# Sublime SFTP settings file
-sftp-config.json
+# vscode config
+.vscode/
 
 # JS external libraries
 library/js/libs/*
