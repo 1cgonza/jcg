@@ -1,12 +1,13 @@
 <?php
-  $postMetaData     = get_post_custom($post->ID);
+  $postID           = $post->ID;
+  $postMetaData     = get_post_custom($postID);
   $iframe           = $postMetaData['_jcg_url'][0];
   $releaseDate      = $postMetaData['_jcg_release_date'][0];
   $synopsis         = $postMetaData['_jcg_synopsis'][0];
   $credits          = $postMetaData['_jcg_credits'][0];
   $dateformatstring = 'Y';
-  $awards           = jcg_query_cv_posts($post->ID, 'awards');
-  $selection        = jcg_query_cv_posts($post->ID, array('exhibitions', 'film-exhibition') );
+  $awards           = jcg_query_cv_posts($postID, 'awards');
+  $selection        = jcg_query_cv_posts($postID, array('exhibitions', 'film-exhibition') );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
