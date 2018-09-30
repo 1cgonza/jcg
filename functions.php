@@ -12,8 +12,6 @@
   function jcg_init() {
     add_action('init', 'disable_emojis');
     add_filter('the_generator', 'jcg_rss_version');
-    // add_filter('wp_head', 'jcg_remove_wp_widget_recent_comments_style', 1);
-    // add_action('wp_head', 'jcg_remove_recent_comments_style', 1);
     add_filter('gallery_style', 'jcg_gallery_style');
     add_action('wp_enqueue_scripts', 'jcg_scripts_and_styles', 999);
 
