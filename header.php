@@ -4,6 +4,15 @@ $metaData = jcg_get_page_metadata();
 <!doctype html>
   <html <?php language_attributes(); ?>
   <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-18482571-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-18482571-1');
+  </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -66,8 +75,6 @@ $metaData = jcg_get_page_metadata();
         <h3 class="contact-title">Contact</h3>
         <?php echo jcg_contact_info(); ?>
       </section>
-
-      <?php echo do_shortcode( '[jetpack_subscription_form title="" subscribe_text=""]' ); ?>
     </aside>
 
     <main id="content" class="m-all t-4of5 d-6of7 ld-6of7 last-col">
