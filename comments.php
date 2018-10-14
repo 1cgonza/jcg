@@ -1,14 +1,11 @@
 <?php
-
 // don't load it if you can't comment
 if ( post_password_required() ) {
   return;
 }
-
 ?>
 
   <?php if ( have_comments() ) : ?>
-
     <section class="commentlist">
       <?php
         wp_list_comments( array(
