@@ -6,7 +6,7 @@ function jcg_comments($comment, $args, $depth) {
   $commDate        = new DateTime($comment->comment_date);
 
   $gravatarData    = md5( strtolower( trim( get_comment_author_email() ) ) );
-  $gravatarDefault = get_template_directory_uri() . '/library/images/nothing.gif';
+  $gravatarDefault = get_template_directory_uri() . '/src/images/apple-icon-touch.png';
   $gravatarSize    = 80;
   $gravatarURL     = 'http://www.gravatar.com/avatar/' . $gravatarData . '?d=' . urlencode($gravatarDefault) . '&s=' . $gravatarSize;
 

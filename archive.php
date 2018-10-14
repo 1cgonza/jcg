@@ -1,7 +1,6 @@
 <?php get_header();
   $postType = get_post_type();
   $archiveClass = is_post_type_archive() ? 'archive-page-' . $postType : '';
-
   get_template_part('parts/header', 'blog');
 ?>
 

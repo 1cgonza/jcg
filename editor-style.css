@@ -1,4 +1,4 @@
-@import url( 'library/css/style.css' );
+@import url( 'dist/main.css' );
 
 .jcg-gallery a {
   display: inline-block;
