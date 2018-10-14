@@ -12,7 +12,7 @@
         }
       endwhile;
     else :
-      get_template_part('content', 'none');
+      get_template_part('parts/content', 'none');
     endif;
 
     if ( !empty($postJS) ) {

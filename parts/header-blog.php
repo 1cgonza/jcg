@@ -86,4 +86,3 @@
   <?php endif; ?>
 
 </header>
-<?php jcg_page_navi(); ?>
