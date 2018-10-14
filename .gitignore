@@ -8,3 +8,4 @@
 library/js/libs/*
 
 error_log
+/node_modules/
