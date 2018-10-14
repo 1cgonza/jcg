@@ -4,7 +4,6 @@
 */
 get_header();
   $aboutData = (array)get_option('jcg_about_options');
-  $profilePic = get_the_post_thumbnail($post->ID, 'large');
   $authorName = get_bloginfo('name');
   $bio        = !empty($aboutData['bio'])  ? apply_filters( 'the_content', $aboutData['bio'] ) : '';
 
@@ -22,7 +21,6 @@ get_header();
   =            HEADER - PROFILE            =
   ========================================*/
   $profile = '<div id=profile class="cf">';
-    $profile .= '<div id="portrait">' . $profilePic . '</div>';
 
     $profile .= '<div id="about-info">';
       $profile .= '<h1>' . $authorName . '</h1>';
@@ -45,4 +43,4 @@ get_header();
 
   echo $about;
 
-get_footer(); ?>
+get_footer(); 
