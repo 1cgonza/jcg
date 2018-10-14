@@ -1,4 +1,8 @@
 <?php
+  /**
+   * TODO
+   * - add custom fields back to CMB2
+   */
   $postID           = $post->ID;
   $postMetaData     = get_post_custom($postID);
   $iframe           = $postMetaData['_jcg_url'][0];
@@ -15,7 +19,7 @@
   <header class="project-header">
     <div id='video-container'>
       <?php echo apply_filters( 'the_content', $iframe ); ?>
-      <img class="ratio" src="<?php echo get_template_directory_uri(); ?>/library/images/ratio.gif" />
+      <img class="ratio" src="<?php echo get_template_directory_uri(); ?>/src/images/ratio.gif" />
     </div>
   </header>
 
@@ -70,7 +74,7 @@
   </section>
 
   <?php if ( $selection->have_posts() ) : ?>
-
+  
   <section id="screenings" class="m-all t-all d-1of2 ld-1of2">
     <h2 class="column-title">Official Selections</h2>
 

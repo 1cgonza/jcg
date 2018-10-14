@@ -1,11 +1,9 @@
 <?php
 function jcg_scripts_and_styles() {
   if ( !is_admin() ) {
-    // modernizr (without media query polyfill)
-    wp_register_script('jcg-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false);
-
+    wp_deregister_script("jquery");
     // register main stylesheet
-    wp_register_style('jcg-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
+    wp_register_style('jcg-stylesheet', get_stylesheet_directory_uri() . '/dist/main.css', null, null, 'all');
 
     // Google Fonts
     wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,600');
@@ -16,14 +14,12 @@ function jcg_scripts_and_styles() {
     }
 
     //adding scripts file in the footer
-    wp_register_script('jcg-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true);
+    wp_register_script('jcg-js', get_stylesheet_directory_uri() . '/dist/main.js', null, null, true);
 
     // enqueue styles and scripts
-    wp_enqueue_script('jcg-modernizr');
     wp_enqueue_style('google-fonts');
     wp_enqueue_style('jcg-stylesheet');
 
-    wp_enqueue_script('jquery');
     wp_enqueue_script('jcg-js');
   }
 }

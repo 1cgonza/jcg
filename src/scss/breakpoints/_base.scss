@@ -4,19 +4,21 @@
   Author: Juan Camilo Gonzalez
   BASE STYLES
 ******************************************************************/
+
 /**
 
   TODO:
   - Change cat colors from hard coded css to options page in wp dashboard.
 
 **/
+
 $wrap: 80%;
 $wrap-w: 90%;
 $wrap-half: 10%;
-
 /*======================================
 =            GENERAL STYLES            =
 ======================================*/
+
 html,
 body {
   width: 100%;
@@ -43,21 +45,28 @@ body {
   height: 100%;
   min-height: 100%;
 }
+
+.absoulteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /*-----  End of GENERAL STYLES  ------*/
 
 /*=============================
 =            LINKS            =
 =============================*/
+
 a,
 a:visited {
   color: $link-color;
   text-decoration: none;
-
   &:hover,
   &:focus {
     color: $link-hover;
   }
-
   &:link {
     -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
   }
@@ -66,14 +75,12 @@ a:visited {
 .entry-tag {
   display: inline-block;
   margin: 0 .3em 0.3em 0;
-
   a,
   a:visited {
     @extend %btn;
     padding: .5em;
     color: black(.9);
     background-color: black(.1);
-
     &:hover,
     &:focus {
       background-color: black(.8);
@@ -91,19 +98,21 @@ a.launch-btn:visited {
   max-width: 300px;
   display: block;
 }
+
 /*-----  End of LINKS  ------*/
 
 /*====================================
 =            <H#> TITLES             =
 ====================================*/
+
 h1,
 h2,
 h3,
 h4,
-h5, {
+h5,
+  {
   font-weight: 300;
   text-rendering: optimizelegibility;
-
   a {
     text-decoration: none;
   }
@@ -135,111 +144,99 @@ h5 {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 /*-----  End of <H#> TITLES   ------*/
 
 /*==========================================
 =            SIDEBAR NAVIGATION            =
 ==========================================*/
+
 #main-sidebar {
   #logo {
     margin: 0.5em;
     text-align: center;
-
     a,
     a:visited {
       color: $black;
       @include transition(color 0.2s ease-in-out);
-
       &:hover,
       &:focus {
         color: lighten($black, 40%);
       }
-
       &:link {
         -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
       }
     }
   }
-
   .nav {
     text-align: center;
     margin: 0 0 1em;
-
     li {
       display: inline-block;
-
-      a, a:visited {
+      a,
+      a:visited {
         @include transition(all .25s ease-in-out);
         display: block;
         text-decoration: none;
         padding: 1em;
         color: $white;
         background-color: lighten($link-color, 10%);
-
         &:hover,
         &:focus {
           color: $black;
           background-color: lighten($link-color, 40%);
         }
-
         &:link {
           -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
         }
       }
-
       ul.sub-menu,
       ul.children {
         display: none;
       }
-
     }
   }
-
   .jetpack_subscription_widget {
     font-size: 0.85em;
     padding: 1em;
     max-width: 300px;
     margin: 0 auto;
-
     .success {
       background-color: $alert-yellow;
       padding: 0.5em;
     }
-
     .widgettitle {
       font-size: 1em;
       margin-top: 0;
     }
-
     input {
       padding: 0.5em;
       margin: 0;
       width: 100%;
     }
-
     p {
       margin: 0;
     }
   }
 }
+
 /*-----  End of SIDEBAR NAVIGATION  ------*/
 
 /*====================================
 =            POSTS HEADER            =
 ====================================*/
+
 #description-box {
   margin: 0;
   background-color: $black;
   color: $white;
   text-align: center;
-
   .archive-title,
   .description-title {
     margin: 0;
     padding: 1em;
     font-size: 2em;
   }
-
   .blog-header-description {
     width: 50%;
     margin: 0 auto;
@@ -249,7 +246,6 @@ h5 {
     background-color: lighten($black, 70%);
     text-align: center;
   }
-
   .search-box {
     margin-top: 1.5em;
     padding-bottom: 2em;
@@ -265,6 +261,7 @@ h5 {
 }
 
 /*==========  SEARCH  ==========*/
+
 input[type="search"] {
   margin: 0 auto;
   max-width: 250px;
@@ -275,11 +272,13 @@ input[type="search"] {
 .search-submit {
   @extend .blue-btn;
 }
+
 /*-----  End of POSTS HEADER  ------*/
 
 /*==================================
 =            CATEGORIES            =
 ==================================*/
+
 #categories-menu {
   margin: 0;
   padding: 0;
@@ -288,7 +287,6 @@ input[type="search"] {
 .cat-item {
   display: inline-block;
   margin-bottom: 0.3em;
-
   a,
   a:visited {
     @include transition(all .2s ease-out);
@@ -296,46 +294,39 @@ input[type="search"] {
     display: block;
     background-color: $black;
     color: $white;
-
     &:hover,
     &:focus {
       background-color: white(.8);
       color: $black;
     }
-  }
-
-  // Styles for each category
+  } // Styles for each category
   &.cat-item-1 {
     a,
     a:visited {
       background-color: process(1);
       color: $black;
-
       &:hover,
       &:focus {
         background-color: process(.8);
       }
     }
   }
-
   &.cat-item-20 {
     a,
     a:visited {
       background-color: reference(1);
       color: $white;
-
       &:hover,
       &:focus {
         background-color: reference(.8);
       }
     }
   }
-
   &.cat-item-21 {
-    a, a:visited {
+    a,
+    a:visited {
       background-color: inspiration(1);
       color: $white;
-
       &:hover,
       &:focus {
         background-color: inspiration(.8);
@@ -346,14 +337,12 @@ input[type="search"] {
 
 .category-1,
 .category-process {
-
   #description-box {
     .blog-header-description {
       background-color: process(1);
       color: $black;
     }
   }
-
   .post-header {
     background-color: process(1);
   }
@@ -361,13 +350,11 @@ input[type="search"] {
 
 .category-20,
 .category-references {
-
   #description-box {
     .blog-header-description {
       background-color: reference(1);
     }
   }
-
   .post-header {
     background-color: reference(1);
   }
@@ -375,63 +362,55 @@ input[type="search"] {
 
 .category-21,
 .category-inspiration {
-
   #description-box {
     .blog-header-description {
       background-color: inspiration(1);
     }
   }
-
   .post-header {
     background-color: inspiration(1);
   }
 }
+
 /*-----  End of CATEGORIES  ------*/
 
 /*=====================================
 =            POSTS ARCHIVE            =
 =====================================*/
+
 #posts-list {
   margin: 0 auto;
   display: block;
   padding-top: 2em;
-
   .hentry {
     section {
       padding: 0 2em;
     }
-
     .header-meta {
       position: absolute;
       margin: 0;
       z-index: 1;
-
       .post-date {
         p {
           margin: 0;
           display: inline-block;
         }
-
         font-size: .8em;
         text-align: left;
         background-color: black(.7);
         color: #fff;
         padding: 10px 10px;
-
         .post-weekday {
           letter-spacing: 1px;
         }
-
         .post-year {
           letter-spacing: 2px;
         }
       }
-
       .post-categories {
         font-size: 0.8em;
       }
     }
-
     .post-image {
       line-height: 0;
       overflow: hidden;
@@ -440,18 +419,15 @@ input[type="search"] {
       padding-bottom: 25%;
       position: relative;
       text-align: center;
-
       a,
       a:visited {
         @include transition(all .1s ease-out);
         opacity: 1;
-
         &:hover,
         &:focus {
           opacity: .8;
         }
       }
-
       img {
         height: auto;
         margin: 0 !important;
@@ -462,28 +438,23 @@ input[type="search"] {
         left: 0;
       }
     }
-
     .entry-title {
       text-align: center;
       font-size: 1.5em;
       padding: 0 1.5em;
     }
-
     .entry-excerpt {
       margin: 0;
     }
-
     .entry-footer {
       font-size: .8em;
       text-align: right;
     }
-
     .entry-excerpt-title {
       text-align: center;
       display: block;
       padding: 0;
       margin: 1em 0 0;
-
       .excerpt-title {
         font-size: 1.5em;
         margin: 0;
@@ -498,81 +469,58 @@ input[type="search"] {
   width: 100%;
   margin: 0;
   padding: 0;
-
-
   .hentry {
     padding: 50px;
     margin: 0;
     font-size: 0;
-
     /*==========  DARK SECTION  ==========*/
-  //     background-image: url('https://farm1.staticflickr.com/412/18928859801_2011faf859_h.jpg');
-  // background-size: cover;
-  // background-blend-mode: multiply;
-  // background-color: #353434;
-  // color: white;
     &.entry-style-dark {
       background-color: black;
       color: white;
-
       .excerpt-summary {
-        a, a:visited {
+        a,
+        a:visited {
           @extend %lightlink;
         }
       }
     }
-
     /*==========  LIGHT SECTION  ==========*/
-    &.entry-style-light {
-      // Uses default styles, no need ti add new rules
-    }
-
     header {
       width: 50%;
       float: left;
       padding-right: 20px;
-
       .post-image {
         padding: 0;
         height: auto;
-
         img {
           position: relative;
         }
-
       }
     }
-
     .excerpt-info {
       font-size: 16px;
       width: 50%;
       float: right;
       margin: 0;
       padding: 0;
-
       .excerpt-title {
         padding: 0;
         margin: 0;
-
         a,
         a:visited {
           // @extend %whitelink;
         }
       }
     }
-
     .read-more {
       padding: 1em 0;
       display: block;
     }
-
     .post-tags {
       padding-top: 2em;
     }
-
     .entry-tag {
       font-size: 0.8em;
-
       a,
       a:visited {
         @extend %whitebtn;
@@ -580,54 +528,49 @@ input[type="search"] {
       }
     }
   }
-
 }
 
 /*===================================
 =            SINGLE PAGE            =
 ===================================*/
+
 .page {
   .article-header {
     text-align: center;
     padding-bottom: 4em;
     background-color: darken($white, 2%);
   }
-
   .entry-title {
     margin: 0;
     padding: 1em 1em .2em;
   }
 }
 
-
 /*-----  End of SINGLE PAGE  ------*/
 
 /*====================================
 =            SINGLE POSTS            =
 ====================================*/
+
 .single {
   .article-header {
     text-align: center;
     padding-bottom: 2em;
     background-color: darken($white, 2%);
-
     .entry-title {
       margin: 0;
       padding: 1em 1em .2em;
     }
-
     .article-date {
       color: lighten($black, 50%);
     }
-
     .author {
       font-size: 1.1em;
     }
   }
-
   .entry-footer {
     margin: 0 auto;
-    text-align: center!important;
+    text-align: center !important;
   }
 }
 
@@ -641,26 +584,26 @@ input[type="search"] {
     height: 350px;
     margin-bottom: 2em;
   }
-
   img {
     margin: 1.5em 0;
     width: 100%;
     height: auto;
   }
-
   .jcg-inline-img {
     img {
       padding: 0;
       margin: 0;
-      width: initial!important;
+      width: initial !important;
     }
   }
 }
+
 /*-----  End of SINGLE POSTS  ------*/
 
 /*===============================
 =            CONTENT            =
 ===============================*/
+
 #content {
   /*================================
   =            FIX GRID            =
@@ -669,91 +612,75 @@ input[type="search"] {
   // First sets the container font-sise to 0 to eliminate the space.
   // Then restore the font size in the sections inside.
   article {
-
     &.films,
     &.experiments {
       font-size: 0;
-
-      header, section {
+      header,
+      section {
         font-size: 16px;
       }
     }
   }
   /*-----  End of FIX GRID  ------*/
-
   .wrap {
     margin: 0 auto;
     width: 90%;
   }
-
   section {
     padding: 2.5em 0;
   }
-
   .entry-content,
   .mce-content-body {
     font-size: 1.1em;
     word-wrap: break-word;
-
     h2 {
       text-align: center;
       border-bottom: 1px dotted;
       margin: 0 auto 1em;
       padding-bottom: .3em;
     }
-
     p {
       line-height: 1.6;
       margin: 0 auto 1em;
       width: $wrap;
-
       &.wp-caption-text {
         font-size: .8em;
         margin: 0 auto;
         padding: 1em 2em;
         width: 100%;
       }
-
     }
-
     img {
       max-width: 100%;
       margin: 0 0 1.5em;
       padding: 0;
       height: auto;
     }
-
     blockquote {
       color: lighten($black, 30%);
       font-style: italic;
       margin: 0 auto;
       padding: 2em 0;
       width: $wrap-w;
-
       p {
         font-size: 1.3em;
-        width: 100%!important;
+        width: 100% !important;
       }
-
     }
-
     .alignleft,
     img.alignleft {
       float: left;
     }
-
     .alignright,
     img.alignright {
       float: right;
     }
-
     .aligncenter,
     img.aligncenter {
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
-
     .size-auto,
     .size-full,
     .size-large,
@@ -762,7 +689,6 @@ input[type="search"] {
       height: auto;
       max-width: 100%;
     }
-
     pre {
       background: $black;
       border-radius: 3px;
@@ -771,51 +697,44 @@ input[type="search"] {
       margin: 0 0 1.5em;
       padding: 1.5em;
     }
-
     /*==========  IMAGE CAPTION  ==========*/
     .wp-caption {
       background: #eee;
       margin: 0 auto 1em;
-      width: $wrap!important;
-
+      width: $wrap !important;
       img {
         margin-bottom: 0;
-        padding: 0!important;
+        padding: 0 !important;
         width: 100%;
         max-width: 100%;
       }
     }
-
     /*==========  VIDEO  ==========*/
     video {
-      height: auto!important;
-      width: 100%!important;
+      height: auto !important;
+      width: 100% !important;
     }
-
   }
-
   .entry-style-dark {
     color: $white;
   }
-
 }
+
 /*-----  End of CONTENT  ------*/
 
 /*==========  TABLES  ==========*/
+
 table {
   margin: 0 auto;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 .3em;
-
   td {
     padding: 0 1em;
     vertical-align: top;
-
     &.festival-name {
       border-bottom: 1px dotted #ccc;
     }
-
     &.country {
       border: 1px dotted #ccc;
       text-align: center;
@@ -828,36 +747,30 @@ table {
 /*=============================
 =            FILMS            =
 =============================*/
+
 .type-films,
 .type-experiments {
-
   .project-description {
     padding: 0 1em;
     text-align: center;
-
     .project-title {
       margin: 0;
     }
-
     .project-synopsis {
       margin-top: 2em;
     }
-
     .launch-btn {
       margin: 2em auto;
     }
   }
-
   .column-title {
     margin: 0 0 1em;
     text-align: center;
   }
-
 }
 
 #video-container {
   position: relative;
-
   .ratio {
     width: 100%;
     height: auto;
@@ -866,7 +779,6 @@ table {
     padding: 0;
     margin: 0;
   }
-
   iframe {
     position: absolute;
     top: 0;
@@ -874,30 +786,27 @@ table {
     height: 100%;
     max-width: 1030px;
     z-index: 7999;
-    padding: 0!important;
+    padding: 0 !important;
   }
 }
+
 /*-----  End of FILMS  ------*/
 
 #awards {
   text-align: center;
-
   .award-item {
     display: inline-table;
     font-size: .85em;
     padding: 1em;
-
     p,
     h1,
     h2 {
       margin: 0;
     }
-
     .award-item-text {
       display: table-cell;
       vertical-align: bottom;
     }
-
     &::before,
     &::after {
       content: '';
@@ -905,14 +814,12 @@ table {
       height: 150px;
       width: 64px;
     }
-
     &::before {
-      background: url('../images/laurel.png') 0 0 no-repeat;
+      background: url('./images/laurel.png') 0 0 no-repeat;
       background-position: left bottom;
     }
-
     &::after {
-      background: url('../images/laurel.png') -64px 0  no-repeat;
+      background: url('./images/laurel.png') -64px 0 no-repeat;
       background-position: right bottom;
     }
   }
@@ -922,28 +829,23 @@ table {
   p {
     margin: 0.3em 0;
   }
-
   &.no-exhibitions {
     display: block;
     margin: 0 auto;
-
-    .column-title {
-      // text-align: left;
-    }
-
     .wrap {
       width: 100%;
       text-align: center;
     }
   }
 }
+
 /*===============================
 =            CONTACT            =
 ===============================*/
+
 .jcg-contact-info {
   width: 100%;
   text-align: center;
-
   .contact-item {
     margin-right: 1em;
     &::before {
@@ -955,103 +857,86 @@ table {
       margin-right: .4em;
     }
   }
-
   .primary-email {
     &::before {
-      background: url('../images/icon-email.svg');
+      background: url('./images/icon-email.svg');
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 100% 100%;
     }
   }
-
   .phone-number {
     &::before {
-      background: url('../images/icon-phone.svg');
+      background: url('./images/icon-phone.svg');
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 100% 100%;
     }
   }
-
   #social-links {
     text-align: center;
-
     li {
       display: inline-block;
       margin-right: 0.1em;
     }
   }
 }
+
 /*-----  End of CONTACT  ------*/
 
 /*=============================
 =            ABOUT            =
 =============================*/
+
 .page-template-page-about {
   h2 {
     border-bottom: 1px dotted;
     padding-left: 1em;
   }
-
   #profile {
     background-color: $black;
     color: $white;
 
-    #portrait {
-      display: none;
-    }
-
     #about-info {
       width: 100%;
       padding: 0 1em 1em;
-
       h1 {
         text-align: center;
         font-size: 2em;
       }
     }
   }
-
   #about-content {
     width: 90%;
     margin: 3em auto;
-
     #bio {
       font-size: 1.2em;
     }
   }
-
   table.jcg-cv-table {
     td {
       padding: 0;
     }
   }
-
   .jcg-cv-item {
-
     .jcg-cv-item-col1 {
       text-align: right;
     }
-
     .jcg-cv-item-col2 {
       padding-left: 1em;
       width: 86%;
     }
-
     p {
       margin: 0.5em 0;
     }
-
     .jcg-cv-item-type {
       padding-right: 0.3em;
       color: $dark-blue;
     }
-
     .jcg-cv-item-type-awards {
       &::before {
         content: '';
-        background: url('../images/icon-badge.svg');
+        background: url('./images/icon-badge.svg');
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 100% 100%;
@@ -1062,22 +947,20 @@ table {
         vertical-align: middle;
       }
     }
-
     .jcg-cv-item-type-awards-film-festival {
       &::before {
-        background: url('../images/icon-laurel.svg');
+        background: url('./images/icon-laurel.svg');
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 100% 100%;
       }
     }
-
     .jcg-cv-item-type-awards-full-scholarship,
     .jcg-cv-item-type-awards-fellowship,
     .jcg-cv-item-type-awards-scholarship,
     .jcg-cv-item-type-awards-academic {
       &::before {
-        background: url('../images/icon-academic.svg');
+        background: url('./images/icon-academic.svg');
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 100% 100%;
@@ -1085,14 +968,16 @@ table {
     }
   }
 }
+
 /*-----  End of ABOUT  ------*/
 
 /*====================================
 =            SOCIAL LINKS            =
 ====================================*/
+
 #social-links {
   .social-icon {
-    background-image: url('../images/social-logos.png');
+    background-image: url('./images/social-logos.png');
     background-repeat: no-repeat;
     border: 0;
     color: transparent;
@@ -1102,84 +987,70 @@ table {
     text-shadow: none;
     width: 50px;
   }
-
   .github {
     background-position: 0 100%;
-
     &:hover,
     &:focus {
       background-position: 0 0;
     }
   }
-
   .vimeo {
     background-position: 14.5% 100%;
-
     &:hover,
     &:focus {
       background-position: 14.5% 0;
     }
   }
-
   .facebook {
     background-position: 28.5% 100%;
-
     &:hover,
     &:focus {
       background-position: 28.5% 0;
     }
   }
-
   .flickr {
     background-position: 42.8% 100%;
-
     &:hover,
     &:focus {
       background-position: 42.8% 0;
     }
   }
-
   .linkedin {
     background-position: 57% 100%;
-
     &:hover,
     &:focus {
       background-position: 57% 0;
     }
   }
-
   .imdb {
     background-position: 71.5% 100%;
-
     &:hover,
     &:focus {
       background-position: 71.5% 0;
     }
   }
-
   .youtube {
     background-position: 85.8% 100%;
-
     &:hover,
     &:focus {
       background-position: 85.8% 0;
     }
   }
-
   .twitter {
     background-position: 100% 100%;
-
     &:hover,
     &:focus {
       background-position: 100% 0;
     }
   }
 }
+
 /*-----  End of SOCIAL LINKS  ------*/
 
 /*===============================
 =            CONTACT            =
 ===============================*/
+
 .contact-wrapper {
   color: $white;
   background-color: $black;
@@ -1196,19 +1067,17 @@ table {
 /*================================
 =            PAGE NAV            =
 ================================*/
+
 .pagination {
   text-align: center;
-
   ul {
     display: inline-block;
   }
-
   li {
     padding: 0;
     margin: 0;
     float: left;
   }
-
   a,
   span {
     margin: 0;
@@ -1221,18 +1090,15 @@ table {
     min-width: 1em;
     display: block;
     color: $link-color;
-
     &:hover,
     &:focus {
       background-color: $black;
       color: $white;
     }
   }
-
   .current {
     cursor: default;
     color: $text-color;
-
     &:hover,
     &:focus {
       background-color: $white;
@@ -1240,11 +1106,13 @@ table {
     }
   }
 }
+
 /*-----  End of PAGE NAV  ------*/
 
 /*================================
 =            COMMENTS            =
 ================================*/
+
 .comment-respond {
   margin: 4em auto;
   width: $wrap-w;
@@ -1252,7 +1120,7 @@ table {
 
 .commentlist {
   list-style-type: none;
-  margin: 0 auto!important;
+  margin: 0 auto !important;
   padding-top: 4em;
 }
 
@@ -1260,58 +1128,45 @@ table {
   position: relative;
   overflow: hidden;
   padding: 1.5em;
-
   .vcard {
     margin: 1em 1em 0 6em;
-
     cite.fn {
       font-style: normal;
       font-weight: 700;
     }
-
     time {
       display: block;
       font-size: .9em;
       font-style: italic;
-
       a {
         color: $meta-gray;
-
         &:hover {
           color: $black;
         }
       }
     }
-
     .avatar {
       position: absolute;
       left: 1.5em;
       top: 1.5em;
     }
-
   }
-
   &:last-child {
     margin-bottom: 0;
   }
-
   .children {
     margin: 0;
   }
-
   &[class*=depth-] {
     margin: 1.1em -1.3em 0;
   }
-
   &.depth-1 {
     margin-left: 0;
     margin-top: 0;
   }
-
   &.odd {
     background-color: darken($white, 5%);
   }
-
   &.even {
     background: darken($white, 2%);
   }
@@ -1338,6 +1193,7 @@ table {
 }
 
 /*==========  COMMENTS FORM  ==========*/
+
 #reply-title {
   margin: 0;
 }
@@ -1346,7 +1202,6 @@ table {
   color: $meta-gray;
   font-style: italic;
   margin: 0;
-
   a {
     color: $text-color;
   }
@@ -1378,17 +1233,19 @@ table {
 .nocomments {
   margin: 0 20px 1.1em;
 }
+
 /*-----  End of COMMENTS  ------*/
 
 /*=======================================
 =            EXTRA NORMALIZE            =
 =======================================*/
+
 .jcg-video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   padding-top: 25px;
   height: 0;
-
   iframe {
     position: absolute;
     top: 0;
@@ -1405,39 +1262,39 @@ table {
 
 .jcg-fullwidth,
 .jcg-fullwidth p {
-  width: 100%!important;
-
+  width: 100% !important;
   img {
     height: auto;
     width: 100%;
-    padding: 0!important;
+    padding: 0 !important;
   }
 }
 
 .jcg-gallery {
   img {
-    margin: 0!important;
-    padding: 0!important;
+    margin: 0 !important;
+    padding: 0 !important;
     width: initial;
   }
 }
+
 /*-----  End of EXTRA NORMALIZE  ------*/
 
 /*===========================
 =            404            =
 ===========================*/
+
 .error404 {
   background-color: yellow;
-
   #content {
     h1 {
       margin: 0;
       font-size: 15em;
     }
-
     section {
       margin: 0;
     }
   }
 }
+
 /*-----  End of 404  ------*/

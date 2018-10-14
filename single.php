@@ -4,7 +4,7 @@
 
     if ( have_posts() ) :
       while ( have_posts() ) : the_post();
-        get_template_part( 'content', get_post_type() );
+        get_template_part( 'parts/content', get_post_type() );
 
         $jsField = get_post_field('js', $post->ID, 'raw');
         if ( !empty($jsField) ) {

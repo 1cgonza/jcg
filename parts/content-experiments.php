@@ -41,7 +41,7 @@
         echo apply_filters( 'the_content', $link );
       } ?>
 
-      <img class="ratio" src="<?php echo get_template_directory_uri(); ?>/library/images/ratio.gif" />
+      <img class="ratio" src="<?php echo get_template_directory_uri(); ?>/src/images/ratio.gif" />
     </div>
   <?php endif; ?>
   </header>

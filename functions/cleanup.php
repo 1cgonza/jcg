@@ -44,23 +44,11 @@ function jcg_head_cleanup() {
   remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
   // WP version
   remove_action( 'wp_head', 'wp_generator' );
-  // remove WP version from css
-  add_filter( 'style_loader_src', 'jcg_remove_wp_ver_css_js', 9999 );
-  // remove Wp version from scripts
-  add_filter( 'script_loader_src', 'jcg_remove_wp_ver_css_js', 9999 );
 }
 
 // remove WP version from RSS
 function jcg_rss_version() {
   return '';
-}
-
-// remove WP version from scripts
-function jcg_remove_wp_ver_css_js( $src ) {
-  if ( strpos( $src, 'ver=' ) ){
-    $src = remove_query_arg( 'ver', $src );
-  }
-  return $src;
 }
 
 // remove injected CSS for recent comments widget
