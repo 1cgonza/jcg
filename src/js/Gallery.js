@@ -1,3 +1,7 @@
+/**
+ * TODO:
+ * - add preloader
+ */
 export default class Gallery {
   constructor(gall) {
     this._cachedImgs = {};
