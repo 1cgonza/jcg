@@ -13,12 +13,12 @@ a:visited {
 
   // show links on printed pages
   &:after {
-    content: ' (' attr(href) ')';
+    content: ' ('attr(href) ')';
   }
 
   // show title too
   abbr[title]:after {
-    content: ' (' attr(title) ')';
+    content: ' ('attr(title) ')';
   }
 }
 

@@ -5,7 +5,6 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 const path = require('path');
 
 module.exports = (env, options) => {
-  console.log(options.mode);
   return {
     devtool: options.mode === 'development' ? 'eval-source-map' : false,
     devServer: {

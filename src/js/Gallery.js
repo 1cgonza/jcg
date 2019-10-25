@@ -12,15 +12,16 @@ export default class Gallery {
     this.current = firstImg;
     firstImg.classList.add('current');
 
-    const thumbSize = window.innerHeight / this.thumbnails.children.length | 0;
+    const thumbSize =
+      (window.innerHeight / this.thumbnails.children.length) | 0;
     const borderW = 3;
     const gap = 5;
-    this.thumbnails.style.width = `${thumbSize - (borderW * 2) - gap}px`;
+    this.thumbnails.style.width = `${thumbSize - borderW * 2 - gap}px`;
 
     for (let i = 0; i < this.thumbnails.children.length; i++) {
       const thumb = this.thumbnails.children[i];
 
-      thumb.onclick = (e) => {
+      thumb.onclick = e => {
         e.preventDefault();
         this.current.classList.remove('current');
         thumb.classList.add('current');

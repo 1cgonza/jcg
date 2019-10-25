@@ -1,6 +1,7 @@
 // @include transition(all 0.2s ease-in-out);
 @mixin transition($transition...) {
-  $prefixes:      ('-webkit-', '');
+  $prefixes: ('-webkit-', '');
+
   @each $prefix in $prefixes {
     #{$prefix}transition: $transition;
   }

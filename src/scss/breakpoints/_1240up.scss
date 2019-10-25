@@ -9,6 +9,7 @@ $wrap-w: 80%;
 $wrap-half: 15%;
 
 #content {
+
   /*==========  POST CONTENT SECTION  ==========*/
   .entry-content,
   .mce-content-body {
@@ -34,7 +35,7 @@ $wrap-half: 15%;
     }
 
     .wp-caption {
-      width: $wrap!important;
+      width: $wrap !important;
     }
   }
 
@@ -89,6 +90,7 @@ $wrap-half: 15%;
     }
   }
 }
+
 /*-----  End of SINGLE POST  ------*/
 
 /*=============================
@@ -100,6 +102,7 @@ $wrap-half: 15%;
     margin-left: -515px;
   }
 }
+
 /*-----  End of FILMS  ------*/
 
 /*===================================
@@ -121,4 +124,5 @@ $wrap-half: 15%;
     }
   }
 }
+
 /*-----  End of EXPERIMENTS  ------*/
