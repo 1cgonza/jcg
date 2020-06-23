@@ -1,5 +1,4 @@
-    </main> <?php // end #content ?>
-
+    </main>
     <?php wp_footer(); ?>
-  </body>
+	</body>
 </html>

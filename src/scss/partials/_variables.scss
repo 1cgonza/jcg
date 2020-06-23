@@ -13,25 +13,13 @@ $meta-gray: #9fa6b4;
 $tan: #eceee5;
 $green: #7dd667;
 $blue: #2980b9;
-$dark-blue: #63829A;
+$dark-blue: #63829a;
 
 $link-color: #8c7c3d;
 $link-hover: lighten($link-color, 20%);
 
 $border-color: #ccc;
 $disabled-gray: #cfcfcf;
-$sans-serif: "Raleway",
-"Helvetica Neue",
-Helvetica,
-Arial,
-sans-serif;
-$sans-serif2: "Droid Sans",
-"Helvetica Neue",
-Helvetica,
-Arial,
-sans-serif;
-$serif: "Georgia",
-Cambria,
-Times New Roman,
-Times,
-serif;
+$sans-serif: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sans-serif2: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif: 'Georgia', Cambria, Times New Roman, Times, serif;

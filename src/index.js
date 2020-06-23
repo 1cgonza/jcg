@@ -1,5 +1,5 @@
 import './style.scss';
-import Gallery from './js/Gallery';
+import Gallery from './modules/Gallery';
 
 let galleries = document.querySelectorAll('.jcg-gallery');
 

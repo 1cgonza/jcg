@@ -9,7 +9,6 @@ $wrap-w: 80%;
 $wrap-half: 15%;
 
 #content {
-
   /*==========  POST CONTENT SECTION  ==========*/
   .entry-content,
   .mce-content-body {
@@ -60,7 +59,7 @@ $wrap-half: 15%;
 }
 
 .contact-aside {
-  font-size: .8vw;
+  font-size: 0.8vw;
 }
 
 /*===================================
@@ -71,8 +70,8 @@ $wrap-half: 15%;
     display: block;
     position: absolute;
     width: 100%;
-    background-color: black(.6);
-    font-size: .85em;
+    background-color: black(0.6);
+    font-size: 0.85em;
     letter-spacing: 1px;
     text-align: center;
     top: 1.6em;
@@ -110,17 +109,14 @@ $wrap-half: 15%;
 ===================================*/
 .post-type-archive-experiments {
   #posts-list {
-
     .hentry {
       header {
         .post-image {
           img {
             width: 70%;
           }
-
         }
       }
-
     }
   }
 }

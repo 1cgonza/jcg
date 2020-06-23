@@ -1,0 +1,31 @@
+.jcg-flickr-data-container {
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    margin: 0 !important;
+  }
+}
+
+.jcg-admin-nav {
+  margin: 1em 0;
+}
+
+.jcg-admin-nav-item {
+  padding: 0.5em;
+  margin-right: 0.5em;
+  text-decoration: none;
+  border: 1px dotted;
+}
+
+.jcg-admin-nav-item.current {
+  border-color: #ccc;
+}
+
+#jcg-profile-image-container {
+  img {
+    width: 30%;
+    height: auto;
+  }
+}

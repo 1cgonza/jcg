@@ -1,23 +1,23 @@
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'],
 select,
 textarea,
 .field {
   display: block;
-  font-size: .9em;
-  padding: .5em;
+  font-size: 0.9em;
+  padding: 0.5em;
   margin-bottom: 14px;
   color: $text-color;
   box-shadow: none;
@@ -27,7 +27,7 @@ textarea,
   max-width: 300px;
   font-family: $sans-serif;
   background-color: darken($white, 3%);
-  @include transition(background-color .24s ease-in-out);
+  @include transition(background-color 0.24s ease-in-out);
 
   // a focused input (or hovered on)
   &:focus,
@@ -70,7 +70,7 @@ textarea,
   &.is-disabled {
     cursor: not-allowed;
     border-color: $disabled-gray;
-    opacity: .6;
+    opacity: 0.6;
 
     &:focus,
     &:active {
@@ -78,11 +78,9 @@ textarea,
     }
 
     // end disabled focus
-
   }
 
   // end disabled input
-
 }
 
 // end input defaults
