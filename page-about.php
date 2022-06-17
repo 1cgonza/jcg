@@ -11,6 +11,7 @@ get_header();
 		'education',
 		'awards',
 		'experience-in-education',
+    'research-projects',
 		'experience-in-cultural-initiatives',
 		'public-lectures-conferences',
 		'exhibitions',
