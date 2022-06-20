@@ -6,4 +6,3 @@
 
 error_log
 /node_modules/
-dist/
