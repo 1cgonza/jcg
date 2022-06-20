@@ -8,7 +8,7 @@ function jcg_comments($comment, $args, $depth) {
 	$gravatarData    = md5( strtolower( trim( get_comment_author_email() ) ) );
 	$gravatarDefault = get_template_directory_uri() . '/src/images/apple-icon-touch.png';
 	$gravatarSize    = 80;
-	$gravatarURL     = 'http://www.gravatar.com/avatar/' . $gravatarData . '?d=' . urlencode($gravatarDefault) . '&s=' . $gravatarSize;
+	$gravatarURL     = 'https://www.gravatar.com/avatar/' . $gravatarData . '?d=' . urlencode($gravatarDefault) . '&s=' . $gravatarSize;
 
 	$HTML = '<div id="comment-' . $comment->comment_ID . '" ' . $commClasses . '>';
 		$HTML .= '<article class="cf">';
