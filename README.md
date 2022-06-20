@@ -1,6 +1,6 @@
 # JCG Theme
 
-WordPress theme used in http://juancgonzalez.com
+WordPress theme used in https://juancgonzalez.com
 License: MIT
 
 ## TODO

@@ -6,7 +6,7 @@ function jcg_scripts_and_styles() {
 		wp_register_style('jcg-stylesheet', get_stylesheet_directory_uri() . '/dist/jcgj.css', null, null, 'all');
 
 		// Google Fonts
-		wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,600');
+		wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Droid+Sans|Raleway:400,600');
 
 		// comment reply script for threaded comments
 		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1) ) {

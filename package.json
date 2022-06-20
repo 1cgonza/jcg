@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "main": "index.js",
   "repository": "https://github.com/1cgonza/jcg.git",
-  "author": "Juan Camilo González <info@juancgonzalez.com> (http://juancgonzalez.com)",
+  "author": "Juan Camilo González <info@juancgonzalez.com> (https://juancgonzalez.com)",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.prod.js",

@@ -1,11 +1,11 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
 	<header class="article-header">
 		<div class="post-image">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('jcg-1300x325'); ?></a>
 		<?php else : ?>
 			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-			<img src="http://placehold.it/800x200/ECECEC/d2d2d2?text=%20" alt="<?php the_title(); ?>" />
+			<img src="https://placehold.it/800x200/ECECEC/d2d2d2?text=%20" alt="<?php the_title(); ?>" />
 			</a>
 		<?php endif; ?>
 		</div>
