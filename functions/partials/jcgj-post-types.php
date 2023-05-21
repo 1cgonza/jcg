@@ -29,7 +29,8 @@ register_post_type( 'films',
     'capability_type'     => 'post',
     'hierarchical'        => false,
     'supports'            => array('title', 'author', 'thumbnail'),
-    'taxonomies'          => array('category', 'post_tag')
+    'taxonomies'          => array('category', 'post_tag'),
+    'show_in_rest'        => true,
 	)
 );
 
@@ -60,7 +61,8 @@ register_post_type( 'cv_meta',
     'has_archive'         => false,
     'capability_type'     => 'post',
     'hierarchical'        => false,
-    'supports'            => array('title', 'author', 'thumbnail')
+    'supports'            => array('title', 'author', 'thumbnail'),
+    'show_in_rest'        => true,
 	)
 );
 
@@ -92,7 +94,8 @@ register_post_type( 'experiments',
 		'capability_type'     => 'post',
 		'hierarchical'        => false,
 		'supports'            => array('title', 'editor', 'author', 'thumbnail'),
-		'taxonomies'          => array('post_tag')
+		'taxonomies'          => array('post_tag'),
+    'show_in_rest'        => true,
 	)
 );
 
@@ -124,7 +127,8 @@ register_post_type( 'commissions',
 		'capability_type'     => 'post',
 		'hierarchical'        => false,
 		'supports'            => array('title', 'author', 'thumbnail'),
-		'taxonomies'          => array('post_tag')
+		'taxonomies'          => array('post_tag'),
+    'show_in_rest'        => true,
 	)
 );
 
@@ -147,7 +151,7 @@ register_taxonomy('cv_cat',
 		'show_admin_column' => true,
 		'show_ui'           => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'cv' )
+		'rewrite'           => array( 'slug' => 'cv' ),
 	)
 );
 
