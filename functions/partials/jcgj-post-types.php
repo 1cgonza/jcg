@@ -138,7 +138,7 @@ register_post_type( 'experiments',
 		'supports'            => array('title', 'editor', 'author', 'thumbnail'),
 		'taxonomies'          => array('post_tag'),
       'show_in_rest'        => true,
-      'show_in_graphql'     => true
+      'show_in_graphql'     => true,
       'graphql_single_name' => 'experiment',
       'graphql_plural_name' => 'experiments'
 	)
